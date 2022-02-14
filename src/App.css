@@ -1,5 +1,13 @@
-.App, .Main, .aboutMe, .skills, .projects{
+.App{
+    position: absolute;
+    height: 500vh;
+    width: 100vw;
+    background: linear-gradient(rgb(21,42,63),rgb(0,0,0));
+    background-size: cover;
+    background-position: center;
+}
+.Main, .aboutMe, .skills, .projects{
     position: relative;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
 }

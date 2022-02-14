@@ -6,14 +6,14 @@ import Skills from "./pages/skills";
 
 
 function App() {
-  return (
-    <div className="App">
-      <Main/>
-      <AboutMe/>
-      <Projects/>
-      <Skills/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Main/>
+            <AboutMe/>
+            <Projects/>
+            <Skills/>
+        </div>
+    );
 }
 
 export default App;
