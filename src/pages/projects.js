@@ -16,31 +16,13 @@ const Flex = styled.div`
   display: inline-block;
   border: 1px solid black;
   flex-grow: 1;
+  background-color: white;
 `
 
 function projects() {
     return (
         <div className="projects">
-            <Flex_box_column>
-                <Flex_box_row>
-                    <Flex></Flex>
-                    <Flex></Flex>
-                    <Flex></Flex>
-                    <Flex></Flex>
-                    <Flex></Flex>
-                    <Flex></Flex>
-                    <Flex></Flex>
-                </Flex_box_row>
-                <Flex_box_row>
-                    <Flex></Flex>
-                    <Flex></Flex>
-                    <Flex></Flex>
-                    <Flex></Flex>
-                    <Flex></Flex>
-                    <Flex></Flex>
-                    <Flex></Flex>
-                </Flex_box_row>
-            </Flex_box_column>
+
         </div>
     );
 }

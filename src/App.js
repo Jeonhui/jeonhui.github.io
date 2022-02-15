@@ -1,5 +1,4 @@
 import './App.css';
-import {useRef} from "react";
 import Main from "./pages/main";
 import AboutMe from "./pages/aboutMe";
 import Projects from "./pages/projects";
