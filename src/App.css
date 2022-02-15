@@ -1,10 +1,13 @@
+@font-face {
+    font-family: "MeowScript";
+    src: url("/src/source/MeowScript-Regular.ttf");
+}
 .App{
     position: absolute;
-    height: 500vh;
+    height: 510vh;
     width: 100vw;
-    background: linear-gradient(rgb(21,42,63),rgb(0,0,0));
     background-size: cover;
-    background-position: center;
+    background: linear-gradient(rgb(21, 42, 63), rgb(0, 0, 0)) center;
 }
 .Main, .aboutMe, .skills, .projects{
     position: relative;
