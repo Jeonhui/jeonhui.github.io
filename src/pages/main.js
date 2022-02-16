@@ -8,25 +8,28 @@ import star3 from "../source/star3.png";
 
 const Title = styled.div`
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 4rem;
   transform: translate(0, -50%);
   color: white;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 3rem;
   line-height: 4rem;
   cursor: default;
+  
 `
 
 
 const S = styled(motion.div)`
   display: inline-block;
-  padding-top: 4rem;
+  padding-top: 3rem;
   color: rgb(245, 224, 128);
+  font-weight: normal;
 `
+
 const Develop = styled(motion.div)`
   display: inline-block;
-  color: rgb(132,162,187);
+  //color: rgb(132,162,187);
 `
 
 const updown_animation = keyframes`
@@ -160,10 +163,10 @@ export default function Main() {
                         y: [1, -30, 1]
                     }}
                     transition={{delay: 0.8}}
-                >{'{'}Developer{'}'}</Develop>
+                >{'['}Developer{']'}</Develop>
             </div>
 
-            <div style={{fontSize:"10rem",fontFamily:"MeowScript"}}>
+            <div style={{fontSize:"7rem"}}>
                 {name.map((ch, idx) =>
                     ch !== "_" ?<S
                         key={idx}

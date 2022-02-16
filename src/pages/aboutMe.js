@@ -1,8 +1,6 @@
 import React, {useState, useRef} from "react";
 import styled from "styled-components";
 import {motion} from "framer-motion";
-import "../TrackScroll";
-import {TrackScroll} from "../TrackScroll";
 
 const Container = styled.div`
   position: absolute;
@@ -24,10 +22,10 @@ const css = {
     }
 }
 
-export default function aboutMe() {
 
+export default function aboutMe() {
     return (
-        <div className="aboutMe">
+        <div className="aboutMe" onScroll={ e => console.log(e)}>
             <Container>
             <motion.div
                 style={{...css.box}}
