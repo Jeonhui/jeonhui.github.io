@@ -1,6 +1,6 @@
 import React, {useState, useRef} from "react";
 import styled from "styled-components";
-import {motion} from "framer-motion";
+import {motion,useViewportScroll} from "framer-motion";
 
 const Container = styled.div`
   position: absolute;
@@ -32,6 +32,13 @@ export default function aboutMe() {
                 animate={{scale: [0, 1]}}
             > Content </motion.div>
             </Container>
+            <motion.div>
+                {Array(100)
+                    .fill()
+                    .map((_, i) => (
+                        <p key={i}>{i}</p>
+                    ))}
+            </motion.div>
         </div>
     );
 }

@@ -8,21 +8,18 @@ import star3 from "../source/star3.png";
 
 const Title = styled.div`
   position: absolute;
-  top: 60%;
+  bottom: 2rem;
   left: 4rem;
-  transform: translate(0, -50%);
+  //transform: translate(0, -50%);
   color: white;
   font-weight: normal;
   font-size: 3rem;
-  line-height: 4rem;
   cursor: default;
-  
 `
 
 
 const S = styled(motion.div)`
   display: inline-block;
-  padding-top: 3rem;
   color: rgb(245, 224, 128);
   font-weight: normal;
 `

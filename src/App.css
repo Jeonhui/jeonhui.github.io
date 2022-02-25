@@ -4,7 +4,7 @@
 }
 .App{
     position: absolute;
-    height: 510vh;
+    height: 410vh;
     width: 100vw;
     background-size: cover;
     background: linear-gradient(rgb(21, 42, 63), rgb(0, 0, 0)) center;

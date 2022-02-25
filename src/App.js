@@ -32,6 +32,7 @@ function App() {
             <AboutMe/>
             <Skills/>
             <Projects/>
+            <div style={{textAlign:"center",color:"dimgray"}}>@Copyright</div>
         </div>
     );
 }
