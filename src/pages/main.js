@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from "react";
-import styled,{keyframes} from "styled-components";
+import styled, {keyframes} from "styled-components";
 import {motion} from "framer-motion";
 import star1 from "../source/star1.png";
 import star2 from "../source/star2.png";
@@ -8,13 +8,37 @@ import star3 from "../source/star3.png";
 
 const Title = styled.div`
   position: absolute;
-  bottom: 2rem;
-  left: 4rem;
-  //transform: translate(0, -50%);
   color: white;
   font-weight: normal;
-  font-size: 3rem;
   cursor: default;
+  
+  @media all and (min-width: 1024px) {
+    font-size: 3rem;
+    left: 4rem;
+    bottom: 2rem;
+  }
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    font-size: 2.5rem;
+    left: 4rem;
+    bottom: 4rem;
+  }
+  @media all and (max-width: 767px) {
+    font-size: 2rem;
+    left: 1rem;
+    bottom: 6rem;
+  }
+`
+
+const Name = styled.div`
+  @media all and (min-width: 1024px) {
+    font-size: 7rem;
+  }
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    font-size: 5rem;
+  }
+  @media all and (max-width: 767px) {
+    font-size: 3rem;
+  }
 `
 
 
@@ -30,25 +54,42 @@ const Develop = styled(motion.div)`
 `
 
 const updown_animation = keyframes`
-  0%{
+  0% {
     bottom: 1rem;
   }
-  50%{
+  50% {
     bottom: 1.5rem;
-  }100%{
-     bottom: 1rem;
-   }
+  }
+  100% {
+    bottom: 1rem;
+  }
 `
 
 const ScrollDown = styled.div`
   position: absolute;
-  color: rgb(231,230,237);
-  transform: rotate(90deg) translate(-50%,-100%);
-  bottom: 1rem;
-  right: 1rem;
+  color: rgb(231, 230, 237);
+  transform: rotate(90deg) translate(-50%, -100%);
+
   animation: ${updown_animation} 2s 1s infinite linear alternate;
   animation-duration: 2s;
   animation-iteration-count: infinite;
+
+  @media all and (min-width: 1024px) {
+    font-size: 1rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    font-size: 0.9rem;
+    bottom: 1rem;
+    right: 0;
+  }
+  @media all and (max-width: 767px) {
+    font-size: 0.8rem;
+    bottom: 1rem;
+    right: 0;
+  }
+
 `
 
 const css = {
@@ -163,17 +204,17 @@ export default function Main() {
                 >{'['}Developer{']'}</Develop>
             </div>
 
-            <div style={{fontSize:"7rem"}}>
+            <Name>
                 {name.map((ch, idx) =>
-                    ch !== "_" ?<S
+                    ch !== "_" ? <S
                         key={idx}
                         variants={variants}
-                    animate={"active"}
-                    whileHover={"hovering"}
-                    transition={{delay: idx / 10}}
-                >{ch}</S>: <S key={idx} style={{width:"2rem"}}/>
+                        animate={"active"}
+                        whileHover={"hovering"}
+                        transition={{delay: idx / 10}}
+                    >{ch}</S> : <S key={idx} style={{width: "2rem"}}/>
                 )}
-            </div>
+            </Name>
         </Title>
         <ScrollDown>scroll Down ⦊⦊⦊</ScrollDown>
     </div>);
