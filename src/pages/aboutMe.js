@@ -1,6 +1,6 @@
-import React, {useState, useRef} from "react";
+import React, {useEffect, Component} from "react";
 import styled from "styled-components";
-import {motion,useViewportScroll} from "framer-motion";
+import {motion} from "framer-motion";
 
 const Container = styled.div`
   position: absolute;
@@ -10,7 +10,7 @@ const Container = styled.div`
 `
 
 const css = {
-    box:{
+    box: {
         padding: "50px",
         borderRadius: "50px",
         backgroundColor: "white"
@@ -18,22 +18,19 @@ const css = {
 }
 
 
-export default function aboutMe() {
+export default function AboutMe() {
+
     return (
-        <div className="aboutMe" onScroll={ e => console.log(e)}>
+        <div className="aboutMe" onScroll={(e) => {
+            console.log(e)
+        }}>
             <Container>
-            <motion.div
-                style={{...css.box}}
-                animate={{scale: [0, 1]}}
-            > Content </motion.div>
+                <motion.div
+                    style={{...css.box}}
+                    animate={{scale: [0, 1]}}
+                > Content
+                </motion.div>
             </Container>
-            <motion.div>
-                {Array(10)
-                    .fill()
-                    .map((_, i) => (
-                        <p key={i}>{i}</p>
-                    ))}
-            </motion.div>
         </div>
     );
 }
