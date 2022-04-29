@@ -1,0 +1,13 @@
+.Nav {
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+    height: 40px;
+}
+
+.Main{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
