@@ -2,35 +2,66 @@ import styled, {css} from "styled-components";
 
 import logoImg from "../source/logo_nav.png";
 import logoHoverImg from "../source/logo_nav_hover.png";
+import hamburger from "../source/hamburger.png";
+import cancel from "../source/cancel.png";
 
-import {useEffect, useState} from "react";
+const NavContainer = styled.div`
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+  height: 40px;
+`
 
-const PageList = styled.ul`
-  cursor: default;
-  position: absolute;
-  display: flex;
-  right: 0;
+const Navbar = styled.div`
+  width: 100%;
   height: 100%;
-  list-style: none;
-  margin: 0;
-  padding: 0 100px 0 0;
   background-color: rgb(56, 56, 56);
-  border-radius: 5px 0 0 5px;
-  transition: width 0.5s, padding 0.5s;
-  ${props => props.hide && css`
-    padding: 0;
-  `
+  @media screen and (max-width: 768px) {
+    display: none;
   }
+`
+
+const NavList = styled.ul`
+  position: absolute;
+  left: 50%;
+  height: 100%;
+  transform: translate(-50%, 0);
+`
+const NavLi = styled.li`
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  margin: 0 10px;
+  font-size: 0.8rem;
+  color: rgb(215, 215, 215);
+
+  &:hover {
+    color: rgb(245, 245, 245);
+  }
+`
+
+const NavA = styled.a`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`
+
+const NavSpan = styled.span`
+  position: absolute;
+  font-weight: lighter;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `
 
 const Logo = styled.a`
   position: absolute;
-  left: 50px;
   top: 50%;
-  transform: translate(0, -50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: inline-block;
-  height: 30px;
-  width: 30px;
+  height: 1.25rem;
+  width: 1.25rem;
   background: url(${logoImg}) no-repeat center center;
   background-size: cover;
 
@@ -40,53 +71,36 @@ const Logo = styled.a`
   }
 `
 
-
-const Li = styled.li`
-  position: relative;
-  padding: 0 20px;
-  color: rgb(215, 215, 215);
-
-  &:hover {
-    color: rgb(245, 245, 245);
+const HamburgerMenu = styled.div`
+  position: absolute;
+  display: inline-block;
+  margin: 5px;
+  width: 35px;
+  height: 35px;
+  background: url(${hamburger}) no-repeat center center;
+  background-size: cover;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+  @media screen and (max-width: 768px) {
+    display: block;
   }
 `
 
-const A = styled.a`
-  display: inline-block;
-  height: 100%;
-`
-
-const Span = styled.span`
-  display: inline-block;
-  position: relative;
-  top: 50%;
-  transform: translate(0, -50%);
-`
-
-const HideBtn = styled.li`
-  display: inline-block;
-  width: 50px;
-  padding: 0 20px;
-  color: white
-`
-
 export default function Nav() {
-    const [navHide, setNavHide] = useState(false);
-    useEffect(() => {
-        console.log(navHide)
-    }, [navHide]);
     return (
-        <div className="Nav">
-            <Logo/>
-            <PageList hide={navHide}>
-                <HideBtn onClick={() => {
-                    setNavHide(!navHide);
-                }}></HideBtn>
-                <Li><A><Span>Profile</Span></A></Li>
-                <Li><A><Span>Portfolio</Span></A></Li>
-                <Li><A><Span>Contact</Span></A></Li>
-            </PageList>
-        </div>
+        <NavContainer>
+            <Navbar>
+                <NavList>
+                    <NavLi style={{width: "2rem"}}><Logo/></NavLi>
+                    <NavLi style={{width: "2.5rem"}}><NavA><NavSpan>Main</NavSpan></NavA></NavLi>
+                    <NavLi style={{width: "3rem"}}><NavA><NavSpan>Profile</NavSpan></NavA></NavLi>
+                    <NavLi style={{width: "4rem"}}><NavA><NavSpan>Portfolio</NavSpan></NavA></NavLi>
+                    <NavLi style={{width: "3.5rem"}}><NavA><NavSpan>Contect</NavSpan></NavA></NavLi>
+                </NavList>
+            </Navbar>
+            <HamburgerMenu/>
+        </NavContainer>
     );
 }
 

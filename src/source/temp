@@ -1,0 +1,4 @@
+  ${props => props.hide && css`
+    padding: 0;
+  `
+  }

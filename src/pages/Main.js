@@ -7,6 +7,15 @@ const TitleBox = styled.div`
   left: 100px;
   top: 40%;
   transform: translate(0, -50%);
+  z-index: 10;
+  @media screen and (max-width: 1000px) {
+    left: 40px;
+  }
+  @media screen and (max-width: 768px) {
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
 `
 
 const Title = styled.div`
@@ -14,10 +23,11 @@ const Title = styled.div`
   font-size: 4rem;
 `
 const SubTitle = styled.pre`
-  font-family: sans-serif,serif;
+  font-family: sans-serif, serif;
   font-weight: 300;
   font-size: 2rem;
-  text-align: right;
+  text-align: left;
+  line-height: 0.8;
 `
 
 const Btn = styled.button`
@@ -25,11 +35,12 @@ const Btn = styled.button`
   width: 100%;
   text-align: right;
   font-size: 1.5rem;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   color: dodgerblue;
-  padding: 5px 10px;
+  padding: 13px 0;
   border-radius: 5px;
-  &:hover{
+
+  &:hover {
     text-decoration: underline;
   }
 `
@@ -42,14 +53,13 @@ export default function Main() {
     });
     return (
         <div className="Main" onClick={() => {
-            console.log(load)
         }}>
             <TitleBox>
                 <Title>Try it.</Title>
                 <SubTitle>Do not try to be original,
                     <br/>
                     just try to be good.</SubTitle>
-                <div style={{width:"100%"}}><Btn>Profile</Btn></div>
+                <div style={{width: "100%"}}><Btn>Profile</Btn></div>
             </TitleBox>
             <Iphone load={load}/>
         </div>
