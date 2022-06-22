@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Card from "./components/Card";
+import Card from "./Card";
 
 const CardListContainer = styled.div`
   position: absolute;

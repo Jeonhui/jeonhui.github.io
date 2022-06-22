@@ -6,3 +6,25 @@
     min-height: 420px;
     background-color: rgb(250,250,250);
 }
+
+.Profile{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgb(250,250,250);
+}
+.Portfolio{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgb(250,250,250);
+}
+.Contact{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgb(250,250,250);
+}
