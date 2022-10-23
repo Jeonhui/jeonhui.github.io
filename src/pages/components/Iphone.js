@@ -1,3 +1,4 @@
+import React from "react";
 import styled, {css} from "styled-components";
 import iphoneImg from "../../source/iphone12pro_3:4.png";
 import profileImg from "../../source/profileImg.png";

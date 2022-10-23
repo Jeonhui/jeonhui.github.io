@@ -1,5 +1,11 @@
 # Jeonhui's portfolio
-source code
-gh-pages
-React
-Framer-motion
+### source code
+- React
+- framer-motion
+- styled-components
+- gh-pages
+
+
+
+### Command
+- npm run deploy
