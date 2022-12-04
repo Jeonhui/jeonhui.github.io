@@ -2,14 +2,20 @@
 /*    font-family: "MeowScript";*/
 /*    src: url("/src/source/MeowScript-Regular.ttf");*/
 /*}*/
-*{
+* {
     margin: 0;
     padding: 0;
 }
-.App{
+
+html, body {
+    background-color: rgb(250, 250, 250);
+}
+
+.App {
     position: relative;
     width: 100vw;
     height: 100vh;
+    min-width: 600px;
     padding: 0;
     margin: 0;
 }

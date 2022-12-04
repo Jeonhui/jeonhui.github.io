@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 const EdgeContainer = styled.div`
   position: absolute;
-  width: 80%;
-  height: 80%;
+  width: calc(100% - 5rem);
+  height: calc(100% - 5rem);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
