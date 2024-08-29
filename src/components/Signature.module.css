@@ -1,0 +1,38 @@
+.Signature {
+  color: white;
+  width: 1024px;
+  height: 512px;
+  filter: drop-shadow(0px 0px 18px rgba(256, 256, 256, 0.8));
+}
+
+.Signature :nth-child(1) {
+  stroke-dasharray: 3650;
+  stroke-dashoffset: 3650;
+  animation: signature_main 2.5s linear 0s forwards;
+}
+
+.Signature :nth-child(2) {
+  stroke-dasharray: 9;
+  stroke-dashoffset: 9;
+  animation: signature_point 0.06s linear 2.8s forwards;
+}
+
+@keyframes signature_main {
+  from {
+    stroke-dashoffset: 3650;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes signature_point {
+  from {
+    stroke-dashoffset: 9;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}

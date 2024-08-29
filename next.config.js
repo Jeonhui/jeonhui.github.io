@@ -4,10 +4,21 @@ const nextConfig = {
   basePath: "",
   reactStrictMode: true,
   swcMinify: true,
+  compiler: {
+    removeConsole: true,
+    styledComponents: true,
+  },
   images: {
-    unoptimized: true
-  }
-}
+    unoptimized: true,
+  },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
 
-module.exports = nextConfig
+    return config;
+  },
+};
 
+module.exports = nextConfig;
