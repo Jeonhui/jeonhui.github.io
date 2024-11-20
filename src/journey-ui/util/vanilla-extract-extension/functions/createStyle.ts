@@ -9,12 +9,12 @@ const createStyle = <T extends keyof CSSProperties>(vars: Vars<T>,
     const kv = Object.entries(vars).map(([k, v]) => {
         const key = k as T
         const value = v as Var<CSSProperties[typeof key]>
-        return {key: key, varValue: value.var.toString(), value: value.value?.toString()}
+        return {key: key, varValue: value.var.toString(), defaultValue: value.defaultValue?.toString()}
     })
     const varValues = Object.fromEntries(kv.map(({key, varValue}) => [key, varValue]))
     const styleValues = Object.fromEntries(kv
-        .filter(({key, value}) => value !== undefined && !(key in varValues))
-        .map(({key, value}) => [key, value]))
+        .filter(({key, defaultValue}) => defaultValue !== undefined && !(key in varValues))
+        .map(({key, defaultValue}) => [key, defaultValue]))
 
     console.log(varValues)
     return style([{

@@ -5,7 +5,7 @@ export type CSSVarFunction = `var(--${string})` | `var(--${string}, ${string | n
 export type CSSPropertiesValueType = CSSProperties[keyof CSSProperties]
 
 type Var<T extends CSSPropertiesValueType> = {
-    default?: T
+    defaultValue?: T
 } & {
     var: CSSVarFunction
 }
