@@ -1,4 +1,4 @@
-import {Color} from "../../constants/Color.ts";
+import Color from "../constants/Base/Color.ts";
 
 const primaryBlue: { [key: string]: Color } = {
     primary900: '#1E0B4E',
@@ -13,7 +13,9 @@ const primaryBlue: { [key: string]: Color } = {
     primary50: '#CCE5FD'
 }
 
-const black: { [key: string]: Color } = {
+const gray: { [key: string]: Color } = {
+    black: '#000000',
+    white: '#FFFFFF',
     gray900: '#242426',
     gray800: '#3A3A3C',
     gray700: '#505051',
@@ -65,14 +67,14 @@ const systemGreen: { [key: string]: Color } = {
     systemGreen50: '#DAF3ED'
 }
 
-const primaryColors = {
+const primaryColors: { [key: string]: Color } = {
     primaryBlue: primaryBlue.primary500,
 }
 
 const colors = {
     ...primaryColors,
     ...primaryBlue,
-    ...black,
+    ...gray,
     ...systemRed,
     ...systemYellow,
     ...systemGreen

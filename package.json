@@ -12,13 +12,12 @@
     "deploy": "yarn build && gh-pages -d dist"
   },
   "dependencies": {
-    "@vanilla-extract/css": "^1.16.0",
-    "@vanilla-extract/dynamic": "^2.1.2",
-    "@vanilla-extract/vite-plugin": "^4.0.17",
     "framer-motion": "^11.11.17",
     "gh-pages": "^6.2.0",
     "react": "^18.3.1",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^18.3.1",
+    "react-form-hooks": "^1.1.5",
     "styled-components": "^6.1.13",
     "yarn": "^1.22.22"
   },
@@ -33,6 +32,7 @@
     "globals": "^15.11.0",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.11.0",
-    "vite": "^5.4.10"
+    "vite": "^5.4.10",
+    "vite-plugin-svgr": "^4.3.0"
   }
 }
