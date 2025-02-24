@@ -1,4 +1,6 @@
 import type {Metadata} from "next";
+import React from "react";
+import {ThemeProvider} from "@/design-system/theme/ThemeProvider";
 
 export const metadata: Metadata = {
     title: "Jeonhui | iOS Developer",
@@ -11,9 +13,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="ko">
+        <html lang="ko" suppressHydrationWarning>
         <body>
-        {children}
+        <ThemeProvider>
+            {children}
+        </ThemeProvider>
         </body>
         </html>
     );
