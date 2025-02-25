@@ -8,5 +8,5 @@ globalStyle("*", {
 
 globalStyle("body", {
     minHeight: '100svh',
-    backgroundColor: theme.color.background
+    backgroundColor: theme.colors.background
 })

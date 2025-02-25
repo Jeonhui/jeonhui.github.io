@@ -1,6 +1,6 @@
 "use client"
 
-import ThemeContext, {ThemeContextProps} from "@/design-system/theme/ThemeContext";
+import ThemeContext, {ThemeContextProps} from "../theme/ThemeContext";
 import {useContext} from "react";
 
 export const useTheme = (): ThemeContextProps => {

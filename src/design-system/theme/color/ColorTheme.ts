@@ -1,4 +1,4 @@
-import VarNames from "@/design-system/theme/type/VarNames";
+import VarNames from "../../theme/type/VarNames";
 import {Property} from "csstype";
 
 import Color = Property.Color;

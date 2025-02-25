@@ -1,10 +1,10 @@
 'use client';
-import "@/design-system/theme/global.css"
+import "./global.css"
 import {PropsWithChildren, useEffect, useState} from 'react';
-import ThemeMode from "@/design-system/theme/type/ThemeMode";
-import {darkModeColorTheme, lightModeColorTheme} from "@/design-system/theme/color/colorTheme.css";
+import ThemeMode from "./type/ThemeMode";
+import {darkModeColorTheme, lightModeColorTheme} from "./color/colorTheme.css";
 import ThemeContext from './ThemeContext';
-import fontVariables from "@/design-system/theme/font/fontVariables";
+import fontVariables from "./font/fontVariables";
 
 const colorThemeScript = `
   (function() {

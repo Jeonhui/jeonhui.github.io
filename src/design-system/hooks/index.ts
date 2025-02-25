@@ -1,4 +1,5 @@
+import useIsClient from "./useIsClient";
 import {useTheme} from "./useTheme";
 
 
-export {useTheme};
+export {useIsClient, useTheme};

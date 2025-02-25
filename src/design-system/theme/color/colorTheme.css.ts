@@ -9,7 +9,7 @@ import {
     ColorTheme,
     ThemeColors,
     colorThemeVarNames
-} from "@/design-system/theme/color/ColorTheme";
+} from "./ColorTheme";
 
 const primaryBlue: PrimaryBlue = {
     primary900: '#1E0B4E',

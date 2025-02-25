@@ -1,4 +1,4 @@
-import ThemeMode from "@/design-system/theme/type/ThemeMode";
+import ThemeMode from "./type/ThemeMode";
 import {createContext} from "react";
 
 declare global {

@@ -4,15 +4,15 @@ import {createGlobalTheme} from "@vanilla-extract/css";
 
 
 const themeWithoutThemeColorsVars = createGlobalTheme(':root', {
-    color: colorTheme,
-    font: fontTheme
+    colors: colorTheme,
+    fonts: fontTheme
 })
 
 const theme = {
     ...themeWithoutThemeColorsVars,
     colors: {
         ...themeColorsVars,
-        ...themeWithoutThemeColorsVars.color
+        ...themeWithoutThemeColorsVars.colors
     }
 }
 

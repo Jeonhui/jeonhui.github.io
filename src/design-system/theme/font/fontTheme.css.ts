@@ -1,4 +1,4 @@
-import FontTheme from "@/design-system/theme/font/FontTheme";
+import FontTheme from "./FontTheme";
 
 const fontTheme: FontTheme = {
     base: `var(--font-pretendard), Arial`,
