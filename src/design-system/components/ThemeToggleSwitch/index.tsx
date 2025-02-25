@@ -5,14 +5,18 @@ import {clsx} from "clsx";
 import {useIsClient, useTheme} from "../../hooks";
 import {DarkModeIcon, LightModeIcon} from "../../assets/icon";
 
-const ThemeToggleSwitch = () => {
+type ThemeToggleSwitchProps = {
+    className?: string;
+}
+
+const ThemeToggleSwitch = ({className}: ThemeToggleSwitchProps) => {
     const {theme, toggleTheme} = useTheme()
     const isClient = useIsClient();
 
-    return <div className={clsx(styles.grid, styles.container, {
-        [styles.light]: isClient && theme === "light",
-        [styles.dark]: isClient && theme === "dark"
-    })}>
+    return <div className={clsx(className, styles.grid, styles.container, {
+                    [styles.light]: isClient && theme === "light",
+                    [styles.dark]: isClient && theme === "dark"
+                })}>
         <div className={clsx(
             styles.buttonStyle,
             {

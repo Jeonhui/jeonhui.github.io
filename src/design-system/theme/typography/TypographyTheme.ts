@@ -1,4 +1,14 @@
-import Typography from "../../typography/Typography"
+import {Property} from "csstype";
+
+import FontWeight = Property.FontWeight;
+import FontSize = Property.FontSize;
+import LineHeight = Property.LineHeight;
+
+type Typography = {
+    fontSize: FontSize
+    fontWeight: FontWeight
+    lineHeight: LineHeight
+}
 
 type Display = {
     display1: Typography,
@@ -52,7 +62,7 @@ type Label = {
     label4: Typography
 }
 
-type TypographyTheme = Display & Header & Body & Button & Label
+export type {Typography}
 
 export type {
     Display,
@@ -62,4 +72,10 @@ export type {
     Label
 }
 
-export default TypographyTheme
+type TypographyTheme = {
+    [key in keyof (Display & Header & Body & Button & Label)]: {
+        [key in keyof Typography]: string
+    }
+}
+
+export type {TypographyTheme}

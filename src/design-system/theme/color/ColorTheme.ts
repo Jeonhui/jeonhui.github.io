@@ -70,65 +70,70 @@ type SystemGreen = {
     systemGreen50: Color
 }
 
-type PrimaryColor = {
-    primaryBlue: Color
-}
-
 export type {
     PrimaryBlue,
     Gray,
     SystemRed,
     SystemYellow,
     SystemGreen,
-    PrimaryColor
 }
 
 type ColorTheme = {
+    bodyBackground: Color;
     background: Color;
-    black: Color;
-    white: Color;
 
     primary: Color;
     secondary: Color;
     tertiary: Color;
 
+    text: Color;
+    textHighlight: Color;
+
+    border: Color;
+    borderHighlight: Color;
+
+    shadow: Color;
+
+    inputText: Color;
+    inputPlaceHolder: Color;
+    inputBackground: Color;
+
     success: Color;
     danger: Color;
     warning: Color;
     info: Color;
-
-    text: Color;
-    border: Color;
-    shadow: Color;
-
-    muted: Color;
-    contrast: Color;
-    highlight: Color;
 }
 
 export type {Color}
 
-type ThemeColors = PrimaryBlue & Gray & SystemRed & SystemYellow & SystemGreen & PrimaryColor
+type ThemeColors = PrimaryBlue & Gray & SystemRed & SystemYellow & SystemGreen
 export type {ThemeColors, ColorTheme}
 
 // varNames
 const colorThemeVarNames: VarNames<ColorTheme> = {
+    bodyBackground: "",
     background: "",
-    black: "",
-    border: "",
-    contrast: "",
-    danger: "",
-    highlight: "",
-    info: "",
-    muted: "",
+
     primary: "",
     secondary: "",
-    shadow: "",
-    success: "",
     tertiary: "",
+
     text: "",
+    textHighlight: "",
+
+    border: "",
+    borderHighlight: "",
+
+    shadow: "",
+
+    inputText: "",
+    inputPlaceHolder: "",
+    inputBackground: "",
+
+    success: "",
+    danger: "",
     warning: "",
-    white: ""
+    info: "",
 }
 
 export {colorThemeVarNames}

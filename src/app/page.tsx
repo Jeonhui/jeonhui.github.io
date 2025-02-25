@@ -1,9 +1,10 @@
-import ThemeToggleSwitch from "@/design-system/components/ThemeToggleSwitch";
+import Layout from "@/design-system/components/Layout";
+import CommandMenu from "@/design-system/components/CommandMenu";
 
 export default function Home() {
     return (
-        <div style={{padding: '12px'}}>
-            <ThemeToggleSwitch/>
-        </div>
+        <Layout scrollable>
+            content
+        </Layout>
     );
 }

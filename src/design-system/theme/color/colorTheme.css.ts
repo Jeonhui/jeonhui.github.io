@@ -2,7 +2,6 @@ import {createGlobalTheme, createTheme, createThemeContract} from "@vanilla-extr
 import {
     Gray,
     PrimaryBlue,
-    PrimaryColor,
     SystemGreen,
     SystemRed,
     SystemYellow,
@@ -79,12 +78,7 @@ const systemGreen: SystemGreen = {
     systemGreen50: '#DAF3ED'
 }
 
-const primaryColor: PrimaryColor = {
-    primaryBlue: primaryBlue.primary500,
-}
-
 const themeColors: ThemeColors = {
-    ...primaryColor,
     ...primaryBlue,
     ...gray,
     ...systemRed,
@@ -96,49 +90,55 @@ export const themeColorsVars = createGlobalTheme(':root', themeColors)
 
 // ThemeColors
 const lightModeThemeColors: ColorTheme = {
-    background: themeColorsVars.white,
-    black: themeColorsVars.black,
-    white: themeColorsVars.white,
+    bodyBackground: themeColorsVars.gray50,
+    background: themeColorsVars.gray100,
 
     primary: themeColorsVars.primary500,
     secondary: themeColorsVars.primary300,
     tertiary: themeColorsVars.primary100,
 
+    text: themeColorsVars.gray900,
+    textHighlight: "",
+
+    border: themeColorsVars.gray300,
+    borderHighlight: "",
+
+    shadow: themeColorsVars.gray200,
+
+    inputText: "",
+    inputPlaceHolder: "",
+    inputBackground: "",
+
     success: themeColorsVars.systemGreen500,
     danger: themeColorsVars.systemRed500,
     warning: themeColorsVars.systemYellow500,
     info: themeColorsVars.primary300,
-
-    text: themeColorsVars.gray900,
-    border: themeColorsVars.gray300,
-    shadow: themeColorsVars.gray200,
-
-    muted: themeColorsVars.gray400,
-    contrast: themeColorsVars.black,
-    highlight: themeColorsVars.primary200,
 };
 
 const darkModeThemeColors: ColorTheme = {
-    background: themeColorsVars.gray900,
-    black: themeColorsVars.black,
-    white: themeColorsVars.white,
+    bodyBackground: themeColorsVars.gray900,
+    background: themeColorsVars.gray800,
 
     primary: themeColorsVars.primary300,
     secondary: themeColorsVars.primary200,
     tertiary: themeColorsVars.primary100,
 
+    text: themeColorsVars.gray100,
+    textHighlight: "",
+
+    border: themeColorsVars.gray700,
+    borderHighlight: "",
+
+    shadow: themeColorsVars.gray800,
+
+    inputText: "",
+    inputPlaceHolder: "",
+    inputBackground: "",
+
     success: themeColorsVars.systemGreen300,
     danger: themeColorsVars.systemRed300,
     warning: themeColorsVars.systemYellow300,
     info: themeColorsVars.primary200,
-
-    text: themeColorsVars.gray100,
-    border: themeColorsVars.gray700,
-    shadow: themeColorsVars.gray800,
-
-    muted: themeColorsVars.gray600,
-    contrast: themeColorsVars.white,
-    highlight: themeColorsVars.primary100,
 };
 
 // colorThemes

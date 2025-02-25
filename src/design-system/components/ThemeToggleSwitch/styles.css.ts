@@ -9,11 +9,9 @@ export const grid = style({
     gridTemplateColumns: "repeat(2, 1fr)",
     alignContent: "center",
     padding: "0.4rem",
-    boxSizing: "border-box",
 });
 
 export const container = style({
-    position: "relative",
     width: "5.6rem",
     height: "2.8rem",
     borderRadius: "2rem",
@@ -33,7 +31,6 @@ export const buttonStyle = style({
     position: "relative",
     height: "100%",
     aspectRatio: "1",
-    boxSizing: "border-box",
     borderRadius: "50%",
     transition: "transform 0.3s ease-in-out, background-color 0.3s ease-in-out",
     zIndex: 1,
@@ -53,7 +50,6 @@ export const iconContainer = style({
     position: "absolute",
     width: "100%",
     height: "100%",
-    boxSizing: "border-box",
     justifyItems: "center",
 })
 
