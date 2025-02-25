@@ -1,7 +1,7 @@
-import {Property} from "csstype";
 import {PropsWithChildren} from "react";
 import {clsx} from "clsx";
 import * as styles from "./styles.css";
+import {Property} from "csstype";
 
 type Width = Property.Width;
 type Height = Property.Height;
