@@ -28,6 +28,11 @@
     "@vanilla-extract/next-plugin": "^2.4.10",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": "eslint --fix"
   }
 }
