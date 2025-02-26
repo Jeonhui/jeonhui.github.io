@@ -1,4 +1,4 @@
-import {Typography} from "./TypographyTheme";
+import {TypographyCss} from "./TypographyTheme";
 import {CSSProperties} from "@vanilla-extract/css";
 import {Property} from "csstype";
 import FontWeight = Property.FontWeight;
@@ -7,7 +7,7 @@ const typographyToStyle = ({
                                fontSize,
                                fontWeight,
                                lineHeight
-                           }: Typography,
+                           }: TypographyCss,
                            weight?: FontWeight): CSSProperties => {
     return {
         fontSize,

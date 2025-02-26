@@ -4,8 +4,18 @@ import {
     Display,
     Header,
     Label,
-    TypographyTheme
+    TypographyCss,
+    Typography,
+    TypographyTheme,
 } from "./TypographyTheme";
+
+const typographyCssToTypography = (typographyCss: TypographyCss): Typography => {
+    return {
+        fontSize: typographyCss.fontSize.toString(),
+        fontWeight: typographyCss.fontWeight.toString(),
+        lineHeight: typographyCss.lineHeight.toString()
+    }
+}
 
 const display: Display = {
     display1: {
@@ -207,12 +217,16 @@ const label: Label = {
     },
 };
 
-const typographyTheme: TypographyTheme = {
+const typographyTheme: TypographyTheme = Object.entries({
     ...display,
     ...header,
     ...body,
     ...button,
     ...label,
-}
+}).reduce((acc, [key, value]) =>{
+    const typographyKey = key as keyof TypographyTheme;
+    acc[typographyKey] = typographyCssToTypography(value);
+    return acc;
+}, {} as TypographyTheme);
 
 export default typographyTheme;

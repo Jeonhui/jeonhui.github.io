@@ -21,7 +21,7 @@ const breakpointsMedia: BreakpointMedia = {
 const breakpointTheme: BreakpointTheme = Object.keys(breakpointWidth).reduce((acc, key) => {
     const breakpointKey = key as keyof BreakpointTheme;
     acc[breakpointKey] = {
-        width: breakpointWidth[breakpointKey] as string,
+        width: breakpointWidth[breakpointKey].toString(),
         media: breakpointsMedia[breakpointKey]
     };
     return acc;
