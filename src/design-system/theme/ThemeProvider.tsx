@@ -1,69 +1,77 @@
-'use client';
+"use client"
+
 import "./global.css"
-import {PropsWithChildren, useEffect, useState} from 'react';
-import ThemeMode from "./type/ThemeMode";
-import {darkModeColorTheme, lightModeColorTheme} from "./color/colorTheme.css";
-import ThemeContext from './ThemeContext';
-import fontVariables from "./font/fontVariables";
+import React, { PropsWithChildren, useEffect, useState } from "react"
+import ThemeMode from "./ThemeMode"
+import ThemeContext from "@/design-system/theme/contexts/ThemeContext"
+import {
+  darkModeColorTheme,
+  lightModeColorTheme,
+} from "@/design-system/theme/themes/colors/colorTheme.css"
+import fontVariables from "@/design-system/theme/themes/fonts/fontVariables"
 
 const colorThemeScript = `
   (function() {
-    window.__onThemeChange = function() {};
+    window.__onThemeChange = function() {}
     function setTheme(newTheme) {
-      window.__theme = newTheme;
-      preferredTheme = newTheme;
-      document.documentElement.setAttribute('data-theme', newTheme);
-      document.documentElement.className = newTheme === 'dark' ? '${darkModeColorTheme}' : '${lightModeColorTheme}';
-      ${fontVariables.map(variable => `document.documentElement.classList.add('${variable}');`).join('\n')}
-      window.__onThemeChange(newTheme);
+      window.__theme = newTheme
+      preferredTheme = newTheme
+      document.documentElement.setAttribute('data-theme', newTheme)
+      document.documentElement.className = newTheme === 'dark' ? '${darkModeColorTheme}' : '${lightModeColorTheme}'
+      ${fontVariables.map((variable) => `document.documentElement.classList.add('${variable}')`).join("\n")}
+      window.__onThemeChange(newTheme)
     }
-    var preferredTheme;
+    var preferredTheme
     try {
-      preferredTheme = localStorage.getItem('theme');
+      preferredTheme = localStorage.getItem('theme')
     } catch (err) {}
     window.__setPreferredTheme = function(newTheme) {
-      setTheme(newTheme);
+      setTheme(newTheme)
       try {
-        localStorage.setItem('theme', newTheme);
+        localStorage.setItem('theme', newTheme)
       } catch (err) {}
     }
-    var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    var darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
     darkQuery.addListener(function(e) {
-      window.__setPreferredTheme(e.matches ? 'dark' : 'light');
-    });
-    setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
-  })();
-`;
+      window.__setPreferredTheme(e.matches ? 'dark' : 'light')
+    })
+    setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
+  })()
+`
 
-type ThemeProviderProps = PropsWithChildren;
+type ThemeProviderProps = PropsWithChildren
 
-export const ThemeProvider = ({children}: ThemeProviderProps) => {
-    const [theme, setTheme] = useState<ThemeMode>(() => {
-        return typeof window !== 'undefined' && window.__theme ? window.__theme : 'light'
-    });
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+  const [theme, setTheme] = useState<ThemeMode>(() => {
+    return typeof window !== "undefined" && window.__theme
+      ? window.__theme
+      : "light"
+  })
 
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            window.__onThemeChange = (newTheme: ThemeMode) => setTheme(newTheme);
-        }
-        return () => {
-            if (typeof window === 'undefined') return;
-            window.__onThemeChange = () => undefined;
-        };
-    }, []);
-
-    const setThemeState = (newTheme: ThemeMode) => {
-        window.__setPreferredTheme(newTheme);
-    };
-
-    const toggleTheme = () => {
-        window.__setPreferredTheme(theme === 'light' ? 'dark' : 'light')
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.__onThemeChange = (newTheme: ThemeMode) => setTheme(newTheme)
     }
+    return () => {
+      if (typeof window === "undefined") return
+      window.__onThemeChange = () => undefined
+    }
+  }, [])
 
-    return (
-        <ThemeContext.Provider value={{theme, setTheme: setThemeState, toggleTheme}}>
-            <script dangerouslySetInnerHTML={{__html: colorThemeScript}}/>
-            {children}
-        </ThemeContext.Provider>
-    );
-};
+  const setThemeState = (newTheme: ThemeMode) => {
+    window.__setPreferredTheme(newTheme)
+  }
+
+  const toggleTheme = () => {
+    window.__setPreferredTheme(theme === "light" ? "dark" : "light")
+  }
+
+  return (
+    <ThemeContext.Provider
+      value={{ theme, setTheme: setThemeState, toggleTheme }}
+    >
+      <script dangerouslySetInnerHTML={{ __html: colorThemeScript }} />
+      {children}
+    </ThemeContext.Provider>
+  )
+}

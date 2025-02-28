@@ -1,4 +1,4 @@
-import Icon, {IconProps} from "../common/Icon";
+import Icon, {IconProps} from "../common/Icon"
 
 const DarkModeIcon = (props: IconProps) => {
     return <Icon viewBox={"0 0 1024 1024"} {...props}>

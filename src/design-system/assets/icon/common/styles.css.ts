@@ -1,4 +1,4 @@
-import {style} from "@vanilla-extract/css";
+import {style} from "@vanilla-extract/css"
 
 export const fillWidth = style({
     width: "100%"

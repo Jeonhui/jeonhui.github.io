@@ -1,13 +1,13 @@
-import {PropsWithChildren} from "react";
-import {clsx} from "clsx";
-import * as styles from "./styles.css";
-import {Property} from "csstype";
+import {PropsWithChildren} from "react"
+import {clsx} from "clsx"
+import * as styles from "./styles.css"
+import {Property} from "csstype"
 
-type Width = Property.Width;
-type Height = Property.Height;
+type Width = Property.Width
+type Height = Property.Height
 type Fill = Property.Fill
-type Stroke = Property.Stroke;
-type StrokeWidth = Property.StrokeWidth;
+type Stroke = Property.Stroke
+type StrokeWidth = Property.StrokeWidth
 
 type IconProps = {
     className?: string,
