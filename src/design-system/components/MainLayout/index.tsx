@@ -6,8 +6,12 @@ type MainLayoutProps = {
   children: React.ReactNode
 }
 
-const MainLayout = ({ children }: MainLayoutProps) => {
-  return <div className={clsx(styles.mainLayout)}>{children}</div>
+const MainLayout = ({ children, ...props }: MainLayoutProps) => {
+  return (
+    <div className={clsx(styles.mainLayout)} {...props}>
+      {children}
+    </div>
+  )
 }
 
 export default MainLayout

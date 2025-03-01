@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css"
 import { theme } from "../../theme/theme.css"
 
-export const mainLayout = style({
-  ...theme.layouts.fullScreen,
+export const layout = style({
+  ...theme.layouts.fullHeight,
   ...theme.alignments.columnTopCenter,
 })

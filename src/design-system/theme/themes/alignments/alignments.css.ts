@@ -30,6 +30,14 @@ type Direction = "column" | "row"
 type VerticalAlignment = "top" | "center" | "bottom"
 type HorizontalAlignment = "left" | "center" | "right"
 
+const alignmentMap: Record<VerticalAlignment | HorizontalAlignment, string> = {
+  top: "flex-start",
+  center: "center",
+  bottom: "flex-end",
+  left: "flex-start",
+  right: "flex-end",
+}
+
 const createAlignment = (
   direction: Direction,
   vertical: VerticalAlignment,
@@ -38,8 +46,14 @@ const createAlignment = (
   return {
     display: "flex",
     flexDirection: direction,
-    justifyContent: direction === "column" ? horizontal : vertical,
-    alignItems: direction === "column" ? vertical : horizontal,
+    justifyContent:
+      direction === "column"
+        ? alignmentMap[vertical]
+        : alignmentMap[horizontal],
+    alignItems:
+      direction === "column"
+        ? alignmentMap[horizontal]
+        : alignmentMap[vertical],
   }
 }
 

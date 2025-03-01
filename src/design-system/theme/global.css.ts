@@ -2,6 +2,7 @@ import { globalStyle } from "@vanilla-extract/css"
 import { theme } from "./theme.css"
 
 globalStyle("*", {
+  cursor: "default",
   margin: 0,
   padding: 0,
   boxSizing: "border-box",
