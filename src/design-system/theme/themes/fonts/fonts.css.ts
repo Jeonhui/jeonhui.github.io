@@ -1,14 +1,14 @@
 import { Property } from "csstype"
 import FontFamily = Property.FontFamily
 
-type FontTheme = {
+type Fonts = {
   base: FontFamily
   code: FontFamily
 }
 
-const fontTheme: FontTheme = {
+const fonts: Fonts = {
   base: `var(--font-pretendard), Arial`,
   code: `var(--font-hack)`,
 }
 
-export default fontTheme
+export default fonts

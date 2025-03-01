@@ -1,4 +1,4 @@
-type SpaceTheme = {
+type Spaces = {
   none: string
   extraSmall: string
   small: string
@@ -9,7 +9,7 @@ type SpaceTheme = {
   extraHuge: string
 }
 
-const spaceTheme: SpaceTheme = {
+const spaces: Spaces = {
   none: "0rem",
   extraSmall: "0.25rem",
   small: "0.5rem",
@@ -20,4 +20,4 @@ const spaceTheme: SpaceTheme = {
   extraHuge: "3rem",
 }
 
-export default spaceTheme
+export default spaces

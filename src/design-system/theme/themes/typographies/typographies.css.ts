@@ -66,7 +66,7 @@ type Button = TypographyMap<BaseButton, "medium">
 type BaseLabel = BaseTypographyMap<"label", 1 | 2 | 3 | 4>
 type Label = TypographyMap<BaseLabel, "medium">
 
-type TypographyTheme = Display & Header & Body & Button & Label
+type Typographies = Display & Header & Body & Button & Label
 
 const createTypography = <
   B extends BaseTypographyMap<string, number>,
@@ -152,7 +152,7 @@ const label: Label = createTypography<BaseLabel, Label>(
   ["medium"],
 )
 
-const typographyTheme: TypographyTheme = {
+const typographies: Typographies = {
   ...display,
   ...header,
   ...body,
@@ -160,4 +160,4 @@ const typographyTheme: TypographyTheme = {
   ...label,
 }
 
-export default typographyTheme
+export default typographies

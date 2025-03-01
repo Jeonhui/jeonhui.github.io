@@ -7,7 +7,7 @@ type Breakpoint = {
   media: string
 }
 
-type BreakpointTheme = {
+type Breakpoints = {
   xSmall: Breakpoint
   small: Breakpoint
   medium: Breakpoint
@@ -16,8 +16,8 @@ type BreakpointTheme = {
   xxLarge: Breakpoint
 }
 
-type BreakpointWidth = { [key in keyof BreakpointTheme]: Width }
-type BreakpointMedia = { [key in keyof BreakpointTheme]: string }
+type BreakpointWidth = { [key in keyof Breakpoints]: Width }
+type BreakpointMedia = { [key in keyof Breakpoints]: string }
 
 const breakpointWidth: BreakpointWidth = {
   xSmall: "576px",
@@ -37,16 +37,16 @@ const breakpointsMedia: BreakpointMedia = {
   xxLarge: `screen and (min-width: ${breakpointWidth.xxLarge})`,
 }
 
-const breakpointTheme: BreakpointTheme = Object.keys(breakpointWidth).reduce(
+const breakpoints: Breakpoints = Object.keys(breakpointWidth).reduce(
   (acc, key) => {
-    const breakpointKey = key as keyof BreakpointTheme
+    const breakpointKey = key as keyof Breakpoints
     acc[breakpointKey] = {
       width: breakpointWidth[breakpointKey].toString(),
       media: breakpointsMedia[breakpointKey],
     }
     return acc
   },
-  {} as BreakpointTheme,
+  {} as Breakpoints,
 )
 
-export default breakpointTheme
+export default breakpoints

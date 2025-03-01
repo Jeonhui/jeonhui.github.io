@@ -5,7 +5,7 @@ type Alignment = Pick<
   "display" | "flexDirection" | "justifyContent" | "alignItems"
 >
 
-type AlignmentTheme = {
+type Alignments = {
   columnCenter: Alignment
   columnTopLeft: Alignment
   columnTopCenter: Alignment
@@ -43,7 +43,7 @@ const createAlignment = (
   }
 }
 
-const alignmentTheme: AlignmentTheme = {
+const alignments: Alignments = {
   columnCenter: createAlignment("column", "center", "center"),
   columnTopLeft: createAlignment("column", "top", "left"),
   columnTopCenter: createAlignment("column", "top", "center"),
@@ -64,4 +64,4 @@ const alignmentTheme: AlignmentTheme = {
   rowBottomRight: createAlignment("row", "bottom", "right"),
 }
 
-export default alignmentTheme
+export default alignments

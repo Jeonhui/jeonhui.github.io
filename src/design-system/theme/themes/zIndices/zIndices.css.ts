@@ -2,7 +2,7 @@ import { Property } from "csstype"
 
 type ZIndex = Property.ZIndex
 
-type ZIndexTheme = {
+type ZIndices = {
   base: ZIndex
   background: ZIndex
   default: ZIndex
@@ -11,7 +11,7 @@ type ZIndexTheme = {
   overlay: ZIndex
 }
 
-const zIndexTheme: ZIndexTheme = {
+const zIndices: ZIndices = {
   base: "0",
   background: "100",
   default: "200",
@@ -20,4 +20,4 @@ const zIndexTheme: ZIndexTheme = {
   overlay: "500",
 }
 
-export default zIndexTheme
+export default zIndices

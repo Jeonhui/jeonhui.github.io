@@ -1,19 +1,21 @@
 import colorTheme, { colorSetVars } from "./colors/colorTheme.css"
-import fontTheme from "./fonts/fontTheme.css"
-import typographyTheme from "./typographies/typographyTheme"
-import breakpointTheme from "./breakpoints/breakpointTheme.css"
-import alignmentTheme from "./alignments/alignmentTheme"
-import zIndexTheme from "./zIndices/zIndexTheme.css"
-import spaceTheme from "./spaces/spaceTheme.css"
+import fonts from "./fonts/fonts.css"
+import typographies from "./typographies/typographies.css"
+import layouts from "./layouts/layouts.css"
+import alignments from "./alignments/alignments.css"
+import spaces from "./spaces/spaces.css"
+import breakpoints from "./breakpoints/breakpoints.css"
+import zIndices from "./zIndices/zIndices.css"
 
 export {
   colorTheme,
-  fontTheme,
-  typographyTheme,
-  breakpointTheme,
-  zIndexTheme,
-  alignmentTheme,
-  spaceTheme,
+  fonts,
+  typographies,
+  layouts,
+  alignments,
+  spaces,
+  breakpoints,
+  zIndices,
 }
 
 export { colorSetVars }

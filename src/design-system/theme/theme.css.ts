@@ -1,13 +1,14 @@
 import { createGlobalTheme } from "@vanilla-extract/css"
 import {
-  alignmentTheme,
-  breakpointTheme,
+  alignments,
+  breakpoints,
   colorSetVars,
   colorTheme,
-  fontTheme,
-  spaceTheme,
-  typographyTheme,
-  zIndexTheme,
+  fonts,
+  layouts,
+  spaces,
+  typographies,
+  zIndices,
 } from "./themes/index.css"
 
 const globalColorThemeVars = createGlobalTheme(":root", colorTheme)
@@ -15,12 +16,13 @@ const globalColorThemeVars = createGlobalTheme(":root", colorTheme)
 const theme = {
   colors: globalColorThemeVars,
   colorSet: colorSetVars,
-  fonts: fontTheme,
-  typographies: typographyTheme,
-  alignments: alignmentTheme,
-  spaces: spaceTheme,
-  zIndices: zIndexTheme,
-  breakpoints: breakpointTheme,
+  fonts: fonts,
+  typographies: typographies,
+  layouts: layouts,
+  alignments: alignments,
+  spaces: spaces,
+  breakpoints: breakpoints,
+  zIndices: zIndices,
 }
 
 export { theme }
