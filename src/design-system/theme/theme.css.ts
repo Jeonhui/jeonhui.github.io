@@ -1,6 +1,7 @@
 import { createGlobalTheme } from "@vanilla-extract/css"
 import {
   alignments,
+  boxSizes,
   breakpoints,
   colorSetVars,
   colorTheme,
@@ -23,6 +24,7 @@ const theme = {
   spaces: spaces,
   breakpoints: breakpoints,
   zIndices: zIndices,
+  boxSizes: boxSizes,
 }
 
 export { theme }

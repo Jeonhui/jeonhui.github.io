@@ -3,18 +3,34 @@ import { clsx } from "clsx"
 import * as styles from "./styles.css"
 
 type ButtonProps = {
-  color?: keyof typeof styles.buttonColorVariants
   children: React.ReactNode
+  color?: keyof typeof styles.buttonColorVariants
+  size?: keyof typeof styles.buttonSizeVariants
+  leftIcon?: React.ReactNode
+  rightIcon?: React.ReactNode
 }
 
-const Button = ({ children, color = "default", ...props }: ButtonProps) => {
+const Button = ({
+  children,
+  leftIcon,
+  rightIcon,
+  color = "default",
+  size = "medium",
+  ...props
+}: ButtonProps) => {
   return (
-    <span
-      className={clsx(styles.button, styles.buttonColorVariants[color])}
+    <button
+      className={clsx(
+        styles.button,
+        styles.buttonColorVariants[color],
+        styles.buttonSizeVariants[size],
+      )}
       {...props}
     >
+      {leftIcon}
       {children}
-    </span>
+      {rightIcon}
+    </button>
   )
 }
 

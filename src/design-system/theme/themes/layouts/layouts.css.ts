@@ -1,6 +1,6 @@
 import { CSSProperties } from "@vanilla-extract/css"
 
-type Layout = Pick<CSSProperties, "width" | "height" | "overflowY">
+type Layout = Pick<CSSProperties, "width" | "height">
 
 type Layouts = {
   fullParent: Layout

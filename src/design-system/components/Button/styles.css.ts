@@ -2,11 +2,21 @@ import { style, styleVariants } from "@vanilla-extract/css"
 import { theme } from "../../theme/theme.css"
 
 export const button = style({
-  height: "40px",
-  width: "100px",
   cursor: "pointer",
+  textWrap: "nowrap",
   ...theme.alignments.rowCenter,
+  ":disabled": {
+    cursor: "default",
+  },
+  border: "none",
 })
+
+export const buttonSizeVariants = styleVariants(theme.boxSizes, (size) => ({
+  ...size,
+  "> svg": {
+    height: size.lineHeight,
+  },
+}))
 
 export const buttonColorVariants = styleVariants(
   theme.colors.button,
@@ -14,24 +24,32 @@ export const buttonColorVariants = styleVariants(
     fill: color.default.icon,
     color: color.default.text,
     backgroundColor: color.default.background,
-    border: color.default.border,
+    ...(color.default.border && {
+      boxShadow: `0 0 0 0.1rem ${color.default.border} inset`,
+    }),
     ":hover": {
       fill: color.hover.icon,
       color: color.hover.text,
       backgroundColor: color.hover.background,
-      border: color.hover.border,
+      ...(color.hover.border && {
+        boxShadow: `0 0 0 0.1rem ${color.hover.border} inset`,
+      }),
     },
     ":active": {
       fill: color.pressed.icon,
       color: color.pressed.text,
       backgroundColor: color.pressed.background,
-      border: color.pressed.border,
+      ...(color.pressed.border && {
+        boxShadow: `0 0 0 0.1rem ${color.pressed.border} inset`,
+      }),
     },
     ":disabled": {
       fill: color.disabled.icon,
       color: color.disabled.text,
       backgroundColor: color.disabled.background,
-      border: color.disabled.border,
+      ...(color.disabled.border && {
+        boxShadow: `0 0 0 0.1rem ${color.disabled.border} inset`,
+      }),
     },
   }),
 )

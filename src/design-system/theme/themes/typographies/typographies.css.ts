@@ -120,7 +120,7 @@ const body: Body = createTypography<BaseBody, Body>(
   {
     body1: { fontSize: "1.25rem", lineHeight: "1.75rem" }, // 일반적인 본문 스타일 참고
     body2: { fontSize: "1.125rem", lineHeight: "1.5rem" },
-    body3: { fontSize: "1rem", lineHeight: "1.25rem" },
+    body3: { fontSize: "1rem", lineHeight: "1.6rem" },
     body4: { fontSize: "0.875rem", lineHeight: "1.25rem" },
     body5: { fontSize: "0.75rem", lineHeight: "1rem" },
     body6: { fontSize: "0.625rem", lineHeight: "0.875rem" },

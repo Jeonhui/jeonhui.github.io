@@ -1,23 +1,29 @@
+import { Property } from "csstype"
+
+type Space = Property.Gap & Property.Padding & Property.Margin
+
 type Spaces = {
-  none: string
-  extraSmall: string
-  small: string
-  medium: string
-  large: string
-  extraLarge: string
-  huge: string
-  extraHuge: string
+  none: Space
+  xxSmall: Space
+  xSmall: Space
+  small: Space
+  medium: Space
+  large: Space
+  xLarge: Space
+  xxLarge: Space
+  xxxLarge: Space
 }
 
 const spaces: Spaces = {
   none: "0rem",
-  extraSmall: "0.25rem",
-  small: "0.5rem",
-  medium: "1rem",
-  large: "1.5rem",
-  extraLarge: "2rem",
-  huge: "2.5rem",
-  extraHuge: "3rem",
+  xxSmall: "0.125rem", // 2px
+  xSmall: "0.25rem", // 4px
+  small: "0.5rem", // 8px
+  medium: "1rem", // 16px
+  large: "1.5rem", // 24px
+  xLarge: "2rem", // 32px
+  xxLarge: "3rem", // 48px
+  xxxLarge: "4rem", // 64px
 }
 
 export default spaces

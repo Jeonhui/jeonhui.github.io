@@ -1,9 +1,9 @@
-import React from "react"
+import React, { JSX } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 
 type MainLayoutProps = {
-  children: React.ReactNode
+  children: JSX.Element
 }
 
 const MainLayout = ({ children, ...props }: MainLayoutProps) => {

@@ -1,6 +1,10 @@
 import { createTheme, createThemeContract } from "@vanilla-extract/css"
 import colorSetVars, { Color } from "./colorSetVars.css"
 
+const withAlpha = (color: Color, alpha: number): string => {
+  return `rgb(from ${color} r g b / ${alpha})`
+}
+
 // Container
 type ContainerColor = {
   background: Color
@@ -13,6 +17,7 @@ type ContainerColor = {
 type TextColor = {
   text: Color
   textHighlight?: Color
+  textDim?: Color
 }
 
 // Button
@@ -40,6 +45,23 @@ type InputStateColor = { [key in InputState]: InputColor }
 type InputTypeColor = { [key in InputType]: InputStateColor }
 type InputColorTheme = InputTypeColor
 
+type CommandDialogItemState = "default" | "hover" | "selected" | "disabled"
+type CommandDialogItemColor = {
+  background: Color
+} & TextColor
+type CommandDialogItemColorTheme = {
+  [key in CommandDialogItemState]: CommandDialogItemColor
+}
+
+type CommandDialog = {
+  overlay: Color
+  background: Color
+  border: Color
+  placeholder: Color
+  groupText: Color
+  item: CommandDialogItemColorTheme
+} & TextColor
+
 type ColorTheme = {
   primary: Color
   background: Color
@@ -51,6 +73,8 @@ type ColorTheme = {
   button: ButtonColorTheme
 
   input: InputColorTheme
+
+  commandDialog: CommandDialog
 }
 
 // ThemeColors
@@ -68,6 +92,7 @@ const lightModeThemeColors: ColorTheme = {
   text: {
     text: colorSetVars.gray900,
     textHighlight: colorSetVars.primary500,
+    textDim: colorSetVars.gray700,
   },
 
   button: {
@@ -75,25 +100,25 @@ const lightModeThemeColors: ColorTheme = {
       default: {
         icon: colorSetVars.white,
         background: colorSetVars.primary500,
-        border: colorSetVars.primary500,
+        border: "transparent",
         text: colorSetVars.white,
       },
       hover: {
         icon: colorSetVars.white,
         background: colorSetVars.primary600,
-        border: colorSetVars.primary600,
+        border: "transparent",
         text: colorSetVars.white,
       },
       pressed: {
         icon: colorSetVars.white,
         background: colorSetVars.primary700,
-        border: colorSetVars.primary700,
+        border: "transparent",
         text: colorSetVars.white,
       },
       disabled: {
         icon: colorSetVars.gray400,
         background: colorSetVars.gray100,
-        border: colorSetVars.gray200,
+        border: "transparent",
         text: colorSetVars.gray500,
       },
     },
@@ -101,25 +126,25 @@ const lightModeThemeColors: ColorTheme = {
       default: {
         icon: colorSetVars.primary500,
         background: colorSetVars.white,
-        border: colorSetVars.primary500,
+        border: "transparent",
         text: colorSetVars.primary500,
       },
       hover: {
         icon: colorSetVars.primary600,
         background: colorSetVars.white,
-        border: colorSetVars.primary600,
+        border: "transparent",
         text: colorSetVars.primary600,
       },
       pressed: {
         icon: colorSetVars.primary700,
         background: colorSetVars.white,
-        border: colorSetVars.primary700,
+        border: "transparent",
         text: colorSetVars.primary700,
       },
       disabled: {
         icon: colorSetVars.gray400,
         background: colorSetVars.white,
-        border: colorSetVars.gray200,
+        border: "transparent",
         text: colorSetVars.gray500,
       },
     },
@@ -243,6 +268,32 @@ const lightModeThemeColors: ColorTheme = {
       },
     },
   },
+  commandDialog: {
+    overlay: withAlpha(colorSetVars.black, 0.5),
+    background: colorSetVars.white,
+    border: colorSetVars.gray200,
+    text: colorSetVars.gray900,
+    placeholder: colorSetVars.gray400,
+    groupText: colorSetVars.gray900,
+    item: {
+      default: {
+        text: colorSetVars.gray900,
+        background: colorSetVars.white,
+      },
+      hover: {
+        text: colorSetVars.gray900,
+        background: colorSetVars.gray100,
+      },
+      selected: {
+        text: colorSetVars.primary500,
+        background: colorSetVars.gray100,
+      },
+      disabled: {
+        text: colorSetVars.gray500,
+        background: colorSetVars.white,
+      },
+    },
+  },
 }
 
 const darkModeThemeColors: ColorTheme = {
@@ -259,6 +310,7 @@ const darkModeThemeColors: ColorTheme = {
   text: {
     text: colorSetVars.white,
     textHighlight: colorSetVars.primary200,
+    textDim: colorSetVars.gray200,
   },
 
   button: {
@@ -266,25 +318,25 @@ const darkModeThemeColors: ColorTheme = {
       default: {
         icon: colorSetVars.white,
         background: colorSetVars.primary500,
-        border: colorSetVars.primary500,
+        border: "transparent",
         text: colorSetVars.white,
       },
       hover: {
         icon: colorSetVars.white,
         background: colorSetVars.primary600,
-        border: colorSetVars.primary600,
+        border: "transparent",
         text: colorSetVars.white,
       },
       pressed: {
         icon: colorSetVars.white,
         background: colorSetVars.primary700,
-        border: colorSetVars.primary700,
+        border: "transparent",
         text: colorSetVars.white,
       },
       disabled: {
         icon: colorSetVars.gray400,
         background: colorSetVars.gray600,
-        border: colorSetVars.gray500,
+        border: "transparent",
         text: colorSetVars.gray600,
       },
     },
@@ -292,50 +344,50 @@ const darkModeThemeColors: ColorTheme = {
       default: {
         icon: colorSetVars.primary500,
         background: colorSetVars.gray800,
-        border: colorSetVars.primary500,
+        border: "transparent",
         text: colorSetVars.primary500,
       },
       hover: {
         icon: colorSetVars.primary600,
         background: colorSetVars.gray800,
-        border: colorSetVars.primary600,
+        border: "transparent",
         text: colorSetVars.primary600,
       },
       pressed: {
         icon: colorSetVars.primary700,
         background: colorSetVars.gray800,
-        border: colorSetVars.primary700,
+        border: "transparent",
         text: colorSetVars.primary700,
       },
       disabled: {
         icon: colorSetVars.gray400,
         background: colorSetVars.gray700,
-        border: colorSetVars.gray600,
+        border: "transparent",
         text: colorSetVars.gray500,
       },
     },
     border: {
       default: {
-        icon: colorSetVars.primary500,
-        background: colorSetVars.gray800,
-        border: colorSetVars.primary500,
-        text: colorSetVars.primary500,
+        icon: colorSetVars.primary300,
+        background: "transparent",
+        border: colorSetVars.primary300,
+        text: colorSetVars.primary300,
       },
       hover: {
+        icon: colorSetVars.primary400,
+        background: "transparent",
+        border: colorSetVars.primary400,
+        text: colorSetVars.primary400,
+      },
+      pressed: {
         icon: colorSetVars.primary600,
-        background: colorSetVars.gray800,
+        background: "transparent",
         border: colorSetVars.primary600,
         text: colorSetVars.primary600,
       },
-      pressed: {
-        icon: colorSetVars.primary700,
-        background: colorSetVars.gray800,
-        border: colorSetVars.primary700,
-        text: colorSetVars.primary700,
-      },
       disabled: {
         icon: colorSetVars.gray400,
-        background: colorSetVars.gray700,
+        background: "transparent",
         border: colorSetVars.gray600,
         text: colorSetVars.gray500,
       },
@@ -407,7 +459,7 @@ const darkModeThemeColors: ColorTheme = {
       default: {
         icon: colorSetVars.primary500,
         placeholder: colorSetVars.primary400,
-        background: colorSetVars.gray800,
+        background: "transparent",
         border: colorSetVars.primary400,
         text: colorSetVars.primary500,
       },
@@ -431,6 +483,32 @@ const darkModeThemeColors: ColorTheme = {
         background: colorSetVars.gray700,
         border: colorSetVars.primary200,
         text: colorSetVars.primary400,
+      },
+    },
+  },
+  commandDialog: {
+    overlay: withAlpha(colorSetVars.black, 0.5),
+    background: colorSetVars.gray900,
+    border: colorSetVars.gray700,
+    text: colorSetVars.white,
+    placeholder: colorSetVars.gray600,
+    groupText: colorSetVars.white,
+    item: {
+      default: {
+        text: colorSetVars.white,
+        background: colorSetVars.gray900,
+      },
+      hover: {
+        text: colorSetVars.white,
+        background: colorSetVars.gray800,
+      },
+      selected: {
+        text: colorSetVars.primary200,
+        background: colorSetVars.gray800,
+      },
+      disabled: {
+        text: colorSetVars.gray500,
+        background: colorSetVars.gray900,
       },
     },
   },
