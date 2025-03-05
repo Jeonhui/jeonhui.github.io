@@ -8,6 +8,7 @@ type ButtonProps = {
   size?: keyof typeof styles.buttonSizeVariants
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
+  onClick?: () => void
 }
 
 const Button = ({
@@ -16,8 +17,13 @@ const Button = ({
   rightIcon,
   color = "default",
   size = "medium",
+  onClick,
   ...props
 }: ButtonProps) => {
+  const onClickHandler = () => {
+    onClick?.()
+  }
+
   return (
     <button
       className={clsx(
@@ -26,6 +32,7 @@ const Button = ({
         styles.buttonSizeVariants[size],
       )}
       {...props}
+      onClick={onClickHandler}
     >
       {leftIcon}
       {children}

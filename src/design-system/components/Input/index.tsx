@@ -1,25 +1,35 @@
-import React from "react"
+import React, { ChangeEvent, HTMLInputTypeAttribute } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 
 type InputProps = {
   leftChildren?: React.ReactNode
   rightChildren?: React.ReactNode
+  type?: HTMLInputTypeAttribute
   placeholder?: string
   disabled?: boolean
   color?: keyof typeof styles.inputColorVariants
   size?: keyof typeof styles.inputSizeVariants
+  value?: string
+  onChange?: (value: string) => void
 }
 
 const Input = ({
   leftChildren,
   rightChildren,
+  type = "text",
   placeholder,
   disabled,
   color = "default",
   size = "medium",
+  value,
+  onChange,
   ...props
 }: InputProps) => {
+  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    onChange?.(event.target.value)
+  }
+
   return (
     <div
       className={clsx(
@@ -30,7 +40,14 @@ const Input = ({
       data-disabled={disabled}
     >
       {leftChildren}
-      <input placeholder={placeholder} disabled={disabled} {...props} />
+      <input
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChangeHandler}
+        disabled={disabled}
+        {...props}
+      />
       {rightChildren}
     </div>
   )
