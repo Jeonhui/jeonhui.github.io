@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "name": "About Me",
+      "href": "/about-me"
+    },
+    {
+      "name": "Experiences",
+      "href": "/about-me"
+    },
+    {
+      "name": "Skills",
+      "href": "/about-me"
+    },
+    {
+      "name": "Contact",
+      "href": "/about-me"
+    }
+  ]
+}

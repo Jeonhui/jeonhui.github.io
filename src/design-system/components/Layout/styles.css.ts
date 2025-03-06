@@ -1,4 +1,9 @@
-import { globalStyle, style, styleVariants } from "@vanilla-extract/css"
+import {
+  globalStyle,
+  keyframes,
+  style,
+  styleVariants,
+} from "@vanilla-extract/css"
 import { theme } from "../../theme/theme.css"
 
 export const layout = style({
@@ -23,7 +28,7 @@ export const layoutGapVariants = styleVariants(theme.spaces, (space) => ({
 export const layoutVerticalPaddingVariants = styleVariants(
   theme.spaces,
   (space) => ({
-    paddingTop: space,
+    paddingTop: `calc(${space} + 3rem)`,
     paddingBottom: space,
   }),
 )
@@ -35,3 +40,29 @@ export const layoutHorizontalPaddingVariants = styleVariants(
     paddingRight: space,
   }),
 )
+
+// animation
+const enter = keyframes({
+  "0%": { opacity: "0", transform: "translateY(50%)" },
+  "100%": { opacity: "1", transform: "none" },
+})
+
+globalStyle("[data-animate=true] > *", {
+  vars: {
+    "--step": "0",
+    "--delayPerStep": "120ms",
+    "--start": "0ms",
+  },
+  "@media": {
+    "(prefers-reduced-motion: no-preference)": {
+      animation: `${enter} 0.5s both`,
+      animationDelay: "calc(var(--step) * var(--delayPerStep) + var(--start))",
+    },
+  },
+})
+
+for (let i = 1; i <= 20; i++) {
+  globalStyle(`[data-animate=true] > *:nth-child(${i})`, {
+    vars: { "--step": `${i}` },
+  })
+}

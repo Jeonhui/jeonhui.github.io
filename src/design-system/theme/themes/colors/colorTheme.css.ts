@@ -21,7 +21,7 @@ type TextColor = {
 }
 
 // Button
-type ButtonType = "default" | "light" | "border"
+type ButtonType = "default" | "text" | "border"
 type ButtonState = "default" | "hover" | "pressed" | "disabled"
 type ButtonColor = {
   icon: Color
@@ -65,6 +65,7 @@ type CommandDialog = {
 
 type ColorTheme = {
   primary: Color
+  logo: Color
   background: Color
 
   container: ContainerColor
@@ -81,6 +82,7 @@ type ColorTheme = {
 // ThemeColors
 const lightModeThemeColors: ColorTheme = {
   primary: colorSetVars.primary500,
+  logo: colorSetVars.gray400,
   background: colorSetVars.white,
 
   container: {
@@ -123,7 +125,7 @@ const lightModeThemeColors: ColorTheme = {
         text: colorSetVars.gray500,
       },
     },
-    light: {
+    text: {
       default: {
         icon: colorSetVars.primary500,
         background: colorSetVars.white,
@@ -305,6 +307,7 @@ const lightModeThemeColors: ColorTheme = {
 
 const darkModeThemeColors: ColorTheme = {
   primary: colorSetVars.primary100,
+  logo: colorSetVars.gray500,
   background: colorSetVars.gray900,
 
   container: {
@@ -315,7 +318,7 @@ const darkModeThemeColors: ColorTheme = {
   },
 
   text: {
-    text: colorSetVars.white,
+    text: colorSetVars.gray50,
     textHighlight: colorSetVars.primary200,
     textDim: colorSetVars.gray200,
   },
@@ -347,24 +350,24 @@ const darkModeThemeColors: ColorTheme = {
         text: colorSetVars.gray600,
       },
     },
-    light: {
+    text: {
       default: {
-        icon: colorSetVars.primary500,
-        background: colorSetVars.gray800,
+        icon: colorSetVars.gray300,
+        background: "transparent",
         border: "transparent",
-        text: colorSetVars.primary500,
+        text: colorSetVars.gray400,
       },
       hover: {
-        icon: colorSetVars.primary600,
-        background: colorSetVars.gray800,
+        icon: colorSetVars.gray200,
+        background: colorSetVars.gray700,
         border: "transparent",
-        text: colorSetVars.primary600,
+        text: colorSetVars.gray200,
       },
       pressed: {
-        icon: colorSetVars.primary700,
+        icon: colorSetVars.gray100,
         background: colorSetVars.gray800,
         border: "transparent",
-        text: colorSetVars.primary700,
+        text: colorSetVars.gray100,
       },
       disabled: {
         icon: colorSetVars.gray400,
