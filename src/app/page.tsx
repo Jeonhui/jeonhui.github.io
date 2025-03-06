@@ -1,9 +1,21 @@
-import Layout from "@/design-system/components/Layout";
+import { Layout } from "@/design-system/components"
 
 export default function Home() {
-    return (
-        <Layout scrollable>
-            content
-        </Layout>
-    );
+  return (
+    <Layout>
+      <h1>Hello, World!</h1>
+      <h1>Hello, World!</h1>
+      <h1>Hello, World!</h1>
+      <h1>Hello, World!</h1>
+      <h1>Hello, World!</h1>
+      <h1>Hello, World!</h1>
+      <h1>Hello, World!</h1>
+      <h1>Hello, World!</h1>
+      <h1>Hello, World!</h1>
+      <h1>Hello, World!</h1>
+      <h1>Hello, World!</h1>
+      <h1>Hello, World!</h1>
+      <h1>Hello, World!</h1>
+    </Layout>
+  )
 }

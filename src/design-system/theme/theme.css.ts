@@ -1,24 +1,30 @@
-import colorTheme, {themeColorsVars} from "./color/colorTheme.css";
-import fontTheme from "./font/fontTheme.css";
-import typographyTheme from "./typography/typographyTheme.css";
-import {createGlobalTheme} from "@vanilla-extract/css";
-import typographyToStyle from "./typography/typographyToStyle.css";
-import {breakpointTheme} from "@/design-system/theme/breakpoint/breakpointTheme.css";
+import { createGlobalTheme } from "@vanilla-extract/css"
+import {
+  alignments,
+  boxSizes,
+  breakpoints,
+  colorSetVars,
+  colorTheme,
+  fonts,
+  layouts,
+  spaces,
+  typographies,
+  zIndices,
+} from "./themes/index.css"
 
-const themeWithoutThemeColorsVars = createGlobalTheme(':root', {
-    colors: colorTheme,
-    fonts: fontTheme,
-    typographies: typographyTheme,
-})
+const globalColorThemeVars = createGlobalTheme(":root", colorTheme)
 
 const theme = {
-    ...themeWithoutThemeColorsVars,
-    colors: {
-        ...themeColorsVars,
-        ...themeWithoutThemeColorsVars.colors
-    },
-    breakpoints: breakpointTheme
+  colors: globalColorThemeVars,
+  colorSet: colorSetVars,
+  fonts: fonts,
+  typographies: typographies,
+  layouts: layouts,
+  alignments: alignments,
+  spaces: spaces,
+  breakpoints: breakpoints,
+  zIndices: zIndices,
+  boxSizes: boxSizes,
 }
 
-export {typographyToStyle}
-export {theme}
+export { theme }

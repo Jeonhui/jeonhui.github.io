@@ -1,15 +1,37 @@
-import {style} from "@vanilla-extract/css";
-import {theme} from "@/design-system/theme/theme.css";
+import { globalStyle, style, styleVariants } from "@vanilla-extract/css"
+import { theme } from "../../theme/theme.css"
 
 export const layout = style({
-    display: 'flex',
-    height: '100%',
-    padding: '1rem',
-    boxSizing: 'border-box',
-    backgroundColor: theme.colors.background
+  width: "100%",
+  minHeight: "100svh",
+  maxWidth: theme.breakpoints.medium.width,
 })
 
-export const scrollable = style({
-    minHeight: '100%',
-    overflowY: 'scroll'
+globalStyle(`${layout} > *`, {
+  flexShrink: 0,
 })
+
+export const layoutAlignmentVariants = styleVariants(
+  theme.alignments,
+  (alignment) => alignment,
+)
+
+export const layoutGapVariants = styleVariants(theme.spaces, (space) => ({
+  gap: space,
+}))
+
+export const layoutVerticalPaddingVariants = styleVariants(
+  theme.spaces,
+  (space) => ({
+    paddingTop: space,
+    paddingBottom: space,
+  }),
+)
+
+export const layoutHorizontalPaddingVariants = styleVariants(
+  theme.spaces,
+  (space) => ({
+    paddingLeft: space,
+    paddingRight: space,
+  }),
+)

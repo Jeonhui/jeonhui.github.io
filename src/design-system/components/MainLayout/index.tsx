@@ -1,28 +1,17 @@
-import React from "react";
-import {clsx} from "clsx";
-import * as styles from "./styles.css";
-import ThemeToggleSwitch from "@/design-system/components/ThemeToggleSwitch";
+import React, { JSX } from "react"
+import { clsx } from "clsx"
+import * as styles from "./styles.css"
 
 type MainLayoutProps = {
-    scrollable?: boolean;
-    children: React.ReactNode;
+  children: JSX.Element
 }
 
-const MainLayout = ({
-                        children
-                    }: MainLayoutProps) => {
-    return (
-        <div className={clsx(styles.mainLayout)}>
-            <div className={clsx(styles, styles.sideItem, styles.leftSideItem)}>
-
-            </div>
-            {children}
-            <div className={clsx(styles, styles.sideItem, styles.rightSideItem)}>
-
-            </div>
-            <ThemeToggleSwitch className={clsx(styles.themeToggleSwitchContainer)}/>
-        </div>
-    );
+const MainLayout = ({ children, ...props }: MainLayoutProps) => {
+  return (
+    <div className={clsx(styles.mainLayout)} {...props}>
+      {children}
+    </div>
+  )
 }
 
-export default MainLayout;
+export default MainLayout

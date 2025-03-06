@@ -1,23 +1,37 @@
-import React from "react";
+import React from "react"
+import { clsx } from "clsx"
 import * as styles from "./styles.css"
-import {clsx} from "clsx";
 
 type LayoutProps = {
-    scrollable?: boolean;
-    children: React.ReactNode;
+  children: React.ReactNode
+  alignment?: keyof typeof styles.layoutAlignmentVariants
+  gap?: keyof typeof styles.layoutGapVariants
+  verticalPadding?: keyof typeof styles.layoutVerticalPaddingVariants
+  horizontalPadding?: keyof typeof styles.layoutHorizontalPaddingVariants
 }
 
 const Layout = ({
-                    scrollable,
-                    children
-                }: LayoutProps) => {
-    return (
-        <div className={clsx(styles.layout, {
-            [styles.scrollable]: scrollable
-        })}>
-            {children}
-        </div>
-    );
+  children,
+  alignment = "columnTopLeft",
+  gap = "medium",
+  verticalPadding = "xLarge",
+  horizontalPadding = "medium",
+  ...props
+}: LayoutProps) => {
+  return (
+    <div
+      className={clsx(
+        styles.layout,
+        styles.layoutGapVariants[gap],
+        styles.layoutAlignmentVariants[alignment],
+        styles.layoutVerticalPaddingVariants[verticalPadding],
+        styles.layoutHorizontalPaddingVariants[horizontalPadding],
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  )
 }
 
-export default Layout;
+export default Layout

@@ -1,4 +1,4 @@
-import Icon, {IconProps} from "../common/Icon";
+import Icon, {IconProps} from "../common/Icon"
 
 const LightModeIcon = ({
                            ...props

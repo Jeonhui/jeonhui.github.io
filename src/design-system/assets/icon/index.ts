@@ -1,4 +1,5 @@
-import LightModeIcon from "../icon/LightModeIcon";
-import DarkModeIcon from "../icon/DarkModeIcon";
+import LightModeIcon from "./LightModeIcon"
+import DarkModeIcon from "./DarkModeIcon"
+import SearchIcon from "./SearchIcon"
 
-export {LightModeIcon, DarkModeIcon}
+export { LightModeIcon, DarkModeIcon, SearchIcon }
