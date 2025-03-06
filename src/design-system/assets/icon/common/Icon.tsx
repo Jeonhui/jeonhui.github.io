@@ -37,6 +37,7 @@ const Icon = ({
   fillHeight,
   aspectRatioOne,
   fill,
+  ...props
 }: IconWithChildrenProps) => {
   return (
     <svg
@@ -52,6 +53,7 @@ const Icon = ({
         [styles.aspectRatioOne]: aspectRatioOne,
       })}
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       {children}
     </svg>

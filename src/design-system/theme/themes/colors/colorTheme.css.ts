@@ -58,9 +58,10 @@ type CommandDialog = {
   background: Color
   border: Color
   placeholder: Color
-  groupText: Color
+  groupHeadingText: Color
+  input: InputColor
   item: CommandDialogItemColorTheme
-} & TextColor
+}
 
 type ColorTheme = {
   primary: Color
@@ -272,13 +273,19 @@ const lightModeThemeColors: ColorTheme = {
     overlay: withAlpha(colorSetVars.black, 0.5),
     background: colorSetVars.white,
     border: colorSetVars.gray200,
-    text: colorSetVars.gray900,
+    input: {
+      icon: colorSetVars.gray500,
+      placeholder: colorSetVars.gray400,
+      background: "transparent",
+      border: colorSetVars.gray300,
+      text: colorSetVars.gray900,
+    },
     placeholder: colorSetVars.gray400,
-    groupText: colorSetVars.gray900,
+    groupHeadingText: colorSetVars.gray400,
     item: {
       default: {
         text: colorSetVars.gray900,
-        background: colorSetVars.white,
+        background: "transparent",
       },
       hover: {
         text: colorSetVars.gray900,
@@ -490,20 +497,26 @@ const darkModeThemeColors: ColorTheme = {
     overlay: withAlpha(colorSetVars.black, 0.5),
     background: colorSetVars.gray900,
     border: colorSetVars.gray700,
-    text: colorSetVars.white,
+    input: {
+      icon: colorSetVars.gray500,
+      placeholder: colorSetVars.gray600,
+      background: colorSetVars.gray800,
+      border: colorSetVars.gray700,
+      text: colorSetVars.gray100,
+    },
     placeholder: colorSetVars.gray600,
-    groupText: colorSetVars.white,
+    groupHeadingText: colorSetVars.gray500,
     item: {
       default: {
-        text: colorSetVars.white,
-        background: colorSetVars.gray900,
+        text: colorSetVars.gray100,
+        background: "transparent",
       },
       hover: {
-        text: colorSetVars.white,
-        background: colorSetVars.gray800,
+        text: colorSetVars.gray100,
+        background: colorSetVars.gray700,
       },
       selected: {
-        text: colorSetVars.primary200,
+        text: colorSetVars.gray50,
         background: colorSetVars.gray800,
       },
       disabled: {

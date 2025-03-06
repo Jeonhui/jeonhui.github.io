@@ -13,6 +13,7 @@ type BoxSize = Pick<
 >
 
 type BaseBoxSizes = {
+  xxSmall: BoxSize
   xSmall: BoxSize
   small: BoxSize
   medium: BoxSize
@@ -30,6 +31,12 @@ type BoxFeatureSizes = {
 type BoxSizes = BaseBoxSizes & BoxFeatureSizes
 
 const baseBoxSizes: BaseBoxSizes = {
+  xxSmall: {
+    padding: "0.1rem 0.4rem",
+    borderRadius: "0.24rem",
+    gap: "0.2rem",
+    ...typographies.body4,
+  },
   xSmall: {
     padding: "0.3rem 0.6rem",
     borderRadius: "0.24rem",
@@ -70,6 +77,10 @@ const baseBoxSizes: BaseBoxSizes = {
 
 const boxSizes: BoxSizes = {
   ...baseBoxSizes,
+  xxSmall_full: {
+    ...baseBoxSizes.xxSmall,
+    width: "100%",
+  },
   xSmall_full: {
     ...baseBoxSizes.xSmall,
     width: "100%",
