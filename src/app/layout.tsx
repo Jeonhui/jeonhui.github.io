@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/design-system/theme/ThemeProvider"
 import MainLayout from "@/design-system/components/MainLayout"
 import CommandDialogProvider from "@design/commandDialog/CommandDialogProvider"
 import commandDialogData from "../data/command-dialog.json"
+import headerItem from "../data/header-item.json"
 
 export const metadata: Metadata = {
   title: "Jeonhui | iOS Developer",
@@ -21,7 +22,13 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <CommandDialogProvider data={commandDialogData}>
-            <MainLayout>{children}</MainLayout>
+            <MainLayout
+              headerItems={{
+                ...headerItem,
+              }}
+            >
+              {children}
+            </MainLayout>
           </CommandDialogProvider>
         </ThemeProvider>
       </body>

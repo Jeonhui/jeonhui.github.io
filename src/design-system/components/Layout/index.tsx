@@ -4,6 +4,7 @@ import * as styles from "./styles.css"
 
 type LayoutProps = {
   children: React.ReactNode
+  animate?: boolean
   alignment?: keyof typeof styles.layoutAlignmentVariants
   gap?: keyof typeof styles.layoutGapVariants
   verticalPadding?: keyof typeof styles.layoutVerticalPaddingVariants
@@ -12,9 +13,10 @@ type LayoutProps = {
 
 const Layout = ({
   children,
+  animate = true,
   alignment = "columnTopLeft",
   gap = "medium",
-  verticalPadding = "xLarge",
+  verticalPadding = "medium",
   horizontalPadding = "medium",
   ...props
 }: LayoutProps) => {
@@ -28,6 +30,7 @@ const Layout = ({
         styles.layoutHorizontalPaddingVariants[horizontalPadding],
       )}
       {...props}
+      data-animate={animate}
     >
       {children}
     </div>
