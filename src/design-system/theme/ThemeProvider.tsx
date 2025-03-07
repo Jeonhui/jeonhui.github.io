@@ -3,12 +3,12 @@
 import "./global.css"
 import React, { PropsWithChildren, useEffect, useState } from "react"
 import ThemeMode from "./ThemeMode"
-import ThemeContext from "@/design-system/theme/contexts/ThemeContext"
+import ThemeContext from "./contexts/ThemeContext"
 import {
   darkModeColorTheme,
   lightModeColorTheme,
-} from "@/design-system/theme/themes/colors/colorTheme.css"
-import fontVariables from "@/design-system/theme/themes/fonts/fontVariables"
+} from "./themes/colors/colorTheme.css"
+import fontVariables from "./themes/fonts/fontVariables"
 
 const colorThemeScript = `
   (function() {

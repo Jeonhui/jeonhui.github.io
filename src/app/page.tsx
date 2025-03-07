@@ -1,5 +1,6 @@
-import { Container, Layout, Text } from "@design/components"
+import { Container, GradientText, Layout, Text } from "@design/components"
 import List from "@design/components/List"
+import { theme } from "@design/theme/theme.css"
 
 export default function Home() {
   return (
@@ -9,7 +10,13 @@ export default function Home() {
         gap={"xxSmall"}
         padding={"small"}
       >
-        <Text typography={"header6_bold"}>탐구하는 iOS 개발자</Text>
+        <GradientText
+          deg={120}
+          colors={[theme.colors.text.text, theme.colors.primary]}
+          typography={"header6_bold"}
+        >
+          탐구하는 iOS 개발자
+        </GradientText>
         <Text typography={"header2_bold"}>이전희</Text>
       </Container>
       <Text typography={"body1"} color={"textDim"}>

@@ -5,6 +5,7 @@ import * as styles from "./styles.css"
 type LayoutProps = {
   children: React.ReactNode
   animate?: boolean
+  hasHeaderPadding?: boolean
   alignment?: keyof typeof styles.layoutAlignmentVariants
   gap?: keyof typeof styles.layoutGapVariants
   verticalPadding?: keyof typeof styles.layoutVerticalPaddingVariants
@@ -14,10 +15,11 @@ type LayoutProps = {
 const Layout = ({
   children,
   animate = true,
+  hasHeaderPadding = true,
   alignment = "columnTopLeft",
   gap = "medium",
   verticalPadding = "medium",
-  horizontalPadding = "medium",
+  horizontalPadding = "large",
   ...props
 }: LayoutProps) => {
   return (
@@ -31,6 +33,7 @@ const Layout = ({
       )}
       {...props}
       data-animate={animate}
+      data-has-header-padding={hasHeaderPadding}
     >
       {children}
     </div>

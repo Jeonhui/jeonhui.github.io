@@ -4,5 +4,20 @@ import Container from "./Container"
 import Button from "./Button"
 import Input from "./Input"
 import Text from "./Text"
+import List from "./List"
+import Link from "./Link"
+import ThemeToggleButton from "./ThemeToggleButton"
+import GradientText from "./GradientText"
 
-export { MainLayout, Layout, Container, Button, Input, Text }
+export {
+  MainLayout,
+  Layout,
+  Container,
+  Button,
+  Input,
+  Text,
+  List,
+  Link,
+  ThemeToggleButton,
+  GradientText,
+}

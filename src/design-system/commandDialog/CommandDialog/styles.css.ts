@@ -1,5 +1,5 @@
 import { globalStyle, style } from "@vanilla-extract/css"
-import { theme } from "@design/theme/theme.css"
+import { theme } from "../../theme/theme.css"
 
 const commandDialogTheme = theme.colors.commandDialog
 

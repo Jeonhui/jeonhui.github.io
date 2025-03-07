@@ -3,7 +3,7 @@ import { theme } from "../../theme/theme.css"
 
 export const text = style({})
 
-globalStyle(`${text} > <strong>`, {
+globalStyle(`${text} > strong`, {
   fontWeight: "bold",
 })
 
@@ -22,5 +22,6 @@ export const textTypographyVariants = styleVariants(
   theme.typographies,
   (typography) => ({
     ...typography,
+    "@media": {},
   }),
 )
