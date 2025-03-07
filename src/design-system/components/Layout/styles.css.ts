@@ -6,10 +6,12 @@ import {
 } from "@vanilla-extract/css"
 import { theme } from "../../theme/theme.css"
 
+export const maxWidth = theme.breakpoints.medium.width
+
 export const layout = style({
   width: "100%",
   minHeight: "100svh",
-  maxWidth: theme.breakpoints.medium.width,
+  maxWidth: maxWidth,
 })
 
 globalStyle(`${layout} > *`, {
@@ -28,7 +30,10 @@ export const layoutGapVariants = styleVariants(theme.spaces, (space) => ({
 export const layoutVerticalPaddingVariants = styleVariants(
   theme.spaces,
   (space) => ({
-    paddingTop: `calc(${space} + 3rem)`,
+    "&[data-has-header-padding=true]": {
+      paddingTop: `calc(${space} + 3rem)`,
+    },
+    paddingTop: `${space}`,
     paddingBottom: space,
   }),
 )
@@ -43,7 +48,7 @@ export const layoutHorizontalPaddingVariants = styleVariants(
 
 // animation
 const enter = keyframes({
-  "0%": { opacity: "0", transform: "translateY(50%)" },
+  "0%": { opacity: "0", transform: "translateY(4rem)" },
   "100%": { opacity: "1", transform: "none" },
 })
 

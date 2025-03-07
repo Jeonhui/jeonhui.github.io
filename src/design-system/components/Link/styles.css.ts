@@ -1,7 +1,7 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css"
 import { theme } from "../../theme/theme.css"
 
-export const button = style({
+export const link = style({
   cursor: "pointer",
   textWrap: "nowrap",
   ":disabled": {
@@ -10,26 +10,54 @@ export const button = style({
   border: "none",
 })
 
-globalStyle(`${button}:not(:disabled) *`, {
+globalStyle(`${link}:not(:disabled) *`, {
   cursor: "pointer",
 })
 
-export const buttonAlignmentVariants = styleVariants(
+export const linkAlignmentVariants = styleVariants(
   theme.alignments,
   (alignment) => ({
     ...alignment,
   }),
 )
 
-export const buttonSizeVariants = styleVariants(theme.boxSizes, (size) => ({
+export const linkSizeVariants = styleVariants(theme.boxSizes, (size) => ({
   ...size,
   " svg": {
     height: size.lineHeight,
   },
 }))
 
-export const buttonColorVariants = styleVariants(
-  theme.colors.button,
+export const linkColorVariants = styleVariants(
+  {
+    ...theme.colors.button,
+    none: {
+      default: {
+        icon: theme.colors.logo,
+        text: theme.colors.text.text,
+        background: "transparent",
+        border: "transparent",
+      },
+      hover: {
+        icon: theme.colors.primary,
+        text: theme.colors.text.textHighlight,
+        background: "transparent",
+        border: "transparent",
+      },
+      pressed: {
+        icon: "currentColor",
+        text: "currentColor",
+        background: "transparent",
+        border: "transparent",
+      },
+      disabled: {
+        icon: "currentColor",
+        text: "currentColor",
+        background: "transparent",
+        border: "transparent",
+      },
+    },
+  },
   (color) => ({
     fill: color.default.icon,
     color: color.default.text,

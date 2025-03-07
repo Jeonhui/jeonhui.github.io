@@ -94,7 +94,7 @@ const createTypography = <
 
 const display: Display = createTypography<BaseDisplay, Display>(
   {
-    display1: { fontSize: "4rem", lineHeight: "5rem" }, // 같은 display 계열에서 사용하는 값 참고
+    display1: { fontSize: "4rem", lineHeight: "5rem" },
     display2: { fontSize: "3.5rem", lineHeight: "4.5rem" },
     display3: { fontSize: "3rem", lineHeight: "4rem" },
     display4: { fontSize: "2.5rem", lineHeight: "3rem" },
@@ -118,7 +118,7 @@ const header: Header = createTypography<BaseHeader, Header>(
 
 const body: Body = createTypography<BaseBody, Body>(
   {
-    body1: { fontSize: "1.25rem", lineHeight: "1.75rem" }, // 일반적인 본문 스타일 참고
+    body1: { fontSize: "1.25rem", lineHeight: "1.75rem" },
     body2: { fontSize: "1.125rem", lineHeight: "1.5rem" },
     body3: { fontSize: "1rem", lineHeight: "1.6rem" },
     body4: { fontSize: "0.875rem", lineHeight: "1.25rem" },

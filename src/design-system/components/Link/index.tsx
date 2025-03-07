@@ -4,20 +4,22 @@ import React from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 
-type ButtonProps = {
+type LinkProps = {
   children: React.ReactNode
   className?: string
-  alignment?: keyof typeof styles.buttonAlignmentVariants
-  color?: keyof typeof styles.buttonColorVariants
-  size?: keyof typeof styles.buttonSizeVariants
+  href?: string
+  alignment?: keyof typeof styles.linkAlignmentVariants
+  color?: keyof typeof styles.linkColorVariants
+  size?: keyof typeof styles.linkSizeVariants
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
   onClick?: () => void
 }
 
-const Button = ({
+const Link = ({
   children,
   className,
+  href,
   leftIcon,
   rightIcon,
   alignment = "rowCenter",
@@ -25,19 +27,20 @@ const Button = ({
   size = "medium",
   onClick,
   ...props
-}: ButtonProps) => {
+}: LinkProps) => {
   const onClickHandler = () => {
     onClick?.()
   }
 
   return (
-    <button
+    <a
+      href={href}
       className={clsx(
         className,
-        styles.button,
-        styles.buttonAlignmentVariants[alignment],
-        styles.buttonColorVariants[color],
-        styles.buttonSizeVariants[size],
+        styles.link,
+        styles.linkAlignmentVariants[alignment],
+        styles.linkColorVariants[color],
+        styles.linkSizeVariants[size],
       )}
       {...props}
       onClick={onClickHandler}
@@ -45,9 +48,9 @@ const Button = ({
       {leftIcon}
       {children}
       {rightIcon}
-    </button>
+    </a>
   )
 }
 
-export type { ButtonProps }
-export default Button
+export type { LinkProps }
+export default Link

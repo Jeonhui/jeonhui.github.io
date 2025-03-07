@@ -16,3 +16,11 @@ globalStyle("body", {
   fontFamily: theme.fonts.base,
   color: theme.colors.text.text,
 })
+
+globalStyle("a", {
+  textDecoration: "none",
+})
+
+globalStyle("svg", {
+  transition: "fill 0.3s ease-in-out",
+})

@@ -1,6 +1,6 @@
 import Icon, { IconProps } from "../common/Icon"
 
-const LightModeIcon = ({ ...props }: IconProps) => {
+const LogoIcon = ({ ...props }: IconProps) => {
   return (
     <Icon viewBox={"0 0 512 512"} {...props}>
       <path d="M394.388 142.457C406.885 129.96 427.146 129.96 439.643 142.457C452.139 154.954 452.139 175.215 439.643 187.712L258.623 368.731C246.127 381.228 225.865 381.228 213.368 368.731C200.872 356.234 200.872 335.973 213.368 323.476L394.388 142.457Z" />
@@ -11,4 +11,4 @@ const LightModeIcon = ({ ...props }: IconProps) => {
   )
 }
 
-export default LightModeIcon
+export default LogoIcon

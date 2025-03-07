@@ -82,7 +82,7 @@ type ColorTheme = {
 // ThemeColors
 const lightModeThemeColors: ColorTheme = {
   primary: colorSetVars.primary500,
-  logo: colorSetVars.gray400,
+  logo: colorSetVars.gray900,
   background: colorSetVars.white,
 
   container: {
@@ -95,7 +95,7 @@ const lightModeThemeColors: ColorTheme = {
   text: {
     text: colorSetVars.gray900,
     textHighlight: colorSetVars.primary500,
-    textDim: colorSetVars.gray700,
+    textDim: colorSetVars.gray800,
   },
 
   button: {
@@ -127,22 +127,22 @@ const lightModeThemeColors: ColorTheme = {
     },
     text: {
       default: {
-        icon: colorSetVars.primary500,
-        background: colorSetVars.white,
+        icon: colorSetVars.gray700,
+        background: "transparent",
         border: "transparent",
-        text: colorSetVars.primary500,
+        text: colorSetVars.gray700,
       },
       hover: {
-        icon: colorSetVars.primary600,
-        background: colorSetVars.white,
+        icon: colorSetVars.gray800,
+        background: colorSetVars.gray100,
         border: "transparent",
-        text: colorSetVars.primary600,
+        text: colorSetVars.gray800,
       },
       pressed: {
-        icon: colorSetVars.primary700,
-        background: colorSetVars.white,
+        icon: colorSetVars.gray900,
+        background: colorSetVars.gray200,
         border: "transparent",
-        text: colorSetVars.primary700,
+        text: colorSetVars.gray900,
       },
       disabled: {
         icon: colorSetVars.gray400,
@@ -154,7 +154,7 @@ const lightModeThemeColors: ColorTheme = {
     border: {
       default: {
         icon: colorSetVars.primary500,
-        background: colorSetVars.white,
+        background: "transparent",
         border: colorSetVars.primary500,
         text: colorSetVars.primary500,
       },
@@ -306,8 +306,8 @@ const lightModeThemeColors: ColorTheme = {
 }
 
 const darkModeThemeColors: ColorTheme = {
-  primary: colorSetVars.primary100,
-  logo: colorSetVars.gray500,
+  primary: colorSetVars.primary400,
+  logo: colorSetVars.gray100,
   background: colorSetVars.gray900,
 
   container: {
@@ -378,20 +378,20 @@ const darkModeThemeColors: ColorTheme = {
     },
     border: {
       default: {
-        icon: colorSetVars.primary300,
+        icon: colorSetVars.primary500,
         background: "transparent",
-        border: colorSetVars.primary300,
-        text: colorSetVars.primary300,
+        border: colorSetVars.primary500,
+        text: colorSetVars.primary500,
       },
       hover: {
         icon: colorSetVars.primary400,
-        background: "transparent",
+        background: colorSetVars.gray900,
         border: colorSetVars.primary400,
         text: colorSetVars.primary400,
       },
       pressed: {
         icon: colorSetVars.primary600,
-        background: "transparent",
+        background: colorSetVars.gray900,
         border: colorSetVars.primary600,
         text: colorSetVars.primary600,
       },

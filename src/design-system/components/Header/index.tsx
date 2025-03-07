@@ -1,39 +1,79 @@
-import React from "react"
+"use client"
+
+import React, { useState } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 import { LogoIcon } from "../../assets/icon"
 import HeaderItems from "./HeaderItems"
 import Container from "../Container"
-import Button from "../Button"
-import { useRouter } from "next/navigation"
+import ThemeToggleButton from "../ThemeToggleButton"
+import Link from "../Link"
+import { HamburgerMenuButton } from "./components"
 
 type HeaderProps = {
   items: HeaderItems
 }
 
 const Header = ({ items, ...props }: HeaderProps) => {
-  const router = useRouter()
-
-  const onClickHandler = (href: string) => {
-    router.push(href)
-  }
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className={clsx(styles.header)} {...props}>
-      <LogoIcon />
-      <Container header-item={"true"} gap={"xSmall"}>
+    <Container
+      alignment={"columnCenter"}
+      layout={"fullWidth"}
+      className={clsx(styles.headerContainer)}
+    >
+      <Container
+        alignment={"rowCenter"}
+        layout={"fullWidth"}
+        className={clsx(styles.header)}
+        {...props}
+      >
+        <Link color={"none"} href={"/"} size={"xSmall"}>
+          <LogoIcon />
+        </Link>
+        <Container header-item={"true"} gap={"xSmall"} padding={"none"}>
+          {items.items.map((item, idx) => (
+            <Link
+              href={item.href}
+              key={idx}
+              size={"xSmall"}
+              color={"text"}
+              data-media-hidden-item={true}
+            >
+              {item.name}
+            </Link>
+          ))}
+          <ThemeToggleButton data-media-hidden-item={true} size={"xSmall"} />
+          <HamburgerMenuButton
+            data-media-show-item={true}
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+          />
+        </Container>
+      </Container>
+      <Container
+        layout={"fullWidth"}
+        alignment={"columnCenterLeft"}
+        gap={"small"}
+        header-menu-item={"true"}
+        header-menu-item-open={isOpen.toString()}
+      >
         {items.items.map((item, idx) => (
-          <Button
+          <Link
+            href={item.href}
             key={idx}
-            size={"xSmall"}
+            size={"xSmall_full"}
             color={"text"}
-            onClick={() => onClickHandler(item.href)}
+            alignment={"rowCenterLeft"}
+            data-media-hidden-item={true}
           >
             {item.name}
-          </Button>
+          </Link>
         ))}
+        <ThemeToggleButton size={"medium"} />
       </Container>
-    </div>
+    </Container>
   )
 }
 
