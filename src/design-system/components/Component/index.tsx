@@ -1,4 +1,6 @@
-import React from "react"
+"use client"
+
+import React, { forwardRef, Ref } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 
@@ -6,12 +8,15 @@ type ComponentProps = {
   children: React.ReactNode
 }
 
-const Component = ({ children, ...props }: ComponentProps) => {
+const Component = (
+  { children, ...props }: ComponentProps,
+  ref: Ref<HTMLDivElement>,
+) => {
   return (
-    <div className={clsx(styles.components)} {...props}>
+    <div ref={ref} className={clsx(styles.components)} {...props}>
       {children}
     </div>
   )
 }
 
-export default Component
+export default forwardRef(Component)

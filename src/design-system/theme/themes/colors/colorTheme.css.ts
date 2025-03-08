@@ -127,10 +127,10 @@ const lightModeThemeColors: ColorTheme = {
     },
     text: {
       default: {
-        icon: colorSetVars.gray700,
+        icon: colorSetVars.gray900,
         background: "transparent",
         border: "transparent",
-        text: colorSetVars.gray700,
+        text: colorSetVars.gray900,
       },
       hover: {
         icon: colorSetVars.gray800,
@@ -139,10 +139,10 @@ const lightModeThemeColors: ColorTheme = {
         text: colorSetVars.gray800,
       },
       pressed: {
-        icon: colorSetVars.gray900,
+        icon: colorSetVars.gray700,
         background: colorSetVars.gray200,
         border: "transparent",
-        text: colorSetVars.gray900,
+        text: colorSetVars.gray700,
       },
       disabled: {
         icon: colorSetVars.gray400,
@@ -352,10 +352,10 @@ const darkModeThemeColors: ColorTheme = {
     },
     text: {
       default: {
-        icon: colorSetVars.gray300,
+        icon: colorSetVars.gray100,
         background: "transparent",
         border: "transparent",
-        text: colorSetVars.gray400,
+        text: colorSetVars.gray100,
       },
       hover: {
         icon: colorSetVars.gray200,
@@ -364,10 +364,10 @@ const darkModeThemeColors: ColorTheme = {
         text: colorSetVars.gray200,
       },
       pressed: {
-        icon: colorSetVars.gray100,
+        icon: colorSetVars.gray400,
         background: colorSetVars.gray800,
         border: "transparent",
-        text: colorSetVars.gray100,
+        text: colorSetVars.gray400,
       },
       disabled: {
         icon: colorSetVars.gray400,

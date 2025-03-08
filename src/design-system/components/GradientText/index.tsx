@@ -1,10 +1,10 @@
 "use client"
 
-import React from "react"
+import React, { forwardRef, Ref, useState } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 import { Property } from "csstype"
-import { useIsClient } from "@design/hooks"
+import { useIsClient } from "../../hooks"
 import Color = Property.Color
 
 type GradientTextProps = {
@@ -15,15 +15,27 @@ type GradientTextProps = {
   typography?: keyof typeof styles.gradientTextTypographyVariants
 }
 
-const GradientText = ({
-  children,
-  colors,
-  deg,
-  font = "base",
-  typography = "body1",
-  ...props
-}: GradientTextProps) => {
+const GradientText = (
+  {
+    children,
+    colors,
+    deg,
+    font = "base",
+    typography = "body1",
+    ...props
+  }: GradientTextProps,
+  ref: Ref<HTMLSpanElement>,
+) => {
   const isClient = useIsClient()
+
+  const [effect, setEffect] = useState(false)
+
+  const onMouseOverHandler = () => {
+    setEffect(true)
+    setTimeout(() => {
+      setEffect(false)
+    }, 1000)
+  }
 
   const colorString = colors
     .map((color, index) => {
@@ -33,17 +45,21 @@ const GradientText = ({
 
   return (
     <span
+      ref={ref}
       style={{
         backgroundImage: `linear-gradient(${deg ?? 0}deg, ${colorString})`,
       }}
       className={clsx(
         styles.gradientText,
         {
-          [styles.gradientTextVisible]: isClient,
+          [styles.gradientTextInvisible]: !isClient,
+          [styles.gradientTextVisible]: isClient && !effect,
+          [styles.gradientTextEffect]: isClient && effect,
         },
         styles.gradientTextFontVariants[font],
         styles.gradientTextTypographyVariants[typography],
       )}
+      onMouseOver={onMouseOverHandler}
       {...props}
     >
       {children}
@@ -51,4 +67,4 @@ const GradientText = ({
   )
 }
 
-export default GradientText
+export default forwardRef(GradientText)

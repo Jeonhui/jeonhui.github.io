@@ -8,23 +8,22 @@ import { theme } from "../../theme/theme.css"
 
 export const maxWidth = theme.breakpoints.medium.width
 
-export const layout = style({
+export const section = style({
   scrollSnapAlign: "start",
   width: "100%",
   minHeight: "100svh",
-  maxWidth: maxWidth,
 })
 
-globalStyle(`${layout} > *`, {
+globalStyle(`${section} > *`, {
   flexShrink: 0,
 })
 
-export const layoutAlignmentVariants = styleVariants(
+export const sectionAlignmentVariants = styleVariants(
   theme.alignments,
   (alignment) => alignment,
 )
 
-export const layoutGapVariants = styleVariants(theme.spaces, (space) =>
+export const sectionGapVariants = styleVariants(theme.spaces, (space) =>
   space === "0"
     ? {}
     : {
@@ -32,18 +31,25 @@ export const layoutGapVariants = styleVariants(theme.spaces, (space) =>
       },
 )
 
-export const layoutVerticalPaddingVariants = styleVariants(
+export const sectionVerticalPaddingVariants = styleVariants(
   theme.spaces,
   (space) =>
     space === "0"
-      ? {}
+      ? {
+          "&[data-has-header-padding=true]": {
+            paddingTop: `4rem`,
+          },
+        }
       : {
+          "&[data-has-header-padding=true]": {
+            paddingTop: `calc(${space} + 4rem)`,
+          },
           paddingTop: `${space}`,
           paddingBottom: space,
         },
 )
 
-export const layoutHorizontalPaddingVariants = styleVariants(
+export const sectionHorizontalPaddingVariants = styleVariants(
   theme.spaces,
   (space) =>
     space === "0"
@@ -54,7 +60,6 @@ export const layoutHorizontalPaddingVariants = styleVariants(
         },
 )
 
-// animation
 const enter = keyframes({
   "0%": { opacity: "0", transform: "translateY(4rem)" },
   "100%": { opacity: "1", transform: "none" },

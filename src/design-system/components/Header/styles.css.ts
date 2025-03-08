@@ -7,19 +7,20 @@ const breakpoints = theme.breakpoints.medium
 
 export const headerContainer = style({
   position: "fixed",
-  maxWidth: maxWidth,
   backdropFilter: "blur(32px)",
   zIndex: theme.zIndices.modal,
-  padding: `${theme.spaces.small} ${theme.spaces.xLarge} !important`,
+  padding: `${theme.spaces.small} ${theme.spaces.xLarge}`,
+  minHeight: "4rem",
   "@media": {
     [breakpoints.media]: {
-      padding: `${theme.spaces.xSmall} ${theme.spaces.small} !important`,
+      padding: `${theme.spaces.small} ${theme.spaces.medium}`,
     },
   },
 })
 
 export const header = style({
   height: "3rem",
+  maxWidth: maxWidth,
 })
 
 globalStyle(`${header} > svg`, {

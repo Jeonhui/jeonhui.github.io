@@ -3,9 +3,11 @@ import { theme } from "../../theme/theme.css"
 
 export const mainLayout = style({
   position: "relative",
-  minHeight: "100svh",
+  height: "100%",
+  overflowY: "auto",
   ...theme.layouts.fullWidth,
   ...theme.alignments.columnTopCenter,
+  scrollSnapType: "y mandatory",
 })
 
 globalStyle(`${mainLayout} > *`, {

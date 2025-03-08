@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { forwardRef, Ref } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 
@@ -15,23 +15,27 @@ type ButtonProps = {
   onClick?: () => void
 }
 
-const Button = ({
-  children,
-  className,
-  leftIcon,
-  rightIcon,
-  alignment = "rowCenter",
-  color = "default",
-  size = "medium",
-  onClick,
-  ...props
-}: ButtonProps) => {
+const Button = (
+  {
+    children,
+    className,
+    leftIcon,
+    rightIcon,
+    alignment = "rowCenter",
+    color = "default",
+    size = "medium",
+    onClick,
+    ...props
+  }: ButtonProps,
+  ref: Ref<HTMLButtonElement>,
+) => {
   const onClickHandler = () => {
     onClick?.()
   }
 
   return (
     <button
+      ref={ref}
       className={clsx(
         className,
         styles.button,
@@ -50,4 +54,4 @@ const Button = ({
 }
 
 export type { ButtonProps }
-export default Button
+export default forwardRef(Button)

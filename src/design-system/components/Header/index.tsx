@@ -1,14 +1,16 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
-import { LogoIcon } from "../../assets/icon"
 import HeaderItems from "./HeaderItems"
 import Container from "../Container"
 import ThemeToggleButton from "../ThemeToggleButton"
 import Link from "../Link"
+import GradientIconLink from "../GradientIconLink"
 import { HamburgerMenuButton } from "./components"
+import { theme } from "../../theme/theme.css"
+import { LogoIconClipPath } from "../../assets/clipPath"
 
 type HeaderProps = {
   items: HeaderItems
@@ -16,9 +18,24 @@ type HeaderProps = {
 
 const Header = ({ items, ...props }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false)
+  const headerContainerRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    const outSideClick = (e: MouseEvent) => {
+      setIsOpen((prev) => {
+        return !!(
+          prev &&
+          headerContainerRef.current &&
+          headerContainerRef.current.contains(e.target as Node)
+        )
+      })
+    }
+    document.addEventListener("click", outSideClick)
+  }, [])
 
   return (
     <Container
+      ref={headerContainerRef}
       alignment={"columnCenter"}
       layout={"fullWidth"}
       className={clsx(styles.headerContainer)}
@@ -29,9 +46,15 @@ const Header = ({ items, ...props }: HeaderProps) => {
         className={clsx(styles.header)}
         {...props}
       >
-        <Link color={"none"} href={"/"} size={"xSmall"}>
-          <LogoIcon />
-        </Link>
+        <GradientIconLink
+          clipPathId={"logoIconClipPath"}
+          href={"/"}
+          deg={120}
+          colors={[theme.colors.text.text, theme.colors.primary]}
+        >
+          <LogoIconClipPath clipPathId={"logoIconClipPath"} />
+        </GradientIconLink>
+
         <Container header-item={"true"} gap={"xSmall"} padding={"none"}>
           {items.items.map((item, idx) => (
             <Link

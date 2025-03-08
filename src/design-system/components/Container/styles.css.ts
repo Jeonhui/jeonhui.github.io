@@ -19,14 +19,18 @@ export const containerAlignmentVariants = styleVariants(
   (alignment) => alignment,
 )
 
-export const containerPaddingVariants = styleVariants(theme.spaces, (space) => {
-  return {
-    padding: space,
-  }
-})
+export const containerPaddingVariants = styleVariants(theme.spaces, (space) =>
+  space === "0"
+    ? {}
+    : {
+        padding: space,
+      },
+)
 
-export const containerGapVariants = styleVariants(theme.spaces, (space) => {
-  return {
-    gap: space,
-  }
-})
+export const containerGapVariants = styleVariants(theme.spaces, (space) =>
+  space === "0"
+    ? {}
+    : {
+        gap: space,
+      },
+)

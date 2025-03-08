@@ -7,6 +7,7 @@ type ZIndices = {
   background: ZIndex
   default: ZIndex
   dropdown: ZIndex
+  modalOverlay: ZIndex
   modal: ZIndex
   overlay: ZIndex
 }
@@ -16,6 +17,7 @@ const zIndices: ZIndices = {
   background: "100",
   default: "200",
   dropdown: "300",
+  modalOverlay: "350",
   modal: "400",
   overlay: "500",
 }
