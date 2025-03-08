@@ -51,7 +51,7 @@ globalStyle(`${header} [header-item=true] > [data-media-show-item]`, {
   },
 })
 
-globalStyle(`${headerContainer} [header-menu-item=true]`, {
+globalStyle(`${headerContainer} > [header-menu-item=true]`, {
   overflow: "hidden",
   maxHeight: 0,
   padding: `0 ${theme.spaces.medium}`,
