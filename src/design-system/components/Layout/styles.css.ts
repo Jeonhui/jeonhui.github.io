@@ -9,7 +9,6 @@ import { theme } from "../../theme/theme.css"
 export const maxWidth = theme.breakpoints.medium.width
 
 export const layout = style({
-  scrollSnapAlign: "start",
   width: "100%",
   minHeight: "100svh",
   maxWidth: maxWidth,
