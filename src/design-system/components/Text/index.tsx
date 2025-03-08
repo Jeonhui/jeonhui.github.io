@@ -1,4 +1,4 @@
-import React from "react"
+import React, { forwardRef, Ref } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 
@@ -9,15 +9,19 @@ type TextProps = {
   typography?: keyof typeof styles.textTypographyVariants
 }
 
-const Text = ({
-  children,
-  color = "text",
-  font = "base",
-  typography = "body1",
-  ...props
-}: TextProps) => {
+const Text = (
+  {
+    children,
+    color = "text",
+    font = "base",
+    typography = "body1",
+    ...props
+  }: TextProps,
+  ref: Ref<HTMLSpanElement>,
+) => {
   return (
     <span
+      ref={ref}
       className={clsx(
         styles.text,
         styles.textColorVariants[color],
@@ -31,4 +35,4 @@ const Text = ({
   )
 }
 
-export default Text
+export default forwardRef(Text)

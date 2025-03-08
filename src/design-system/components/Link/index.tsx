@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { forwardRef, Ref } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 
@@ -16,24 +16,28 @@ type LinkProps = {
   onClick?: () => void
 }
 
-const Link = ({
-  children,
-  className,
-  href,
-  leftIcon,
-  rightIcon,
-  alignment = "rowCenter",
-  color = "default",
-  size = "medium",
-  onClick,
-  ...props
-}: LinkProps) => {
+const Link = (
+  {
+    children,
+    className,
+    href,
+    leftIcon,
+    rightIcon,
+    alignment = "rowCenter",
+    color = "default",
+    size = "medium",
+    onClick,
+    ...props
+  }: LinkProps,
+  ref: Ref<HTMLAnchorElement>,
+) => {
   const onClickHandler = () => {
     onClick?.()
   }
 
   return (
     <a
+      ref={ref}
       href={href}
       className={clsx(
         className,
@@ -52,5 +56,4 @@ const Link = ({
   )
 }
 
-export type { LinkProps }
-export default Link
+export default forwardRef(Link)

@@ -15,7 +15,7 @@ type Spaces = {
 }
 
 const spaces: Spaces = {
-  none: "0rem",
+  none: "0",
   xxSmall: "0.125rem", // 2px
   xSmall: "0.25rem", // 4px
   small: "0.5rem", // 8px

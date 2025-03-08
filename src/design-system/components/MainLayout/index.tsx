@@ -11,20 +11,6 @@ type MainLayoutProps = {
 }
 
 const MainLayout = ({ children, headerItems, ...props }: MainLayoutProps) => {
-  // const [scrollY, setScrollY] = useState(0)
-  //
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setScrollY(window.scrollY)
-  //   }
-  //
-  //   window.addEventListener("scroll", handleScroll)
-  //
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll)
-  //   }
-  // }, [])
-
   return (
     <div className={clsx(styles.mainLayout)} {...props}>
       <Header items={headerItems} />

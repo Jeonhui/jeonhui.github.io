@@ -2,13 +2,15 @@ import React from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 
-type ListProps<T> = {
-  values: T[]
+type ListValueType = string | number | object
+
+type ListProps<T extends ListValueType> = {
+  values: Array<T>
   list: (value: T) => React.ReactNode
   keyExtractor?: (value: T) => React.Key
 }
 
-const List = <T extends object | string>({
+const List = <T extends ListValueType>({
   values,
   list,
   keyExtractor,

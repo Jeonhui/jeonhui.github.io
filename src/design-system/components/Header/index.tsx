@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 import { LogoIcon } from "../../assets/icon"
@@ -16,9 +16,24 @@ type HeaderProps = {
 
 const Header = ({ items, ...props }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false)
+  const headerContainerRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    const outSideClick = (e: MouseEvent) => {
+      setIsOpen((prev) => {
+        return !!(
+          prev &&
+          headerContainerRef.current &&
+          headerContainerRef.current.contains(e.target as Node)
+        )
+      })
+    }
+    document.addEventListener("click", outSideClick)
+  }, [])
 
   return (
     <Container
+      ref={headerContainerRef}
       alignment={"columnCenter"}
       layout={"fullWidth"}
       className={clsx(styles.headerContainer)}

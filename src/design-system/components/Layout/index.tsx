@@ -1,4 +1,4 @@
-import React from "react"
+import React, { forwardRef, Ref } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 
@@ -12,18 +12,22 @@ type LayoutProps = {
   horizontalPadding?: keyof typeof styles.layoutHorizontalPaddingVariants
 }
 
-const Layout = ({
-  children,
-  animate = true,
-  hasHeaderPadding = true,
-  alignment = "columnTopLeft",
-  gap = "medium",
-  verticalPadding = "medium",
-  horizontalPadding = "large",
-  ...props
-}: LayoutProps) => {
+const Layout = (
+  {
+    children,
+    animate = true,
+    hasHeaderPadding = true,
+    alignment = "columnTopLeft",
+    gap = "medium",
+    verticalPadding = "medium",
+    horizontalPadding = "large",
+    ...props
+  }: LayoutProps,
+  ref: Ref<HTMLDivElement>,
+) => {
   return (
     <div
+      ref={ref}
       className={clsx(
         styles.layout,
         styles.layoutGapVariants[gap],
@@ -40,4 +44,4 @@ const Layout = ({
   )
 }
 
-export default Layout
+export default forwardRef(Layout)

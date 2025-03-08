@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { forwardRef, Ref } from "react"
 import { clsx } from "clsx"
 import Button, { ButtonProps } from "../Button"
 import { DarkModeIcon, LightModeIcon } from "../../assets/icon"
@@ -9,11 +9,10 @@ import { useIsClient, useTheme } from "../../hooks"
 import { AnimatePresence, motion } from "framer-motion"
 
 type ThemeToggleButtonProps = Omit<ButtonProps, "children">
-const ThemeToggleButton = ({
-  className,
-  onClick,
-  ...props
-}: ThemeToggleButtonProps) => {
+const ThemeToggleButton = (
+  { className, onClick, ...props }: ThemeToggleButtonProps,
+  ref: Ref<HTMLButtonElement>,
+) => {
   const isClient = useIsClient()
   const { theme, toggleTheme } = useTheme()
 
@@ -24,6 +23,7 @@ const ThemeToggleButton = ({
 
   return (
     <Button
+      ref={ref}
       className={clsx(className, styles.themeToggleButton)}
       color={"text"}
       onClick={onClickHandler}
@@ -72,4 +72,4 @@ const ThemeToggleButton = ({
   )
 }
 
-export default ThemeToggleButton
+export default forwardRef(ThemeToggleButton)

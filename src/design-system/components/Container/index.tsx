@@ -1,9 +1,11 @@
-import React, { HTMLProps } from "react"
+"use client"
+
+import React, { forwardRef, HTMLProps, Ref } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 
 type ContainerProps = {
-  children: React.ReactNode
+  children?: React.ReactNode
   className?: string
   box?: boolean
   flexGrow?: boolean
@@ -13,19 +15,23 @@ type ContainerProps = {
   gap?: keyof typeof styles.containerGapVariants
 } & HTMLProps<HTMLDivElement>
 
-const Container = ({
-  children,
-  className,
-  box = false,
-  flexGrow = false,
-  layout,
-  alignment = "columnCenter",
-  padding = "none",
-  gap = "none",
-  ...props
-}: ContainerProps) => {
+const Container = (
+  {
+    children,
+    className,
+    box = false,
+    flexGrow = false,
+    layout,
+    alignment = "columnCenter",
+    padding = "none",
+    gap = "none",
+    ...props
+  }: ContainerProps,
+  ref: Ref<HTMLDivElement>,
+) => {
   return (
     <div
+      ref={ref}
       className={clsx(
         className,
         styles.container,
@@ -45,4 +51,4 @@ const Container = ({
   )
 }
 
-export default Container
+export default forwardRef(Container)

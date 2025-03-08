@@ -22,6 +22,5 @@ export const textTypographyVariants = styleVariants(
   theme.typographies,
   (typography) => ({
     ...typography,
-    "@media": {},
   }),
 )

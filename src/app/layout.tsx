@@ -12,6 +12,14 @@ export const metadata: Metadata = {
   icons: ["favicon.png"],
 }
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: "no",
+  orientation: "portrait",
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{

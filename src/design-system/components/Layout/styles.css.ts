@@ -23,27 +23,37 @@ export const layoutAlignmentVariants = styleVariants(
   (alignment) => alignment,
 )
 
-export const layoutGapVariants = styleVariants(theme.spaces, (space) => ({
-  gap: space,
-}))
+export const layoutGapVariants = styleVariants(theme.spaces, (space) =>
+  space === "0"
+    ? {}
+    : {
+        gap: space,
+      },
+)
 
 export const layoutVerticalPaddingVariants = styleVariants(
   theme.spaces,
-  (space) => ({
-    "&[data-has-header-padding=true]": {
-      paddingTop: `calc(${space} + 3rem)`,
-    },
-    paddingTop: `${space}`,
-    paddingBottom: space,
-  }),
+  (space) =>
+    space === "0"
+      ? {}
+      : {
+          "&[data-has-header-padding=true]": {
+            paddingTop: `calc(${space} + 3rem)`,
+          },
+          paddingTop: `${space}`,
+          paddingBottom: space,
+        },
 )
 
 export const layoutHorizontalPaddingVariants = styleVariants(
   theme.spaces,
-  (space) => ({
-    paddingLeft: space,
-    paddingRight: space,
-  }),
+  (space) =>
+    space === "0"
+      ? {}
+      : {
+          paddingLeft: space,
+          paddingRight: space,
+        },
 )
 
 // animation

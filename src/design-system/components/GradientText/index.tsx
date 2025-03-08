@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { forwardRef, Ref } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 import { Property } from "csstype"
@@ -15,14 +15,17 @@ type GradientTextProps = {
   typography?: keyof typeof styles.gradientTextTypographyVariants
 }
 
-const GradientText = ({
-  children,
-  colors,
-  deg,
-  font = "base",
-  typography = "body1",
-  ...props
-}: GradientTextProps) => {
+const GradientText = (
+  {
+    children,
+    colors,
+    deg,
+    font = "base",
+    typography = "body1",
+    ...props
+  }: GradientTextProps,
+  ref: Ref<HTMLSpanElement>,
+) => {
   const isClient = useIsClient()
 
   const colorString = colors
@@ -33,6 +36,7 @@ const GradientText = ({
 
   return (
     <span
+      ref={ref}
       style={{
         backgroundImage: `linear-gradient(${deg ?? 0}deg, ${colorString})`,
       }}
@@ -51,4 +55,4 @@ const GradientText = ({
   )
 }
 
-export default GradientText
+export default forwardRef(GradientText)
