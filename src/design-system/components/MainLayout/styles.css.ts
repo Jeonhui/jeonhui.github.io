@@ -7,6 +7,7 @@ export const mainLayout = style({
   overflowY: "auto",
   ...theme.layouts.fullWidth,
   ...theme.alignments.columnTopCenter,
+  scrollSnapType: "y mandatory",
 })
 
 globalStyle(`${mainLayout} > *`, {

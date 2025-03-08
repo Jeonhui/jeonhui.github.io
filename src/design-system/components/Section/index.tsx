@@ -1,11 +1,14 @@
-import React, { forwardRef, Ref } from "react"
+"use client"
+
+import React, { forwardRef, Ref, RefObject, useEffect, useRef } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
+import { motion, useAnimation, useInView } from "framer-motion"
 
 type SectionProps = {
   children: React.ReactNode
   animate?: boolean
-  isTopSection?: boolean
+  hasHeaderPadding?: boolean
   alignment?: keyof typeof styles.sectionAlignmentVariants
   gap?: keyof typeof styles.sectionGapVariants
   verticalPadding?: keyof typeof styles.sectionVerticalPaddingVariants
@@ -16,7 +19,7 @@ const Section = (
   {
     children,
     animate = true,
-    isTopSection = false,
+    hasHeaderPadding = true,
     alignment = "columnTopLeft",
     gap = "medium",
     verticalPadding = "medium",
@@ -25,9 +28,42 @@ const Section = (
   }: SectionProps,
   ref: Ref<HTMLDivElement>,
 ) => {
+  const viewRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(viewRef, { once: true, amount: 0.8 })
+  const mainControls = useAnimation()
+
+  useEffect(() => {
+    if (isInView) {
+      mainControls.start("visible")
+    }
+  }, [isInView, mainControls, viewRef])
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  }
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  }
+
   return (
-    <div
-      ref={ref}
+    <motion.div
+      ref={(node) => {
+        if (typeof ref === "function") ref(node)
+        else if (ref) (ref as RefObject<HTMLDivElement | null>).current = node
+        viewRef.current = node
+      }}
+      animate={mainControls}
+      variants={containerVariants}
+      initial="hidden"
+      transition={{ duration: 0.5, delay: 0.3 }}
       className={clsx(
         styles.section,
         styles.sectionGapVariants[gap],
@@ -37,10 +73,14 @@ const Section = (
       )}
       {...props}
       data-animate={animate}
-      data-is-top-section={isTopSection}
+      data-has-header-padding={hasHeaderPadding}
     >
-      {children}
-    </div>
+      {React.Children.map(children, (child, index) => (
+        <motion.div key={index} variants={childVariants}>
+          {child}
+        </motion.div>
+      ))}
+    </motion.div>
   )
 }
 

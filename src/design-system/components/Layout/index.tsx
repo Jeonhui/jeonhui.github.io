@@ -15,7 +15,7 @@ type LayoutProps = {
 const Layout = (
   {
     children,
-    animate = true,
+    animate = false,
     hasHeaderPadding = true,
     alignment = "columnTopLeft",
     gap = "none",

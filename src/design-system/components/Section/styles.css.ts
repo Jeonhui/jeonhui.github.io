@@ -9,12 +9,9 @@ import { theme } from "../../theme/theme.css"
 export const maxWidth = theme.breakpoints.medium.width
 
 export const section = style({
+  scrollSnapAlign: "start",
   width: "100%",
   minHeight: "100svh",
-})
-
-globalStyle(`${section}[data-is-top-section=true]`, {
-  minHeight: "calc(100svh - 4rem)",
 })
 
 globalStyle(`${section} > *`, {
@@ -38,10 +35,14 @@ export const sectionVerticalPaddingVariants = styleVariants(
   theme.spaces,
   (space) =>
     space === "0"
-      ? {}
+      ? {
+          "&[data-has-header-padding=true]": {
+            paddingTop: `4rem`,
+          },
+        }
       : {
           "&[data-has-header-padding=true]": {
-            paddingTop: `calc(${space} + 3rem)`,
+            paddingTop: `calc(${space} + 4rem)`,
           },
           paddingTop: `${space}`,
           paddingBottom: space,
