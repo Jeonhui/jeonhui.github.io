@@ -10,10 +10,10 @@ export const headerContainer = style({
   maxWidth: maxWidth,
   backdropFilter: "blur(32px)",
   zIndex: theme.zIndices.modal,
-  padding: `${theme.spaces.small} ${theme.spaces.xLarge}`,
+  padding: `${theme.spaces.small} ${theme.spaces.xLarge} !important`,
   "@media": {
     [breakpoints.media]: {
-      padding: `${theme.spaces.xSmall} ${theme.spaces.small}`,
+      padding: `${theme.spaces.xSmall} ${theme.spaces.small} !important`,
     },
   },
 })
@@ -50,7 +50,7 @@ globalStyle(`${header} [header-item=true] > [data-media-show-item]`, {
   },
 })
 
-globalStyle(`${headerContainer} [header-menu-item=true]`, {
+globalStyle(`${headerContainer} > [header-menu-item=true]`, {
   overflow: "hidden",
   maxHeight: 0,
   padding: `0 ${theme.spaces.medium}`,
