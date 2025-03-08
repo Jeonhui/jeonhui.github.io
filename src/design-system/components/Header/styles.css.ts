@@ -10,16 +10,16 @@ export const headerContainer = style({
   maxWidth: maxWidth,
   backdropFilter: "blur(32px)",
   zIndex: theme.zIndices.modal,
-})
-
-export const header = style({
-  height: "3rem",
   padding: `${theme.spaces.small} ${theme.spaces.xLarge}`,
   "@media": {
     [breakpoints.media]: {
       padding: `${theme.spaces.xSmall} ${theme.spaces.small}`,
     },
   },
+})
+
+export const header = style({
+  height: "3rem",
 })
 
 globalStyle(`${header} > svg`, {
