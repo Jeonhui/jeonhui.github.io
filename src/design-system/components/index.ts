@@ -8,6 +8,7 @@ import List from "./List"
 import Link from "./Link"
 import ThemeToggleButton from "./ThemeToggleButton"
 import GradientText from "./GradientText"
+import GradientIconButton from "./GradientIconLink"
 
 export {
   MainLayout,
@@ -20,4 +21,5 @@ export {
   Link,
   ThemeToggleButton,
   GradientText,
+  GradientIconButton,
 }

@@ -18,9 +18,9 @@ const Layout = (
     animate = true,
     hasHeaderPadding = true,
     alignment = "columnTopLeft",
-    gap = "medium",
-    verticalPadding = "medium",
-    horizontalPadding = "large",
+    gap = "none",
+    verticalPadding = "none",
+    horizontalPadding = "none",
     ...props
   }: LayoutProps,
   ref: Ref<HTMLDivElement>,

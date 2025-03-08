@@ -1,10 +1,10 @@
 "use client"
 
-import React, { forwardRef, Ref } from "react"
+import React, { forwardRef, Ref, useState } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 import { Property } from "csstype"
-import { useIsClient } from "@design/hooks"
+import { useIsClient } from "../../hooks"
 import Color = Property.Color
 
 type GradientTextProps = {
@@ -28,6 +28,15 @@ const GradientText = (
 ) => {
   const isClient = useIsClient()
 
+  const [effect, setEffect] = useState(false)
+
+  const onMouseOverHandler = () => {
+    setEffect(true)
+    setTimeout(() => {
+      setEffect(false)
+    }, 1000)
+  }
+
   const colorString = colors
     .map((color, index) => {
       return `${color} ${index * (100 / (colors.length - 1))}%`
@@ -43,11 +52,14 @@ const GradientText = (
       className={clsx(
         styles.gradientText,
         {
-          [styles.gradientTextVisible]: isClient,
+          [styles.gradientTextInvisible]: !isClient,
+          [styles.gradientTextVisible]: isClient && !effect,
+          [styles.gradientTextEffect]: isClient && effect,
         },
         styles.gradientTextFontVariants[font],
         styles.gradientTextTypographyVariants[typography],
       )}
+      onMouseOver={onMouseOverHandler}
       {...props}
     >
       {children}
