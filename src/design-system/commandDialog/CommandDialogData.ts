@@ -1,4 +1,5 @@
 type CommandDialogItem = {
+  icon: string
   name: string
   tag?: string
   link?: string

@@ -1,11 +1,10 @@
 import type { Metadata } from "next"
 import React, { JSX } from "react"
-import { ThemeProvider } from "@/design-system/theme/ThemeProvider"
-import MainLayout from "@/design-system/components/MainLayout"
+import ThemeProvider from "@/design-system/theme/ThemeProvider"
 import CommandDialogProvider from "@design/commandDialog/CommandDialogProvider"
-import commandDialogData from "../data/command-dialog.json"
-import headerItem from "../data/header-item.json"
+import MainLayout from "@/design-system/components/MainLayout"
 import { INFO } from "@/constants"
+import { commandDialogData, headerItems } from "@/data"
 
 export const metadata: Metadata = {
   metadataBase: new URL(INFO.BASE_URL),
@@ -30,13 +29,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <CommandDialogProvider data={commandDialogData}>
-            <MainLayout
-              headerItems={{
-                ...headerItem,
-              }}
-            >
-              {children}
-            </MainLayout>
+            <MainLayout headerItems={headerItems}>{children}</MainLayout>
           </CommandDialogProvider>
         </ThemeProvider>
       </body>

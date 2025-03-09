@@ -41,7 +41,7 @@ const colorThemeScript = `
 
 type ThemeProviderProps = PropsWithChildren
 
-export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<ThemeMode>(() => {
     return typeof window !== "undefined" && window.__theme
       ? window.__theme
@@ -75,3 +75,5 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     </ThemeContext.Provider>
   )
 }
+
+export default ThemeProvider
