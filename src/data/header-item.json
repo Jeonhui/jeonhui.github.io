@@ -2,7 +2,7 @@
   "items": [
     {
       "name": "About Me",
-      "href": "/about-me"
+      "href": "/#about-me"
     },
     {
       "name": "Experiences",

@@ -12,7 +12,6 @@ globalStyle("*", {
 globalStyle("body", {
   position: "relative",
   height: "100svh",
-  overflow: "hidden",
   backgroundColor: theme.colors.background,
   fontFamily: theme.fonts.base,
   color: theme.colors.text.text,

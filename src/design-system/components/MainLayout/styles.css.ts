@@ -8,6 +8,13 @@ export const mainLayout = style({
   ...theme.layouts.fullWidth,
   ...theme.alignments.columnTopCenter,
   scrollSnapType: "y mandatory",
+  scrollBehavior: "smooth",
+})
+
+export const forScrollbar = style({
+  width: 0,
+  height: 0,
+  zIndex: theme.zIndices.overlay,
 })
 
 globalStyle(`${mainLayout} > *`, {

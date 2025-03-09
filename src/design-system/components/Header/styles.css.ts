@@ -54,7 +54,7 @@ globalStyle(`${header} [header-item=true] > [data-media-show-item]`, {
 globalStyle(`${headerContainer} > [header-menu-item=true]`, {
   overflow: "hidden",
   maxHeight: 0,
-  padding: `0 ${theme.spaces.medium}`,
+  padding: `0`,
   transition: "max-height 0.4s ease-in-out, padding 0.4s ease-in-out",
   "@media": {
     [`screen and (min-width: ${breakpoints.width})`]: {
@@ -67,6 +67,6 @@ globalStyle(
   `${headerContainer} [header-menu-item=true][header-menu-item-open=true]`,
   {
     maxHeight: "500px",
-    padding: `${theme.spaces.medium} ${theme.spaces.medium}`,
+    padding: `${theme.spaces.medium} 0`,
   },
 )

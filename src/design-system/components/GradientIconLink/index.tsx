@@ -3,6 +3,7 @@
 import React, { forwardRef, Ref } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
+import { gradientIcon } from "./styles.css"
 import { Property } from "csstype"
 import { useIsClient } from "../../hooks"
 import Color = Property.Color
@@ -39,30 +40,28 @@ const GradientIconLink = (
     .join(", ")
 
   return (
-    <>
-      <a
-        ref={ref}
-        href={href}
-        className={clsx(
-          className,
-          styles.gradientLink,
-          styles.linkSizeVariants[size],
-        )}
+    <a
+      ref={ref}
+      href={href}
+      className={clsx(
+        className,
+        styles.gradientLink,
+        styles.linkSizeVariants[size],
+      )}
+    >
+      <div
+        style={{
+          backgroundImage: `linear-gradient(${deg ?? 0}deg, ${colorString})`,
+          clipPath: `url(#${clipPathId})`,
+        }}
+        className={clsx(gradientIcon, {
+          [styles.gradientIconInvisible]: !isClient,
+          [styles.gradientIconVisible]: isClient,
+        })}
         {...props}
-      >
-        <div
-          style={{
-            backgroundImage: `linear-gradient(${deg ?? 0}deg, ${colorString})`,
-            clipPath: `url(#${clipPathId})`,
-          }}
-          className={clsx(className, styles.gradientIcon, {
-            [styles.gradientIconInvisible]: !isClient,
-            [styles.gradientIconVisible]: isClient,
-          })}
-        />
-      </a>
+      />
       {children}
-    </>
+    </a>
   )
 }
 

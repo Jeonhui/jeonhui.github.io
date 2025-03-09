@@ -33,6 +33,10 @@ const Header = ({ items, ...props }: HeaderProps) => {
     document.addEventListener("click", outSideClick)
   }, [])
 
+  const onHeaderMenuLinkClickHandler = () => {
+    setIsOpen(false)
+  }
+
   return (
     <Container
       ref={headerContainerRef}
@@ -84,6 +88,7 @@ const Header = ({ items, ...props }: HeaderProps) => {
       >
         {items.items.map((item, idx) => (
           <Link
+            onClick={onHeaderMenuLinkClickHandler}
             href={item.href}
             key={idx}
             size={"xSmall_full"}

@@ -32,6 +32,7 @@ const Link = (
   ref: Ref<HTMLAnchorElement>,
 ) => {
   const onClickHandler = () => {
+    console.log("Link clicked", onClick)
     onClick?.()
   }
 
@@ -46,8 +47,8 @@ const Link = (
         styles.linkColorVariants[color],
         styles.linkSizeVariants[size],
       )}
-      {...props}
       onClick={onClickHandler}
+      {...props}
     >
       {leftIcon}
       {children}

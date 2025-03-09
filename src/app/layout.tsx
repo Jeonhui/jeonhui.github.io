@@ -5,19 +5,19 @@ import MainLayout from "@/design-system/components/MainLayout"
 import CommandDialogProvider from "@design/commandDialog/CommandDialogProvider"
 import commandDialogData from "../data/command-dialog.json"
 import headerItem from "../data/header-item.json"
+import { INFO } from "@/constants"
 
 export const metadata: Metadata = {
-  title: "Jeonhui | iOS Developer",
-  description: "Personal Page(Blog & Portfolio)",
-  icons: ["favicon.png"],
-}
-
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: "no",
-  orientation: "portrait",
+  metadataBase: new URL(INFO.BASE_URL),
+  title: INFO.TITLE,
+  description: INFO.DESCRIPTION,
+  icons: [INFO.FAVICON],
+  openGraph: {
+    title: INFO.TITLE,
+    description: INFO.DESCRIPTION,
+    type: "website",
+    images: [INFO.PREVIEW_IMAGE],
+  },
 }
 
 export default function RootLayout({

@@ -6,6 +6,7 @@ import * as styles from "./styles.css"
 import { motion, useAnimation, useInView } from "framer-motion"
 
 type SectionProps = {
+  id?: string
   children: React.ReactNode
   animate?: boolean
   hasHeaderPadding?: boolean
@@ -17,13 +18,14 @@ type SectionProps = {
 
 const Section = (
   {
+    id,
     children,
     animate = true,
     hasHeaderPadding = true,
     alignment = "columnTopLeft",
     gap = "medium",
     verticalPadding = "medium",
-    horizontalPadding = "large",
+    horizontalPadding = "none",
     ...props
   }: SectionProps,
   ref: Ref<HTMLDivElement>,
@@ -49,12 +51,13 @@ const Section = (
   }
 
   const childVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   }
 
   return (
     <motion.div
+      id={id}
       ref={(node) => {
         if (typeof ref === "function") ref(node)
         else if (ref) (ref as RefObject<HTMLDivElement | null>).current = node

@@ -81,7 +81,7 @@ type ColorTheme = {
 
 // ThemeColors
 const lightModeThemeColors: ColorTheme = {
-  primary: colorSetVars.primary500,
+  primary: colorSetVars.primary400,
   logo: colorSetVars.gray900,
   background: colorSetVars.white,
 

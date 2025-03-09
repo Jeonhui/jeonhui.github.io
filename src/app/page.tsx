@@ -11,7 +11,7 @@ export default function Home() {
         <Container
           alignment={"columnCenterLeft"}
           gap={"xxSmall"}
-          padding={"small"}
+          padding={"none"}
         >
           <GradientText
             deg={120}
@@ -43,7 +43,7 @@ export default function Home() {
         />
       </Section>
       <Section>Section2</Section>
-      <Section>
+      <Section id={"about-me"}>
         <Container
           alignment={"columnCenterLeft"}
           gap={"xxSmall"}
