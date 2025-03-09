@@ -67,4 +67,5 @@ const GradientText = (
   )
 }
 
+export type { GradientTextProps }
 export default forwardRef(GradientText)

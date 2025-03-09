@@ -1,8 +1,15 @@
-import { Container, GradientText, Layout, Text } from "@design/components"
-import List from "@design/components/List"
-import { theme } from "@design/theme/theme.css"
 import React from "react"
-import Section from "@design/components/Section"
+import { theme } from "@design/theme/theme.css"
+import {
+  Container,
+  GradientText,
+  Layout,
+  List,
+  Section,
+  Text,
+} from "@design/components"
+import { DownloadLinkButton } from "@/components"
+import { downloadLinks } from "@/data"
 
 export default function Home() {
   return (
@@ -41,6 +48,7 @@ export default function Home() {
             </Text>
           )}
         />
+        <DownloadLinkButton downloadLink={downloadLinks.resume} />
       </Section>
       <Section>Section2</Section>
       <Section id={"about-me"}>

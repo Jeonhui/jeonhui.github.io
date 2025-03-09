@@ -1,16 +1,14 @@
-type Link = {
-  name: string
-  link: string
-}
+import { DownloadLink } from "@/components"
 
 type DownloadLinks = {
-  resume: Link
+  resume: DownloadLink
 }
 
 const downloadLinks: DownloadLinks = {
   resume: {
-    name: "이력서",
-    link: "https://drive.google.com/file/d/1oAlsdYnv8RVza0YUoLphEgbvI6v_hzXo/view?usp=drive_link",
+    name: "이력서 다운로드",
+    downloadName: "이전희_이력서.pdf",
+    link: "/files/resume.pdf",
   },
 }
 

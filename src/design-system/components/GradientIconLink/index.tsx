@@ -65,4 +65,5 @@ const GradientIconLink = (
   )
 }
 
+export type { GradientIconLinkProps }
 export default forwardRef(GradientIconLink)

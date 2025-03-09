@@ -35,4 +35,5 @@ const Text = (
   )
 }
 
+export type { TextProps }
 export default forwardRef(Text)

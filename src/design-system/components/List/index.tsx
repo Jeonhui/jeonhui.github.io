@@ -43,4 +43,5 @@ const List = <T extends ListValueType>({
   )
 }
 
+export type { ListProps }
 export default List

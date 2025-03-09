@@ -80,5 +80,5 @@ const Input = (
   )
 }
 
-export type { InputRef }
+export type { InputRef, InputProps }
 export default forwardRef(Input)

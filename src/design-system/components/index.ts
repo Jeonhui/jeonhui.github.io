@@ -1,5 +1,6 @@
 import MainLayout from "./MainLayout"
 import Layout from "./Layout"
+import Section from "./Section"
 import Container from "./Container"
 import Button from "./Button"
 import Input from "./Input"
@@ -13,6 +14,7 @@ import GradientIconButton from "./GradientIconLink"
 export {
   MainLayout,
   Layout,
+  Section,
   Container,
   Button,
   Input,
