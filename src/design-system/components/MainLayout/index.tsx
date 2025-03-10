@@ -14,7 +14,6 @@ const MainLayout = ({ children, headerItems, ...props }: MainLayoutProps) => {
   return (
     <div className={clsx(styles.mainLayout)} {...props}>
       <Header items={headerItems} />
-      <div className={clsx(styles.forScrollbar)} />
       {children}
     </div>
   )

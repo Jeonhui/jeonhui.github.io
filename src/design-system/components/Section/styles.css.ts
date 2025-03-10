@@ -5,13 +5,21 @@ import {
   styleVariants,
 } from "@vanilla-extract/css"
 import { theme } from "../../theme/theme.css"
-
-export const maxWidth = theme.breakpoints.medium.width
+import {
+  headerHeight,
+  layoutContentBreakpoint,
+} from "@design/components/Layout/styles.css"
 
 export const section = style({
   scrollSnapAlign: "start",
   width: "100%",
   minHeight: "100svh",
+  padding: `0 ${theme.spaces.xLarge}`,
+  "@media": {
+    [layoutContentBreakpoint.media]: {
+      padding: `0 ${theme.spaces.medium}`,
+    },
+  },
 })
 
 globalStyle(`${section} > *`, {
@@ -37,12 +45,12 @@ export const sectionVerticalPaddingVariants = styleVariants(
     space === "0"
       ? {
           "&[data-has-header-padding=true]": {
-            paddingTop: `4rem`,
+            paddingTop: headerHeight,
           },
         }
       : {
           "&[data-has-header-padding=true]": {
-            paddingTop: `calc(${space} + 4rem)`,
+            paddingTop: `calc(${space} + ${headerHeight})`,
           },
           paddingTop: `${space}`,
           paddingBottom: space,

@@ -4,15 +4,21 @@ import * as styles from "./styles.css"
 
 type LayoutProps = {
   children: React.ReactNode
-  hasHeaderPadding?: boolean
-  alignment?: keyof typeof styles.layoutAlignmentVariants
+  leftSidebar?: React.ReactNode
+  rightSidebar?: React.ReactNode
+  scrollSnapMandatory?: boolean
+  alignment?: keyof typeof styles.layoutContentAlignmentVariants
+  gap?: keyof typeof styles.layoutContentGapVariants
 }
 
 const Layout = (
   {
     children,
-    hasHeaderPadding = true,
-    alignment = "columnTopLeft",
+    leftSidebar,
+    rightSidebar,
+    scrollSnapMandatory = true,
+    gap = "medium",
+    alignment = "columnTopCenter",
     ...props
   }: LayoutProps,
   ref: Ref<HTMLDivElement>,
@@ -20,11 +26,23 @@ const Layout = (
   return (
     <div
       ref={ref}
-      className={clsx(styles.layout, styles.layoutAlignmentVariants[alignment])}
+      className={clsx("layout", styles.layout)}
       {...props}
-      data-has-header-padding={hasHeaderPadding}
+      data-scroll-snap-mandatory={scrollSnapMandatory}
     >
-      {children}
+      <div className={clsx(styles.forScrollbar)} />
+      <div className={clsx("leftSideBar", styles.sidebar)}>{leftSidebar}</div>
+      <div
+        className={clsx(
+          "layoutContent",
+          styles.layoutContent,
+          styles.layoutContentAlignmentVariants[alignment],
+          styles.layoutContentGapVariants[gap],
+        )}
+      >
+        {children}
+      </div>
+      <div className={clsx("rightSideBar", styles.sidebar)}>{rightSidebar}</div>
     </div>
   )
 }

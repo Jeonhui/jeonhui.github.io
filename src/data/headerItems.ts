@@ -3,20 +3,12 @@ import { HeaderItems } from "@design/components/Header"
 const headerItems: HeaderItems = {
   items: [
     {
-      name: "About Me",
-      href: "/#about-me",
+      name: "resume",
+      href: "/resume",
     },
     {
-      name: "Experiences",
-      href: "/experience",
-    },
-    {
-      name: "Skills",
-      href: "/about-me",
-    },
-    {
-      name: "Contact",
-      href: "/about-me",
+      name: "portfolio",
+      href: "/portfolio",
     },
   ],
 }

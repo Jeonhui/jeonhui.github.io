@@ -1,13 +1,13 @@
 import { Layout, Section } from "@design/components"
 
-const Resume = () => {
+const Portfolio = () => {
   return (
     <Layout>
       <Section>
-        <div> resume</div>
+        <div> portfolio</div>
       </Section>
     </Layout>
   )
 }
 
-export default Resume
+export default Portfolio
