@@ -20,6 +20,7 @@ globalStyle(`${layout}[data-scroll-snap-mandatory=true]`, {
 export const layoutContent = style({
   width: "100%",
   maxWidth: layoutContentBreakpoint.width,
+  minHeight: "100%",
   flexShrink: 0,
 })
 

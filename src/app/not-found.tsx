@@ -3,7 +3,7 @@ import { Container, Layout, Link, Text } from "@design/components"
 
 export default function NotFound() {
   return (
-    <Layout alignment={"columnCenter"} hasHeaderPadding={false}>
+    <Layout alignment={"columnCenter"}>
       <Container gap={"large"} style={{ marginBottom: "10rem" }}>
         <Container alignment={"columnCenter"}>
           <Text typography={"display1_bold"} color={"text"}>
