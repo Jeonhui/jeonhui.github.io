@@ -5,11 +5,12 @@ import { clsx } from "clsx"
 import * as styles from "./styles.css"
 import { Property } from "csstype"
 import { useIsClient } from "../../hooks"
+import { theme } from "@design/theme/theme.css"
 import Color = Property.Color
 
 type GradientTextProps = {
   children: React.ReactNode
-  colors: Color[]
+  colors?: Color[]
   deg?: number
   font?: keyof typeof styles.gradientTextFontVariants
   typography?: keyof typeof styles.gradientTextTypographyVariants
@@ -18,8 +19,8 @@ type GradientTextProps = {
 const GradientText = (
   {
     children,
-    colors,
-    deg,
+    colors = [theme.colors.text.text, theme.colors.primary],
+    deg = 120,
     font = "base",
     typography = "body1",
     ...props

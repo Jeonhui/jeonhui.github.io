@@ -2,7 +2,7 @@ import React from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 
-type ListValueType = string | number | object
+type ListValueType = string | number | object | React.ReactNode
 
 type ListProps<T extends ListValueType> = {
   values: Array<T>

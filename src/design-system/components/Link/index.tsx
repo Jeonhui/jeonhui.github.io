@@ -36,7 +36,6 @@ const Link = (
   ref: Ref<HTMLAnchorElement>,
 ) => {
   const onClickHandler = () => {
-    console.log("Link clicked", onClick)
     onClick?.()
   }
 

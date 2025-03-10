@@ -10,6 +10,8 @@ import Link from "./Link"
 import ThemeToggleButton from "./ThemeToggleButton"
 import GradientText from "./GradientText"
 import GradientIconButton from "./GradientIconLink"
+import Code from "./Code"
+import Divider from "./Divider"
 
 export {
   MainLayout,
@@ -24,4 +26,6 @@ export {
   ThemeToggleButton,
   GradientText,
   GradientIconButton,
+  Code,
+  Divider,
 }

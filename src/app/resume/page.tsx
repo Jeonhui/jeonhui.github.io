@@ -1,11 +1,13 @@
-import { Layout, Section } from "@design/components"
+"use client"
+
+import { Layout } from "@design/components"
+import Main from "@/content/resume.mdx"
+import MdxContent from "@/components/Mdx"
 
 const Resume = () => {
   return (
-    <Layout>
-      <Section>
-        <div> resume</div>
-      </Section>
+    <Layout scrollSnapMandatory={false}>
+      <MdxContent content={Main} />
     </Layout>
   )
 }
