@@ -1,15 +1,8 @@
-"use client"
-
-import { Layout } from "@design/components"
-import Main from "@/content/resume.mdx"
-import MdxContent from "@/components/Mdx"
+import { NotionPage } from "@/components"
+import { NOTIONS } from "@/constants"
 
 const Resume = () => {
-  return (
-    <Layout scrollSnapMandatory={false}>
-      <MdxContent content={Main} />
-    </Layout>
-  )
+  return <NotionPage pageId={NOTIONS.RESUME.PAGE_ID} />
 }
 
 export default Resume

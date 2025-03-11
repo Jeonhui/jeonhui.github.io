@@ -1,3 +1,5 @@
+"use client"
+
 import { Layout, Section } from "@design/components"
 
 const Portfolio = () => {

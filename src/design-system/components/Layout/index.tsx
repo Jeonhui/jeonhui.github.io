@@ -6,6 +6,8 @@ type LayoutProps = {
   children: React.ReactNode
   leftSidebar?: React.ReactNode
   rightSidebar?: React.ReactNode
+  layoutClassName?: string
+  layoutContentClassName?: string
   scrollSnapMandatory?: boolean
   alignment?: keyof typeof styles.layoutContentAlignmentVariants
   gap?: keyof typeof styles.layoutContentGapVariants
@@ -16,6 +18,8 @@ const Layout = (
     children,
     leftSidebar,
     rightSidebar,
+    layoutClassName,
+    layoutContentClassName,
     scrollSnapMandatory = true,
     gap = "medium",
     alignment = "columnTopCenter",
@@ -26,7 +30,7 @@ const Layout = (
   return (
     <div
       ref={ref}
-      className={clsx("layout", styles.layout)}
+      className={clsx("layout", layoutClassName, styles.layout)}
       {...props}
       data-scroll-snap-mandatory={scrollSnapMandatory}
     >
@@ -35,6 +39,7 @@ const Layout = (
       <div
         className={clsx(
           "layoutContent",
+          layoutContentClassName,
           styles.layoutContent,
           styles.layoutContentAlignmentVariants[alignment],
           styles.layoutContentGapVariants[gap],
