@@ -1,6 +1,6 @@
 "use client"
 
-import { Layout, Section } from "@design/components"
+import { Layout, Section, Text } from "@design/components"
 import { useEffect } from "react"
 
 const Portfolio = () => {
@@ -9,7 +9,7 @@ const Portfolio = () => {
   return (
     <Layout>
       <Section>
-        <div> portfolio</div>
+        <Text> portfolio</Text>
       </Section>
     </Layout>
   )

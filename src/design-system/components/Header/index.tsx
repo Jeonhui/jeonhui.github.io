@@ -9,7 +9,6 @@ import ThemeToggleButton from "../ThemeToggleButton"
 import Link from "../Link"
 import GradientIconLink from "../GradientIconLink"
 import { HamburgerMenuButton } from "./components"
-import { theme } from "../../theme/theme.css"
 import { LogoIconClipPath } from "../../assets/clipPath"
 
 type HeaderProps = {
@@ -50,12 +49,7 @@ const Header = ({ items, ...props }: HeaderProps) => {
         className={clsx(styles.header)}
         {...props}
       >
-        <GradientIconLink
-          clipPathId={"logoIconClipPath"}
-          href={"/"}
-          deg={120}
-          colors={[theme.colors.text.text, theme.colors.primary]}
-        >
+        <GradientIconLink clipPathId={"logoIconClipPath"} href={"/"}>
           <LogoIconClipPath clipPathId={"logoIconClipPath"} />
         </GradientIconLink>
 

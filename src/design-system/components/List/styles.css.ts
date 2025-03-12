@@ -8,7 +8,7 @@ export const list = style({
 })
 
 globalStyle(`${list} > li`, {
-  padding: "0.05rem 0",
+  padding: "0.1rem 0",
 })
 
 export const listAlignmentVariants = styleVariants(

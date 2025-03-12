@@ -20,11 +20,7 @@ export default function Home() {
           gap={"xxSmall"}
           padding={"none"}
         >
-          <GradientText
-            deg={120}
-            colors={[theme.colors.text.text, theme.colors.primary]}
-            typography={"header6_bold"}
-          >
+          <GradientText typography={"header6_bold"}>
             탐구하는 iOS 개발자
           </GradientText>
           <Text typography={"header1_bold"}>이전희</Text>
@@ -43,7 +39,7 @@ export default function Home() {
             "지속적인 성장을 추구하며, 팀원들과 긍정적인 시너지를 만들어내는 관계를 소중히 생각합니다.",
           ]}
           list={(value) => (
-            <Text typography={"body3"} color={"textDim"}>
+            <Text typography={"body3"} color={"textDim2"}>
               {value}
             </Text>
           )}

@@ -1,0 +1,1472 @@
+{
+  "block": {
+    "19dbed31-d990-8042-8f0a-d92630fabd47": {
+      "value": {
+        "id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "version": 537,
+        "type": "page",
+        "properties": {
+          "title": [
+            [
+              "Resume | 이전희 Jeonhui Lee"
+            ]
+          ]
+        },
+        "content": [
+          "19dbed31-d990-8049-9274-fcd7d10dfe8f",
+          "19dbed31-d990-8077-ace7-c3bbcea917da",
+          "19dbed31-d990-80af-8d47-cf75a8201d8b",
+          "19dbed31-d990-8048-b8a3-db91aebc624a",
+          "19dbed31-d990-8023-aace-f4a224e8eed6",
+          "19dbed31-d990-8096-a096-cd32547415cf",
+          "19dbed31-d990-8096-b832-e85c10dd103c",
+          "19dbed31-d990-8064-94b0-cf6571858aea",
+          "19dbed31-d990-80a5-9b92-d8e1292dea46",
+          "19dbed31-d990-801b-abcd-eb1b0818529b",
+          "19dbed31-d990-80e5-92f2-dc73b840a68d",
+          "19dbed31-d990-8085-a3d9-c6cb144005a8",
+          "19dbed31-d990-80cf-a416-e00022cf673d",
+          "19dbed31-d990-8013-a86e-d6d8ed66feb7",
+          "19dbed31-d990-8056-8a76-d55792f14efb",
+          "19dbed31-d990-8022-a542-ffaf760a7784",
+          "19dbed31-d990-8067-8b4d-e369d8ecccf5",
+          "19dbed31-d990-804a-8551-f70b5c0c6d42",
+          "19dbed31-d990-80e8-83ff-c7036743139c",
+          "19dbed31-d990-808f-9054-e4ff08b3629b",
+          "19dbed31-d990-805e-aaa8-e69d69e92992",
+          "19dbed31-d990-80ea-8183-fd9ef2207a8c",
+          "19dbed31-d990-8066-99b2-f4fe3a145ced",
+          "19dbed31-d990-80b9-b86d-c60b1f7f585a",
+          "19dbed31-d990-800f-9907-c21691e29201",
+          "19dbed31-d990-807b-84c9-e73930de7ad3",
+          "19dbed31-d990-8088-88dd-c594c77c69bb",
+          "19dbed31-d990-80b5-9bc8-e0a331dd9a44",
+          "19dbed31-d990-801a-8a27-e008d7b8ba3a",
+          "19dbed31-d990-801f-a8bf-d95798504805",
+          "19dbed31-d990-809e-87a2-c679ca8968be",
+          "19dbed31-d990-80ce-995e-f73d58032bff",
+          "19dbed31-d990-802d-b697-ef503d58dfef",
+          "19dbed31-d990-805f-8940-ebaec25bc190",
+          "19dbed31-d990-8092-8d60-e32289aa68ab",
+          "19dbed31-d990-80db-8241-d020d818c13c",
+          "19dbed31-d990-8009-b8ab-df117cda9125",
+          "19dbed31-d990-8014-94bf-c79245ad9232",
+          "19dbed31-d990-8068-9af5-fbda0daaff81",
+          "19dbed31-d990-8080-8277-da04cdb93e04",
+          "19dbed31-d990-807f-bebf-d7f799ded505",
+          "1b4bed31-d990-80a3-b15d-ce471326277f"
+        ],
+        "format": {
+          "site_id": "19dbed31-d990-8069-96b1-007968005fdb",
+          "page_icon": "🧑🏻‍💻",
+          "page_cover_position": 0.3,
+          "social_media_image_preview_url": "attachment:9b78a24d-5154-4fa7-959f-d3851791374f:SocialMediaPreviewImage.png"
+        },
+        "permissions": [
+          {
+            "role": "editor",
+            "type": "user_permission",
+            "user_id": "f67b54ea-34ab-43d0-b030-41db52fa0bb0"
+          },
+          {
+            "role": "reader",
+            "type": "public_permission",
+            "added_timestamp": 1739774821322
+          }
+        ],
+        "created_time": 1739772557508,
+        "last_edited_time": 1741783044909,
+        "parent_id": "19dbed31-d990-80b1-a2b9-cb1eb1d295fe",
+        "parent_table": "block",
+        "alive": true,
+        "file_ids": [
+          "d2ec21c0-2816-4b5d-9143-911c85df8cac",
+          "3979b10e-fdae-4279-adc5-a6c0f54c2761",
+          "ef32418d-82e5-4a4f-a5c4-357df7f961c9",
+          "8c147d91-c6e3-4933-b72e-3aec0a91a705",
+          "3683cf00-8220-4827-88bf-02a6d6f8fb5d",
+          "c2970cfb-5b77-4ef0-bf20-a16c11193854",
+          "20b3fb11-9dcf-444d-ad3b-fb9a4dd8c912",
+          "9b78a24d-5154-4fa7-959f-d3851791374f"
+        ],
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-80b1-a2b9-cb1eb1d295fe": {
+      "value": {
+        "id": "19dbed31-d990-80b1-a2b9-cb1eb1d295fe",
+        "version": 78,
+        "type": "page",
+        "properties": {
+          "title": [
+            [
+              "이전희 Jeonhui Lee"
+            ]
+          ]
+        },
+        "content": [
+          "19dbed31-d990-803c-9ec9-f02bc307e5df",
+          "19dbed31-d990-80e1-9014-df6d4dad8d38",
+          "19dbed31-d990-80dd-b99e-cf03b11e63c1",
+          "19dbed31-d990-80c6-94f0-e271b63859b2",
+          "19dbed31-d990-8042-8f0a-d92630fabd47",
+          "19dbed31-d990-805c-b15d-faa51983dbc4",
+          "19dbed31-d990-8038-971f-f2c6db4f9610",
+          "1b4bed31-d990-8015-b4af-fb6ea44948f0",
+          "1b4bed31-d990-80a5-a52c-ebd9e73926cd",
+          "1b4bed31-d990-80aa-839a-e2d4de319024",
+          "1b4bed31-d990-8044-be41-e5078c3ac12f",
+          "1b4bed31-d990-80a2-84d0-dd48adbb0254"
+        ],
+        "format": {
+          "site_id": "19dbed31-d990-801a-a019-007929526207"
+        },
+        "permissions": [
+          {
+            "role": "editor",
+            "type": "user_permission",
+            "user_id": "f67b54ea-34ab-43d0-b030-41db52fa0bb0"
+          },
+          {
+            "role": "reader",
+            "type": "public_permission",
+            "added_timestamp": 1739777456674
+          }
+        ],
+        "created_time": 1739777402103,
+        "last_edited_time": 1741768335955,
+        "parent_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4",
+        "parent_table": "space",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8049-9274-fcd7d10dfe8f": {
+      "value": {
+        "id": "19dbed31-d990-8049-9274-fcd7d10dfe8f",
+        "version": 69,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [
+            [
+              "iOS Developer",
+              [
+                [
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739772574992,
+        "last_edited_time": 1741599722613,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8077-ace7-c3bbcea917da": {
+      "value": {
+        "id": "19dbed31-d990-8077-ace7-c3bbcea917da",
+        "version": 3,
+        "type": "text",
+        "created_time": 1739772581752,
+        "last_edited_time": 1739772581753,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-80af-8d47-cf75a8201d8b": {
+      "value": {
+        "id": "19dbed31-d990-80af-8d47-cf75a8201d8b",
+        "version": 115,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "Email",
+              [
+                [
+                  "b"
+                ],
+                [
+                  "c"
+                ],
+                [
+                  "h",
+                  "blue"
+                ]
+              ]
+            ],
+            [
+              " "
+            ],
+            [
+              "l06094@gmail.com",
+              [
+                [
+                  "a",
+                  "mailto:l06094@gmail.com"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739772581548,
+        "last_edited_time": 1741684222558,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8048-b8a3-db91aebc624a": {
+      "value": {
+        "id": "19dbed31-d990-8048-b8a3-db91aebc624a",
+        "version": 108,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "Github",
+              [
+                [
+                  "b"
+                ],
+                [
+                  "c"
+                ],
+                [
+                  "h",
+                  "blue"
+                ]
+              ]
+            ],
+            [
+              " "
+            ],
+            [
+              "https://github.com/Jeonhui",
+              [
+                [
+                  "a",
+                  "https://github.com/Jeonhui"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739772592596,
+        "last_edited_time": 1741684223277,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8023-aace-f4a224e8eed6": {
+      "value": {
+        "id": "19dbed31-d990-8023-aace-f4a224e8eed6",
+        "version": 49,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "Portfolio",
+              [
+                [
+                  "b"
+                ],
+                [
+                  "c"
+                ],
+                [
+                  "h",
+                  "blue"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739772688576,
+        "last_edited_time": 1741684223736,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8096-a096-cd32547415cf": {
+      "value": {
+        "id": "19dbed31-d990-8096-a096-cd32547415cf",
+        "version": 3,
+        "type": "text",
+        "created_time": 1739772698387,
+        "last_edited_time": 1739772698388,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8096-b832-e85c10dd103c": {
+      "value": {
+        "id": "19dbed31-d990-8096-b832-e85c10dd103c",
+        "version": 43,
+        "type": "sub_header",
+        "properties": {
+          "title": [
+            [
+              "Profile",
+              [
+                [
+                  "h",
+                  "blue"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739772696077,
+        "last_edited_time": 1739772765979,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8064-94b0-cf6571858aea": {
+      "value": {
+        "id": "19dbed31-d990-8064-94b0-cf6571858aea",
+        "version": 2,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "신입 iOS 개발자로서 iOS 기준 MAU 2만 명 규모의 SFOM 프로젝트를 개발 및 운영한 경험을 가지고 있습니다."
+            ]
+          ]
+        },
+        "created_time": 1739773428482,
+        "last_edited_time": 1739773428485,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-80a5-9b92-d8e1292dea46": {
+      "value": {
+        "id": "19dbed31-d990-80a5-9b92-d8e1292dea46",
+        "version": 8,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "사용자 경험 향상을 최우선으로 하여 최신 기술 도입과 성능 최적화 등 다양한 과제를 해결해왔습니다. 문제의 근본 원인을 분석하고 최적의 해결책을 제시함으로써 더 나은 사용자 경험을 제공하는 데 주력합니다."
+            ]
+          ]
+        },
+        "created_time": 1739773428482,
+        "last_edited_time": 1741687330574,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-801b-abcd-eb1b0818529b": {
+      "value": {
+        "id": "19dbed31-d990-801b-abcd-eb1b0818529b",
+        "version": 2,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "또한, 함께 성장하는 가치를 중요하게 여기며, 팀원들과 협력하여 최고의 결과를 만들어내는 것을 목표로 합니다. 새로운 기술과 도구를 빠르게 습득하고, 창의적인 문제 해결을 통해 팀에 기여하는 데 큰 보람을 느낍니다."
+            ]
+          ]
+        },
+        "created_time": 1739773428482,
+        "last_edited_time": 1739773428485,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-80e5-92f2-dc73b840a68d": {
+      "value": {
+        "id": "19dbed31-d990-80e5-92f2-dc73b840a68d",
+        "version": 2,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "지속적인 성장을 추구하며, 팀원들과 긍정적인 시너지를 만들어내는 관계를 소중히 생각합니다."
+            ]
+          ]
+        },
+        "created_time": 1739773428482,
+        "last_edited_time": 1739773428485,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8085-a3d9-c6cb144005a8": {
+      "value": {
+        "id": "19dbed31-d990-8085-a3d9-c6cb144005a8",
+        "version": 3,
+        "type": "text",
+        "created_time": 1739774648376,
+        "last_edited_time": 1739774648381,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-80cf-a416-e00022cf673d": {
+      "value": {
+        "id": "19dbed31-d990-80cf-a416-e00022cf673d",
+        "version": 3,
+        "type": "text",
+        "created_time": 1739772730255,
+        "last_edited_time": 1739772730257,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8013-a86e-d6d8ed66feb7": {
+      "value": {
+        "id": "19dbed31-d990-8013-a86e-d6d8ed66feb7",
+        "version": 15,
+        "type": "divider",
+        "created_time": 1739772702667,
+        "last_edited_time": 1739772731949,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8056-8a76-d55792f14efb": {
+      "value": {
+        "id": "19dbed31-d990-8056-8a76-d55792f14efb",
+        "version": 16,
+        "type": "column_list",
+        "content": [
+          "19dbed31-d990-808a-8fd8-d6e1b1f65909",
+          "19dbed31-d990-8021-a365-e793487e8942"
+        ],
+        "created_time": 1739772798627,
+        "last_edited_time": 1739772812344,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8022-a542-ffaf760a7784": {
+      "value": {
+        "id": "19dbed31-d990-8022-a542-ffaf760a7784",
+        "version": 15,
+        "type": "divider",
+        "created_time": 1739772755770,
+        "last_edited_time": 1739772936263,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8067-8b4d-e369d8ecccf5": {
+      "value": {
+        "id": "19dbed31-d990-8067-8b4d-e369d8ecccf5",
+        "version": 64,
+        "type": "sub_header",
+        "properties": {
+          "title": [
+            [
+              "Project",
+              [
+                [
+                  "h",
+                  "blue"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739772936262,
+        "last_edited_time": 1739772946486,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-804a-8551-f70b5c0c6d42": {
+      "value": {
+        "id": "19dbed31-d990-804a-8551-f70b5c0c6d42",
+        "version": 37,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "SFOM",
+              [
+                [
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        "format": {
+          "copied_from_pointer": {
+            "id": "19dbed31-d990-80b5-860a-c5b73448bbb9",
+            "table": "block",
+            "spaceId": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+          }
+        },
+        "created_time": 1739773107931,
+        "last_edited_time": 1739773159335,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-80e8-83ff-c7036743139c": {
+      "value": {
+        "id": "19dbed31-d990-80e8-83ff-c7036743139c",
+        "version": 15,
+        "type": "text",
+        "created_time": 1739773114184,
+        "last_edited_time": 1739773418459,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-808f-9054-e4ff08b3629b": {
+      "value": {
+        "id": "19dbed31-d990-808f-9054-e4ff08b3629b",
+        "version": 29,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "브리핑",
+              [
+                [
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739773112074,
+        "last_edited_time": 1739773158629,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-805e-aaa8-e69d69e92992": {
+      "value": {
+        "id": "19dbed31-d990-805e-aaa8-e69d69e92992",
+        "version": 11,
+        "type": "text",
+        "created_time": 1739773127395,
+        "last_edited_time": 1739773417415,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-80ea-8183-fd9ef2207a8c": {
+      "value": {
+        "id": "19dbed31-d990-80ea-8183-fd9ef2207a8c",
+        "version": 48,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "트리거 수학",
+              [
+                [
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739773126455,
+        "last_edited_time": 1739773158025,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8066-99b2-f4fe3a145ced": {
+      "value": {
+        "id": "19dbed31-d990-8066-99b2-f4fe3a145ced",
+        "version": 3,
+        "type": "text",
+        "created_time": 1739773129313,
+        "last_edited_time": 1739773129315,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-80b9-b86d-c60b1f7f585a": {
+      "value": {
+        "id": "19dbed31-d990-80b9-b86d-c60b1f7f585a",
+        "version": 79,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "FittedSheets-SwiftUI",
+              [
+                [
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739773128700,
+        "last_edited_time": 1739773155886,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-800f-9907-c21691e29201": {
+      "value": {
+        "id": "19dbed31-d990-800f-9907-c21691e29201",
+        "version": 3,
+        "type": "text",
+        "created_time": 1739773140179,
+        "last_edited_time": 1739773140181,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-808a-8fd8-d6e1b1f65909": {
+      "value": {
+        "id": "19dbed31-d990-808a-8fd8-d6e1b1f65909",
+        "version": 47,
+        "type": "column",
+        "content": [
+          "19dbed31-d990-802d-b6f7-c7eeb4038caf",
+          "19dbed31-d990-80e4-a1b3-c69c2b30873d",
+          "19dbed31-d990-809b-8f44-f0271a96def8",
+          "19dbed31-d990-806d-9c05-e55370d54f25",
+          "19dbed31-d990-804f-a11e-d4358dd838ab",
+          "19dbed31-d990-8017-8295-f525a3466b33",
+          "19dbed31-d990-80af-9641-ea0a1894a3b9",
+          "19dbed31-d990-80ce-b3cb-ee418629cfa9",
+          "19dbed31-d990-8051-8151-fea2456e1a4b",
+          "19dbed31-d990-806b-9436-fcdb32e3af22",
+          "19dbed31-d990-8035-97cc-c1615b005f56"
+        ],
+        "format": {
+          "column_ratio": 0.5
+        },
+        "created_time": 1739772798625,
+        "last_edited_time": 1741507201758,
+        "parent_id": "19dbed31-d990-8056-8a76-d55792f14efb",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8021-a365-e793487e8942": {
+      "value": {
+        "id": "19dbed31-d990-8021-a365-e793487e8942",
+        "version": 35,
+        "type": "column",
+        "content": [
+          "19dbed31-d990-801a-97d7-e79e74b6a0f8",
+          "19dbed31-d990-80b5-b041-d06b48f36845",
+          "19dbed31-d990-808a-8287-c682e051c1ae",
+          "19dbed31-d990-805c-9ace-f17f4919b2e0",
+          "19dbed31-d990-8055-a125-e4a6815e79ce"
+        ],
+        "format": {
+          "column_ratio": 0.5
+        },
+        "created_time": 1739772798628,
+        "last_edited_time": 1741507201758,
+        "parent_id": "19dbed31-d990-8056-8a76-d55792f14efb",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-802d-b6f7-c7eeb4038caf": {
+      "value": {
+        "id": "19dbed31-d990-802d-b6f7-c7eeb4038caf",
+        "version": 98,
+        "type": "sub_header",
+        "properties": {
+          "title": [
+            [
+              "Education",
+              [
+                [
+                  "h",
+                  "blue"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739772731947,
+        "last_edited_time": 1739772831001,
+        "parent_id": "19dbed31-d990-808a-8fd8-d6e1b1f65909",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-80e4-a1b3-c69c2b30873d": {
+      "value": {
+        "id": "19dbed31-d990-80e4-a1b3-c69c2b30873d",
+        "version": 25,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "한국외국어대학교 글로벌캠퍼스",
+              [
+                [
+                  "b"
+                ]
+              ]
+            ],
+            [
+              " "
+            ]
+          ]
+        },
+        "created_time": 1739772867059,
+        "last_edited_time": 1739773075177,
+        "parent_id": "19dbed31-d990-808a-8fd8-d6e1b1f65909",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-809b-8f44-f0271a96def8": {
+      "value": {
+        "id": "19dbed31-d990-809b-8f44-f0271a96def8",
+        "version": 206,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "컴퓨터  전자시스템공학부 전공 심화"
+            ]
+          ]
+        },
+        "created_time": 1739773368541,
+        "last_edited_time": 1739773394755,
+        "parent_id": "19dbed31-d990-808a-8fd8-d6e1b1f65909",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-806d-9c05-e55370d54f25": {
+      "value": {
+        "id": "19dbed31-d990-806d-9c05-e55370d54f25",
+        "version": 74,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "(2019.03 - 2025.08 졸업 예정)",
+              [
+                [
+                  "h",
+                  "gray"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739773075173,
+        "last_edited_time": 1739773089471,
+        "parent_id": "19dbed31-d990-808a-8fd8-d6e1b1f65909",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-804f-a11e-d4358dd838ab": {
+      "value": {
+        "id": "19dbed31-d990-804f-a11e-d4358dd838ab",
+        "version": 150,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "호서고등학교",
+              [
+                [
+                  "b"
+                ]
+              ]
+            ],
+            [
+              " (2016.11 - 2019.02)"
+            ]
+          ]
+        },
+        "created_time": 1739772886756,
+        "last_edited_time": 1739772922595,
+        "parent_id": "19dbed31-d990-808a-8fd8-d6e1b1f65909",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8017-8295-f525a3466b33": {
+      "value": {
+        "id": "19dbed31-d990-8017-8295-f525a3466b33",
+        "version": 153,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "김포제일공업고등학교",
+              [
+                [
+                  "b"
+                ]
+              ]
+            ],
+            [
+              " (2016.03 - 2016.10)"
+            ]
+          ]
+        },
+        "created_time": 1739772902905,
+        "last_edited_time": 1739772920595,
+        "parent_id": "19dbed31-d990-808a-8fd8-d6e1b1f65909",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-80af-9641-ea0a1894a3b9": {
+      "value": {
+        "id": "19dbed31-d990-80af-9641-ea0a1894a3b9",
+        "version": 3,
+        "type": "text",
+        "created_time": 1739772928843,
+        "last_edited_time": 1739772928844,
+        "parent_id": "19dbed31-d990-808a-8fd8-d6e1b1f65909",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-80ce-b3cb-ee418629cfa9": {
+      "value": {
+        "id": "19dbed31-d990-80ce-b3cb-ee418629cfa9",
+        "version": 6,
+        "type": "sub_header",
+        "properties": {
+          "title": [
+            [
+              "Certification",
+              [
+                [
+                  "h",
+                  "blue"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739772928571,
+        "last_edited_time": 1739772929092,
+        "parent_id": "19dbed31-d990-808a-8fd8-d6e1b1f65909",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8051-8151-fea2456e1a4b": {
+      "value": {
+        "id": "19dbed31-d990-8051-8151-fea2456e1a4b",
+        "version": 27,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [
+            [
+              "정보처리기사"
+            ]
+          ]
+        },
+        "format": {
+          "copied_from_pointer": {
+            "id": "19dbed31-d990-80b5-860a-c5b73448bbb9",
+            "table": "block",
+            "spaceId": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+          }
+        },
+        "created_time": 1739772929089,
+        "last_edited_time": 1739773166185,
+        "parent_id": "19dbed31-d990-808a-8fd8-d6e1b1f65909",
+        "parent_table": "block",
+        "alive": true,
+        "copied_from": "19dbed31-d990-80b5-860a-c5b73448bbb9",
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-806b-9436-fcdb32e3af22": {
+      "value": {
+        "id": "19dbed31-d990-806b-9436-fcdb32e3af22",
+        "version": 3,
+        "type": "bulleted_list",
+        "created_time": 1739773448035,
+        "last_edited_time": 1739773448036,
+        "parent_id": "19dbed31-d990-808a-8fd8-d6e1b1f65909",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8035-97cc-c1615b005f56": {
+      "value": {
+        "id": "19dbed31-d990-8035-97cc-c1615b005f56",
+        "version": 3,
+        "type": "text",
+        "created_time": 1739772921356,
+        "last_edited_time": 1739772921357,
+        "parent_id": "19dbed31-d990-808a-8fd8-d6e1b1f65909",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-801a-97d7-e79e74b6a0f8": {
+      "value": {
+        "id": "19dbed31-d990-801a-97d7-e79e74b6a0f8",
+        "version": 31,
+        "type": "sub_header",
+        "properties": {
+          "title": [
+            [
+              "Skills",
+              [
+                [
+                  "h",
+                  "blue"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739772750158,
+        "last_edited_time": 1739772831001,
+        "parent_id": "19dbed31-d990-8021-a365-e793487e8942",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-80b5-b041-d06b48f36845": {
+      "value": {
+        "id": "19dbed31-d990-80b5-b041-d06b48f36845",
+        "version": 3,
+        "type": "text",
+        "created_time": 1739772924632,
+        "last_edited_time": 1739772924634,
+        "parent_id": "19dbed31-d990-8021-a365-e793487e8942",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-808a-8287-c682e051c1ae": {
+      "value": {
+        "id": "19dbed31-d990-808a-8287-c682e051c1ae",
+        "version": 3,
+        "type": "text",
+        "created_time": 1739772924918,
+        "last_edited_time": 1739772924919,
+        "parent_id": "19dbed31-d990-8021-a365-e793487e8942",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-805c-9ace-f17f4919b2e0": {
+      "value": {
+        "id": "19dbed31-d990-805c-9ace-f17f4919b2e0",
+        "version": 3,
+        "type": "text",
+        "created_time": 1739772925169,
+        "last_edited_time": 1739772925170,
+        "parent_id": "19dbed31-d990-8021-a365-e793487e8942",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8055-a125-e4a6815e79ce": {
+      "value": {
+        "id": "19dbed31-d990-8055-a125-e4a6815e79ce",
+        "version": 3,
+        "type": "text",
+        "created_time": 1739772871042,
+        "last_edited_time": 1739772871043,
+        "parent_id": "19dbed31-d990-8021-a365-e793487e8942",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-807b-84c9-e73930de7ad3": {
+      "value": {
+        "id": "19dbed31-d990-807b-84c9-e73930de7ad3",
+        "version": 43,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "CoreDataStorage",
+              [
+                [
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739773139873,
+        "last_edited_time": 1739773156675,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8088-88dd-c594c77c69bb": {
+      "value": {
+        "id": "19dbed31-d990-8088-88dd-c594c77c69bb",
+        "version": 3,
+        "type": "text",
+        "created_time": 1739773025531,
+        "last_edited_time": 1739773025532,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-80b5-9bc8-e0a331dd9a44": {
+      "value": {
+        "id": "19dbed31-d990-80b5-9bc8-e0a331dd9a44",
+        "version": 24,
+        "type": "divider",
+        "created_time": 1739773024266,
+        "last_edited_time": 1739773027052,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-801a-8a27-e008d7b8ba3a": {
+      "value": {
+        "id": "19dbed31-d990-801a-8a27-e008d7b8ba3a",
+        "version": 36,
+        "type": "sub_header",
+        "properties": {
+          "title": [
+            [
+              "Activity",
+              [
+                [
+                  "h",
+                  "blue"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739773027049,
+        "last_edited_time": 1739773046908,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-801f-a8bf-d95798504805": {
+      "value": {
+        "id": "19dbed31-d990-801f-a8bf-d95798504805",
+        "version": 67,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [
+            [
+              "한국외국어대학교 “컴퓨팅 사고” 조교 (24.09 - 24.12)",
+              [
+                [
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739773338358,
+        "last_edited_time": 1739774727742,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-809e-87a2-c679ca8968be": {
+      "value": {
+        "id": "19dbed31-d990-809e-87a2-c679ca8968be",
+        "version": 2,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [
+            [
+              "교양 필수 과목 조교로서 학생들의 프로그래밍 학습을 지원"
+            ]
+          ]
+        },
+        "created_time": 1739773338359,
+        "last_edited_time": 1739773338366,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-80ce-995e-f73d58032bff": {
+      "value": {
+        "id": "19dbed31-d990-80ce-995e-f73d58032bff",
+        "version": 2,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [
+            [
+              "실습 진행 및 과제 피드백 제공"
+            ]
+          ]
+        },
+        "created_time": 1739773338359,
+        "last_edited_time": 1739773338366,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-802d-b697-ef503d58dfef": {
+      "value": {
+        "id": "19dbed31-d990-802d-b697-ef503d58dfef",
+        "version": 2,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [
+            [
+              "한국외국어대학교 “캡스톤 프로젝트 및 실습” 조교",
+              [
+                [
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739773338359,
+        "last_edited_time": 1739773338366,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-805f-8940-ebaec25bc190": {
+      "value": {
+        "id": "19dbed31-d990-805f-8940-ebaec25bc190",
+        "version": 2,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [
+            [
+              "전공 필수 과목 조교로서 팀 프로젝트 진행을 지원"
+            ]
+          ]
+        },
+        "created_time": 1739773338359,
+        "last_edited_time": 1739773338366,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8092-8d60-e32289aa68ab": {
+      "value": {
+        "id": "19dbed31-d990-8092-8d60-e32289aa68ab",
+        "version": 2,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [
+            [
+              "프로젝트 기획, 개발, 발표 과정에서 학생들에게 피드백 제공"
+            ]
+          ]
+        },
+        "created_time": 1739773338359,
+        "last_edited_time": 1739773338366,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-80db-8241-d020d818c13c": {
+      "value": {
+        "id": "19dbed31-d990-80db-8241-d020d818c13c",
+        "version": 2,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [
+            [
+              "연합동아리 UMC HUFS iOS 파트 리더 및 운영진",
+              [
+                [
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739773338359,
+        "last_edited_time": 1739773338366,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8009-b8ab-df117cda9125": {
+      "value": {
+        "id": "19dbed31-d990-8009-b8ab-df117cda9125",
+        "version": 2,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [
+            [
+              "iOS 개발 파트 리더로서 팀원 교육 및 코드 리뷰 진행"
+            ]
+          ]
+        },
+        "created_time": 1739773338360,
+        "last_edited_time": 1739773338366,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8014-94bf-c79245ad9232": {
+      "value": {
+        "id": "19dbed31-d990-8014-94bf-c79245ad9232",
+        "version": 2,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [
+            [
+              "iOS 프로젝트 기획 및 개발, 운영 지원"
+            ]
+          ]
+        },
+        "created_time": 1739773338360,
+        "last_edited_time": 1739773338366,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8068-9af5-fbda0daaff81": {
+      "value": {
+        "id": "19dbed31-d990-8068-9af5-fbda0daaff81",
+        "version": 2,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [
+            [
+              "HAI Lab 의료 인공지능 연구실 학부연구생",
+              [
+                [
+                  "b"
+                ]
+              ]
+            ]
+          ]
+        },
+        "created_time": 1739773338360,
+        "last_edited_time": 1739773338366,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-8080-8277-da04cdb93e04": {
+      "value": {
+        "id": "19dbed31-d990-8080-8277-da04cdb93e04",
+        "version": 2,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [
+            [
+              "의료 인공지능 관련 연구 참여"
+            ]
+          ]
+        },
+        "created_time": 1739773338360,
+        "last_edited_time": 1739773338366,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "19dbed31-d990-807f-bebf-d7f799ded505": {
+      "value": {
+        "id": "19dbed31-d990-807f-bebf-d7f799ded505",
+        "version": 2,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [
+            [
+              "데이터 분석 및 AI 모델 개발 보조"
+            ]
+          ]
+        },
+        "created_time": 1739773338360,
+        "last_edited_time": 1739773338366,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    },
+    "1b4bed31-d990-80a3-b15d-ce471326277f": {
+      "value": {
+        "id": "1b4bed31-d990-80a3-b15d-ce471326277f",
+        "version": 3,
+        "type": "text",
+        "created_time": 1741761088631,
+        "last_edited_time": 1741761088633,
+        "parent_id": "19dbed31-d990-8042-8f0a-d92630fabd47",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "92693cf7-45e7-4f6f-ba87-305d30e3aae4"
+      },
+      "role": "reader"
+    }
+  },
+  "collection": {},
+  "collection_view": {},
+  "notion_user": {},
+  "collection_query": {},
+  "signed_urls": {}
+}

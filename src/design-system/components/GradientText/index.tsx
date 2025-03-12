@@ -19,7 +19,7 @@ type GradientTextProps = {
 const GradientText = (
   {
     children,
-    colors = [theme.colors.text.text, theme.colors.primary],
+    colors = [theme.colors.gradient.start, theme.colors.gradient.end],
     deg = 120,
     font = "base",
     typography = "body1",
@@ -39,9 +39,7 @@ const GradientText = (
   }
 
   const colorString = colors
-    .map((color, index) => {
-      return `${color} ${index * (100 / (colors.length - 1))}%`
-    })
+    .map((color, index) => `${color} ${index * (100 / (colors.length - 1))}%`)
     .join(", ")
 
   return (

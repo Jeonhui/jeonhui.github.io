@@ -6,12 +6,13 @@ import * as styles from "./styles.css"
 import { gradientIcon } from "./styles.css"
 import { Property } from "csstype"
 import { useIsClient } from "../../hooks"
+import { theme } from "@design/theme/theme.css"
 import Color = Property.Color
 
 type GradientIconLinkProps = {
   children?: React.ReactNode
   clipPathId: string
-  colors: Color[]
+  colors?: Color[]
   deg?: number
   href?: string
   className?: string
@@ -21,8 +22,8 @@ type GradientIconLinkProps = {
 const GradientIconLink = (
   {
     children,
-    colors,
-    deg,
+    colors = [theme.colors.gradient.start, theme.colors.gradient.end],
+    deg = 120,
     clipPathId,
     href,
     className,

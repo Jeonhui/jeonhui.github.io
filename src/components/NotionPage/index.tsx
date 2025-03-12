@@ -14,6 +14,24 @@ import Image from "next/image"
 import { Code } from "react-notion-x/build/third-party/code"
 import { Collection } from "react-notion-x/build/third-party/collection"
 
+const allowedTypes = new Set([
+  "page",
+  "column_list",
+  "column",
+  "header",
+  "sub_header",
+  "sub_sub_header",
+])
+
+type NotionToc = {
+  id: string
+  type: string
+  parentId: string
+  value: string
+  content?: string[]
+  children: NotionToc[]
+}
+
 type NotionPageProps = {
   pageId: string
 }
@@ -25,9 +43,51 @@ const NotionPage = ({ pageId }: NotionPageProps) => {
     null,
   )
 
+  const createToc = (recordMap: ExtendedRecordMap) => {
+    const blockMap = new Map<string, NotionToc>(
+      Object.entries(recordMap.block)
+        .filter(([, block]) => allowedTypes.has(block.value.type))
+        .map<[string, NotionToc]>(([, block]) => {
+          const id = block.value.id.replace(/-/g, "")
+          return [
+            id,
+            {
+              id: id,
+              type: block.value.type,
+              parentId: block.value.parent_id.replace(/-/g, ""),
+              value: block.value.properties?.title,
+              content: block.value.content,
+              children: [],
+            },
+          ]
+        }),
+    )
+
+    let rootBlocks: NotionToc | null = null
+
+    blockMap.forEach((block) => {
+      console.log("bid", block.id)
+      if (block.id === pageId) {
+        rootBlocks = block
+      } else {
+        console.log("parentId", block.parentId)
+        const parentBlock = blockMap.get(block.parentId)
+
+        if (parentBlock) {
+          const children = blockMap.get(block.id)
+          if (children !== undefined) parentBlock.children.push(children)
+        }
+      }
+    })
+
+    console.log("toc", rootBlocks)
+  }
+
   useEffect(() => {
     const fetchPageRecordMap = async () => {
-      setPageRecordMap(await getPage(pageId))
+      const fetchedRecordMap = await getPage(pageId)
+      createToc(fetchedRecordMap)
+      setPageRecordMap(fetchedRecordMap)
     }
     fetchPageRecordMap()
   }, [pageId])

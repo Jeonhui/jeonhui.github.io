@@ -136,7 +136,7 @@ globalStyle(`${notionRenderer}:is(.dark-mode)`, {
   },
 })
 
-const gradientTextColor = `linear-gradient(45deg, ${theme.colors.text.text} 0%, ${theme.colors.primary} 100%)`
+const gradientTextColor = `linear-gradient(45deg, ${theme.colors.gradient.start} 0%, ${theme.colors.gradient.end} 100%)`
 const gradientTextProperties = {
   background: gradientTextColor,
   backgroundClip: "text !important",

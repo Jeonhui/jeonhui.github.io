@@ -6,7 +6,7 @@ const withAlpha = (color: Color, alpha: number): string => {
 }
 
 // Container
-type ContainerColor = {
+type ContainerColorTheme = {
   background: Color
   border: Color
   borderHighlight: Color
@@ -17,7 +17,9 @@ type ContainerColor = {
 type TextColor = {
   text: Color
   textHighlight?: Color
+  textHighlight2?: Color
   textDim?: Color
+  textDim2?: Color
 }
 
 // Button
@@ -40,7 +42,8 @@ type InputColor = {
   placeholder: Color
   background: Color
   border: Color
-} & TextColor
+  text: Color
+}
 type InputStateColor = { [key in InputState]: InputColor }
 type InputTypeColor = { [key in InputType]: InputStateColor }
 type InputColorTheme = InputTypeColor
@@ -48,12 +51,18 @@ type InputColorTheme = InputTypeColor
 type CommandDialogItemState = "default" | "hover" | "selected" | "disabled"
 type CommandDialogItemColor = {
   background: Color
-} & TextColor
+  text: Color
+}
 type CommandDialogItemColorTheme = {
   [key in CommandDialogItemState]: CommandDialogItemColor
 }
 
-type CommandDialog = {
+type GradientColorTheme = {
+  start: Color
+  end: Color
+}
+
+type CommandDialogColorTheme = {
   overlay: Color
   background: Color
   border: Color
@@ -67,8 +76,9 @@ type ColorTheme = {
   primary: Color
   logo: Color
   background: Color
+  gradient: GradientColorTheme
 
-  container: ContainerColor
+  container: ContainerColorTheme
 
   text: TextColor
 
@@ -76,7 +86,7 @@ type ColorTheme = {
 
   input: InputColorTheme
 
-  commandDialog: CommandDialog
+  commandDialog: CommandDialogColorTheme
 }
 
 // ThemeColors
@@ -84,6 +94,11 @@ const lightModeThemeColors: ColorTheme = {
   primary: colorSetVars.primary400,
   logo: colorSetVars.gray900,
   background: colorSetVars.white,
+
+  gradient: {
+    start: colorSetVars.gray900,
+    end: colorSetVars.primary400,
+  },
 
   container: {
     background: colorSetVars.white,
@@ -96,6 +111,7 @@ const lightModeThemeColors: ColorTheme = {
     text: colorSetVars.gray900,
     textHighlight: colorSetVars.primary500,
     textDim: colorSetVars.gray800,
+    textDim2: colorSetVars.gray600,
   },
 
   button: {
@@ -310,6 +326,11 @@ const darkModeThemeColors: ColorTheme = {
   logo: colorSetVars.gray100,
   background: colorSetVars.gray900,
 
+  gradient: {
+    start: colorSetVars.gray50,
+    end: colorSetVars.primary500,
+  },
+
   container: {
     background: colorSetVars.gray900,
     border: colorSetVars.gray700,
@@ -321,6 +342,7 @@ const darkModeThemeColors: ColorTheme = {
     text: colorSetVars.gray50,
     textHighlight: colorSetVars.primary200,
     textDim: colorSetVars.gray200,
+    textDim2: colorSetVars.gray400,
   },
 
   button: {
