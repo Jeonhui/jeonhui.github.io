@@ -3,7 +3,7 @@ import { theme } from "@design/theme/theme.css"
 
 export const notionRenderer = style({})
 
-globalStyle(`${notionRenderer}:is(${notionRenderer})`, {
+globalStyle(`${notionRenderer}`, {
   vars: {
     "--notion-font": theme.fonts.base,
     "--fg-color": theme.colors.text.text,
@@ -23,17 +23,17 @@ globalStyle(`${notionRenderer}:is(${notionRenderer})`, {
     "--bg-color-2": "rgba(135, 131, 120, 0.15)",
 
     "--select-color-0": theme.colors.primary,
-    // "--select-color-1": "rgba(45, 170, 219, 0.3)",
-    // "--select-color-2": "#d9eff8",
+    "--select-color-1": "rgba(45, 170, 219, 0.3)",
+    "--select-color-2": "#d9eff8",
 
     "--notion-red": "rgb(224, 62, 62)",
-    // "--notion-pink": "rgb(173, 26, 114)",
+    "--notion-pink": "rgb(173, 26, 114)",
     "--notion-blue": theme.colors.primary,
-    // "--notion-purple": "rgb(105, 64, 165)",
-    // "--notion-teal": "rgb(77, 100, 97)",
+    "--notion-purple": "rgb(105, 64, 165)",
+    "--notion-teal": "rgb(77, 100, 97)",
     "--notion-yellow": "rgb(223, 171, 1)",
-    // "--notion-orange": "rgb(217, 115, 13)",
-    // "--notion-brown": "rgb(100, 71, 58)",
+    "--notion-orange": "rgb(217, 115, 13)",
+    "--notion-brown": "rgb(100, 71, 58)",
     "--notion-gray": "rgb(155, 154, 151)",
 
     "--notion-red_background": "rgb(251, 228, 228)",
@@ -94,17 +94,95 @@ globalStyle(`${notionRenderer}:is(${notionRenderer})`, {
   },
 })
 
-const topPriority = (className: string) => `${className}:is(${className})`
-
-globalStyle(`${notionRenderer} ${topPriority(".notion-page")}`, {
-  position: "relative",
-  ...theme.alignments.columnTopLeft,
-  paddingLeft: "0",
-  paddingRight: "0",
-  width: "100%",
+globalStyle(`${notionRenderer}:is(.dark-mode)`, {
+  vars: {
+    "--fg-color-0": "var(--fg-color)",
+    "--fg-color-1": "var(--fg-color)",
+    "--fg-color-2": "var(--fg-color)",
+    "--fg-color-3": "var(--fg-color)",
+    "--fg-color-4": "var(--fg-color)",
+    "--fg-color-5": "rgba(255, 255, 255, 0.7)",
+    "--fg-color-6": "#fff",
+    "--fg-color-icon": "#fff",
+    "--bg-color-0": "rgb(71, 76, 80)",
+    "--bg-color-1": "rgb(63, 68, 71)",
+    "--bg-color-2": "rgba(135, 131, 120, 0.15)",
+    "--notion-red": "rgb(255, 115, 105)",
+    "--notion-pink": "rgb(226, 85, 161)",
+    "--notion-purple": "rgb(154, 109, 215)",
+    "--notion-teal": "rgb(77, 171, 154)",
+    "--notion-yellow": "rgb(255, 220, 73)",
+    "--notion-orange": "rgb(255, 163, 68)",
+    "--notion-brown": "rgb(147, 114, 100)",
+    "--notion-gray": "rgba(151, 154, 155, 0.95)",
+    "--notion-red_background": "rgb(89, 65, 65)",
+    "--notion-pink_background": "rgb(83, 59, 76)",
+    "--notion-blue_background": "rgb(54, 73, 84)",
+    "--notion-purple_background": "rgb(68, 63, 87)",
+    "--notion-teal_background": "rgb(53, 76, 75)",
+    "--notion-yellow_background": "rgb(89, 86, 59)",
+    "--notion-orange_background": "rgb(89, 74, 58)",
+    "--notion-brown_background": "rgb(67, 64, 64)",
+    "--notion-gray_background": "rgb(69, 75, 78)",
+    "--notion-red_background_co": "rgba(89, 65, 65, 0.3)",
+    "--notion-pink_background_co": "rgba(83, 59, 76, 0.3)",
+    "--notion-blue_background_co": "rgba(120, 162, 187, 0.3)",
+    "--notion-purple_background_co": "rgba(68, 63, 87, 0.3)",
+    "--notion-teal_background_co": "rgba(53, 76, 75, 0.3)",
+    "--notion-yellow_background_co": "rgba(89, 86, 59, 0.3)",
+    "--notion-orange_background_co": "rgba(89, 74, 58, 0.3)",
+    "--notion-brown_background_co": "rgba(67, 64, 64, 0.3)",
+    "--notion-gray_background_co": "rgba(69, 75, 78, 0.3)",
+  },
 })
 
-globalStyle(`${notionRenderer} ${topPriority(".notion-page-icon-hero")}`, {
-  left: "0",
-  marginLeft: "0",
+const gradientTextColor = `linear-gradient(45deg, ${theme.colors.text.text} 0%, ${theme.colors.primary} 100%)`
+const gradientTextProperties = {
+  background: gradientTextColor,
+  backgroundClip: "text !important",
+  color: "transparent !important",
+  transition: "background-position 1s ease-in-out",
+  backgroundSize: "200% 200%",
+}
+
+globalStyle(".notion-title", {
+  ...gradientTextProperties,
+})
+
+globalStyle(".notion-blue", {
+  ...gradientTextProperties,
+})
+
+globalStyle(".notion-h-title, .notion-text, .notion-list", {
+  transition: "color 0.3s ease-in-out",
+  color: theme.colors.text.text,
+})
+
+globalStyle(".notion-link", {
+  color: theme.colors.text.textDim,
+})
+
+globalStyle(".notion-code", {
+  fontFamily: theme.fonts.code,
+  color: theme.colors.text.text,
+})
+
+globalStyle(".notion-code-copy-button", {
+  backgroundColor: theme.colors.button.text.hover.text,
+})
+
+globalStyle(".notion-code-copy-button:hover", {
+  backgroundColor: theme.colors.button.text.hover.background,
+})
+
+globalStyle(".notion-code-copy-button:hover > svg", {
+  fill: theme.colors.button.text.hover.text,
+})
+
+globalStyle(".notion-code-copy-button:active", {
+  backgroundColor: theme.colors.button.text.pressed.background,
+})
+
+globalStyle(".notion-code-copy-button:active > svg", {
+  fill: theme.colors.button.text.pressed.text,
 })

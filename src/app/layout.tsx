@@ -1,10 +1,11 @@
 import type { Metadata } from "next"
 import React, { JSX } from "react"
 import ThemeProvider from "@/design-system/theme/ThemeProvider"
-import CommandDialogProvider from "@design/commandDialog/CommandDialogProvider"
+// import CommandDialogProvider from "@design/commandDialog/CommandDialogProvider"
 import MainLayout from "@/design-system/components/MainLayout"
 import { INFO } from "@/constants"
-import { commandDialogData, headerItems } from "@/data"
+// import { commandDialogData, headerItems } from "@/data"
+import { headerItems } from "@/data"
 
 export const metadata: Metadata = {
   metadataBase: new URL(INFO.BASE_URL),
@@ -28,9 +29,9 @@ export default function RootLayout({
     <html lang="ko" suppressHydrationWarning>
       <body>
         <ThemeProvider>
-          <CommandDialogProvider data={commandDialogData}>
-            <MainLayout headerItems={headerItems}>{children}</MainLayout>
-          </CommandDialogProvider>
+          {/*<CommandDialogProvider data={commandDialogData}>*/}
+          <MainLayout headerItems={headerItems}>{children}</MainLayout>
+          {/*</CommandDialogProvider>*/}
         </ThemeProvider>
       </body>
     </html>

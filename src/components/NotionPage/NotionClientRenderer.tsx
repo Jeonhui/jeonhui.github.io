@@ -6,8 +6,8 @@ import { Code } from "react-notion-x/build/third-party/code"
 import { Collection } from "react-notion-x/build/third-party/collection"
 import { ExtendedRecordMap } from "notion-types"
 import { useIsClient, useTheme } from "@design/hooks"
-import * as styles from "./notionRendererStyles.css"
-import "react-notion-x/src/styles.css"
+import * as styles from "./styles/styles.css"
+import "./styles/reactNotionXStyles.css"
 
 type NotionClientRendererProps = {
   recordMap: ExtendedRecordMap
