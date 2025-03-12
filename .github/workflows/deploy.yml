@@ -27,6 +27,8 @@ concurrency:
 jobs:
   # Build job
   build:
+    environment:
+      name: main
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -48,10 +50,14 @@ jobs:
         run: pnpm install
 
       - name: Set Environment Variables
+        env:
+          TEST: "TEST(${{ secrets.TEST }})"
+          NEXT_PUBLIC_NOTION_AUTH_KEY: ${{ secrets.NEXT_PUBLIC_NOTION_AUTH_KEY }}
+          NEXT_PUBLIC_PROXY_SERVER_URL: ${{ secrets.NEXT_PUBLIC_PROXY_SERVER_URL }}
         run: |
-          echo "SECRETS TEST( ${{ secrets.TEST }} )"
-          echo "NEXT_PUBLIC_NOTION_AUTH_KEY=${{ secrets.NEXT_PUBLIC_NOTION_AUTH_KEY }}" >> .env
-          echo "NEXT_PUBLIC_PROXY_SERVER_URL=${{ secrets.NEXT_PUBLIC_PROXY_SERVER_URL }}" >> .env
+          echo "SECRETS $TEST"
+          echo "NEXT_PUBLIC_NOTION_AUTH_KEY=$NEXT_PUBLIC_NOTION_AUTH_KEY" >> .env
+          echo "NEXT_PUBLIC_PROXY_SERVER_URL=$NEXT_PUBLIC_PROXY_SERVER_URL" >> .env
 
       - name: Build with Next.js
         run: rm -rf .next && pnpm next build
