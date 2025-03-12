@@ -167,10 +167,6 @@ globalStyle(".notion-code", {
   color: theme.colors.text.text,
 })
 
-globalStyle(".notion-code-copy-button", {
-  backgroundColor: theme.colors.button.text.hover.text,
-})
-
 globalStyle(".notion-code-copy-button:hover", {
   backgroundColor: theme.colors.button.text.hover.background,
 })
