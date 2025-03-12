@@ -182,3 +182,7 @@ globalStyle(".notion-code-copy-button:active", {
 globalStyle(".notion-code-copy-button:active > svg", {
   fill: theme.colors.button.text.pressed.text,
 })
+
+globalStyle(".notion-inline-code", {
+  color: theme.colors.primary,
+})

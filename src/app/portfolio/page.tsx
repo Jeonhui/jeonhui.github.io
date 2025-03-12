@@ -1,8 +1,11 @@
 "use client"
 
 import { Layout, Section } from "@design/components"
+import { useEffect } from "react"
 
 const Portfolio = () => {
+  useEffect(() => {}, [])
+
   return (
     <Layout>
       <Section>

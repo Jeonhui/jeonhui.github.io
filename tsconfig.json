@@ -26,6 +26,9 @@
       "@/*": [
         "./src/*"
       ],
+      "@env": [
+        "./src/env"
+      ],
       "@design/*": [
         "./src/design-system/*"
       ]
