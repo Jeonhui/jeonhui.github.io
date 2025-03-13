@@ -21,6 +21,24 @@ const getUrl = ({ url, path }: { url: string; path: string }): URL => {
   return new URL(`${sanitizedUrl}${path}`)
 }
 
+type MetadataWithExtend = Metadata & {
+  extend: (path: string, metadata: Omit<Metadata, "metadataBase">) => Metadata
+}
+
+const defaultMetadata: MetadataWithExtend = {
+  metadataBase: new URL(INFO.BASE_URL),
+  title: INFO.TITLE,
+  description: INFO.DESCRIPTION,
+  icons: [INFO.FAVICON],
+  openGraph: {
+    title: INFO.TITLE,
+    description: INFO.DESCRIPTION,
+    type: "website",
+    images: [INFO.PREVIEW_IMAGE],
+  },
+  extend: (path, metadata) => generateMetadata(defaultMetadata, path, metadata),
+}
+
 const generateMetadata = (
   origin: MetadataWithExtend,
   metadataBase: string,
@@ -42,8 +60,11 @@ const generateMetadata = (
     ...meta,
     openGraph: {
       ...origin.openGraph,
-      title: title !== null ? title : undefined,
-      description: description !== null ? description : undefined,
+      title: title !== null ? title : (defaultMetadata.title ?? INFO.TITLE),
+      description:
+        description !== null
+          ? description
+          : (defaultMetadata.description ?? INFO.DESCRIPTION),
       ...meta.openGraph,
     },
     extend: (path, metadata) =>
@@ -51,24 +72,6 @@ const generateMetadata = (
   }
 
   return generatedMetadata
-}
-
-type MetadataWithExtend = Metadata & {
-  extend: (path: string, metadata: Omit<Metadata, "metadataBase">) => Metadata
-}
-
-const defaultMetadata: MetadataWithExtend = {
-  metadataBase: new URL(INFO.BASE_URL),
-  title: INFO.TITLE,
-  description: INFO.DESCRIPTION,
-  icons: [INFO.FAVICON],
-  openGraph: {
-    title: INFO.TITLE,
-    description: INFO.DESCRIPTION,
-    type: "website",
-    images: [INFO.PREVIEW_IMAGE],
-  },
-  extend: (path, metadata) => generateMetadata(defaultMetadata, path, metadata),
 }
 
 const METADATA: { [key in keyof typeof PAGE]: Metadata } = {

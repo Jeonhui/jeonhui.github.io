@@ -5,6 +5,7 @@ export const tocItem = style({
   fontFamily: theme.fonts.base,
   ...theme.typographies.body2,
   color: theme.colors.text.textDim2,
+  cursor: "pointer",
 })
 
 globalStyle(`${tocItem}:hover`, {
