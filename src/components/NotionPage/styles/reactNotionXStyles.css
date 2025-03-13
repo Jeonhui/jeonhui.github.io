@@ -40,6 +40,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    text-wrap: pretty;
 }
 
 @media (min-width: 1300px) and (min-height: 300px) {
@@ -452,6 +453,7 @@
 }
 
 .notion-hash-link {
+    z-index: 10;
     opacity: 0;
     text-decoration: none;
     float: left;
@@ -951,7 +953,6 @@ svg.notion-page-icon {
 
 .notion-row {
     display: flex;
-    overflow: hidden;
     width: 100%;
     max-width: 100%;
 }

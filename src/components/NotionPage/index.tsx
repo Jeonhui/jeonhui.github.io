@@ -1,11 +1,19 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { ExtendedRecordMap } from "notion-types"
 
 import { useIsClient, useTheme } from "@design-system/hooks"
 import { NotionRenderer } from "react-notion-x"
-import { Layout, Loading, Section } from "@design-system/components"
+import {
+  Container,
+  Layout,
+  Link,
+  Loading,
+  Section,
+  Text,
+} from "@design-system/components"
+import NotionToc from "./components/NotionToc"
 import * as styles from "./styles/styles.css"
 import "./styles/reactNotionXStyles.css"
 
@@ -14,86 +22,39 @@ import { Code } from "react-notion-x/build/third-party/code"
 import { Collection } from "react-notion-x/build/third-party/collection"
 import { getPage } from "@/apis/notions"
 
-const allowedTypes = new Set([
-  "page",
-  "column_list",
-  "column",
-  "header",
-  "sub_header",
-  "sub_sub_header",
-])
-
-type NotionToc = {
-  id: string
-  type: string
-  parentId: string
-  value: string
-  content?: string[]
-  children: NotionToc[]
-}
-
 type NotionPageProps = {
   pageId: string
+  origin: string
 }
 
-const NotionPage = ({ pageId }: NotionPageProps) => {
+const NotionPage = ({ pageId, origin }: NotionPageProps) => {
   const isClient = useIsClient()
   const { theme } = useTheme()
   const [pageRecordMap, setPageRecordMap] = useState<ExtendedRecordMap | null>(
     null,
   )
-
-  const createToc = (recordMap: ExtendedRecordMap) => {
-    const blockMap = new Map<string, NotionToc>(
-      Object.entries(recordMap.block)
-        .filter(([, block]) => allowedTypes.has(block.value.type))
-        .map<[string, NotionToc]>(([, block]) => {
-          const id = block.value.id.replace(/-/g, "")
-          return [
-            id,
-            {
-              id: id,
-              type: block.value.type,
-              parentId: block.value.parent_id.replace(/-/g, ""),
-              value: block.value.properties?.title,
-              content: block.value.content,
-              children: [],
-            },
-          ]
-        }),
-    )
-
-    let rootBlocks: NotionToc | null = null
-
-    blockMap.forEach((block) => {
-      if (block.id === pageId) {
-        rootBlocks = block
-      } else {
-        const parentBlock = blockMap.get(block.parentId)
-
-        if (parentBlock) {
-          const children = blockMap.get(block.id)
-          if (children !== undefined) parentBlock.children.push(children)
-        }
-      }
-    })
-
-    console.log("toc", rootBlocks)
-  }
+  const [isError, setIsError] = useState(false)
 
   useEffect(() => {
     const fetchPageRecordMap = async () => {
-      const fetchedRecordMap = await getPage(pageId)
-      createToc(fetchedRecordMap)
-      setPageRecordMap(fetchedRecordMap)
+      await getPage(pageId)
+        .then((res) => setPageRecordMap(res))
+        .catch(() => setIsError(true))
     }
     fetchPageRecordMap()
   }, [pageId])
 
   return (
-    <Layout scrollSnapMandatory={false}>
+    <Layout
+      layoutClassName={styles.layout}
+      scrollSnapMandatory={false}
+      rightSidebar={<NotionToc pageId={pageId} recordMap={pageRecordMap} />}
+    >
       <Section>
-        {isClient && pageRecordMap != null ? (
+        {!(pageRecordMap != null || isError) && (
+          <Loading isLoading={!(pageRecordMap != null || isError)} />
+        )}
+        {isClient && pageRecordMap != null && (
           <NotionRenderer
             recordMap={pageRecordMap}
             className={styles.notionRenderer}
@@ -106,8 +67,24 @@ const NotionPage = ({ pageId }: NotionPageProps) => {
             darkMode={theme == "dark"}
             disableHeader
           />
-        ) : (
-          <Loading isLoading={!(isClient && pageRecordMap != null)} />
+        )}
+        {isClient && isError && (
+          <Container
+            gap={"large"}
+            style={{ width: "100%", marginTop: "10rem" }}
+          >
+            <Container alignment={"columnCenter"}>
+              <Text typography={"display1_bold"} color={"text"}>
+                ERROR
+              </Text>
+              <Text typography={"header6"} color={"text"}>
+                노션을 불러오는 데 문제가 발생했어요. 😢
+              </Text>
+            </Container>
+            <Link target={"_blank"} size={"xSmall"} href={origin}>
+              노션으로 보기
+            </Link>
+          </Container>
         )}
       </Section>
     </Layout>

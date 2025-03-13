@@ -1,6 +1,9 @@
 import { globalStyle, style } from "@vanilla-extract/css"
 import { theme } from "@design-system/theme/theme.css"
 
+export const layout = style({
+  scrollPaddingTop: "1rem",
+})
 export const notionRenderer = style({})
 
 globalStyle(`${notionRenderer}`, {
@@ -15,7 +18,7 @@ globalStyle(`${notionRenderer}`, {
     "--fg-color-5": "rgba(55, 53, 47, 0.024)",
     "--fg-color-6": "rgba(55, 53, 47, 0.8)",
     "--fg-color-7": "rgba(55, 53, 47, 0.5)",
-    "--fg-color-icon": "var(--fg-color)",
+    "--fg-color-icon": theme.colors.text.textDim2,
 
     "--bg-color": "transparent",
     "--bg-color-0": "rgba(135, 131, 120, 0.15)",
@@ -103,7 +106,6 @@ globalStyle(`${notionRenderer}:is(.dark-mode)`, {
     "--fg-color-4": "var(--fg-color)",
     "--fg-color-5": "rgba(255, 255, 255, 0.7)",
     "--fg-color-6": "#fff",
-    "--fg-color-icon": "#fff",
     "--bg-color-0": "rgb(71, 76, 80)",
     "--bg-color-1": "rgb(63, 68, 71)",
     "--bg-color-2": "rgba(135, 131, 120, 0.15)",

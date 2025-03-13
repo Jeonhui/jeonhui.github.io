@@ -43,8 +43,14 @@ export const forScrollbar = style({
 })
 
 export const sidebar = style({
-  flexGrow: 1,
+  padding: `${headerHeight} ${theme.spaces.small}`,
+  top: 0,
+  position: "sticky",
+  width: `calc((100% - ${layoutContentBreakpoint.width}) / 2 )`,
+  minWidth: "216px",
   height: "100%",
+  flexGrow: 1,
+  flexShrink: 0,
   "@media": {
     [sidebarBreakpoint.media]: {
       display: "none",

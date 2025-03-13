@@ -16,10 +16,11 @@ type ContainerColorTheme = {
 // Text
 type TextColor = {
   text: Color
-  textHighlight?: Color
-  textHighlight2?: Color
-  textDim?: Color
-  textDim2?: Color
+  textHighlight: Color
+  textHighlight2: Color
+  textHighlight3: Color
+  textDim: Color
+  textDim2: Color
 }
 
 // Button
@@ -29,7 +30,8 @@ type ButtonColor = {
   icon: Color
   background?: Color
   border?: Color
-} & TextColor
+  text: Color
+}
 type ButtonStateColor = { [key in ButtonState]: ButtonColor }
 type ButtonTypeColor = { [key in ButtonType]: ButtonStateColor }
 type ButtonColorTheme = ButtonTypeColor
@@ -74,6 +76,7 @@ type CommandDialogColorTheme = {
 
 type ColorTheme = {
   primary: Color
+  primaryHighlight: Color
   logo: Color
   background: Color
   gradient: GradientColorTheme
@@ -92,6 +95,7 @@ type ColorTheme = {
 // ThemeColors
 const lightModeThemeColors: ColorTheme = {
   primary: colorSetVars.primary400,
+  primaryHighlight: colorSetVars.primary200,
   logo: colorSetVars.gray900,
   background: colorSetVars.white,
 
@@ -109,9 +113,11 @@ const lightModeThemeColors: ColorTheme = {
 
   text: {
     text: colorSetVars.gray900,
-    textHighlight: colorSetVars.primary500,
-    textDim: colorSetVars.gray800,
-    textDim2: colorSetVars.gray600,
+    textHighlight: colorSetVars.primary300,
+    textHighlight2: colorSetVars.primary400,
+    textHighlight3: colorSetVars.primary500,
+    textDim: colorSetVars.gray600,
+    textDim2: colorSetVars.gray400,
   },
 
   button: {
@@ -323,6 +329,7 @@ const lightModeThemeColors: ColorTheme = {
 
 const darkModeThemeColors: ColorTheme = {
   primary: colorSetVars.primary400,
+  primaryHighlight: colorSetVars.primary500,
   logo: colorSetVars.gray100,
   background: colorSetVars.gray900,
 
@@ -340,7 +347,9 @@ const darkModeThemeColors: ColorTheme = {
 
   text: {
     text: colorSetVars.gray50,
-    textHighlight: colorSetVars.primary200,
+    textHighlight: colorSetVars.primary300,
+    textHighlight2: colorSetVars.primary400,
+    textHighlight3: colorSetVars.primary600,
     textDim: colorSetVars.gray200,
     textDim2: colorSetVars.gray400,
   },
