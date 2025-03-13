@@ -12,6 +12,7 @@ import GradientText from "./GradientText"
 import GradientIconButton from "./GradientIconLink"
 import Code from "./Code"
 import Divider from "./Divider"
+import Loading from "./Loading"
 
 export {
   MainLayout,
@@ -28,4 +29,5 @@ export {
   GradientIconButton,
   Code,
   Divider,
+  Loading,
 }

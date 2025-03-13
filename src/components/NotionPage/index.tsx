@@ -5,14 +5,14 @@ import { ExtendedRecordMap } from "notion-types"
 
 import { useIsClient, useTheme } from "@design-system/hooks"
 import { NotionRenderer } from "react-notion-x"
-import { getPage } from "@/apis/notions"
-import { Layout, Section } from "@design-system/components"
+import { Layout, Loading, Section } from "@design-system/components"
 import * as styles from "./styles/styles.css"
 import "./styles/reactNotionXStyles.css"
 
 import Image from "next/image"
 import { Code } from "react-notion-x/build/third-party/code"
 import { Collection } from "react-notion-x/build/third-party/collection"
+import { getPage } from "@/apis/notions"
 
 const allowedTypes = new Set([
   "page",
@@ -107,7 +107,7 @@ const NotionPage = ({ pageId }: NotionPageProps) => {
             disableHeader
           />
         ) : (
-          <div>Loading...</div>
+          <Loading isLoading={!(isClient && pageRecordMap != null)} />
         )}
       </Section>
     </Layout>
