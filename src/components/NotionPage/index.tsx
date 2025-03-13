@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react"
 import { ExtendedRecordMap } from "notion-types"
 
-import { useIsClient, useTheme } from "@design/hooks"
+import { useIsClient, useTheme } from "@design-system/hooks"
 import { NotionRenderer } from "react-notion-x"
 import { getPage } from "@/apis/notions"
-import { Layout, Section } from "@design/components"
+import { Layout, Section } from "@design-system/components"
 import * as styles from "./styles/styles.css"
 import "./styles/reactNotionXStyles.css"
 
@@ -66,11 +66,9 @@ const NotionPage = ({ pageId }: NotionPageProps) => {
     let rootBlocks: NotionToc | null = null
 
     blockMap.forEach((block) => {
-      console.log("bid", block.id)
       if (block.id === pageId) {
         rootBlocks = block
       } else {
-        console.log("parentId", block.parentId)
         const parentBlock = blockMap.get(block.parentId)
 
         if (parentBlock) {

@@ -6,7 +6,7 @@ import {
   GradientText,
   Link,
   Text,
-} from "@/design-system/components"
+} from "@design-system/components"
 
 const mdxDesignSystemComponents: MDXComponents = {
   h1: ({ children }) => (

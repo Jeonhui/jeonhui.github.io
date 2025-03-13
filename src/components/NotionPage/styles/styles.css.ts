@@ -1,5 +1,5 @@
 import { globalStyle, style } from "@vanilla-extract/css"
-import { theme } from "@design/theme/theme.css"
+import { theme } from "@design-system/theme/theme.css"
 
 export const notionRenderer = style({})
 

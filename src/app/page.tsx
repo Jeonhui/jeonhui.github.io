@@ -1,5 +1,5 @@
 import React from "react"
-import { theme } from "@design/theme/theme.css"
+import { theme } from "@design-system/theme/theme.css"
 import {
   Container,
   GradientText,
@@ -7,7 +7,7 @@ import {
   List,
   Section,
   Text,
-} from "@design/components"
+} from "@design-system/components"
 import { DownloadLinkButton } from "@/components"
 import { downloadLinks } from "@/data"
 

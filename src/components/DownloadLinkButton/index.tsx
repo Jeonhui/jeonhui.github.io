@@ -1,5 +1,5 @@
-import { Link } from "@design/components"
-import { DownloadsIcon } from "@design/assets/icon"
+import { DownloadsIcon } from "@design-system/assets/icon"
+import { Link } from "@design-system/components"
 
 type DownloadLink = {
   name: string

@@ -1,5 +1,5 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css"
-import { theme } from "@design/theme/theme.css"
+import { theme } from "../../theme/theme.css"
 
 export const list = style({
   listStyle: "none",

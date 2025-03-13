@@ -12,10 +12,11 @@ import { HamburgerMenuButton } from "./components"
 import { LogoIconClipPath } from "../../assets/clipPath"
 
 type HeaderProps = {
+  root?: string
   items: HeaderItems
 }
 
-const Header = ({ items, ...props }: HeaderProps) => {
+const Header = ({ root = "/", items, ...props }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const headerContainerRef = useRef<HTMLDivElement | null>(null)
 
@@ -49,7 +50,7 @@ const Header = ({ items, ...props }: HeaderProps) => {
         className={clsx(styles.header)}
         {...props}
       >
-        <GradientIconLink clipPathId={"logoIconClipPath"} href={"/"}>
+        <GradientIconLink clipPathId={"logoIconClipPath"} href={root}>
           <LogoIconClipPath clipPathId={"logoIconClipPath"} />
         </GradientIconLink>
 

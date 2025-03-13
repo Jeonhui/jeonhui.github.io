@@ -1,4 +1,4 @@
-import CommandDialogData from "@design/commandDialog/CommandDialogData"
+import CommandDialogData from "@design-system/commandDialog/CommandDialogData"
 
 const commandDialogData: CommandDialogData = {
   groups: [

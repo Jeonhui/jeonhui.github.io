@@ -1,4 +1,4 @@
-import { HeaderItems } from "@design/components/Header"
+import { HeaderItems } from "@design-system/components/Header"
 
 const headerItems: HeaderItems = {
   items: [

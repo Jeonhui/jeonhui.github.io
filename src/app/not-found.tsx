@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Layout, Link, Text } from "@design/components"
+import { Container, Layout, Link, Text } from "@design-system/components"
 
 export default function NotFound() {
   return (

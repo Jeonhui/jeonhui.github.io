@@ -1,7 +1,7 @@
 "use client"
 
 import { JSX } from "react"
-import { Section } from "@design/components"
+import { Section } from "@design-system/components"
 import { MDXProps } from "mdx/types"
 import mdxDesignSystemComponents from "./mdxDesignSystemComponents"
 import * as styles from "./styles.css"

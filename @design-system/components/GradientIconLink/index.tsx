@@ -6,7 +6,7 @@ import * as styles from "./styles.css"
 import { gradientIcon } from "./styles.css"
 import { Property } from "csstype"
 import { useIsClient } from "../../hooks"
-import { theme } from "@design/theme/theme.css"
+import { theme } from "../../theme/theme.css"
 import Color = Property.Color
 
 type GradientIconLinkProps = {

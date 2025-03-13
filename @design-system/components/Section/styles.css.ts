@@ -5,10 +5,7 @@ import {
   styleVariants,
 } from "@vanilla-extract/css"
 import { theme } from "../../theme/theme.css"
-import {
-  headerHeight,
-  layoutContentBreakpoint,
-} from "@design/components/Layout/styles.css"
+import { headerHeight, layoutContentBreakpoint } from "../Layout/styles.css"
 
 export const section = style({
   scrollSnapAlign: "start",

@@ -1,6 +1,6 @@
 "use client"
 
-import { Layout, Section, Text } from "@design/components"
+import { Layout, Section, Text } from "@design-system/components"
 import { useEffect } from "react"
 
 const Portfolio = () => {

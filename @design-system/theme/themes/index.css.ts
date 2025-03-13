@@ -6,7 +6,7 @@ import alignments from "./alignments/alignments.css"
 import spaces from "./spaces/spaces.css"
 import breakpoints from "./breakpoints/breakpoints.css"
 import zIndices from "./zIndices/zIndices.css"
-import boxSizes from "../themes/boxSizes/boxSizes.css"
+import boxSizes from "./boxSizes/boxSizes.css"
 
 export {
   colorTheme,
