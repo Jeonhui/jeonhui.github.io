@@ -1,18 +1,11 @@
-"use client"
+import { NotionPage } from "@/components"
+import { METADATA, NOTIONS } from "@/constants"
+import type { Metadata } from "next"
 
-import { Layout, Section, Text } from "@design-system/components"
-import { useEffect } from "react"
+export const metadata: Metadata = METADATA.PORTFOLIO
 
 const Portfolio = () => {
-  useEffect(() => {}, [])
-
-  return (
-    <Layout>
-      <Section>
-        <Text> portfolio</Text>
-      </Section>
-    </Layout>
-  )
+  return <NotionPage pageId={NOTIONS.PORTFOLIO.PAGE_ID} />
 }
 
 export default Portfolio

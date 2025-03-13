@@ -1,5 +1,14 @@
 type CommandDialogItem = {
   icon: string
+  type:
+    | "project"
+    | "resume"
+    | "blog"
+    | "github"
+    | "linkedin"
+    | "email"
+    | "external"
+    | "etc"
   name: string
   tag?: string
   link?: string

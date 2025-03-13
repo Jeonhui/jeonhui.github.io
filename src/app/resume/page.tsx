@@ -1,5 +1,8 @@
 import { NotionPage } from "@/components"
-import { NOTIONS } from "@/constants"
+import { METADATA, NOTIONS } from "@/constants"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = METADATA.RESUME
 
 const Resume = () => {
   return <NotionPage pageId={NOTIONS.RESUME.PAGE_ID} />

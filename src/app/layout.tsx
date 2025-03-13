@@ -3,22 +3,11 @@ import React, { JSX } from "react"
 import ThemeProvider from "@design-system/theme/ThemeProvider"
 // import CommandDialogProvider from "@design/commandDialog/CommandDialogProvider"
 import { MainLayout } from "@design-system/components"
-import { INFO } from "@/constants"
 // import { commandDialogData, headerItems } from "@/data"
 import { headerItems } from "@/data"
+import { METADATA } from "@/constants"
 
-export const metadata: Metadata = {
-  metadataBase: new URL(INFO.BASE_URL),
-  title: INFO.TITLE,
-  description: INFO.DESCRIPTION,
-  icons: [INFO.FAVICON],
-  openGraph: {
-    title: INFO.TITLE,
-    description: INFO.DESCRIPTION,
-    type: "website",
-    images: [INFO.PREVIEW_IMAGE],
-  },
-}
+export const metadata: Metadata = METADATA.MAIN
 
 export default function RootLayout({
   children,

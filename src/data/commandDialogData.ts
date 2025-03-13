@@ -8,6 +8,7 @@ const commandDialogData: CommandDialogData = {
         {
           icon: "",
           name: "SFOM",
+          type: "project",
           tag: "",
           link: "/application/sfom",
           keywords: [],
@@ -15,6 +16,7 @@ const commandDialogData: CommandDialogData = {
         {
           icon: "",
           name: "Briefing",
+          type: "project",
           tag: "",
           link: "/application/briefing",
           keywords: [],
@@ -22,6 +24,7 @@ const commandDialogData: CommandDialogData = {
         {
           icon: "",
           name: "트리거수학",
+          type: "project",
           tag: "",
           link: "/application/trigger-math",
           keywords: [],
