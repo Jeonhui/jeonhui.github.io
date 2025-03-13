@@ -1,3 +1,3 @@
-import getPage from "./getPage"
+import getPage from "./apis/getPage"
 
 export { getPage }
