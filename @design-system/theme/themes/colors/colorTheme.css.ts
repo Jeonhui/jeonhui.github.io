@@ -19,8 +19,11 @@ type TextColor = {
   textHighlight: Color
   textHighlight2: Color
   textHighlight3: Color
+  textHighlight4: Color
   textDim: Color
   textDim2: Color
+  textDim3: Color
+  textDim4: Color
 }
 
 // Button
@@ -60,6 +63,7 @@ type CommandDialogItemColorTheme = {
 }
 
 type GradientColorTheme = {
+  primaryStart: Color
   start: Color
   end: Color
 }
@@ -100,6 +104,7 @@ const lightModeThemeColors: ColorTheme = {
   background: colorSetVars.white,
 
   gradient: {
+    primaryStart: colorSetVars.primary50,
     start: colorSetVars.gray900,
     end: colorSetVars.primary400,
   },
@@ -116,8 +121,11 @@ const lightModeThemeColors: ColorTheme = {
     textHighlight: colorSetVars.primary300,
     textHighlight2: colorSetVars.primary400,
     textHighlight3: colorSetVars.primary500,
+    textHighlight4: colorSetVars.primary600,
     textDim: colorSetVars.gray600,
     textDim2: colorSetVars.gray400,
+    textDim3: colorSetVars.gray200,
+    textDim4: colorSetVars.gray50,
   },
 
   button: {
@@ -334,6 +342,7 @@ const darkModeThemeColors: ColorTheme = {
   background: colorSetVars.gray900,
 
   gradient: {
+    primaryStart: colorSetVars.primary50,
     start: colorSetVars.gray50,
     end: colorSetVars.primary500,
   },
@@ -350,8 +359,11 @@ const darkModeThemeColors: ColorTheme = {
     textHighlight: colorSetVars.primary300,
     textHighlight2: colorSetVars.primary400,
     textHighlight3: colorSetVars.primary600,
+    textHighlight4: colorSetVars.primary700,
     textDim: colorSetVars.gray200,
     textDim2: colorSetVars.gray400,
+    textDim3: colorSetVars.gray600,
+    textDim4: colorSetVars.gray800,
   },
 
   button: {

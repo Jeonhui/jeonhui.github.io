@@ -19,7 +19,7 @@ THIRD_QUARTILE
 - Second highest 25% of days of contributions. More contributions than second quartile, less than the fourth quartile.
  */
 
-type ContributionLevel =
+export type ContributionLevel =
   | "FIRST_QUARTILE"
   | "FOURTH_QUARTILE"
   | "NONE"
@@ -72,6 +72,49 @@ const GET_CONTRIBUTION = gql`
   }
 `
 
+const getDummyContributions = (month: number): ContributionCalendar => {
+  const to = new Date()
+  const from = new Date(to)
+  from.setMonth(to.getMonth() - month)
+  const startOfWeek = new Date(from)
+  startOfWeek.setDate(from.getDate() - from.getDay())
+  const endOfWeek = new Date(to)
+  endOfWeek.setDate(to.getDate() + (6 - to.getDay()))
+  const diffTime = Math.abs(endOfWeek.getTime() - startOfWeek.getTime())
+  const diffDays = diffTime / (1000 * 3600 * 24)
+  const weeksCount = Math.ceil(diffDays / 7)
+  const weeks: ContributionCalendarWeek[] = Array.from(
+    { length: weeksCount },
+    (_, i) => {
+      const contributionDays: ContributionDays[] = Array.from(
+        { length: 7 },
+        (_, j) => {
+          const currentDay = new Date(startOfWeek)
+          currentDay.setDate(startOfWeek.getDate() + i * 7 + j) // 각 주차의 날짜 설정
+          if (currentDay < from || currentDay > to) {
+            return null
+          }
+          return {
+            color: "#ebedf0",
+            contributionCount: 0,
+            contributionLevel: "NONE",
+            date: currentDay,
+            weekday: currentDay.getDay(),
+          } as ContributionDays
+        },
+      ).filter((value) => value !== null) // null 값 제거
+      return {
+        contributionDays: contributionDays,
+        firstDay: contributionDays[0]?.date || null,
+      }
+    },
+  )
+  return {
+    totalContributions: 0,
+    weeks: weeks,
+  }
+}
+
 const getContributions = async (
   userName: string,
   from: string,
@@ -87,4 +130,5 @@ const getContributions = async (
     })
 }
 
+export { getDummyContributions }
 export default getContributions
