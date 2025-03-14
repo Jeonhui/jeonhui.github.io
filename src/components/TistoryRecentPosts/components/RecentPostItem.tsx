@@ -42,9 +42,10 @@ const RecentPostItem = ({ item }: RecentPostItemProps) => {
           color={"inherit"}
           typography={"body4"}
           minWidth={"100%"}
+          lineClamp={1}
           isLoading={!item}
         >
-          {item?.title}
+          {item?.contentSnippet}
         </Text>
         <Container
           className={styles.tagContainer}

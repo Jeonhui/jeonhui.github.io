@@ -6,7 +6,9 @@ import {
 } from "@vanilla-extract/css"
 import { theme } from "../../theme/theme.css"
 
-export const text = style({})
+export const text = style({
+  maxWidth: "100%",
+})
 
 globalStyle(`${text} > strong`, {
   fontWeight: "bold",

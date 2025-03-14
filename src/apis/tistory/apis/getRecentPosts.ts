@@ -22,6 +22,8 @@ const getRecentPosts = async ({ limit = 3 }: GetRecentPostsProps = {}) => {
           author: item.author,
           categories: item.categories ?? [],
           comments: item.comments,
+          content: item.content,
+          contentSnippet: item.contentSnippet,
           creator: item.creator,
           guid: item.guid,
           isoDate: item.isoDate,
