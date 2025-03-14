@@ -1,8 +1,9 @@
+"use client"
+
 import { Container, Link, Text } from "@design-system/components"
 import { PostItem } from "@/apis/tistory"
 import { clsx } from "clsx"
 import * as styles from "./recentPostItemStyles.css"
-import { memo } from "react"
 
 type RecentPostItemProps = {
   item?: PostItem
@@ -64,4 +65,4 @@ const RecentPostItem = ({ item }: RecentPostItemProps) => {
   )
 }
 
-export default memo(RecentPostItem)
+export default RecentPostItem

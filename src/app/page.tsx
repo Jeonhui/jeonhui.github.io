@@ -32,7 +32,6 @@ export default function Home() {
           </Text>
         </Container>
         <GithubContributions />
-
         <TistoryRecentPosts />
       </Section>
       <Section>Section2</Section>

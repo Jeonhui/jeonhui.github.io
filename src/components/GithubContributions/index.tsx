@@ -11,8 +11,10 @@ import { Container } from "@design-system/components"
 import * as styles from "@/components/GithubContributions/styles.css"
 import { clsx } from "clsx"
 import { GITHUB } from "@/constants"
+import { useIsClient } from "@design-system/hooks"
 
 const GithubContributions = () => {
+  const isClient = useIsClient()
   const dummyContributions = getDummyContributions(12)
   const [contributionCalendar, setContributionCalendar] =
     useState<ContributionCalendar | null>(null)
@@ -20,6 +22,7 @@ const GithubContributions = () => {
   const containerRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
+    if (!isClient) return
     if (contributionCalendar && containerRef.current) {
       const delay = 200
       const scrollContainer = containerRef.current
@@ -42,9 +45,10 @@ const GithubContributions = () => {
         }, 1000 / 60)
       }, delay)
     }
-  }, [contributionCalendar])
+  }, [contributionCalendar, isClient])
 
   useEffect(() => {
+    if (!isClient) return
     const today = new Date()
     const lastMonth = new Date(today)
     lastMonth.setMonth(today.getMonth() - 12)
@@ -56,7 +60,7 @@ const GithubContributions = () => {
       ).then(setContributionCalendar)
     }
     fetchContributions()
-  }, [])
+  }, [isClient])
 
   return (
     <Container
@@ -70,30 +74,31 @@ const GithubContributions = () => {
         alignment={"rowTopLeft"}
         gap={"xxSmall"}
       >
-        {(contributionCalendar ?? dummyContributions).weeks.map(
-          (week, index) => (
-            <motion.div key={index} className={clsx(styles.contributionWeek)}>
-              {week.contributionDays.map((day, dayIndex) => (
-                <motion.div
-                  key={dayIndex}
-                  className={clsx(styles.contributionDays)}
-                  initial={{
-                    backgroundColor:
-                      styles.contributionDaysColors["NONE"].color,
-                  }}
-                  animate={{
-                    backgroundColor:
-                      styles.contributionDaysColors[day.contributionLevel]
-                        .color,
-                  }}
-                  transition={{
-                    delay: index * 0.005, // 순차적인 애니메이션
-                  }}
-                />
-              ))}
-            </motion.div>
-          ),
-        )}
+        {isClient &&
+          (contributionCalendar ?? dummyContributions).weeks.map(
+            (week, index) => (
+              <motion.div key={index} className={clsx(styles.contributionWeek)}>
+                {week.contributionDays.map((day, dayIndex) => (
+                  <motion.div
+                    key={dayIndex}
+                    className={clsx(styles.contributionDays)}
+                    initial={{
+                      backgroundColor:
+                        styles.contributionDaysColors["NONE"].color,
+                    }}
+                    animate={{
+                      backgroundColor:
+                        styles.contributionDaysColors[day.contributionLevel]
+                          .color,
+                    }}
+                    transition={{
+                      delay: index * 0.005, // 순차적인 애니메이션
+                    }}
+                  />
+                ))}
+              </motion.div>
+            ),
+          )}
       </Container>
     </Container>
   )

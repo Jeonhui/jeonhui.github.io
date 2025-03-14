@@ -3,10 +3,13 @@
 import React, { forwardRef, HTMLProps, Ref } from "react"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
+import { Property } from "csstype"
+import Height = Property.Height
 
 type ContainerProps = {
   children?: React.ReactNode
   className?: string
+  minHeight?: Height
   box?: boolean
   flexGrow?: boolean
   layout?: keyof typeof styles.containerLayoutVariants
@@ -19,6 +22,7 @@ const Container = (
   {
     children,
     className,
+    minHeight,
     box = false,
     flexGrow = false,
     layout,
@@ -32,6 +36,7 @@ const Container = (
   return (
     <div
       ref={ref}
+      style={{ ...(minHeight ? { height: minHeight } : {}) }}
       className={clsx(
         className,
         "container",

@@ -2,36 +2,38 @@
 
 import { useEffect, useState } from "react"
 import { getRecentPosts, PostItem } from "@/apis/tistory"
-import { Container, Text } from "@design-system/components"
+import { Container } from "@design-system/components"
 import RecentPostItem from "./components/RecentPostItem"
+import ItemContainer from "@/components/ItemContainer"
+import { useIsClient } from "@design-system/hooks"
 
 const TistoryRecentPosts = ({}) => {
+  const isClient = useIsClient()
   const [recentPosts, setRecentPosts] = useState<PostItem[] | null>(null)
 
   useEffect(() => {
+    if (!isClient) return
     const fetchTistoryRecentPosts = async () => {
       setRecentPosts(await getRecentPosts())
     }
     fetchTistoryRecentPosts()
-  }, [])
+  }, [isClient])
 
   return (
-    <Container alignment={"columnTopLeft"} layout={"fullWidth"} gap={"small"}>
-      <Container alignment={"rowTopLeft"}>
-        <Text typography={"header6_bold"} color={"textDim"}>
-          Blog
-        </Text>
-      </Container>
-      <Container
-        alignment={"columnTopLeft"}
-        gap={"medium"}
-        layout={"fullWidth"}
-      >
-        {Array.from({ length: 3 }).map((_, idx) => (
-          <RecentPostItem key={idx} item={recentPosts?.[idx]} />
-        ))}
-      </Container>
-    </Container>
+    <ItemContainer title={"Blog"}>
+      {isClient && (
+        <Container
+          minHeight={"24rem"}
+          alignment={"columnTopLeft"}
+          gap={"medium"}
+          layout={"fullWidth"}
+        >
+          {Array.from({ length: 3 }).map((_, idx) => (
+            <RecentPostItem key={idx} item={recentPosts?.[idx]} />
+          ))}
+        </Container>
+      )}
+    </ItemContainer>
   )
 }
 
