@@ -34,6 +34,7 @@ const Container = (
       ref={ref}
       className={clsx(
         className,
+        "container",
         styles.container,
         {
           [styles.box]: box,

@@ -27,7 +27,7 @@ type TextColor = {
 }
 
 // Button
-type ButtonType = "default" | "text" | "border"
+type ButtonType = "default" | "text" | "border" | "grayBorder"
 type ButtonState = "default" | "hover" | "pressed" | "disabled"
 type ButtonColor = {
   icon: Color
@@ -199,6 +199,32 @@ const lightModeThemeColors: ColorTheme = {
         background: colorSetVars.white,
         border: colorSetVars.primary700,
         text: colorSetVars.primary700,
+      },
+      disabled: {
+        icon: colorSetVars.gray400,
+        background: colorSetVars.white,
+        border: colorSetVars.gray200,
+        text: colorSetVars.gray500,
+      },
+    },
+    grayBorder: {
+      default: {
+        icon: colorSetVars.gray700,
+        background: "transparent",
+        border: colorSetVars.gray50,
+        text: colorSetVars.gray700,
+      },
+      hover: {
+        icon: colorSetVars.gray600,
+        background: "#F8F8F8",
+        border: colorSetVars.gray100,
+        text: colorSetVars.gray600,
+      },
+      pressed: {
+        icon: colorSetVars.gray500,
+        background: colorSetVars.gray50,
+        border: colorSetVars.gray300,
+        text: colorSetVars.gray500,
       },
       disabled: {
         icon: colorSetVars.gray400,
@@ -437,6 +463,32 @@ const darkModeThemeColors: ColorTheme = {
         background: colorSetVars.gray900,
         border: colorSetVars.primary600,
         text: colorSetVars.primary600,
+      },
+      disabled: {
+        icon: colorSetVars.gray400,
+        background: "transparent",
+        border: colorSetVars.gray600,
+        text: colorSetVars.gray500,
+      },
+    },
+    grayBorder: {
+      default: {
+        icon: colorSetVars.gray200,
+        background: "transparent",
+        border: colorSetVars.gray700,
+        text: colorSetVars.gray200,
+      },
+      hover: {
+        icon: colorSetVars.gray400,
+        background: colorSetVars.gray900,
+        border: colorSetVars.gray400,
+        text: colorSetVars.gray400,
+      },
+      pressed: {
+        icon: colorSetVars.gray600,
+        background: colorSetVars.gray900,
+        border: colorSetVars.gray600,
+        text: colorSetVars.gray600,
       },
       disabled: {
         icon: colorSetVars.gray400,

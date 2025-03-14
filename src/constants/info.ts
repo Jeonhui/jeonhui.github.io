@@ -5,7 +5,7 @@ const INFO = {
   DESCRIPTION: "Personal Page(Blog & Portfolio)",
   FAVICON: "/favicon.png",
   PREVIEW_IMAGE: {
-    url: "/preview.png",
+    url: "https://jeonhui.com/preview.png",
     alt: "Jeonhui | iOS Developer",
     width: "1200px",
     height: "628px",

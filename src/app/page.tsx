@@ -9,6 +9,7 @@ import {
   Text,
 } from "@design-system/components"
 import { GithubContributions } from "@/components"
+import TistoryRecentPosts from "@/components/TistoryRecentPosts"
 
 export default function Home() {
   return (
@@ -24,11 +25,15 @@ export default function Home() {
           </GradientText>
           <Text typography={"header1_bold"}>이전희</Text>
         </Container>
-        <Text typography={"body1"} color={"textDim"}>
-          적극적으로 <strong>탐구</strong>하며
-          <br /> 스스로의 역량을 <strong>제고</strong>하는 개발자입니다.
-        </Text>
+        <Container>
+          <Text typography={"body1"} color={"textDim"}>
+            적극적으로 <strong>탐구</strong>하며
+            <br /> 스스로의 역량을 <strong>제고</strong>하는 개발자입니다.
+          </Text>
+        </Container>
         <GithubContributions />
+
+        <TistoryRecentPosts />
       </Section>
       <Section>Section2</Section>
       <Section id={"about-me"}>

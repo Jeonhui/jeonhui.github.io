@@ -70,7 +70,7 @@ const enter = keyframes({
   "100%": { opacity: "1", transform: "none" },
 })
 
-globalStyle("[data-animate=true] > *", {
+globalStyle("[data-animate=true] > .container", {
   vars: {
     "--step": "0",
     "--delayPerStep": "120ms",
@@ -85,7 +85,7 @@ globalStyle("[data-animate=true] > *", {
 })
 
 for (let i = 1; i <= 20; i++) {
-  globalStyle(`[data-animate=true] > *:nth-child(${i})`, {
-    vars: { "--step": `${i}` },
+  globalStyle(`[data-animate=true] > .container:nth-child(${i})`, {
+    vars: { "--step": `${i - 1}` },
   })
 }

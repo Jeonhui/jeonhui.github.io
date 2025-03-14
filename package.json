@@ -31,7 +31,8 @@
     "notion-types": "^7.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-notion-x": "^7.2.6"
+    "react-notion-x": "^7.2.6",
+    "rss-parser": "^3.13.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -20,7 +20,7 @@ const Layout = (
     rightSidebar,
     layoutClassName,
     layoutContentClassName,
-    scrollSnapMandatory = true,
+    scrollSnapMandatory = false,
     gap = "medium",
     alignment = "columnTopCenter",
     ...props
