@@ -1,9 +1,10 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client"
 import { setContext } from "@apollo/client/link/context"
+import GITHUB from "@/constants/github"
 import { GITHUB_TOKEN } from "@env"
 
 const httpLink = createHttpLink({
-  uri: "https://api.github.com/graphql",
+  uri: GITHUB.API,
 })
 
 const authLink = setContext((_, { headers }) => {
