@@ -1,5 +1,3 @@
-"use client"
-
 import { Container, Text } from "@design-system/components"
 import { ReactNode } from "react"
 

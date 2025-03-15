@@ -67,6 +67,10 @@ globalStyle(
   `${headerContainer} [header-menu-item=true][header-menu-item-open=true]`,
   {
     maxHeight: "500px",
-    padding: `${theme.spaces.medium} 0`,
+    padding: `${theme.spaces.medium} 0 ${theme.spaces.small} 0`,
   },
 )
+
+export const hamburgerMenuIconContainer = style({
+  paddingTop: "0.5rem",
+})

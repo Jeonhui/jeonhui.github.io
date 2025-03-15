@@ -2,6 +2,7 @@ import { globalStyle, style } from "@vanilla-extract/css"
 import { theme } from "../../theme/theme.css"
 
 export const loading = style({
+  position: "absolute",
   paddingTop: "5rem",
   width: "100%",
   display: "flex",

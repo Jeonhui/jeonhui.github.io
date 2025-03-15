@@ -53,7 +53,6 @@ const Header = ({ root = "/", items, ...props }: HeaderProps) => {
         <GradientIconLink clipPathId={"logoIconClipPath"} href={root}>
           <LogoIconClipPath clipPathId={"logoIconClipPath"} />
         </GradientIconLink>
-
         <Container header-item={"true"} gap={"xSmall"} padding={"none"}>
           {items.items.map((item, idx) => (
             <Link
@@ -65,8 +64,19 @@ const Header = ({ root = "/", items, ...props }: HeaderProps) => {
             >
               {item.name}
             </Link>
-          ))}
-          <ThemeToggleButton data-media-hidden-item={true} size={"xSmall"} />
+          ))}{" "}
+          <Container
+            alignment={"rowTopCenter"}
+            gap={"xSmall"}
+            data-media-hidden-item={true}
+          >
+            {items.iconNameItems?.map((item, idx) => (
+              <Link key={idx} href={item.href} size={"xSmall"} color={"text"}>
+                {item.name}
+              </Link>
+            ))}
+            <ThemeToggleButton size={"xSmall"} />
+          </Container>
           <HamburgerMenuButton
             data-media-show-item={true}
             isOpen={isOpen}
@@ -94,7 +104,25 @@ const Header = ({ root = "/", items, ...props }: HeaderProps) => {
             {item.name}
           </Link>
         ))}
-        <ThemeToggleButton size={"medium"} />
+        <Container
+          className={clsx(styles.hamburgerMenuIconContainer)}
+          alignment={"rowTopLeft"}
+          layout={"fullWidth"}
+          gap={"xSmall"}
+        >
+          {items.iconNameItems?.map((item, idx) => (
+            <Link
+              onClick={onHeaderMenuLinkClickHandler}
+              key={idx}
+              href={item.href}
+              size={"medium"}
+              color={"text"}
+            >
+              {item.icon}
+            </Link>
+          ))}
+          <ThemeToggleButton size={"medium"} />
+        </Container>
       </Container>
     </Container>
   )

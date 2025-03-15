@@ -24,7 +24,6 @@ const Loading = (
         staggerChildren: 0.15,
       },
     },
-    exit: { opacity: 0, transition: { duration: 0.3 } },
   }
 
   const DotVariants = {
@@ -48,12 +47,13 @@ const Loading = (
     <AnimatePresence>
       {isLoading && (
         <motion.div
+          key={"loadingContainer"}
           ref={ref}
           className={clsx(styles.loading)}
           variants={ContainerVariants}
           initial="initial"
           animate="animate"
-          exit="exit"
+          exit={{ opacity: 0, display: "none", transition: { duration: 0.3 } }}
           {...props}
         >
           <motion.div className={clsx(styles.loadingContainer)}>

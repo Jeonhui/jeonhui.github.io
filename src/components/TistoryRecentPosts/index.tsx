@@ -21,7 +21,7 @@ const TistoryRecentPosts = ({}) => {
 
   return (
     <ItemContainer title={"Blog"}>
-      {isClient && (
+      {
         <Container
           minHeight={"24rem"}
           alignment={"columnTopLeft"}
@@ -32,7 +32,7 @@ const TistoryRecentPosts = ({}) => {
             <RecentPostItem key={idx} item={recentPosts?.[idx]} />
           ))}
         </Container>
-      )}
+      }
     </ItemContainer>
   )
 }

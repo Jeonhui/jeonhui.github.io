@@ -31,11 +31,20 @@ export const textFontVariants = styleVariants(theme.fonts, (font) => ({
   fontFamily: font,
 }))
 
+const textBreakpointMedia = "@media screen and (max-width: 768px)"
+
 export const textTypographyVariants = styleVariants(
   theme.typographies,
   (typography) => ({
     ...typography,
-    minHeight: typography.lineHeight,
+    ...(typography[textBreakpointMedia]
+      ? {
+          [textBreakpointMedia]: {
+            ...typography[textBreakpointMedia],
+            minHeight: typography[textBreakpointMedia].lineHeight,
+          },
+        }
+      : { minHeight: typography.lineHeight }),
   }),
 )
 
