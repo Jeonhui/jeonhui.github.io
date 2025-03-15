@@ -1,8 +1,7 @@
 import { HeaderItems } from "@design-system/components/Header"
 import { createElement } from "react"
-import { GithubIcon } from "@/assets"
+import { BlogIcon, GithubIcon } from "@/assets/icons"
 import { GITHUB, TISTORY } from "@/constants"
-import BlogIcon from "@/assets/BlogIcon"
 
 const headerItems: HeaderItems = {
   items: [

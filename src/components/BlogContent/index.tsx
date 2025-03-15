@@ -33,32 +33,38 @@ const BlogContent = ({}) => {
           gap={"medium"}
           layout={"fullWidth"}
         >
-          <AnimatePresence>
-            {recentPosts !== undefined && recentPosts.length == 0 && (
-              <motion.div
-                className={clsx(styles.errorAnimationContainer)}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              >
-                <Container
-                  className={clsx(styles.errorContainer)}
-                  alignment={"columnCenter"}
-                  layout={"fullWidth"}
+          {isClient && (
+            <AnimatePresence>
+              {recentPosts !== undefined && recentPosts.length == 0 && (
+                <motion.div
+                  className={clsx(styles.errorAnimationContainer)}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                 >
-                  <Text typography={"display6_bold"} color={"textDim2"}>
-                    ERROR
-                  </Text>
-                  <Text typography={"header6"} color={"textDim2"}>
-                    데이터를 불러오는 데 문제가 발생했어요. 😢
-                  </Text>
-                </Container>
-              </motion.div>
-            )}
-            {(recentPosts === undefined || recentPosts.length > 0) &&
-              Array.from({ length: 3 }).map((_, idx) => (
-                <RecentPostItem key={idx} idx={idx} item={recentPosts?.[idx]} />
-              ))}
-          </AnimatePresence>
+                  <Container
+                    className={clsx(styles.errorContainer)}
+                    alignment={"columnCenter"}
+                    layout={"fullWidth"}
+                  >
+                    <Text typography={"display6_bold"} color={"textDim2"}>
+                      ERROR
+                    </Text>
+                    <Text typography={"header6"} color={"textDim2"}>
+                      데이터를 불러오는 데 문제가 발생했어요. 😢
+                    </Text>
+                  </Container>
+                </motion.div>
+              )}
+              {(recentPosts === undefined || recentPosts.length > 0) &&
+                Array.from({ length: 3 }).map((_, idx) => (
+                  <RecentPostItem
+                    key={idx}
+                    idx={idx}
+                    item={recentPosts?.[idx]}
+                  />
+                ))}
+            </AnimatePresence>
+          )}
         </Container>
       }
     </ItemContainer>

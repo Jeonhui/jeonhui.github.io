@@ -1,6 +1,6 @@
-import { LinkItem } from "../components/DownloadsAndLinksContent"
+import { LinkItem } from "@/components"
 import { createElement } from "react"
-import { BlogIcon, GithubIcon } from "@/assets"
+import { BlogIcon, GithubIcon } from "@/assets/icons"
 import { GITHUB, TISTORY } from "@/constants"
 
 const linkItems: LinkItem[] = [

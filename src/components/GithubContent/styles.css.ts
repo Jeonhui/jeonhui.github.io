@@ -1,6 +1,11 @@
 import { style } from "@vanilla-extract/css"
 import { theme } from "@design-system/theme/theme.css"
 
+export const contentContainer = style({
+  flexWrap: "wrap",
+  minHeight: "21rem",
+})
+
 export const errorAnimationContainer = style({
   position: "absolute",
   width: "100%",

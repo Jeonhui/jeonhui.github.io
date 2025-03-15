@@ -55,7 +55,7 @@ const PinnedItem = ({ idx, item }: PinnedItemProps) => {
             lineClamp={1}
             isLoading={item == undefined}
           >
-            {item?.stargazerCount}
+            {item?.description}
           </Text>
 
           <Container
@@ -65,15 +65,28 @@ const PinnedItem = ({ idx, item }: PinnedItemProps) => {
             gap={"xSmall"}
           >
             {item && (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-                className={clsx(styles.tag)}
-              >
-                {item.primaryLanguage.name}
-              </motion.div>
+              <>
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1 }}
+                  style={{ color: item.primaryLanguage.color }}
+                  className={clsx(styles.tag)}
+                >
+                  {item.primaryLanguage.name}
+                </motion.div>
+                <motion.div
+                  key={item.stargazerCount}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1 }}
+                  className={clsx(styles.tag)}
+                >
+                  {/*<StarIcon fill={"white"} />*/}
+                  {item.stargazerCount}
+                </motion.div>
+              </>
             )}
           </Container>
         </Container>

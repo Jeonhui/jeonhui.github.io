@@ -1,11 +1,8 @@
 import { globalStyle, style } from "@vanilla-extract/css"
 import { theme } from "@design-system/theme/theme.css"
 
-export const linkContainer = style({
-  width: "100%",
-})
-
 export const link = style({
+  overflow: "hidden",
   borderRadius: `${theme.spaces.small} !important`,
 })
 
@@ -21,7 +18,6 @@ export const tagContainer = style({
 export const tag = style({
   fontFamily: `${theme.fonts.code}`,
   ...theme.typographies.body5,
-  color: `${theme.colors.text.textHighlight}`,
   boxShadow: `0 0 0 0.1rem ${theme.colors.button.grayBorder.default.border} inset`,
   padding: `${theme.spaces.xSmall} ${theme.spaces.small}`,
   borderRadius: `${theme.spaces.medium}`,
@@ -38,5 +34,10 @@ globalStyle(`${link}:active ${tag}`, {
 })
 
 export const animationContainer = style({
-  width: "100%",
+  width: `calc(50% - (${theme.spaces.medium} / 2))`,
+  "@media": {
+    "screen and (max-width: 768px)": {
+      width: "100%",
+    },
+  },
 })
