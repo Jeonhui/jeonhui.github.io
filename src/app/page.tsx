@@ -8,8 +8,8 @@ import {
 } from "@design-system/components"
 import {
   BlogContent,
+  DownloadsAndLinksContent,
   GithubContributions,
-  LinksDownloadsContent,
 } from "@/components"
 import { downloadLinks, linkItems } from "@/data"
 
@@ -35,7 +35,7 @@ export default function Home() {
         </Container>
         <GithubContributions />
         <BlogContent />
-        <LinksDownloadsContent
+        <DownloadsAndLinksContent
           linkItems={linkItems}
           downloadItems={[downloadLinks.resume, downloadLinks.portfolio]}
         />

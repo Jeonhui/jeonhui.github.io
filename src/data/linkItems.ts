@@ -1,4 +1,4 @@
-import { LinkItem } from "../components/LinksDownloadsContent"
+import { LinkItem } from "../components/DownloadsAndLinksContent"
 import { createElement } from "react"
 import { BlogIcon, GithubIcon } from "@/assets"
 import { GITHUB, TISTORY } from "@/constants"
