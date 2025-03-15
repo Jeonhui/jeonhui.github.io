@@ -19,7 +19,7 @@ const DownloadsAndLinksContent = ({
   downloadItems,
 }: LinksContentProps) => {
   return (
-    <ItemContainer title={"Downloads & Links"}>
+    <ItemContainer title={"Downloads & Links"} titleSize={"small"}>
       {
         <Container
           alignment={"columnTopLeft"}

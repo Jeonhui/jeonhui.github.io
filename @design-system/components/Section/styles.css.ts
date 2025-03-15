@@ -8,6 +8,7 @@ import { theme } from "../../theme/theme.css"
 import { headerHeight, layoutContentBreakpoint } from "../Layout/styles.css"
 
 export const section = style({
+  position: "relative",
   scrollSnapAlign: "start",
   width: "100%",
   minHeight: "100svh",

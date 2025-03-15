@@ -34,6 +34,7 @@ export default function Home() {
           </Text>
         </Container>
         <GithubContributions />
+        {/*<GithubContent />*/}
         <BlogContent />
         <DownloadsAndLinksContent
           linkItems={linkItems}

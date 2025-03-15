@@ -1,24 +1,19 @@
 "use client"
 
 import { Container, Link, Text } from "@design-system/components"
-import { PostItem } from "@/apis/tistory"
 import { clsx } from "clsx"
 import * as styles from "./recentPostItemStyles.css"
-import { useEffect } from "react"
 import { motion } from "framer-motion"
+import { PinnableItem } from "@/apis/github"
 
-type RecentPostItemProps = {
-  item?: PostItem
+type PinnedItemProps = {
+  item?: PinnableItem
 }
 
-const RecentPostItem = ({ item }: RecentPostItemProps) => {
-  useEffect(() => {
-    console.log("RecentPostItem", item)
-  }, [item])
-
+const PinnedItem = ({ item }: PinnedItemProps) => {
   return (
     <Link
-      href={item?.link}
+      href={item?.url}
       className={clsx(styles.link)}
       color={"grayBorder"}
       size={"xSmall_full"}
@@ -29,21 +24,21 @@ const RecentPostItem = ({ item }: RecentPostItemProps) => {
         padding={"xSmall"}
         gap={"xxSmall"}
       >
-        <Text
-          color={"inherit"}
-          typography={"body6"}
-          minWidth={"20%"}
-          isLoading={item == undefined}
-        >
-          {item && <strong>tistory - {item?.creator}</strong>}
-        </Text>
+        {/*<Text*/}
+        {/*  color={"inherit"}*/}
+        {/*  typography={"body6"}*/}
+        {/*  minWidth={"20%"}*/}
+        {/*  isLoading={item == undefined}*/}
+        {/*>*/}
+        {/*  {item && <strong>tistory - {item}</strong>}*/}
+        {/*</Text>*/}
         <Text
           color={"inherit"}
           typography={"body3"}
           minWidth={"60%"}
           isLoading={item == undefined}
         >
-          <strong>{item?.title}</strong>
+          <strong>{item?.name}</strong>
         </Text>
         <Text
           color={"inherit"}
@@ -52,7 +47,7 @@ const RecentPostItem = ({ item }: RecentPostItemProps) => {
           lineClamp={1}
           isLoading={item == undefined}
         >
-          {item?.contentSnippet}
+          {item?.stargazerCount}
         </Text>
 
         <Container
@@ -61,21 +56,21 @@ const RecentPostItem = ({ item }: RecentPostItemProps) => {
           layout={"fullWidth"}
           gap={"xSmall"}
         >
-          {item?.categories.map((category, idx) => (
+          {item && (
             <motion.div
+              key={item.name}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
-              key={idx}
               className={clsx(styles.tag)}
             >
-              {category}
+              {item.primaryLanguage.name}
             </motion.div>
-          ))}
+          )}
         </Container>
       </Container>
     </Link>
   )
 }
 
-export default RecentPostItem
+export default PinnedItem

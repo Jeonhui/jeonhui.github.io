@@ -4,10 +4,11 @@ import { theme } from "../../theme/theme.css"
 export const loading = style({
   position: "absolute",
   paddingTop: "5rem",
-  width: "100%",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  left: "50%",
+  transform: "translate(-50%,0)",
 })
 
 export const loadingContainer = style({

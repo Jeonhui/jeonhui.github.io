@@ -1,28 +1,28 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { getRecentPosts, PostItem } from "@/apis/tistory"
 import { Container } from "@design-system/components"
-import RecentPostItem from "./components/RecentPostItem"
+import PinnedRepository from "./components/PinnedItem"
 import ItemContainer from "../ItemContainer"
 import { useIsClient } from "@design-system/hooks"
+import { getPinnedItems, PinnableItem } from "@/apis/github"
 
-const BlogContent = ({}) => {
+const GithubContent = ({}) => {
   const isClient = useIsClient()
-  const [recentPosts, setRecentPosts] = useState<PostItem[] | undefined>(
+  const [pinnedItem, setPinnedItem] = useState<PinnableItem[] | undefined>(
     undefined,
   )
 
   useEffect(() => {
     if (!isClient) return
     const fetchTistoryRecentPosts = async () => {
-      setRecentPosts(await getRecentPosts())
+      setPinnedItem(await getPinnedItems())
     }
     fetchTistoryRecentPosts()
   }, [isClient])
 
   return (
-    <ItemContainer title={"Blog"}>
+    <ItemContainer title={"Github"}>
       {
         <Container
           minHeight={"24rem"}
@@ -31,7 +31,7 @@ const BlogContent = ({}) => {
           layout={"fullWidth"}
         >
           {Array.from({ length: 3 }).map((_, idx) => (
-            <RecentPostItem key={idx} item={recentPosts?.[idx]} />
+            <PinnedRepository key={idx} item={pinnedItem?.[idx]} />
           ))}
         </Container>
       }
@@ -39,4 +39,4 @@ const BlogContent = ({}) => {
   )
 }
 
-export default BlogContent
+export default GithubContent
