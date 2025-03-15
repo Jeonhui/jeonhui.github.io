@@ -31,6 +31,7 @@ const getDummyContributions = (month: number): ContributionCalendar => {
   const to = new Date()
   const from = new Date(to)
   from.setMonth(to.getMonth() - month)
+  from.setDate(from.getDate() + 1)
   const startOfWeek = new Date(from)
   startOfWeek.setDate(from.getDate() - from.getDay())
   const endOfWeek = new Date(to)

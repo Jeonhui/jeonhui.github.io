@@ -13,6 +13,13 @@ import { clsx } from "clsx"
 import { GITHUB } from "@/constants"
 import { useIsClient } from "@design-system/hooks"
 
+const toKoreanISOString = (date: Date) => {
+  const timezoneOffset = 9 * 60 // 한국 시간은 UTC+9
+  const localDate = new Date(date.getTime() + timezoneOffset * 60000)
+
+  return localDate.toISOString().replace("Z", "+09:00") // 'Z'를 한국 시간대로 변환
+}
+
 const GithubContributions = () => {
   const isClient = useIsClient()
   const dummyContributions = getDummyContributions(12)
@@ -55,8 +62,8 @@ const GithubContributions = () => {
     const fetchContributions = async () => {
       await getContributions(
         GITHUB.USERNAME,
-        lastMonth.toISOString(),
-        today.toISOString(),
+        toKoreanISOString(lastMonth),
+        toKoreanISOString(today),
       ).then(setContributionCalendar)
     }
     fetchContributions()

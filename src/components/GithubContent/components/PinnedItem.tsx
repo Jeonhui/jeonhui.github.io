@@ -6,6 +6,8 @@ import * as styles from "./pinnedItemStyle.css"
 import { motion } from "framer-motion"
 import { PinnableItem } from "@/apis/github"
 import { StarIcon } from "@/assets/icons"
+import { useEffect, useState } from "react"
+import { useIsClient } from "@design-system/hooks"
 
 type PinnedItemProps = {
   idx?: number
@@ -13,6 +15,30 @@ type PinnedItemProps = {
 }
 
 const PinnedItem = ({ idx, item }: PinnedItemProps) => {
+  const isClient = useIsClient()
+  const [primaryLanguageColor, setPrimaryLanguageColor] =
+    useState<keyof typeof styles.primaryLanguageColors>("red")
+
+  useEffect(() => {
+    if (!isClient || !item) return
+    const language = item.primaryLanguage.name.toLowerCase()
+    switch (language) {
+      case "swift":
+        setPrimaryLanguageColor("red")
+        break
+      case "Python":
+        setPrimaryLanguageColor("blue")
+        break
+      case "Java":
+        setPrimaryLanguageColor("green")
+        break
+      default:
+        setPrimaryLanguageColor("red")
+    }
+  }, [isClient, item, item?.primaryLanguage])
+
+  if (!isClient) return null
+
   return (
     <motion.div
       key={`recent-post-item-${idx}`}
@@ -23,7 +49,10 @@ const PinnedItem = ({ idx, item }: PinnedItemProps) => {
     >
       <Link
         href={item?.url}
-        className={clsx(styles.link)}
+        className={clsx(
+          styles.link,
+          styles.primaryLanguageColorVariants[primaryLanguageColor],
+        )}
         color={"grayBorder"}
         size={"xSmall_full"}
       >
@@ -33,14 +62,6 @@ const PinnedItem = ({ idx, item }: PinnedItemProps) => {
           padding={"xSmall"}
           gap={"xxSmall"}
         >
-          {/*<Text*/}
-          {/*  color={"inherit"}*/}
-          {/*  typography={"body6"}*/}
-          {/*  minWidth={"20%"}*/}
-          {/*  isLoading={item == undefined}*/}
-          {/*>*/}
-          {/*  {item && <strong>tistory - {item}</strong>}*/}
-          {/*</Text>*/}
           <Text
             color={"inherit"}
             typography={"body3"}
@@ -72,8 +93,10 @@ const PinnedItem = ({ idx, item }: PinnedItemProps) => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1 }}
-                  style={{ color: item.primaryLanguage.color }}
-                  className={clsx(styles.tag)}
+                  className={clsx(
+                    styles.tag,
+                    `github-content-primary-language-${primaryLanguageColor}`,
+                  )}
                 >
                   {item.primaryLanguage.name}
                 </motion.div>
@@ -82,9 +105,9 @@ const PinnedItem = ({ idx, item }: PinnedItemProps) => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1 }}
-                  className={clsx(styles.tag)}
+                  className={clsx(styles.tag, styles.star)}
                 >
-                  <StarIcon fill={"white"} />
+                  <StarIcon />
                   {item.stargazerCount}
                 </motion.div>
               </>
