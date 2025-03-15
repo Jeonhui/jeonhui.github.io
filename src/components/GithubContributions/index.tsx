@@ -81,30 +81,31 @@ const GithubContributions = () => {
         alignment={"rowTopLeft"}
         gap={"xxSmall"}
       >
-        {(contributionCalendar ?? dummyContributions).weeks.map(
-          (week, index) => (
-            <motion.div key={index} className={clsx(styles.contributionWeek)}>
-              {week.contributionDays.map((day, dayIndex) => (
-                <motion.div
-                  key={dayIndex}
-                  className={clsx(styles.contributionDays)}
-                  initial={{
-                    backgroundColor:
-                      styles.contributionDaysColors["NONE"].color,
-                  }}
-                  animate={{
-                    backgroundColor:
-                      styles.contributionDaysColors[day.contributionLevel]
-                        .color,
-                  }}
-                  transition={{
-                    delay: index * 0.005, // 순차적인 애니메이션
-                  }}
-                />
-              ))}
-            </motion.div>
-          ),
-        )}
+        {isClient &&
+          (contributionCalendar ?? dummyContributions).weeks.map(
+            (week, index) => (
+              <motion.div key={index} className={clsx(styles.contributionWeek)}>
+                {week.contributionDays.map((day, dayIndex) => (
+                  <motion.div
+                    key={dayIndex}
+                    className={clsx(styles.contributionDays)}
+                    initial={{
+                      backgroundColor:
+                        styles.contributionDaysColors["NONE"].color,
+                    }}
+                    animate={{
+                      backgroundColor:
+                        styles.contributionDaysColors[day.contributionLevel]
+                          .color,
+                    }}
+                    transition={{
+                      delay: index * 0.005, // 순차적인 애니메이션
+                    }}
+                  />
+                ))}
+              </motion.div>
+            ),
+          )}
       </Container>
     </Container>
   )
