@@ -7,7 +7,7 @@ import RecentPostItem from "./components/RecentPostItem"
 import ItemContainer from "../ItemContainer"
 import { useIsClient } from "@design-system/hooks"
 
-const TistoryRecentPosts = ({}) => {
+const BlogContent = ({}) => {
   const isClient = useIsClient()
   const [recentPosts, setRecentPosts] = useState<PostItem[] | undefined>(
     undefined,
@@ -39,4 +39,4 @@ const TistoryRecentPosts = ({}) => {
   )
 }
 
-export default TistoryRecentPosts
+export default BlogContent

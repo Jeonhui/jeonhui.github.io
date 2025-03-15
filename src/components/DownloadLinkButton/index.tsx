@@ -14,11 +14,11 @@ type DownloadLinkButtonProps = {
 const DownloadLinkButton = ({ downloadLink }: DownloadLinkButtonProps) => {
   return (
     <Link
-      size={"small"}
+      size={"xSmall"}
       target={"_blank"}
       download={downloadLink.downloadName}
       href={downloadLink.link}
-      color={"border"}
+      color={"grayBorder"}
       leftIcon={<DownloadsIcon />}
     >
       {downloadLink.name}

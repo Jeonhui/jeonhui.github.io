@@ -1,12 +1,12 @@
 import { DownloadLink } from "@/components"
 
-type DownloadLinks = {
+type DownloadLinkItems = {
   resume: DownloadLink
   portfolio: DownloadLink
 }
 
 // TODO: Update download links
-const downloadLinks: DownloadLinks = {
+const downloadLinks: DownloadLinkItems = {
   resume: {
     name: "이력서",
     downloadName: "이전희_이력서.pdf",
