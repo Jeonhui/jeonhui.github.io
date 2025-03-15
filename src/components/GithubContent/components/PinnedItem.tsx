@@ -5,6 +5,7 @@ import { clsx } from "clsx"
 import * as styles from "./pinnedItemStyle.css"
 import { motion } from "framer-motion"
 import { PinnableItem } from "@/apis/github"
+import { StarIcon } from "@/assets/icons"
 
 type PinnedItemProps = {
   idx?: number
@@ -83,7 +84,7 @@ const PinnedItem = ({ idx, item }: PinnedItemProps) => {
                   transition={{ delay: 1 }}
                   className={clsx(styles.tag)}
                 >
-                  {/*<StarIcon fill={"white"} />*/}
+                  <StarIcon fill={"white"} />
                   {item.stargazerCount}
                 </motion.div>
               </>

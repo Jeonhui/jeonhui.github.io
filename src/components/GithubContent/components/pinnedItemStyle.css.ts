@@ -16,6 +16,8 @@ export const tagContainer = style({
 })
 
 export const tag = style({
+  ...theme.alignments.rowTopCenter,
+  gap: theme.spaces.xxSmall,
   fontFamily: `${theme.fonts.code}`,
   ...theme.typographies.body5,
   boxShadow: `0 0 0 0.1rem ${theme.colors.button.grayBorder.default.border} inset`,
@@ -23,7 +25,13 @@ export const tag = style({
   borderRadius: `${theme.spaces.medium}`,
 })
 
+globalStyle(`${tag} > svg`, {
+  height: theme.typographies.body5.lineHeight,
+  aspectRatio: "1",
+})
+
 globalStyle(`${link}:hover ${tag}`, {
+  fill: `${theme.colors.text.textHighlight3}`,
   color: `${theme.colors.text.textHighlight3}`,
   boxShadow: `0 0 0 0.1rem ${theme.colors.button.grayBorder.hover.border} inset`,
 })

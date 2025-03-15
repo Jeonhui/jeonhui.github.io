@@ -6,12 +6,7 @@ import {
   Section,
   Text,
 } from "@design-system/components"
-import {
-  BlogContent,
-  DownloadsAndLinksContent,
-  GithubContent,
-  GithubContributions,
-} from "@/components"
+import { DownloadsAndLinksContent, GithubContributions } from "@/components"
 import { downloadLinks, linkItems } from "@/data"
 
 export default function Home() {
@@ -35,8 +30,8 @@ export default function Home() {
           </Text>
         </Container>
         <GithubContributions />
-        <GithubContent />
-        <BlogContent />
+        {/*<GithubContent />*/}
+        {/*<BlogContent />*/}
         <DownloadsAndLinksContent
           linkItems={linkItems}
           downloadItems={[downloadLinks.resume, downloadLinks.portfolio]}
