@@ -9,6 +9,7 @@ import {
 import {
   BlogContent,
   DownloadsAndLinksContent,
+  GithubContent,
   GithubContributions,
 } from "@/components"
 import { downloadLinks, linkItems } from "@/data"
@@ -34,7 +35,7 @@ export default function Home() {
           </Text>
         </Container>
         <GithubContributions />
-        {/*<GithubContent />*/}
+        <GithubContent />
         <BlogContent />
         <DownloadsAndLinksContent
           linkItems={linkItems}

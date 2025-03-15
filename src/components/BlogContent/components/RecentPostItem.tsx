@@ -7,69 +7,78 @@ import * as styles from "./recentPostItemStyles.css"
 import { motion } from "framer-motion"
 
 type RecentPostItemProps = {
+  idx?: number
   item?: PostItem
 }
 
-const RecentPostItem = ({ item }: RecentPostItemProps) => {
+const RecentPostItem = ({ idx, item }: RecentPostItemProps) => {
   return (
-    <Link
-      href={item?.link}
-      className={clsx(styles.link)}
-      color={"grayBorder"}
-      size={"xSmall_full"}
+    <motion.div
+      key={`recent-post-item-${idx}`}
+      className={clsx(styles.animationContainer)}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
-      <Container
-        alignment={"columnTopLeft"}
-        layout={"fullWidth"}
-        padding={"xSmall"}
-        gap={"xxSmall"}
+      <Link
+        href={item?.link}
+        className={clsx(styles.link)}
+        color={"grayBorder"}
+        size={"xSmall_full"}
       >
-        <Text
-          color={"inherit"}
-          typography={"body6"}
-          minWidth={"20%"}
-          isLoading={item == undefined}
-        >
-          {item && <strong>tistory - {item?.creator}</strong>}
-        </Text>
-        <Text
-          color={"inherit"}
-          typography={"body3"}
-          minWidth={"60%"}
-          isLoading={item == undefined}
-        >
-          <strong>{item?.title}</strong>
-        </Text>
-        <Text
-          color={"inherit"}
-          typography={"body4"}
-          minWidth={"100%"}
-          lineClamp={1}
-          isLoading={item == undefined}
-        >
-          {item?.contentSnippet}
-        </Text>
-
         <Container
-          className={styles.tagContainer}
-          alignment={"rowCenterLeft"}
+          alignment={"columnTopLeft"}
           layout={"fullWidth"}
-          gap={"xSmall"}
+          padding={"xSmall"}
+          gap={"xxSmall"}
         >
-          {item?.categories.map((category, idx) => (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-              key={idx}
-              className={clsx(styles.tag)}
-            >
-              {category}
-            </motion.div>
-          ))}
+          <Text
+            color={"inherit"}
+            typography={"body6"}
+            minWidth={"20%"}
+            isLoading={item == undefined}
+          >
+            {item && <strong>tistory - {item?.creator}</strong>}
+          </Text>
+          <Text
+            color={"inherit"}
+            typography={"body3"}
+            minWidth={"60%"}
+            isLoading={item == undefined}
+          >
+            <strong>{item?.title}</strong>
+          </Text>
+          <Text
+            color={"inherit"}
+            typography={"body4"}
+            minWidth={"100%"}
+            lineClamp={1}
+            isLoading={item == undefined}
+          >
+            {item?.contentSnippet}
+          </Text>
+
+          <Container
+            className={styles.tagContainer}
+            alignment={"rowCenterLeft"}
+            layout={"fullWidth"}
+            gap={"xSmall"}
+          >
+            {item?.categories.map((category, idx) => (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+                key={idx}
+                className={clsx(styles.tag)}
+              >
+                {category}
+              </motion.div>
+            ))}
+          </Container>
         </Container>
-      </Container>
-    </Link>
+      </Link>
+    </motion.div>
   )
 }
 

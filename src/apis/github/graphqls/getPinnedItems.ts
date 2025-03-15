@@ -1,23 +1,10 @@
 import { gql } from "@apollo/client"
 import githubClient from "@/apis/github/client/githubClient"
-import {
-  PinnableItem,
-  PinnableItemType,
-  UserPinnableItemConnection,
-} from "./types"
+import { PinnableItem, UserPinnableItemConnection } from "./types"
 import { GITHUB } from "@/constants"
 
 const GET_PINNED_ITEMS = gql`
-  enum PinnableItemType {
-    REPOSITORY
-    GIST
-    ISSUE
-    PROJECT
-    PULL_REQUEST
-    USER
-  }
-
-  query (
+  query GetPinnedItems(
     $userName: String!
     $types: [PinnableItemType!]
     $after: String
@@ -33,6 +20,7 @@ const GET_PINNED_ITEMS = gql`
         first: $first
         last: $last
       ) {
+        totalCount
         nodes {
           ... on Repository {
             name
@@ -45,7 +33,6 @@ const GET_PINNED_ITEMS = gql`
             }
           }
         }
-        totalCount
       }
     }
   }
@@ -58,15 +45,19 @@ const getPinnedItems = async (
   first: number = 10,
   last?: number,
 ): Promise<PinnableItem[]> => {
-  const types: PinnableItemType[] = ["REPOSITORY"]
   return await githubClient
     .query<UserPinnableItemConnection>({
       query: GET_PINNED_ITEMS,
-      variables: { userName, types, after, before, first, last },
+      variables: {
+        userName,
+        types: ["REPOSITORY"],
+        after,
+        before,
+        first,
+        last,
+      },
     })
-    .then(({ data }) => {
-      return data.user.pinnedItems.nodes
-    })
+    .then((data) => data.data.user?.pinnedItems?.nodes ?? [])
 }
 
 export default getPinnedItems

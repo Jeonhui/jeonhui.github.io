@@ -33,6 +33,7 @@ const getRecentPosts = async ({ limit = 3 }: GetRecentPostsProps = {}) => {
         }))
         .slice(0, limit),
     )
+    .catch(() => [])
 }
 
 export default getRecentPosts

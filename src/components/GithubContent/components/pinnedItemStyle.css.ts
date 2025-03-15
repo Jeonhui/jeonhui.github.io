@@ -36,3 +36,7 @@ globalStyle(`${link}:active ${tag}`, {
   color: `${theme.colors.text.textHighlight4}`,
   boxShadow: `0 0 0 0.1rem ${theme.colors.button.grayBorder.pressed.border} inset`,
 })
+
+export const animationContainer = style({
+  width: "100%",
+})
