@@ -5,6 +5,20 @@ const withAlpha = (color: Color, alpha: number): string => {
   return `rgb(from ${color} r g b / ${alpha})`
 }
 
+type SystemColor = {
+  default: Color
+  highlight: Color
+  highlight2: Color
+  dim: Color
+  dim2: Color
+}
+
+type SystemColorTheme = {
+  red: SystemColor
+  yellow: SystemColor
+  green: SystemColor
+}
+
 // Container
 type ContainerColorTheme = {
   background: Color
@@ -85,6 +99,8 @@ type ColorTheme = {
   background: Color
   gradient: GradientColorTheme
 
+  system: SystemColorTheme
+
   container: ContainerColorTheme
 
   text: TextColor
@@ -102,6 +118,30 @@ const lightModeThemeColors: ColorTheme = {
   primaryHighlight: colorSetVars.primary200,
   logo: colorSetVars.gray900,
   background: colorSetVars.white,
+
+  system: {
+    red: {
+      default: colorSetVars.systemRed500,
+      highlight: colorSetVars.systemRed400,
+      highlight2: colorSetVars.systemRed300,
+      dim: colorSetVars.systemRed600,
+      dim2: colorSetVars.systemRed700,
+    },
+    yellow: {
+      default: colorSetVars.systemYellow500,
+      highlight: colorSetVars.systemYellow400,
+      highlight2: colorSetVars.systemYellow300,
+      dim: colorSetVars.systemYellow600,
+      dim2: colorSetVars.systemYellow700,
+    },
+    green: {
+      default: colorSetVars.systemGreen500,
+      highlight: colorSetVars.systemGreen400,
+      highlight2: colorSetVars.systemGreen300,
+      dim: colorSetVars.systemGreen600,
+      dim2: colorSetVars.systemGreen700,
+    },
+  },
 
   gradient: {
     primaryStart: colorSetVars.primary50,
@@ -371,6 +411,30 @@ const darkModeThemeColors: ColorTheme = {
     primaryStart: colorSetVars.primary50,
     start: colorSetVars.gray50,
     end: colorSetVars.primary500,
+  },
+
+  system: {
+    red: {
+      default: colorSetVars.systemRed100,
+      highlight: colorSetVars.systemRed200,
+      highlight2: colorSetVars.systemRed300,
+      dim: colorSetVars.systemRed50,
+      dim2: colorSetVars.systemRed900,
+    },
+    yellow: {
+      default: colorSetVars.systemYellow100,
+      highlight: colorSetVars.systemYellow200,
+      highlight2: colorSetVars.systemYellow300,
+      dim: colorSetVars.systemYellow50,
+      dim2: colorSetVars.systemYellow900,
+    },
+    green: {
+      default: colorSetVars.systemGreen100,
+      highlight: colorSetVars.systemGreen200,
+      highlight2: colorSetVars.systemGreen300,
+      dim: colorSetVars.systemGreen50,
+      dim2: colorSetVars.systemGreen900,
+    },
   },
 
   container: {

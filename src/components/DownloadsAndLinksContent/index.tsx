@@ -1,7 +1,10 @@
+"use client"
+
 import { Container, Link } from "@design-system/components"
 import ItemContainer from "../ItemContainer"
 import { ReactElement } from "react"
 import { DownloadLink, DownloadLinkButton } from "@/components"
+import { useIsClient } from "@design-system/hooks"
 
 type LinkItem = {
   icon: ReactElement
@@ -18,9 +21,10 @@ const DownloadsAndLinksContent = ({
   linkItems,
   downloadItems,
 }: LinksContentProps) => {
+  const isClient = useIsClient()
   return (
     <ItemContainer title={"Downloads & Links"} titleSize={"small"}>
-      {
+      {isClient && (
         <Container
           alignment={"columnTopLeft"}
           gap={"small"}
@@ -53,7 +57,7 @@ const DownloadsAndLinksContent = ({
             ))}
           </Container>
         </Container>
-      }
+      )}
     </ItemContainer>
   )
 }

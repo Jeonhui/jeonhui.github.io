@@ -15,9 +15,11 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <body>
-        <ThemeProvider>
-          <MainLayout headerItems={headerItems}>{children}</MainLayout>
-        </ThemeProvider>
+        <React.StrictMode>
+          <ThemeProvider>
+            <MainLayout headerItems={headerItems}>{children}</MainLayout>
+          </ThemeProvider>
+        </React.StrictMode>
       </body>
     </html>
   )

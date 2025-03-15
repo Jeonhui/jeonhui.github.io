@@ -62,6 +62,10 @@ const GithubContributions = () => {
     fetchContributions()
   }, [isClient])
 
+  if (!isClient) {
+    return null
+  }
+
   return (
     <Container
       ref={containerRef}
