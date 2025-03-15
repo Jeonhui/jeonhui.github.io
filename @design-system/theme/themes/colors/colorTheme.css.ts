@@ -197,16 +197,16 @@ const lightModeThemeColors: ColorTheme = {
     },
     text: {
       default: {
-        icon: colorSetVars.gray900,
+        icon: colorSetVars.gray800,
         background: "transparent",
         border: "transparent",
-        text: colorSetVars.gray900,
+        text: colorSetVars.gray800,
       },
       hover: {
-        icon: colorSetVars.gray800,
+        icon: colorSetVars.gray700,
         background: colorSetVars.gray100,
         border: "transparent",
-        text: colorSetVars.gray800,
+        text: colorSetVars.gray700,
       },
       pressed: {
         icon: colorSetVars.gray700,
@@ -415,24 +415,24 @@ const darkModeThemeColors: ColorTheme = {
 
   system: {
     red: {
-      default: colorSetVars.systemRed100,
+      default: colorSetVars.systemRed600,
       highlight: colorSetVars.systemRed200,
       highlight2: colorSetVars.systemRed300,
-      dim: colorSetVars.systemRed50,
+      dim: colorSetVars.systemRed700,
       dim2: colorSetVars.systemRed900,
     },
     yellow: {
-      default: colorSetVars.systemYellow100,
+      default: colorSetVars.systemYellow600,
       highlight: colorSetVars.systemYellow200,
       highlight2: colorSetVars.systemYellow300,
-      dim: colorSetVars.systemYellow50,
+      dim: colorSetVars.systemYellow700,
       dim2: colorSetVars.systemYellow900,
     },
     green: {
-      default: colorSetVars.systemGreen100,
+      default: colorSetVars.systemGreen600,
       highlight: colorSetVars.systemGreen200,
       highlight2: colorSetVars.systemGreen300,
-      dim: colorSetVars.systemGreen50,
+      dim: colorSetVars.systemGreen700,
       dim2: colorSetVars.systemGreen900,
     },
   },
@@ -450,7 +450,7 @@ const darkModeThemeColors: ColorTheme = {
     textHighlight2: colorSetVars.primary400,
     textHighlight3: colorSetVars.primary600,
     textHighlight4: colorSetVars.primary700,
-    textDim: colorSetVars.gray200,
+    textDim: colorSetVars.gray100,
     textDim2: colorSetVars.gray400,
     textDim3: colorSetVars.gray600,
     textDim4: colorSetVars.gray800,
@@ -485,10 +485,10 @@ const darkModeThemeColors: ColorTheme = {
     },
     text: {
       default: {
-        icon: colorSetVars.gray100,
+        icon: colorSetVars.gray50,
         background: "transparent",
         border: "transparent",
-        text: colorSetVars.gray100,
+        text: colorSetVars.gray50,
       },
       hover: {
         icon: colorSetVars.gray200,
@@ -537,10 +537,10 @@ const darkModeThemeColors: ColorTheme = {
     },
     grayBorder: {
       default: {
-        icon: colorSetVars.gray200,
+        icon: colorSetVars.gray100,
         background: "transparent",
         border: colorSetVars.gray700,
-        text: colorSetVars.gray200,
+        text: colorSetVars.gray100,
       },
       hover: {
         icon: colorSetVars.gray400,

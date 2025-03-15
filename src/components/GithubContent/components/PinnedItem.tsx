@@ -26,10 +26,10 @@ const PinnedItem = ({ idx, item }: PinnedItemProps) => {
       case "swift":
         setPrimaryLanguageColor("red")
         break
-      case "Python":
+      case "python":
         setPrimaryLanguageColor("blue")
         break
-      case "Java":
+      case "java":
         setPrimaryLanguageColor("green")
         break
       default:

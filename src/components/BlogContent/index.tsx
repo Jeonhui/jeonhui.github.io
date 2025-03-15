@@ -9,6 +9,7 @@ import { useIsClient } from "@design-system/hooks"
 import { AnimatePresence, motion } from "framer-motion"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
+import { BlogIcon } from "@/assets/icons"
 
 const BlogContent = ({}) => {
   const isClient = useIsClient()
@@ -25,7 +26,7 @@ const BlogContent = ({}) => {
   }, [isClient])
 
   return (
-    <ItemContainer title={"Blog"}>
+    <ItemContainer title={"Blog"} icon={<BlogIcon />}>
       {
         <Container
           minHeight={"24rem"}

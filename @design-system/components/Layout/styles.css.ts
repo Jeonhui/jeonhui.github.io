@@ -22,6 +22,7 @@ export const layoutContent = style({
   maxWidth: layoutContentBreakpoint.width,
   minHeight: "100%",
   flexShrink: 0,
+  marginBottom: "10rem",
 })
 
 export const layoutContentAlignmentVariants = styleVariants(

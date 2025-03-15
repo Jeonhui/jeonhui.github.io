@@ -9,6 +9,7 @@ import { getPinnedItems, PinnableItem } from "@/apis/github"
 import { AnimatePresence, motion } from "framer-motion"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
+import { GithubIcon } from "@/assets/icons"
 
 const GithubContent = ({}) => {
   const isClient = useIsClient()
@@ -25,7 +26,7 @@ const GithubContent = ({}) => {
   }, [isClient])
 
   return (
-    <ItemContainer title={"Github"}>
+    <ItemContainer title={"Github"} icon={<GithubIcon />}>
       {
         <Container
           className={styles.contentContainer}
