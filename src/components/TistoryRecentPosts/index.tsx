@@ -4,12 +4,14 @@ import { useEffect, useState } from "react"
 import { getRecentPosts, PostItem } from "@/apis/tistory"
 import { Container } from "@design-system/components"
 import RecentPostItem from "./components/RecentPostItem"
-import ItemContainer from "@/components/ItemContainer"
+import ItemContainer from "../ItemContainer"
 import { useIsClient } from "@design-system/hooks"
 
 const TistoryRecentPosts = ({}) => {
   const isClient = useIsClient()
-  const [recentPosts, setRecentPosts] = useState<PostItem[] | null>(null)
+  const [recentPosts, setRecentPosts] = useState<PostItem[] | undefined>(
+    undefined,
+  )
 
   useEffect(() => {
     if (!isClient) return

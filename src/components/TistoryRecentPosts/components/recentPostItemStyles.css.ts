@@ -1,6 +1,10 @@
 import { globalStyle, style } from "@vanilla-extract/css"
 import { theme } from "@design-system/theme/theme.css"
 
+export const linkContainer = style({
+  width: "100%",
+})
+
 export const link = style({
   borderRadius: `${theme.spaces.small} !important`,
 })

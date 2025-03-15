@@ -4,12 +4,18 @@ import { Container, Link, Text } from "@design-system/components"
 import { PostItem } from "@/apis/tistory"
 import { clsx } from "clsx"
 import * as styles from "./recentPostItemStyles.css"
+import { useEffect } from "react"
+import { motion } from "framer-motion"
 
 type RecentPostItemProps = {
   item?: PostItem
 }
 
 const RecentPostItem = ({ item }: RecentPostItemProps) => {
+  useEffect(() => {
+    console.log("RecentPostItem", item)
+  }, [item])
+
   return (
     <Link
       href={item?.link}
@@ -27,7 +33,7 @@ const RecentPostItem = ({ item }: RecentPostItemProps) => {
           color={"inherit"}
           typography={"body6"}
           minWidth={"20%"}
-          isLoading={!item}
+          isLoading={item == undefined}
         >
           {item && <strong>tistory - {item?.creator}</strong>}
         </Text>
@@ -35,7 +41,7 @@ const RecentPostItem = ({ item }: RecentPostItemProps) => {
           color={"inherit"}
           typography={"body3"}
           minWidth={"60%"}
-          isLoading={!item}
+          isLoading={item == undefined}
         >
           <strong>{item?.title}</strong>
         </Text>
@@ -44,10 +50,11 @@ const RecentPostItem = ({ item }: RecentPostItemProps) => {
           typography={"body4"}
           minWidth={"100%"}
           lineClamp={1}
-          isLoading={!item}
+          isLoading={item == undefined}
         >
           {item?.contentSnippet}
         </Text>
+
         <Container
           className={styles.tagContainer}
           alignment={"rowCenterLeft"}
@@ -55,9 +62,15 @@ const RecentPostItem = ({ item }: RecentPostItemProps) => {
           gap={"xSmall"}
         >
           {item?.categories.map((category, idx) => (
-            <div key={idx} className={clsx(styles.tag)}>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              key={idx}
+              className={clsx(styles.tag)}
+            >
               {category}
-            </div>
+            </motion.div>
           ))}
         </Container>
       </Container>
