@@ -23,7 +23,6 @@ import { Collection } from "react-notion-x/build/third-party/collection"
 import { getPage } from "@/apis/notions"
 import { motion } from "framer-motion"
 import { DownloadLink, DownloadLinkButton } from "@/components"
-import { clsx } from "clsx"
 
 type NotionPageProps = {
   pageId: string
@@ -55,12 +54,9 @@ const NotionPage = ({ pageId, origin, downloadLink }: NotionPageProps) => {
       rightSidebar={<NotionToc pageId={pageId} recordMap={pageRecordMap} />}
     >
       <Section>
-        {downloadLink && (
-          <DownloadLinkButton
-            className={clsx(styles.downloadLinkButton)}
-            downloadLink={downloadLink}
-          />
-        )}
+        <Container alignment={"rowTopRight"} layout={"fullWidth"}>
+          {downloadLink && <DownloadLinkButton downloadLink={downloadLink} />}
+        </Container>
         <Loading isLoading={!(pageRecordMap != null || isError)} />
         {isClient && pageRecordMap != null && (
           <motion.div
