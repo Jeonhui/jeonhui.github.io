@@ -645,6 +645,10 @@ svg.notion-page-icon {
     font-size: 14px;
 }
 
+.notion-asset-wrapper-image > div {
+    width: 100% !important;
+}
+
 .notion-quote {
     display: block;
     width: 100%;

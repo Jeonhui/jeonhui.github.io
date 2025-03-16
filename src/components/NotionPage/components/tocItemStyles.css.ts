@@ -3,7 +3,7 @@ import { theme } from "@design-system/theme/theme.css"
 
 export const tocItem = style({
   fontFamily: theme.fonts.base,
-  ...theme.typographies.body2,
+  ...theme.typographies.body3,
   color: theme.colors.text.textDim2,
   cursor: "pointer",
 })
