@@ -41,6 +41,7 @@ const RecentPostItem = ({ idx, item }: RecentPostItemProps) => {
             {item && <strong>tistory - {item?.creator}</strong>}
           </Text>
           <Text
+            className={clsx(styles.linkTitle)}
             color={"inherit"}
             typography={"body3"}
             minWidth={"60%"}

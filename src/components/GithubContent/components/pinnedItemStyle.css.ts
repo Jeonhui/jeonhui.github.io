@@ -10,6 +10,19 @@ globalStyle(`${link} *`, {
   transition: "none !important",
 })
 
+export const linkTitle = style({
+  transition: "color 0.3s ease",
+  color: theme.colors.text.textHighlight2,
+})
+
+globalStyle(`${link}:hover ${linkTitle}`, {
+  color: theme.colors.text.textHighlight3,
+})
+
+globalStyle(`${link}:active ${linkTitle}`, {
+  color: theme.colors.text.textHighlight4,
+})
+
 export const tagContainer = style({
   height: "2rem",
   paddingTop: `${theme.spaces.small}`,

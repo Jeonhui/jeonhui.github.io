@@ -63,6 +63,7 @@ const PinnedItem = ({ idx, item }: PinnedItemProps) => {
           gap={"xxSmall"}
         >
           <Text
+            className={clsx(styles.linkTitle)}
             color={"inherit"}
             typography={"body3"}
             minWidth={"60%"}

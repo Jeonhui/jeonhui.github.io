@@ -10,6 +10,7 @@ import WhiteSpace = Property.WhiteSpace
 
 type TextProps = {
   children: React.ReactNode
+  className?: string
   minWidth?: Width
   isLoading?: boolean
   whiteSpace?: WhiteSpace
@@ -22,6 +23,7 @@ type TextProps = {
 const Text = (
   {
     children,
+    className,
     minWidth,
     whiteSpace = "pre-wrap",
     lineClamp,
@@ -46,6 +48,7 @@ const Text = (
             minWidth: minWidth,
           }}
           className={clsx(
+            className,
             styles.text,
             styles.textColorVariants[color],
             styles.textFontVariants[font],
@@ -77,6 +80,7 @@ const Text = (
               : {}),
           }}
           className={clsx(
+            className,
             styles.text,
             styles.textColorVariants[color],
             styles.textFontVariants[font],
