@@ -6,7 +6,8 @@ import * as styles from "./styles.css"
 type ItemContainerProps = {
   title: string
   icon?: ReactElement
-  titleSize?: "small" | "medium" | "large"
+  hasMarginTop?: boolean
+  titleSize?: "xSmall" | "small" | "medium" | "large"
   children: ReactNode
 }
 
@@ -14,11 +15,12 @@ const ItemContainer = ({
   title,
   icon,
   titleSize = "medium",
+  hasMarginTop = true,
   children,
 }: ItemContainerProps) => {
   return (
     <Container
-      className={clsx(styles.itemContainer)}
+      className={clsx({ [styles.itemContainerMarginTop]: hasMarginTop })}
       alignment={"columnTopLeft"}
       layout={"fullWidth"}
       gap={"small"}
@@ -38,7 +40,9 @@ const ItemContainer = ({
               ? "header4_bold"
               : titleSize === "medium"
                 ? "header5_bold"
-                : "header6_bold"
+                : titleSize === "small"
+                  ? "header6_bold"
+                  : "body3"
           }
           color={"textDim"}
         >

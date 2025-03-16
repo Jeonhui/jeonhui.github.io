@@ -1,7 +1,7 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css"
 import { theme } from "@design-system/theme/theme.css"
 
-export const itemContainer = style({
+export const itemContainerMarginTop = style({
   marginTop: "6rem",
 })
 
@@ -17,6 +17,18 @@ globalStyle(`${itemTitle} svg`, {
 const textBreakpointMedia = "@media screen and (max-width: 768px)"
 
 const titleSizes = {
+  xSmall: {
+    height: "1.6rem",
+    " svg": {
+      height: "1.4rem",
+    },
+    [textBreakpointMedia]: {
+      height: "1.25rem",
+      " svg": {
+        height: "1rem",
+      },
+    },
+  },
   small: {
     height: "1.75rem",
     " svg": {

@@ -62,3 +62,11 @@ export type PinnableItemConnection = {
 export type UserPinnableItemConnection = {
   user: { pinnedItems: PinnableItemConnection }
 }
+
+export type RepositoryObject = {
+  repository: GithubObject
+}
+
+export type GithubObject = {
+  object: { text: string }
+}
