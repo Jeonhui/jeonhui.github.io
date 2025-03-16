@@ -5,6 +5,25 @@ export const itemContainerMarginTop = style({
   marginTop: "6rem",
 })
 
+export const itemTitleLink = style({
+  cursor: "pointer",
+})
+
+globalStyle(`${itemTitleLink} *`, {
+  cursor: "pointer",
+  transition: "none !important",
+})
+
+globalStyle(`${itemTitleLink}:hover *`, {
+  fill: `${theme.colors.text.textDim2} !important`,
+  color: `${theme.colors.text.textDim2} !important`,
+})
+
+globalStyle(`${itemTitleLink}:active *`, {
+  fill: `${theme.colors.text.textDim3} !important`,
+  color: `${theme.colors.text.textDim3} !important`,
+})
+
 export const itemTitle = style({
   fill: theme.colors.text.textDim,
   verticalAlign: "bottom",

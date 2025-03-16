@@ -8,7 +8,7 @@ import PinnedRepository from "./PinnedItem"
 import ItemContainer from "../../ItemContainer"
 import { useIsClient } from "@design-system/hooks"
 import { getPinnedItems, PinnableItem } from "@/apis/github"
-import * as commonStyles from "./commonStyles.css"
+import * as styles from "./styles/pinnedItemContainerStyles.css"
 
 const PinnedItemContainer = ({}) => {
   const isClient = useIsClient()
@@ -28,7 +28,7 @@ const PinnedItemContainer = ({}) => {
     <ItemContainer title={"Pinned"} titleSize={"xSmall"} hasMarginTop={false}>
       {
         <Container
-          className={commonStyles.pinnedItemContainer}
+          className={styles.pinnedItemContainer}
           alignment={"rowTopLeft"}
           gap={"medium"}
           layout={"fullWidth"}
@@ -37,12 +37,12 @@ const PinnedItemContainer = ({}) => {
             <AnimatePresence>
               {pinnedItem !== undefined && pinnedItem.length == 0 && (
                 <motion.div
-                  className={clsx(commonStyles.errorAnimationContainer)}
+                  className={clsx(styles.errorAnimationContainer)}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                 >
                   <Container
-                    className={clsx(commonStyles.errorContainer)}
+                    className={clsx(styles.errorContainer)}
                     alignment={"columnCenter"}
                     layout={"fullWidth"}
                   >

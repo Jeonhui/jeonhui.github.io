@@ -2,7 +2,7 @@
 
 import { Container, Link, Text } from "@design-system/components"
 import { clsx } from "clsx"
-import * as styles from "./pinnedItemStyle.css"
+import * as styles from "./styles/pinnedItemStyles.css"
 import { motion } from "framer-motion"
 import { PinnableItem } from "@/apis/github"
 import { StarIcon } from "@/assets/icons"

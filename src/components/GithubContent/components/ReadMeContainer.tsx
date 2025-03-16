@@ -1,84 +1,98 @@
 "use client"
 
-import React, { JSX, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { clsx } from "clsx"
 import { Container, Text } from "@design-system/components"
-import ItemContainer from "../../ItemContainer"
 import { useIsClient } from "@design-system/hooks"
-import * as commonStyles from "./commonStyles.css"
 import getReadMe from "@/apis/github/graphqls/getReadMe"
 import { GITHUB } from "@/constants"
-import { MDXProps } from "mdx/types"
-import { compile } from "@mdx-js/mdx"
-
-async function convertMarkdownToMDX(
-  md: string,
-): Promise<(props: MDXProps) => JSX.Element> {
-  const compiled = await compile(md, { outputFormat: "function-body" })
-  // 동적으로 MDX 컴포넌트를 생성
-  const Component = new Function(
-    "React",
-    `${String(compiled)}; return MDXContent;`,
-  )(React)
-  // eslint-disable-next-line react/display-name
-  return (props: MDXProps) => <Component {...props} />
-}
+import { remark } from "remark"
+import remarkHtml from "remark-html"
+import { clsx } from "clsx"
+import * as styles from "./styles/readMeContainerStyle.css"
 
 const ReadMeContainer = ({}) => {
   const isClient = useIsClient()
-  const [readMe, setReadMe] = useState<
-    ((props: MDXProps) => JSX.Element) | undefined
-  >(undefined)
+  const [readMe, setReadMe] = useState<string | undefined>(undefined)
+  const [isError, setIsError] = useState<boolean>(false)
 
   useEffect(() => {
     if (!isClient) return
     const fetchReadMe = async () => {
       await getReadMe(GITHUB.USERNAME, GITHUB.USERNAME)
-        .then(convertMarkdownToMDX)
-        .then(setReadMe)
+        .then(async (markdownText) => {
+          const htmlContent = await remark()
+            .use(remarkHtml, { sanitize: false })
+            .process(markdownText)
+            .then((file) => String(file))
+          setReadMe(htmlContent)
+        })
+        .catch(() => setIsError(true))
     }
     fetchReadMe()
   }, [isClient])
 
   return (
-    <ItemContainer title={"Pinned"} titleSize={"xSmall"} hasMarginTop={false}>
-      {
-        <Container
-          className={commonStyles.pinnedItemContainer}
-          alignment={"rowTopLeft"}
-          gap={"medium"}
-          layout={"fullWidth"}
-        >
-          {isClient && (
-            <AnimatePresence>
-              {readMe && readMe.length == 0 && (
-                <motion.div
-                  className={clsx(commonStyles.errorAnimationContainer)}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                >
-                  <Container
-                    className={clsx(commonStyles.errorContainer)}
-                    alignment={"columnCenter"}
-                    layout={"fullWidth"}
-                  >
-                    <Text typography={"display6_bold"} color={"textDim2"}>
-                      ERROR
-                    </Text>
-                    <Text typography={"header6"} color={"textDim2"}>
-                      데이터를 불러오는 데 문제가 발생했어요. 😢
-                    </Text>
-                  </Container>
-                </motion.div>
-              )}
-
-              {readMe && readMe({})}
-            </AnimatePresence>
+    <Container
+      className={clsx(styles.readMeContainer, {
+        [styles.readMeContainerExpanded]: isClient && (readMe || isError),
+      })}
+      alignment={"rowTopLeft"}
+      gap={"medium"}
+      layout={"fullWidth"}
+    >
+      {isClient && (
+        <AnimatePresence>
+          {isError && (
+            <motion.div
+              className={clsx(styles.errorAnimationContainer)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              <Container alignment={"columnCenter"} layout={"fullWidth"}>
+                <Text typography={"display6_bold"} color={"textDim2"}>
+                  ERROR
+                </Text>
+                <Text typography={"header6"} color={"textDim2"}>
+                  데이터를 불러오는 데 문제가 발생했어요. 😢
+                </Text>
+              </Container>
+            </motion.div>
           )}
-        </Container>
-      }
-    </ItemContainer>
+          {!isError && readMe && (
+            <motion.div
+              className={clsx(styles.animationContainer)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <div className={clsx(styles.readMeHrefContainer)}>
+                <a
+                  className={clsx(styles.readMeHref)}
+                  href={GITHUB.USER_URL}
+                  target={"_blank"}
+                >
+                  {GITHUB.USERNAME}
+                </a>
+                /
+                <a
+                  className={clsx(styles.readMeHref)}
+                  href={`${GITHUB.USER_URL}/${GITHUB.USERNAME}/blob/main/README.md`}
+                  target={"_blank"}
+                >
+                  README.md
+                </a>
+              </div>
+              <hr className={clsx(styles.readMeDivider)} />
+              <div
+                className={clsx(styles.readMe)}
+                dangerouslySetInnerHTML={{ __html: readMe }}
+              ></div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
+    </Container>
   )
 }
 
