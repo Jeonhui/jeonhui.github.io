@@ -6,8 +6,8 @@ export const errorAnimationContainer = style({
 })
 
 export const readMeContainer = style({
-  ...theme.boxSizes.large_full,
-  padding: `${theme.spaces.medium} ${theme.spaces.large}`,
+  ...theme.boxSizes.xSmall,
+  borderRadius: theme.spaces.small,
   boxShadow: `0 0 0 0.1rem ${theme.colors.button.grayBorder.default.border} inset`,
   minHeight: "4rem",
   overflow: "hidden",
@@ -20,8 +20,9 @@ export const readMeContainerExpanded = style({
 })
 
 export const animationContainer = style({
-  width: "100%",
   ...theme.alignments.columnTopLeft,
+  width: "100%",
+  padding: `${theme.spaces.small} ${theme.spaces.small}`,
 })
 
 export const readMe = style({
@@ -58,29 +59,40 @@ export const readMeDivider = style({
 
 globalStyle(`${readMe} h1`, {
   margin: `${theme.spaces.medium} 0`,
+  ...theme.typographies.header5_bold,
+  ...theme.typographies.body2,
 })
 
 globalStyle(`${readMe} h2`, {
   margin: `${theme.spaces.small} 0`,
+  ...theme.typographies.header6_bold,
 })
 
 globalStyle(`${readMe} h3`, {
   margin: `${theme.spaces.small} 0`,
+  ...theme.typographies.body2,
+  fontWeight: "bold",
 })
 
 globalStyle(`${readMe} h4`, {
   color: theme.colors.text.textDim2,
   margin: `${theme.spaces.small} 0`,
+  ...theme.typographies.body3,
+  fontWeight: "bold",
 })
 
 globalStyle(`${readMe} h5`, {
   color: theme.colors.text.textDim2,
   margin: `${theme.spaces.xSmall} 0`,
+  ...theme.typographies.body4,
+  fontWeight: "bold",
 })
 
 globalStyle(`${readMe} h6`, {
   color: theme.colors.text.textDim2,
-  margin: `${theme.spaces.xxSmall} 0`,
+  margin: `${theme.spaces.xxSmall} 0 ${theme.spaces.medium} 0`,
+  ...theme.typographies.body5,
+  fontWeight: "bold",
 })
 
 globalStyle(`${readMe} p`, {

@@ -22,13 +22,16 @@ import { Code } from "react-notion-x/build/third-party/code"
 import { Collection } from "react-notion-x/build/third-party/collection"
 import { getPage } from "@/apis/notions"
 import { motion } from "framer-motion"
+import { DownloadLink, DownloadLinkButton } from "@/components"
+import { clsx } from "clsx"
 
 type NotionPageProps = {
   pageId: string
   origin: string
+  downloadLink?: DownloadLink
 }
 
-const NotionPage = ({ pageId, origin }: NotionPageProps) => {
+const NotionPage = ({ pageId, origin, downloadLink }: NotionPageProps) => {
   const isClient = useIsClient()
   const { theme } = useTheme()
   const [pageRecordMap, setPageRecordMap] = useState<ExtendedRecordMap | null>(
@@ -52,6 +55,12 @@ const NotionPage = ({ pageId, origin }: NotionPageProps) => {
       rightSidebar={<NotionToc pageId={pageId} recordMap={pageRecordMap} />}
     >
       <Section>
+        {downloadLink && (
+          <DownloadLinkButton
+            className={clsx(styles.downloadLinkButton)}
+            downloadLink={downloadLink}
+          />
+        )}
         <Loading isLoading={!(pageRecordMap != null || isError)} />
         {isClient && pageRecordMap != null && (
           <motion.div
@@ -75,6 +84,7 @@ const NotionPage = ({ pageId, origin }: NotionPageProps) => {
         )}
         {isClient && isError && (
           <motion.div
+            style={{ width: "100%" }}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}

@@ -1,9 +1,11 @@
 import { globalStyle, style } from "@vanilla-extract/css"
 import { theme } from "@design-system/theme/theme.css"
+import { layoutContentBreakpoint } from "@design-system/components/Layout/styles.css"
 
 export const layout = style({
   scrollPaddingTop: "1rem",
 })
+
 export const notionRenderer = style({})
 
 globalStyle(`${notionRenderer}`, {
@@ -187,4 +189,15 @@ globalStyle(".notion-code-copy-button:active > svg", {
 
 globalStyle(".notion-inline-code", {
   color: theme.colors.primary,
+})
+
+export const downloadLinkButton = style({
+  position: "absolute",
+  right: theme.spaces.xLarge,
+  zIndex: theme.zIndices.default,
+  "@media": {
+    [layoutContentBreakpoint.media]: {
+      right: theme.spaces.medium,
+    },
+  },
 })

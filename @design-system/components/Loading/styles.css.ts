@@ -19,6 +19,8 @@ export const loadingContainer = style({
   justifyContent: "space-around",
 })
 
+const dotBreakpointMedia = "screen and (max-width: 768px)"
+
 export const loadingDot = style({
   display: "block",
   width: "1rem",
@@ -26,6 +28,12 @@ export const loadingDot = style({
   borderRadius: "50%",
   background: `linear-gradient(120deg, ${theme.colors.gradient.primaryStart} 0%, ${theme.colors.gradient.end} 100%)`,
   backgroundSize: "14rem 5rem",
+  "@media": {
+    [dotBreakpointMedia]: {
+      width: "0.8rem",
+      height: "0.8rem",
+    },
+  },
 })
 
 for (let i = 1; i <= 5; i++) {

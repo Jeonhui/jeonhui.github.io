@@ -51,7 +51,7 @@ const RecentPostItem = ({ idx, item }: RecentPostItemProps) => {
           </Text>
           <Text
             color={"inherit"}
-            typography={"body4"}
+            typography={"body5"}
             minWidth={"100%"}
             lineClamp={1}
             isLoading={item == undefined}

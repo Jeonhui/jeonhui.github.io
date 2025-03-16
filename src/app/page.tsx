@@ -8,11 +8,13 @@ import {
 } from "@design-system/components"
 import {
   BlogContent,
+  ContactContent,
   DownloadsAndLinksContent,
   GithubContent,
   GithubContributions,
 } from "@/components"
 import { downloadLinks, linkItems } from "@/data"
+import contactItems from "@/data/contactItems"
 
 export default function Home() {
   return (
@@ -37,6 +39,7 @@ export default function Home() {
         <GithubContributions />
         <GithubContent />
         <BlogContent />
+        <ContactContent contactItems={[contactItems.gmail]} />
         <DownloadsAndLinksContent
           linkItems={linkItems}
           downloadItems={[downloadLinks.resume, downloadLinks.portfolio]}

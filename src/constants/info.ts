@@ -1,6 +1,7 @@
 const INFO = {
   BASE_URL: "https://jeonhui.com",
   AUTHOR: "Jeonhui LEE",
+  EMAIL: "l06094@gmail.com",
   TITLE: "Jeonhui | iOS Developer",
   DESCRIPTION: "Personal Page(Blog & Portfolio)",
   FAVICON: "/favicon.png",

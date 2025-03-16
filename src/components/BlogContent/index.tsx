@@ -10,6 +10,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { clsx } from "clsx"
 import * as styles from "./styles.css"
 import { BlogIcon } from "@/assets/icons"
+import { TISTORY } from "@/constants"
 
 const BlogContent = ({}) => {
   const isClient = useIsClient()
@@ -26,7 +27,7 @@ const BlogContent = ({}) => {
   }, [isClient])
 
   return (
-    <ItemContainer title={"Blog"} icon={<BlogIcon />}>
+    <ItemContainer title={"Blog"} icon={<BlogIcon />} href={TISTORY.USER_URL}>
       {
         <Container
           minHeight={"24rem"}

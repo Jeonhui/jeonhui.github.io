@@ -1,5 +1,6 @@
 import { DownloadsIcon } from "@design-system/assets/icon"
 import { Link } from "@design-system/components"
+import { clsx } from "clsx"
 
 type DownloadLink = {
   name: string
@@ -8,12 +9,17 @@ type DownloadLink = {
 }
 
 type DownloadLinkButtonProps = {
+  className?: string
   downloadLink: DownloadLink
 }
 
-const DownloadLinkButton = ({ downloadLink }: DownloadLinkButtonProps) => {
+const DownloadLinkButton = ({
+  className,
+  downloadLink,
+}: DownloadLinkButtonProps) => {
   return (
     <Link
+      className={clsx(className)}
       size={"xSmall"}
       target={"_blank"}
       download={downloadLink.downloadName}
