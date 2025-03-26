@@ -16,7 +16,7 @@ export const readMeContainer = style({
 })
 
 export const readMeContainerExpanded = style({
-  maxHeight: "40rem !important",
+  maxHeight: "400rem !important",
 })
 
 export const animationContainer = style({
@@ -115,4 +115,9 @@ globalStyle(`${readMe} a:hover`, {
 
 globalStyle(`${readMe} a:active`, {
   color: theme.colors.text.textHighlight4,
+})
+
+globalStyle(`${readMe} img`, {
+  maxWidth: "100%",
+  borderRadius: theme.spaces.xSmall,
 })
