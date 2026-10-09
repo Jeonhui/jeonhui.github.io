@@ -11,8 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-pretendard)", "Pretendard", "system-ui", "sans-serif"],
-        mono: ["var(--font-jetbrains)", "ui-monospace", "monospace"],
+        sans: ["Pretendard Variable", "Pretendard", "system-ui", "sans-serif"],
       },
     },
   },

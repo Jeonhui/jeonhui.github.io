@@ -2,6 +2,7 @@ import NextLink from "next/link"
 import { ArrowRight, DeviceMobile, HardDrives, MapPin, Palette, Robot, Scan, Signature, SquaresFour } from "@phosphor-icons/react/dist/ssr"
 import { Experience } from "@/data"
 import Stack from "../ui/Stack"
+import CocsoDiagram from "./CocsoDiagram"
 
 const AREA_ICON = {
   server: HardDrives,
@@ -29,6 +30,8 @@ const ExperienceList = ({ items, full = false }: Props) => (
         </header>
 
         <p className="max-w-[64ch] text-[15px] leading-7 text-[var(--color-ink-2)] text-pretty">{exp.summary}</p>
+
+        {exp.id === "cocso" && <CocsoDiagram />}
 
         {full ? (
           <div className="flex flex-col gap-[var(--space-xl)] pt-[var(--space-xs)]">

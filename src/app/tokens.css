@@ -15,7 +15,7 @@
   --color-ink: oklch(96% 0.008 250);
   --color-ink-2: oklch(80% 0.014 255);
   --color-muted: oklch(64% 0.018 258);
-  --color-faint: oklch(58% 0.018 260);
+  --color-faint: oklch(60% 0.018 260);
   --color-rule: oklch(96% 0.012 255 / 0.07);
   --color-rule-strong: oklch(96% 0.012 255 / 0.14);
   --color-accent: oklch(80% 0.13 65);
@@ -27,9 +27,8 @@
   --color-print-paper: oklch(99% 0.003 250);
   --shadow-pill: 0 8px 24px -12px oklch(8% 0.02 265 / 0.6);
 
-  --font-display: var(--font-pretendard), "Pretendard", system-ui, sans-serif;
-  --font-body: var(--font-pretendard), "Pretendard", system-ui, sans-serif;
-  --font-outlier: var(--font-jetbrains), ui-monospace, monospace;
+  --font-display: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-body: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 
   --space-3xs: 0.25rem;
   --space-2xs: 0.5rem;

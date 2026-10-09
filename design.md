@@ -33,7 +33,8 @@ Source of truth: `src/app/tokens.css`. tac-ui tokens (`--background`, `--foregro
 Axes: dark paper / geometric-sans display / warm accent. Dark only — no light theme.
 
 ## Typography
-- Display + body: Pretendard Variable (self-hosted, `next/font/local`), display 600, body 400.
+- Display + body: Pretendard Variable via the `pretendard` package's **dynamic subset** CSS
+  (unicode-range split, ~430 KB loaded instead of 2 MB). Display 600, body 400.
 - No outlier face in use (the hero telemetry strip was removed per taste-skill: decorative text strip).
 - Display tracking: −0.03em to −0.055em. Headings are always roman.
 - Dates and numbers: body face with `tabular-nums`.
@@ -85,7 +86,7 @@ Copy is Korean; English only for proper nouns, product/tool names, and the hero 
 | 백엔드 (the system), ~ 서버 (a specific server) | 서버 for the whole backend |
 | 앱 | 애플리케이션 |
 | 리팩터링, 섀도 테이블, 사전 서명 URL, 읽기 전용 | 리팩토링, shadow 테이블, presigned, read-only |
-| 백엔드 개발자, 개인정보 보호책임자(CPO) / 소프트웨어 엔지니어 | English job titles |
+| CTO (at 코쏘) / 소프트웨어 엔지니어 (overall) | other titles for 코쏘 |
 | Periods: `2023.01 - 2024.06 (18개월)` | `·` separators, em dashes |
 | Bullets end in a noun (구현, 해결); summaries end in -습니다 | mixed endings |
 
@@ -103,6 +104,10 @@ Copy is Korean; English only for proper nouns, product/tool names, and the hero 
 
 ## What pages MUST share
 Name wordmark ("이전희"), tokens, Pretendard, text-link CTA voice, stacked section heads.
+
+## Diagrams
+Inline SVG built from tokens (`CocsoDiagram`), high level only: no hostnames, vendors, or customer
+names. On narrow screens the figure scrolls inside its own container; the page never scrolls sideways.
 
 ## What pages MAY differ on
 Macrostructure within the family above. Only Home carries enrichment (the starfield).

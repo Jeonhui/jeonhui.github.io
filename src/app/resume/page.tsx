@@ -46,11 +46,10 @@ const Row = ({
 )
 
 const Bullets = ({ items }: { items: string[] }) => (
-  <ul className="flex flex-col gap-1.5">
+  <ul className="flex list-disc flex-col gap-1 pl-4 marker:text-[var(--color-faint)]">
     {items.map((p) => (
-      <li key={p} className="flex gap-2.5 text-sm leading-6 text-[var(--color-ink-2)]">
-        <span aria-hidden className="mt-[11px] h-px w-2.5 shrink-0 bg-[var(--color-faint)]" />
-        <span className="text-pretty">{p}</span>
+      <li key={p} className="pl-1 text-sm leading-6 text-[var(--color-ink-2)] text-pretty">
+        {p}
       </li>
     ))}
   </ul>
@@ -115,15 +114,16 @@ const Resume = () => (
       {EXPERIENCES.map((exp) => (
         <Row key={exp.id} title={exp.company} meta={exp.period} sub={exp.role}>
           <p className="text-sm leading-6 text-[var(--color-ink-2)] text-pretty">{exp.summary}</p>
-          <div className="mt-2 flex flex-col gap-4">
+          {/* One sentence per area keeps the résumé short; the full list lives on /portfolio. */}
+          <dl className="mt-2 grid gap-x-[var(--space-lg)] gap-y-3 sm:grid-cols-[150px_minmax(0,1fr)]">
             {exp.groups.map((g) => (
-              <div key={g.title} className="flex flex-col gap-1.5">
-                <h4 className="text-sm font-semibold text-[var(--color-ink)]">{g.title}</h4>
-                <Bullets items={g.points.slice(0, 3)} />
+              <div key={g.title} className="contents">
+                <dt className="text-sm font-semibold leading-6 text-[var(--color-ink)]">{g.title}</dt>
+                <dd className="text-sm leading-6 text-[var(--color-ink-2)] text-pretty">{g.summary}</dd>
               </div>
             ))}
-          </div>
-          <p className="mt-1 text-xs text-[var(--color-faint)]">{exp.stack.join(" · ")}</p>
+          </dl>
+          <p className="mt-1 text-xs leading-5 text-[var(--color-muted)]">{exp.stack.join(", ")}</p>
         </Row>
       ))}
     </Block>
@@ -144,8 +144,8 @@ const Resume = () => (
           sub={p.role}
         >
           <p className="text-sm leading-6 text-[var(--color-ink-2)] text-pretty">{p.summary}</p>
-          <Bullets items={p.points.slice(0, 4)} />
-          <p className="text-xs text-[var(--color-faint)]">{p.stack.join(" · ")}</p>
+          <Bullets items={p.points.slice(0, 2)} />
+          <p className="text-xs leading-5 text-[var(--color-muted)]">{p.stack.join(", ")}</p>
         </Row>
       ))}
     </Block>

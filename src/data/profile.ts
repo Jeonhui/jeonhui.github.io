@@ -58,7 +58,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "cocso",
     company: "코쏘 (COCSO)",
-    role: "백엔드 개발자, 개인정보 보호책임자(CPO)",
+    role: "CTO",
     period: "2025.05 - 현재",
     summary:
       "의약품 영업 위탁(CSO) 구조에서 오가는 수수료를 정산하는 B2B SaaS입니다. 정산 백엔드는 거의 혼자 설계하고 구현했고(백엔드 커밋의 약 98%), 전자계약, AI 어시스턴트, 모바일 앱, 웹과 디자인 시스템까지 맡고 있습니다. 1년 반 동안 12개 저장소에 2,900건 넘게 커밋했습니다.",

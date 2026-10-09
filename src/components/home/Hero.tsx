@@ -41,14 +41,14 @@ const Hero = () => {
       />
 
       <div className="pointer-events-none relative mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-end px-5 pb-[var(--space-2xl)] pt-[calc(var(--header-height)+var(--space-3xl))] sm:px-8 sm:pb-[var(--space-3xl)]">
-        <motion.h1
-          {...enter(0.2)}
+        {/* The name is the LCP element, so it renders immediately instead of fading in. */}
+        <h1
           className="min-w-0 text-[clamp(3.5rem,13vw,10.5rem)] font-semibold leading-[0.88] tracking-[-0.055em] text-[var(--color-ink)] [overflow-wrap:anywhere]"
         >
           Jeonhui
           <br />
           <span className="text-[var(--color-ink-2)]">Lee</span>
-        </motion.h1>
+        </h1>
 
         <motion.p
           {...enter(0.45)}
