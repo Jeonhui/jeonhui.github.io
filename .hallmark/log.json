@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2026-10-09",
+    "scope": "app",
+    "macrostructure": "Marquee Hero (home) · Long Document (portfolio, resume)",
+    "theme": "custom",
+    "theme_axes": "dark / geometric-sans / warm",
+    "vibe": "starlight over a navy-black sky",
+    "enrichment": "Tier-B WebGL2 starfield + cursor lens",
+    "nav": "N9",
+    "footer": "Ft2",
+    "brief": "de-template pass: drop chips, stats row, accordions, pill nav, slogans"
+  },
+  {
+    "date": "2026-10-09",
+    "scope": "app",
+    "macrostructure": "Marquee Hero (home) · Long Document (portfolio, resume)",
+    "theme": "custom",
+    "theme_axes": "dark / geometric-sans / warm",
+    "vibe": "starlight over a navy-black sky",
+    "enrichment": "Tier-B hand-built WebGL2 starfield (interactive)",
+    "nav": "N5",
+    "footer": "Ft5",
+    "brief": "jeonhui.com · personal portfolio · software engineer"
+  }
+]

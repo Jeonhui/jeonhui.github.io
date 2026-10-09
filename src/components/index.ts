@@ -1,20 +1,17 @@
-import DownloadLinkButton, { DownloadLink } from "./DownloadLinkButton"
+import DownloadLinkButton from "./DownloadLinkButton"
 import GithubContributions from "./GithubContributions"
 import GithubContent from "./GithubContent"
-import BlogContent from "./BlogContent"
-import ContactContent, { ContactItem } from "./ContactContent"
-import DownloadsAndLinksContent, { LinkItem } from "./DownloadsAndLinksContent"
-import NotionPage from "./NotionPage"
-import Mdx from "./Mdx"
+import SiteHeader from "./site/SiteHeader"
+import SiteFooter from "./site/SiteFooter"
+import Section from "./ui/Section"
+import Hero from "./home/Hero"
+import ExperienceList from "./home/ExperienceList"
+import ProjectList from "./home/ProjectList"
+import ProjectDetail from "./home/ProjectDetail"
+import OpenSourceList from "./home/OpenSourceList"
+import ProfileDetails from "./home/ProfileDetails"
 
-export type { DownloadLink }
-export type { ContactItem, LinkItem }
 export { DownloadLinkButton }
-export {
-  GithubContributions,
-  GithubContent,
-  BlogContent,
-  ContactContent,
-  DownloadsAndLinksContent,
-}
-export { NotionPage, Mdx }
+export { GithubContributions, GithubContent }
+export { SiteHeader, SiteFooter, Section }
+export { Hero, ExperienceList, ProjectList, ProjectDetail, OpenSourceList, ProfileDetails }

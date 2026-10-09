@@ -80,7 +80,7 @@ const METADATA: { [key in keyof typeof PAGE]: Metadata } = {
     title: "Resume | 이전희",
   }),
   PORTFOLIO: defaultMetadata.extend(PATHS.PORTFOLIO, {
-    title: "PORTFOLIO | 이전희",
+    title: "Portfolio | 이전희",
   }),
 }
 

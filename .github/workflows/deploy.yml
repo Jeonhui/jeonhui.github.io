@@ -12,6 +12,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Rebuild daily (00:00 KST) so the build-time contribution graph stays fresh
+  schedule:
+    - cron: "0 15 * * *"
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -52,13 +56,9 @@ jobs:
       - name: Set Environment Variables
         env:
           TEST: "TEST(${{ secrets.TEST }})"
-          NEXT_PUBLIC_NOTION_AUTH_KEY: ${{ secrets.NEXT_PUBLIC_NOTION_AUTH_KEY }}
-          NEXT_PUBLIC_PROXY_SERVER_URL: ${{ secrets.NEXT_PUBLIC_PROXY_SERVER_URL }}
           NEXT_PUBLIC_GITHUB_TOKEN: ${{ secrets.NEXT_PUBLIC_GITHUB_TOKEN }}
         run: |
           echo "SECRETS $TEST"
-          echo "NEXT_PUBLIC_NOTION_AUTH_KEY=$NEXT_PUBLIC_NOTION_AUTH_KEY" >> .env
-          echo "NEXT_PUBLIC_PROXY_SERVER_URL=$NEXT_PUBLIC_PROXY_SERVER_URL" >> .env
           echo "NEXT_PUBLIC_GITHUB_TOKEN=$NEXT_PUBLIC_GITHUB_TOKEN" >> .env
 
       - name: Build with Next.js

@@ -13,23 +13,23 @@
 
 **주요 기능**:
 
-- Apollo Client 통합: Apollo Client를 사용하여 Github GraphQL API와 통신하며, 데이터를 효율적으로 관리합니다.
-- NotionAPI: Notion API를 사용하여 Notion 페이지를 불러와 빠르게 업데이트되는 이력서와 포트폴리오를 제공합니다.
-- 프론트엔드 애니메이션: Framer Motion을 활용하여 인터랙티브한 애니메이션을 추가하여, 사용자 경험을 개선하고 더 직관적인 사이트를 구현하였습니다.
-- 배포 자동화: GitHub Pages를 통해 사이트를 배포하며, CloudFlare를 통해 도메인을 연결하였습니다. pnpm을 사용해 빌드 및 배포 과정을 최적화했습니다.
+- WebGL2 별 무리 히어로: 라이브러리 없이 직접 작성한 셰이더로 약 4천 개의 별을 렌더링하며, 드래그로 회전할 수 있습니다.
+- 콘텐츠 내장: 경력·프로젝트·이력서를 `src/data/profile.ts` 한 곳에서 관리하고 정적으로 빌드합니다.
+- GitHub GraphQL: Apollo Client로 기여 그래프와 고정 저장소를 불러옵니다.
+- 배포: GitHub Actions로 정적 export 후 GitHub Pages에 배포합니다.
 
 **기술 스택**:
 
-- Frontend: React, Next.js
-- Styling: CSS Modules, Vanilla Extract CSS
-- State Management: Apollo Client, Axios
-- Other Tools: MDX, Framer Motion, TypeScript, ESLint
+- Frontend: React, Next.js (static export)
+- Styling: Tailwind CSS, @tac-ui/web, 디자인 토큰 (`src/app/tokens.css`, `design.md`)
+- Graphics: WebGL2 (GLSL)
+- Other Tools: Apollo Client, Framer Motion, TypeScript, ESLint
 
 ### 주요 정보:
 
 **홈페이지**: jeonhui.com  
 **버전**: 1.0.0  
-**사용 기술**: React, Next.js, Apollo Client, MDX, TypeScript, ESLint 등
+**사용 기술**: React, Next.js, Tailwind CSS, WebGL2, Apollo Client, TypeScript
 
 ### 연락처
 

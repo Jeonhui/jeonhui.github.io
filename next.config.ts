@@ -1,8 +1,5 @@
 import type { NextConfig } from "next"
-import { createVanillaExtractPlugin } from "@vanilla-extract/next-plugin"
 import generated from "@next/mdx"
-
-const withVanillaExtract = createVanillaExtractPlugin()
 
 const withMDX = generated({
   extension: /\.mdx?$/,
@@ -17,8 +14,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  distDir: "out",
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
 }
 
-export default withMDX(withVanillaExtract(nextConfig))
+export default withMDX(nextConfig)

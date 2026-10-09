@@ -48,6 +48,8 @@ const getPinnedItems = async (
   return await githubClient
     .query<UserPinnableItemConnection>({
       query: GET_PINNED_ITEMS,
+      // Repos the token can't read come back as null + an error; keep the rest.
+      errorPolicy: "all",
       variables: {
         userName,
         types: ["REPOSITORY"],
@@ -57,7 +59,11 @@ const getPinnedItems = async (
         last,
       },
     })
-    .then((data) => data.data.user?.pinnedItems?.nodes ?? [])
+    .then((data) =>
+      (data.data?.user?.pinnedItems?.nodes ?? []).filter(
+        (node): node is PinnableItem => node !== null && node.name !== undefined,
+      ),
+    )
 }
 
 export default getPinnedItems

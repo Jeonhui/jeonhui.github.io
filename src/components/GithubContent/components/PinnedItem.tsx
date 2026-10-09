@@ -1,123 +1,34 @@
-"use client"
-
-import { Container, Link, Text } from "@design-system/components"
-import { clsx } from "clsx"
-import * as styles from "./styles/pinnedItemStyles.css"
-import { motion } from "framer-motion"
+import { Star } from "lucide-react"
 import { PinnableItem } from "@/apis/github"
-import { StarIcon } from "@/assets/icons"
-import { useEffect, useState } from "react"
-import { useIsClient } from "@design-system/hooks"
 
-type PinnedItemProps = {
-  idx?: number
-  item?: PinnableItem
-}
-
-const PinnedItem = ({ idx, item }: PinnedItemProps) => {
-  const isClient = useIsClient()
-  const [primaryLanguageColor, setPrimaryLanguageColor] =
-    useState<keyof typeof styles.primaryLanguageColors>("red")
-
-  useEffect(() => {
-    if (!isClient || !item) return
-    const language = item.primaryLanguage.name.toLowerCase()
-    switch (language) {
-      case "swift":
-        setPrimaryLanguageColor("red")
-        break
-      case "python":
-        setPrimaryLanguageColor("blue")
-        break
-      case "java":
-        setPrimaryLanguageColor("green")
-        break
-      default:
-        setPrimaryLanguageColor("red")
-    }
-  }, [isClient, item, item?.primaryLanguage])
-
-  if (!isClient) return null
-
-  return (
-    <motion.div
-      key={`recent-post-item-${idx}`}
-      className={clsx(styles.animationContainer)}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+const PinnedItem = ({ item }: { item: PinnableItem }) => (
+  <li className="border-b border-[var(--color-rule)]">
+    <a
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-baseline justify-between gap-4 py-[var(--space-xs)]"
     >
-      <Link
-        href={item?.url}
-        className={clsx(
-          styles.link,
-          styles.primaryLanguageColorVariants[primaryLanguageColor],
+      <span className="flex min-w-0 flex-col gap-0.5">
+        <span className="truncate text-[15px] text-[var(--color-ink)] underline decoration-transparent underline-offset-4 transition-colors duration-[var(--dur-short)] group-hover:decoration-[var(--color-ink)]">
+          {item.name}
+        </span>
+        {item.description && <span className="truncate text-sm text-[var(--color-muted)]">{item.description}</span>}
+      </span>
+      <span className="flex shrink-0 items-center gap-3 text-sm tabular-nums text-[var(--color-muted)]">
+        {item.primaryLanguage && (
+          <span className="flex items-center gap-1.5">
+            <span aria-hidden className="h-2 w-2 rounded-full" style={{ backgroundColor: item.primaryLanguage.color }} />
+            {item.primaryLanguage.name}
+          </span>
         )}
-        color={"grayBorder"}
-        size={"xSmall_full"}
-      >
-        <Container
-          alignment={"columnTopLeft"}
-          layout={"fullWidth"}
-          padding={"xSmall"}
-          gap={"xxSmall"}
-        >
-          <Text
-            className={clsx(styles.linkTitle)}
-            color={"inherit"}
-            typography={"body3"}
-            minWidth={"60%"}
-            isLoading={item == undefined}
-          >
-            <strong>{item?.name}</strong>
-          </Text>
-          <Text
-            color={"inherit"}
-            typography={"body5"}
-            minWidth={"100%"}
-            lineClamp={1}
-            isLoading={item == undefined}
-          >
-            {item?.description}
-          </Text>
-
-          <Container
-            className={styles.tagContainer}
-            alignment={"rowCenterLeft"}
-            layout={"fullWidth"}
-            gap={"xSmall"}
-          >
-            {item && (
-              <>
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1 }}
-                  className={clsx(
-                    styles.tag,
-                    `github-content-primary-language-${primaryLanguageColor}`,
-                  )}
-                >
-                  {item.primaryLanguage.name}
-                </motion.div>
-                <motion.div
-                  key={item.stargazerCount}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1 }}
-                  className={clsx(styles.tag, styles.star)}
-                >
-                  <StarIcon />
-                  {item.stargazerCount}
-                </motion.div>
-              </>
-            )}
-          </Container>
-        </Container>
-      </Link>
-    </motion.div>
-  )
-}
+        <span className="flex items-center gap-1">
+          <Star aria-hidden className="h-3.5 w-3.5" strokeWidth={1.75} />
+          {item.stargazerCount}
+        </span>
+      </span>
+    </a>
+  </li>
+)
 
 export default PinnedItem

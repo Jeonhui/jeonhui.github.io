@@ -1,113 +1,67 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import {
-  ContributionCalendar,
-  getContributions,
-  getDummyContributions,
-} from "@/apis/github"
+import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import { Container } from "@design-system/components"
-import * as styles from "@/components/GithubContributions/styles.css"
-import { clsx } from "clsx"
-import { GITHUB } from "@/constants"
-import { useIsClient } from "@design-system/hooks"
+import type { ContributionCalendar, ContributionLevel } from "@/apis/github"
 
-const toKoreanISOString = (date: Date) => {
-  const timezoneOffset = 9 * 60 // 한국 시간은 UTC+9
-  const localDate = new Date(date.getTime() + timezoneOffset * 60000)
-
-  return localDate.toISOString().replace("Z", "+09:00") // 'Z'를 한국 시간대로 변환
+const LEVEL: Record<ContributionLevel, string> = {
+  NONE: "var(--contrib-0)",
+  FIRST_QUARTILE: "var(--contrib-1)",
+  SECOND_QUARTILE: "var(--contrib-2)",
+  THIRD_QUARTILE: "var(--contrib-3)",
+  FOURTH_QUARTILE: "var(--contrib-4)",
 }
 
-const GithubContributions = () => {
-  const isClient = useIsClient()
-  const dummyContributions = getDummyContributions(12)
-  const [contributionCalendar, setContributionCalendar] =
-    useState<ContributionCalendar | null>(null)
+type Props = { calendar: ContributionCalendar | null }
 
-  const containerRef = useRef<HTMLDivElement | null>(null)
+// Calendar is fetched at build time (see getPublicContributions) and passed in.
+const GithubContributions = ({ calendar: cal }: Props) => {
+  const ref = useRef<HTMLDivElement>(null)
 
+  // Keep the most recent weeks in view on narrow screens.
   useEffect(() => {
-    if (!isClient) return
-    if (contributionCalendar && containerRef.current) {
-      const delay = 200
-      const scrollContainer = containerRef.current
-      const start =
-        scrollContainer.scrollLeft + containerRef.current.clientWidth
-      const end = scrollContainer.scrollWidth - containerRef.current.clientWidth
-      const duration = 3.6
-      const totalDistance = end - start
-      const scrollSpeed = totalDistance / (duration * 60)
-      let currentPosition = start
-      setTimeout(() => {
-        const scrollInterval = setInterval(() => {
-          if (currentPosition < end) {
-            currentPosition += scrollSpeed
-            scrollContainer.scrollLeft = currentPosition
-          } else {
-            scrollContainer.scrollLeft = end
-            clearInterval(scrollInterval)
-          }
-        }, 1000 / 60)
-      }, delay)
-    }
-  }, [contributionCalendar, isClient])
+    if (ref.current) ref.current.scrollLeft = ref.current.scrollWidth
+  }, [])
 
-  useEffect(() => {
-    if (!isClient) return
-    const today = new Date()
-    const lastMonth = new Date(today)
-    lastMonth.setMonth(today.getMonth() - 12)
-    const fetchContributions = async () => {
-      await getContributions(
-        GITHUB.USERNAME,
-        toKoreanISOString(lastMonth),
-        toKoreanISOString(today),
-      ).then(setContributionCalendar)
-    }
-    fetchContributions()
-  }, [isClient])
+  if (!cal) return null
+  const weeks = cal.weeks
 
   return (
-    <Container
-      ref={containerRef}
-      className={clsx(styles.gitContributions)}
-      alignment={"rowTopLeft"}
-      gap={"xxSmall"}
-    >
-      <Container
-        className={clsx(styles.contributionContainer)}
-        alignment={"rowTopLeft"}
-        gap={"xxSmall"}
-      >
-        {isClient &&
-          (contributionCalendar ?? dummyContributions).weeks.map(
-            (week, index) => (
-              <motion.div key={index} className={clsx(styles.contributionWeek)}>
-                {week.contributionDays.map((day, dayIndex) => (
-                  <motion.div
-                    key={dayIndex}
-                    className={clsx(styles.contributionDays)}
-                    initial={{
-                      backgroundColor:
-                        styles.contributionDaysColors["NONE"].color,
-                    }}
-                    animate={{
-                      backgroundColor:
-                        styles.contributionDaysColors[day.contributionLevel]
-                          .color,
-                    }}
-                    transition={{
-                      delay: index * 0.005, // 순차적인 애니메이션
-                    }}
-                  />
-                ))}
-              </motion.div>
-            ),
-          )}
-      </Container>
-    </Container>
+    <div className="rounded-[var(--radius-card)] bg-[var(--color-paper-2)] p-5">
+      <div className="mb-4 flex items-baseline justify-between gap-3">
+        <span className="text-sm font-medium text-foreground">Contributions</span>
+        <span className="text-xs text-muted-foreground">
+          <span className="text-foreground">{cal.totalContributions.toLocaleString()}</span> in the last year
+        </span>
+      </div>
+
+      <div ref={ref} className="scrollbar-hide overflow-x-auto">
+        <div className="flex w-max gap-[3px]" style={{ height: "calc(10px * 7 + 3px * 6)" }}>
+          {weeks.map((w, i) => (
+            <div key={i} className="flex h-full flex-col gap-[3px] first:justify-end">
+              {w.contributionDays.map((d, j) => (
+                <motion.div
+                  key={j}
+                  className="h-[10px] w-[10px] rounded-[3px]"
+                  title={`${d.contributionCount} · ${new Date(d.date).toISOString().slice(0, 10)}`}
+                  initial={{ opacity: 0, scale: 0.6 }}
+                  animate={{ opacity: 1, scale: 1, backgroundColor: LEVEL[d.contributionLevel] }}
+                  transition={{ delay: i * 0.006, duration: 0.3 }}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-3 flex items-center justify-end gap-1.5 text-[11px] text-muted-foreground">
+        Less
+        {Object.values(LEVEL).map((c) => (
+          <span key={c} className="h-[10px] w-[10px] rounded-[3px]" style={{ background: c }} />
+        ))}
+        More
+      </div>
+    </div>
   )
 }
 

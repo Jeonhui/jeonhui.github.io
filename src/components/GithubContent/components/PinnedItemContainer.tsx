@@ -1,70 +1,29 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
-import { clsx } from "clsx"
-import { Container, Text } from "@design-system/components"
-import PinnedRepository from "./PinnedItem"
-import ItemContainer from "../../ItemContainer"
-import { useIsClient } from "@design-system/hooks"
+import PinnedItem from "./PinnedItem"
 import { getPinnedItems, PinnableItem } from "@/apis/github"
-import * as styles from "./styles/pinnedItemContainerStyles.css"
 
-const PinnedItemContainer = ({}) => {
-  const isClient = useIsClient()
-  const [pinnedItem, setPinnedItem] = useState<PinnableItem[] | undefined>(
-    undefined,
-  )
+const PinnedItemContainer = () => {
+  const [items, setItems] = useState<PinnableItem[] | undefined>(undefined)
 
   useEffect(() => {
-    if (!isClient) return
-    const fetchGithubPinnedItems = async () => {
-      setPinnedItem(await getPinnedItems())
-    }
-    fetchGithubPinnedItems()
-  }, [isClient])
+    getPinnedItems()
+      .then(setItems)
+      .catch(() => setItems([]))
+  }, [])
+
+  if (!items || items.length === 0) return null
 
   return (
-    <ItemContainer title={"Pinned"} titleSize={"xSmall"} hasMarginTop={false}>
-      {
-        <Container
-          className={styles.pinnedItemContainer}
-          alignment={"rowTopLeft"}
-          gap={"medium"}
-          layout={"fullWidth"}
-        >
-          {isClient && (
-            <AnimatePresence>
-              {pinnedItem !== undefined && pinnedItem.length == 0 && (
-                <motion.div
-                  className={clsx(styles.errorAnimationContainer)}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                >
-                  <Container
-                    className={clsx(styles.errorContainer)}
-                    alignment={"columnCenter"}
-                    layout={"fullWidth"}
-                  >
-                    <Text typography={"display6_bold"} color={"textDim2"}>
-                      ERROR
-                    </Text>
-                    <Text typography={"header6"} color={"textDim2"}>
-                      데이터를 불러오는 데 문제가 발생했어요. 😢
-                    </Text>
-                  </Container>
-                </motion.div>
-              )}
-
-              {(pinnedItem === undefined || pinnedItem.length > 0) &&
-                Array.from({ length: 6 }).map((_, idx) => (
-                  <PinnedRepository key={idx} item={pinnedItem?.[idx]} />
-                ))}
-            </AnimatePresence>
-          )}
-        </Container>
-      }
-    </ItemContainer>
+    <div className="flex flex-col gap-2">
+      <h3 className="text-sm font-medium text-[var(--color-muted)]">고정한 저장소</h3>
+      <ul className="flex flex-col border-t border-[var(--color-rule)]">
+        {items.slice(0, 6).map((item) => (
+          <PinnedItem key={item.name} item={item} />
+        ))}
+      </ul>
+    </div>
   )
 }
 

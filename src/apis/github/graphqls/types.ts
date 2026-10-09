@@ -24,14 +24,6 @@ export type ContributionCalendar = {
   weeks: ContributionCalendarWeek[]
 }
 
-export type ContributionsCollection = {
-  contributionCalendar: ContributionCalendar
-}
-
-export type UserContributionsCollection = {
-  user: { contributionsCollection: ContributionsCollection }
-}
-
 // PinableItem
 export type PinnableItemType =
   | "REPOSITORY"

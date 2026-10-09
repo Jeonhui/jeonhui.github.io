@@ -1,7 +1,5 @@
-import getContributions, {
-  getDummyContributions,
-} from "./graphqls/getContributions"
 import getPinnedItems from "./graphqls/getPinnedItems"
+import getPublicContributions from "./getPublicContributions"
 
-export { getDummyContributions, getContributions, getPinnedItems }
+export { getPinnedItems, getPublicContributions }
 export * from "./graphqls/types"
