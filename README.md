@@ -1,36 +1,41 @@
-# 탐구하는 iOS 개발자 이전희
+# jeonhui.com
 
-> 저는 항상 탐구하는 마음으로 새로운 기술과 도전에 도전해 왔습니다. iOS 개발을 시작한 이래로, 혁신적인 기능을 구현하고, 사용자 경험을 개선하며, 더 나은 결과물을 만들기 위해 끊임없이 노력해왔습니다.
-> <br/> 제가 만드는 애플리케이션은 단순한 코드의 집합이 아니라, 사람들의 삶을 더 나은 방향으로 이끌기 위한 도전입니다.
-> <br/> 저는 항상 새로운 기술을 배우고, 그 기술을 어떻게 응용할 수 있을지 고민하며, 더 나은 코드와 디자인을 구현하려고 노력합니다. "탐구하는" 자세로 매 프로젝트마다 더 나은 결과를 만들기 위해 최선을
-> 다하고
-> 있습니다.
+이전희의 개인 사이트입니다. 의약품 정산 SaaS를 만드는 소프트웨어 엔지니어로서의 경력, 프로젝트, 이력서를 담고 있습니다.
 
-### 프로젝트 소개
+## 화면 구성
 
-[jeonhui.com](https://jeonhui.com)은 제 개인 포트폴리오 사이트로, 다양한 프로젝트와 개발 경험을 공유하는 공간입니다. 이 사이트는 Next.js를 사용하여 구축되었으며, 최신 웹 기술을
-적용해 빠르고 효율적으로 관리되고 있습니다. 이를 통해 사용자에게 매끄럽고 직관적인 경험을 제공하고 있습니다.
+- **홈**: 직접 작성한 WebGL2 셰이더로 그린 별 무리와 밤 구름. 별은 드래그로 회전하고, 커서 근처에서 밀려나며, 스크롤하면 카메라가 성단 안으로 들어갑니다.
+- **경력**: 코쏘(COCSO) 시스템 구성도. 흐름(정산, 처방통계 OCR, 전자계약, AI 어시스턴트)을 고르면 해당 경로로 데이터가 흐르는 애니메이션이 재생됩니다.
+- **포트폴리오 / 이력서**: 같은 데이터(`src/data/profile.ts`)에서 정적으로 만듭니다. 이력서는 인쇄용 스타일을 포함합니다.
+- 페이지 사이를 이동할 때 View Transitions로 전환되며, `prefers-reduced-motion`이면 모든 애니메이션이 꺼집니다.
 
-**주요 기능**:
+## 기술
 
-- WebGL2 별 무리 히어로: 라이브러리 없이 직접 작성한 셰이더로 약 4천 개의 별을 렌더링하며, 드래그로 회전할 수 있습니다.
-- 콘텐츠 내장: 경력·프로젝트·이력서를 `src/data/profile.ts` 한 곳에서 관리하고 정적으로 빌드합니다.
-- GitHub 데이터: 기여 그래프(비공개 기여 포함)와 고정 저장소를 빌드 시점에 가져와 정적으로 넣습니다. 토큰은 브라우저로 나가지 않으며, 매일 자동 빌드로 갱신됩니다.
-- 배포: GitHub Actions로 정적 export 후 GitHub Pages에 배포합니다.
+- Next.js 15 (static export), React 19, TypeScript
+- Tailwind CSS + 디자인 토큰(`src/app/tokens.css`), 규칙은 [`design.md`](design.md)
+- WebGL2 / GLSL (별, 구름), SVG + SMIL (구성도)
+- framer-motion (LazyMotion), next-view-transitions
+- Phosphor Icons, simple-icons, Pretendard (dynamic subset)
 
-**기술 스택**:
+## 데이터
 
-- Frontend: React, Next.js (static export)
-- Styling: Tailwind CSS, @tac-ui/web, 디자인 토큰 (`src/app/tokens.css`, `design.md`)
-- Graphics: WebGL2 (GLSL)
-- Other Tools: Framer Motion, lucide-react, simple-icons, TypeScript, ESLint
+- GitHub 기여 그래프와 고정 저장소는 **빌드 시점**에 가져와 HTML에 넣습니다. 토큰은 브라우저로 나가지 않습니다.
+- 배포 워크플로가 매일 자정(KST)에 다시 빌드해 데이터를 갱신합니다.
 
-### 주요 정보:
+## 개발
 
-**홈페이지**: jeonhui.com  
-**버전**: 1.0.0  
-**사용 기술**: React, Next.js, Tailwind CSS, WebGL2, TypeScript
+```bash
+pnpm install
+pnpm dev      # http://localhost:3000
+pnpm build    # 정적 결과물: out/
+```
 
-### 연락처
+빌드 시 `GITHUB_TOKEN`(또는 `NEXT_PUBLIC_GITHUB_TOKEN`)이 있으면 고정 저장소를 가져옵니다. 없어도 빌드는 됩니다.
 
-- 이메일: [l06094@gmail.com](mailto:l06094@gmail.com)
+## 배포
+
+`main`에 push하면 GitHub Actions가 빌드해 GitHub Pages(jeonhui.com)에 배포합니다.
+
+## 연락처
+
+[l06094@gmail.com](mailto:l06094@gmail.com)
