@@ -12,14 +12,14 @@ import {
   ProjectList,
   Section,
 } from "@/components"
-import { getPublicContributions } from "@/apis/github"
+import { getPinnedItems, getPublicContributions } from "@/apis/github"
 import { downloadLinks, EXPERIENCES, PROFILE, PROJECTS } from "@/data"
 
 const apps = PROJECTS.filter((p) => p.kind === "app")
 const openSource = PROJECTS.filter((p) => p.kind === "opensource")
 
 export default async function Home() {
-  const contributions = await getPublicContributions()
+  const [contributions, pinned] = await Promise.all([getPublicContributions(), getPinnedItems()])
 
   return (
     <>
@@ -66,7 +66,7 @@ export default async function Home() {
             </div>
             <div className="flex min-w-0 flex-col gap-3">
               <GithubContributions calendar={contributions} />
-              <GithubContent />
+              <GithubContent items={pinned} />
             </div>
           </div>
         </Section>

@@ -15,7 +15,7 @@
 
 - WebGL2 별 무리 히어로: 라이브러리 없이 직접 작성한 셰이더로 약 4천 개의 별을 렌더링하며, 드래그로 회전할 수 있습니다.
 - 콘텐츠 내장: 경력·프로젝트·이력서를 `src/data/profile.ts` 한 곳에서 관리하고 정적으로 빌드합니다.
-- GitHub GraphQL: Apollo Client로 기여 그래프와 고정 저장소를 불러옵니다.
+- GitHub 데이터: 기여 그래프(비공개 기여 포함)와 고정 저장소를 빌드 시점에 가져와 정적으로 넣습니다. 토큰은 브라우저로 나가지 않으며, 매일 자동 빌드로 갱신됩니다.
 - 배포: GitHub Actions로 정적 export 후 GitHub Pages에 배포합니다.
 
 **기술 스택**:
@@ -23,13 +23,13 @@
 - Frontend: React, Next.js (static export)
 - Styling: Tailwind CSS, @tac-ui/web, 디자인 토큰 (`src/app/tokens.css`, `design.md`)
 - Graphics: WebGL2 (GLSL)
-- Other Tools: Apollo Client, Framer Motion, TypeScript, ESLint
+- Other Tools: Framer Motion, lucide-react, simple-icons, TypeScript, ESLint
 
 ### 주요 정보:
 
 **홈페이지**: jeonhui.com  
 **버전**: 1.0.0  
-**사용 기술**: React, Next.js, Tailwind CSS, WebGL2, Apollo Client, TypeScript
+**사용 기술**: React, Next.js, Tailwind CSS, WebGL2, TypeScript
 
 ### 연락처
 

@@ -29,9 +29,11 @@ const Portfolio = () => (
           </p>
         ))}
       </div>
-      <div>
-        <DownloadLinkButton downloadLink={downloadLinks.portfolio} />
-      </div>
+      {downloadLinks.portfolio && (
+        <div>
+          <DownloadLinkButton downloadLink={downloadLinks.portfolio} />
+        </div>
+      )}
       <nav aria-label="목차" className="mt-[var(--space-sm)] flex flex-wrap gap-x-5 gap-y-2 border-t border-[var(--color-rule)] pt-[var(--space-sm)]">
         {TOC.map((t) => (
           <a

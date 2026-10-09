@@ -1,5 +1,5 @@
 import { GITHUB } from "@/constants"
-import type { ContributionCalendar, ContributionDays, ContributionLevel } from "./graphqls/types"
+import type { ContributionCalendar, ContributionDays, ContributionLevel } from "./types"
 
 const LEVELS: ContributionLevel[] = ["NONE", "FIRST_QUARTILE", "SECOND_QUARTILE", "THIRD_QUARTILE", "FOURTH_QUARTILE"]
 

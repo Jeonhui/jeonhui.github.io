@@ -22,7 +22,7 @@ Source of truth: `src/app/tokens.css`. tac-ui tokens (`--background`, `--foregro
 - `--color-ink`     oklch(96% 0.008 250)
 - `--color-ink-2`   oklch(80% 0.014 255) — body copy
 - `--color-muted`   oklch(64% 0.018 258)
-- `--color-faint`   oklch(48% 0.018 260)
+- `--color-faint`   oklch(58% 0.018 260) — lowest text tone; ≥ 4.5:1 on paper
 - `--color-rule`    oklch(96% 0.012 255 / 0.07)
 - `--color-accent`  oklch(80% 0.13 65) — amber, taken from the warm stars
 - `--color-accent-ink` oklch(16% 0.03 60) — text on accent fills

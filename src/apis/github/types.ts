@@ -24,15 +24,7 @@ export type ContributionCalendar = {
   weeks: ContributionCalendarWeek[]
 }
 
-// PinableItem
-export type PinnableItemType =
-  | "REPOSITORY"
-  | "GIST"
-  | "ISSUE"
-  | "PROJECT"
-  | "PULL_REQUEST"
-  | "USER"
-
+// Pinned repositories
 export type Language = {
   color: string
   name: string
@@ -43,22 +35,5 @@ export type PinnableItem = {
   description: string
   url: string
   stargazerCount: number
-  primaryLanguage: Language
-}
-
-export type PinnableItemConnection = {
-  nodes: PinnableItem[]
-  totalCount: number
-}
-
-export type UserPinnableItemConnection = {
-  user: { pinnedItems: PinnableItemConnection }
-}
-
-export type RepositoryObject = {
-  repository: GithubObject
-}
-
-export type GithubObject = {
-  object: { text: string }
+  primaryLanguage: Language | null
 }

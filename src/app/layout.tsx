@@ -44,8 +44,16 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col">
         <Providers>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-[var(--radius-card)] focus:bg-[var(--color-paper-3)] focus:px-4 focus:py-2 focus:text-sm focus:text-[var(--color-ink)]"
+          >
+            본문으로 건너뛰기
+          </a>
           <SiteHeader />
-          <main className="flex-1">{children}</main>
+          <main id="main" className="flex-1">
+            {children}
+          </main>
           <SiteFooter />
         </Providers>
       </body>
