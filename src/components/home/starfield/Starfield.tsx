@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { generateStars } from "./generateStars"
-import { STAR_FRAGMENT, STAR_VERTEX } from "./shaders"
+import { CLOUD_FRAGMENT, CLOUD_VERTEX, STAR_FRAGMENT, STAR_VERTEX } from "./shaders"
 
 type Props = {
   className?: string
@@ -50,6 +50,10 @@ const Starfield = ({ className, onUnsupported }: Props) => {
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return onUnsupported?.()
     gl.useProgram(program)
 
+    // Each pass keeps its own vertex state.
+    const starVao = gl.createVertexArray()!
+    gl.bindVertexArray(starVao)
+
     const small = window.matchMedia("(max-width: 640px)").matches
     const stars = generateStars(small ? 2400 : 4200, small ? 300 : 700)
 
@@ -68,6 +72,39 @@ const Starfield = ({ className, onUnsupported }: Props) => {
     bind("aTemperature", stars.temperatures, 1)
     bind("aPhase", stars.phases, 1)
 
+    // Cloud pass: one fullscreen triangle. If it fails to compile, the stars still render.
+    const cvs = compile(gl, gl.VERTEX_SHADER, CLOUD_VERTEX)
+    const cfs = compile(gl, gl.FRAGMENT_SHADER, CLOUD_FRAGMENT)
+    let cloud: WebGLProgram | null = null
+    const cloudVao = gl.createVertexArray()!
+    if (cvs && cfs) {
+      cloud = gl.createProgram()!
+      gl.attachShader(cloud, cvs)
+      gl.attachShader(cloud, cfs)
+      gl.linkProgram(cloud)
+      if (!gl.getProgramParameter(cloud, gl.LINK_STATUS)) cloud = null
+    }
+    const cu = cloud
+      ? {
+          resolution: gl.getUniformLocation(cloud, "uResolution"),
+          time: gl.getUniformLocation(cloud, "uTime"),
+          parallax: gl.getUniformLocation(cloud, "uParallax"),
+          intro: gl.getUniformLocation(cloud, "uIntro"),
+          scroll: gl.getUniformLocation(cloud, "uScroll"),
+        }
+      : null
+    if (cloud) {
+      gl.bindVertexArray(cloudVao)
+      const quad = gl.createBuffer()!
+      buffers.push(quad)
+      gl.bindBuffer(gl.ARRAY_BUFFER, quad)
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW)
+      const loc = gl.getAttribLocation(cloud, "aQuad")
+      gl.enableVertexAttribArray(loc)
+      gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0)
+    }
+    gl.bindVertexArray(null)
+
     const u = {
       rotation: gl.getUniformLocation(program, "uRotation"),
       aspect: gl.getUniformLocation(program, "uAspect"),
@@ -83,11 +120,10 @@ const Starfield = ({ className, onUnsupported }: Props) => {
     }
 
     gl.enable(gl.BLEND)
-    gl.blendFunc(gl.ONE, gl.ONE)
     gl.clearColor(0, 0, 0, 0)
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    const dpr = Math.min(window.devicePixelRatio || 1, 2)
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.75)
     let width = 1
     let height = 1
     let aspect = 1
@@ -192,9 +228,16 @@ const Starfield = ({ className, onUnsupported }: Props) => {
 
       // Cluster sits right of the copy on wide screens, centred behind it on narrow ones.
       const wide = aspect > 1.15
+      const time = reducedMotion ? 0 : (now - start) / 1000
+      gl.clear(gl.COLOR_BUFFER_BIT)
+
+      // Stars: additive light.
+      gl.useProgram(program)
+      gl.bindVertexArray(starVao)
+      gl.blendFunc(gl.ONE, gl.ONE)
       gl.uniformMatrix3fv(u.rotation, false, rotation(yaw, pitch + tilt))
       gl.uniform1f(u.aspect, aspect)
-      gl.uniform1f(u.time, reducedMotion ? 0 : (now - start) / 1000)
+      gl.uniform1f(u.time, time)
       gl.uniform1f(u.scale, wide ? 1.0 : 0.8)
       gl.uniform2f(u.offset, wide ? 0.24 : 0, wide ? 0 : 0.12)
       gl.uniform1f(u.pixelRatio, dpr)
@@ -203,8 +246,21 @@ const Starfield = ({ className, onUnsupported }: Props) => {
       gl.uniform2f(u.parallax, reducedMotion ? 0 : lens.x, reducedMotion ? 0 : lens.y)
       gl.uniform1f(u.intro, intro)
       gl.uniform1f(u.scroll, reducedMotion ? 0 : scroll)
-      gl.clear(gl.COLOR_BUFFER_BIT)
       gl.drawArrays(gl.POINTS, 0, stars.count)
+
+      // Clouds: premultiplied "over", so they veil the stars behind them.
+      if (cloud && cu) {
+        gl.useProgram(cloud)
+        gl.bindVertexArray(cloudVao)
+        gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA)
+        gl.uniform2f(cu.resolution, width, height)
+        gl.uniform1f(cu.time, time + 40)
+        gl.uniform2f(cu.parallax, reducedMotion ? 0 : lens.x, reducedMotion ? 0 : lens.y)
+        gl.uniform1f(cu.intro, intro)
+        gl.uniform1f(cu.scroll, reducedMotion ? 0 : scroll)
+        gl.drawArrays(gl.TRIANGLES, 0, 3)
+      }
+      gl.bindVertexArray(null)
       drawn = true
     }
     raf = requestAnimationFrame(draw)
@@ -218,9 +274,14 @@ const Starfield = ({ className, onUnsupported }: Props) => {
       window.removeEventListener("pointerup", onPointerUp)
       document.documentElement.removeEventListener("pointerleave", onPointerLeave)
       buffers.forEach((b) => gl.deleteBuffer(b))
+      gl.deleteVertexArray(starVao)
+      gl.deleteVertexArray(cloudVao)
       gl.deleteProgram(program)
       gl.deleteShader(vs)
       gl.deleteShader(fs)
+      if (cloud) gl.deleteProgram(cloud)
+      if (cvs) gl.deleteShader(cvs)
+      if (cfs) gl.deleteShader(cfs)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

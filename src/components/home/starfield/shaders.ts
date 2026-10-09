@@ -87,3 +87,81 @@ void main() {
   outColor = vec4(c * a, a);
 }
 `
+
+export const CLOUD_VERTEX = `#version 300 es
+in vec2 aQuad;
+void main() {
+  gl_Position = vec4(aQuad, 0.0, 1.0);
+}
+`
+
+// Thin night clouds: two layers of domain-warped noise drifting at different speeds.
+// The near layer moves more with the cursor (parallax) and its upper edges catch faint light.
+// Output is premultiplied so the clouds partly hide the stars drawn before them.
+export const CLOUD_FRAGMENT = `#version 300 es
+precision highp float;
+
+uniform vec2 uResolution;
+uniform float uTime;
+uniform vec2 uParallax;
+uniform float uIntro;
+uniform float uScroll;
+
+out vec4 outColor;
+
+float hash(vec2 p) {
+  p = fract(p * vec2(123.34, 456.21));
+  p += dot(p, p + 45.32);
+  return fract(p.x * p.y);
+}
+
+float noise(vec2 p) {
+  vec2 i = floor(p);
+  vec2 f = fract(p);
+  vec2 u = f * f * (3.0 - 2.0 * f);
+  return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), u.x),
+             mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+
+float fbm(vec2 p) {
+  float v = 0.0;
+  float a = 0.5;
+  mat2 r = mat2(0.8, -0.6, 0.6, 0.8);
+  for (int i = 0; i < 5; i++) {
+    v += a * noise(p);
+    p = r * p * 2.03 + 11.7;
+    a *= 0.5;
+  }
+  return v;
+}
+
+void main() {
+  vec2 uv = gl_FragCoord.xy / uResolution;
+  vec2 p = (gl_FragCoord.xy - 0.5 * uResolution) / uResolution.y;
+  float t = uTime * 0.012;
+
+  // Far layer: slow, stretched, faint. Near layer: faster, denser, more parallax.
+  vec2 pf = p * vec2(1.0, 2.6) + vec2(t * 0.6, 0.0) + uParallax * 0.012;
+  vec2 pn = p * vec2(0.75, 1.9) + vec2(t, 0.0) + uParallax * 0.035 + vec2(3.1, 1.7);
+  float wf = fbm(pf + 0.5 * fbm(pf * 1.7 - t));
+  float wn = fbm(pn + 0.6 * fbm(pn * 1.5 + t * 0.7));
+  // fbm here has median ~0.49 and p90 ~0.65, so these cover roughly half the sky.
+  float far = smoothstep(0.45, 0.63, wf);
+  float near = smoothstep(0.47, 0.62, wn);
+
+  // Thin wisps everywhere; clouds thicken toward the bottom of the sky.
+  float band = mix(0.35, 1.0, smoothstep(0.8, 0.05, uv.y));
+  float a = (far * 0.4 + near * 0.75) * band;
+
+  // Upper edges of the near layer catch a little light.
+  float rim = clamp((wn - fbm(pn + vec2(0.0, -0.05))) * 7.0, 0.0, 1.0);
+  // Night clouds read slightly brighter than the sky (moon and city glow), brightest at the rims.
+  vec3 body = vec3(0.16, 0.18, 0.27);
+  vec3 lit = vec3(0.40, 0.44, 0.58);
+  vec3 col = mix(body, lit, clamp(rim * 0.9 + near * 0.18, 0.0, 1.0));
+
+  a *= uIntro * (1.0 - uScroll * 0.4);
+  a = clamp(a, 0.0, 0.78);
+  outColor = vec4(col * a, a);
+}
+`

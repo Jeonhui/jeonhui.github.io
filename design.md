@@ -49,6 +49,9 @@ Axes: dark paper / geometric-sans display / warm accent. Dark only — no light 
   the name settles from weight 200 to 600 letter by letter; copy fades up after it.
   The name is the LCP element, so it is never hidden, only its weight animates.
 - Hero (scroll): the camera dollies into the cluster and dims it; the copy drifts up and fades.
+- Hero (clouds): a second WebGL pass draws thin night clouds (two fbm layers, slow drift, near layer
+  with more cursor parallax, faintly lit rims), blended over the stars so they veil them. Thicker
+  toward the bottom, thin wisps elsewhere; frozen under reduced motion.
 - Hero (cursor): lens pushes nearby stars outward and warms them; depth parallax; letters near
   the cursor swell along the variable weight axis (fine pointers only).
 - Below the fold, each reveal plays once and only where it adds meaning:
