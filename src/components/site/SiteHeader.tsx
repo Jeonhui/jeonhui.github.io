@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import NextLink from "next/link"
+import { Link as NextLink } from "next-view-transitions"
 import { usePathname } from "next/navigation"
 import { siGithub } from "simple-icons"
 import { PROFILE } from "@/data"
@@ -10,8 +10,8 @@ import LogoMark from "./LogoMark"
 
 // N9 · Edge-aligned minimal - name left, three text links right; translucent once scrolled.
 const NAV = [
-  { name: "포트폴리오", href: "/portfolio" },
   { name: "이력서", href: "/resume" },
+  { name: "포트폴리오", href: "/portfolio" },
 ]
 
 const SiteHeader = () => {
@@ -30,7 +30,7 @@ const SiteHeader = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b transition-[background-color,border-color] duration-[var(--dur-med)] print:hidden ${
+      className={`site-header sticky top-0 z-50 border-b transition-[background-color,border-color] duration-[var(--dur-med)] print:hidden ${
         scrolled
           ? "border-[var(--color-rule)] bg-[color-mix(in_oklch,var(--color-paper)_65%,transparent)] backdrop-blur-md"
           : "border-transparent bg-transparent"

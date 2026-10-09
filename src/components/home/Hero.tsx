@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useState } from "react"
-import NextLink from "next/link"
+import { Link as NextLink } from "next-view-transitions"
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr"
 import { m, useReducedMotion, useScroll, useTransform } from "framer-motion"
 import { PROFILE } from "@/data"

@@ -58,6 +58,9 @@ Axes: dark paper / geometric-sans display / warm accent. Dark only — no light 
   section titles slide up through a mask, project screenshots open from an inset clip,
   the COCSO diagram reveals boxes in reading order and then draws its arrows.
   No generic fade-up on every block.
+- Page changes (View Transitions API via next-view-transitions): the old page lifts away with a
+  slight blur (220ms), the new one settles in from below (520ms); the header keeps its own
+  transition name and stays put. Unsupported browsers simply navigate.
 - `prefers-reduced-motion`: starfield frozen at its settled state, no weight animation,
   no parallax, no packets, reveals render immediately. framer-motion runs under
   `LazyMotion` (domAnimation) + `MotionConfig reducedMotion="user"`; use `m.*`, never `motion.*`.
@@ -113,7 +116,7 @@ Copy is Korean; English only for proper nouns, product/tool names, and the hero 
 - Area icons on experience rows are small, accent-coloured, and sit inline with the title.
 
 ## Chrome
-- Nav: **N9 edge-aligned minimal** — logo left, three text links right; transparent over the sky,
+- Nav: **N9 edge-aligned minimal** — logo left, then 이력서 · 포트폴리오 · GitHub on the right; transparent over the sky,
   translucent paper (65%) with a light blur and a rule once scrolled.
 - Footer: **Ft2 inline single line** — contact facts only.
 - No re-drawn chrome (no fake file bars, browser bars, or terminals).

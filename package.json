@@ -15,6 +15,7 @@
     "@tac-ui/web": "1.1.4",
     "framer-motion": "^12.4.10",
     "next": "15.1.7",
+    "next-view-transitions": "0.3.5",
     "pretendard": "1.3.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

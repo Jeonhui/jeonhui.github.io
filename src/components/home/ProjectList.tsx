@@ -1,4 +1,4 @@
-import NextLink from "next/link"
+import { Link as NextLink } from "next-view-transitions"
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr"
 import { Project } from "@/data"
 import { ClipReveal } from "../ui/motion"
