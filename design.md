@@ -118,8 +118,16 @@ Copy is Korean; English only for proper nouns, product/tool names, and the hero 
 - Footer: **Ft2 inline single line** — contact facts only.
 - No re-drawn chrome (no fake file bars, browser bars, or terminals).
 
+## Logo
+The original four-bar mark, recoloured into the palette with solid steps (no gradient):
+muted, ink-2, ink, and the last short bar in amber.
+- `public/logo.svg`: transparent mark for dark backgrounds; `LogoMark` renders it inline with tokens.
+- `public/icon.svg`, `favicon.ico` (16/32/48), `apple-touch-icon.png`, `icon-192/512.png`:
+  mark scaled 8% on a navy (#0b0f19) rounded tile, so it reads on light and dark tabs.
+- Header: mark (14px tall) + "이전희".
+
 ## What pages MUST share
-Name wordmark ("이전희"), tokens, Pretendard, text-link CTA voice, stacked section heads.
+Logo mark + name wordmark ("이전희"), tokens, Pretendard, text-link CTA voice, stacked section heads.
 
 ## Diagrams
 `CocsoDiagram`: inline SVG built from tokens, deliberately compact on the server side.

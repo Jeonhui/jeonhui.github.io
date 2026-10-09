@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { siGithub } from "simple-icons"
 import { PROFILE } from "@/data"
 import BrandIcon from "../ui/BrandIcon"
+import LogoMark from "./LogoMark"
 
 // N9 · Edge-aligned minimal - name left, three text links right; translucent once scrolled.
 const NAV = [
@@ -36,7 +37,12 @@ const SiteHeader = () => {
       }`}
     >
       <div className="mx-auto flex h-[var(--header-height)] max-w-[1200px] items-center justify-between px-5 sm:px-8">
-        <NextLink href="/" className="whitespace-nowrap text-sm font-semibold text-[var(--color-ink)]">
+        <NextLink
+          href="/"
+          aria-label={`${PROFILE.name} 홈`}
+          className="flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-[var(--color-ink)]"
+        >
+          <LogoMark className="h-[14px] w-auto" />
           {PROFILE.name}
         </NextLink>
         <nav aria-label="Primary" className="flex items-center gap-5 sm:gap-7">

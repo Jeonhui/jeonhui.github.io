@@ -29,7 +29,14 @@ const defaultMetadata: MetadataWithExtend = {
   metadataBase: new URL(INFO.BASE_URL),
   title: INFO.TITLE,
   description: INFO.DESCRIPTION,
-  icons: [INFO.FAVICON],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: INFO.TITLE,
     description: INFO.DESCRIPTION,
