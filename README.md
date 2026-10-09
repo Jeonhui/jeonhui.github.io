@@ -28,7 +28,10 @@
 pnpm install
 pnpm dev      # http://localhost:3000
 pnpm build    # 정적 결과물: out/
+pnpm og       # 링크 미리보기 이미지(public/preview.jpg) 다시 만들기, Chrome 필요
 ```
+
+프로젝트 스크린샷은 `public/images/projects/`에 1400px(`name.webp`), 1000px(`name-1000.webp`), 700px(`name-700.webp`) 세 크기로 둡니다. 원본은 `portfolio/images/`에 있습니다.
 
 빌드 시 `GITHUB_TOKEN`(또는 `NEXT_PUBLIC_GITHUB_TOKEN`)이 있으면 고정 저장소를 가져옵니다. 없어도 빌드는 됩니다.
 

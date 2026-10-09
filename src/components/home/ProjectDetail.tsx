@@ -2,6 +2,7 @@ import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr"
 import { siAppstore, siGithub } from "simple-icons"
 import { Project } from "@/data"
 import BrandIcon from "../ui/BrandIcon"
+import ProjectImage from "../ui/ProjectImage"
 import Stack from "../ui/Stack"
 
 const linkIcon = (label: string) =>
@@ -22,8 +23,12 @@ const ProjectDetail = ({ project }: { project: Project }) => (
 
     {project.image && (
       <figure className="overflow-hidden rounded-[var(--radius-card)] bg-[var(--color-paper-2)]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={project.image} alt={`${project.name} 실행 화면`} loading="lazy" className="w-full p-4" />
+        <ProjectImage
+          src={project.image}
+          alt={`${project.name} 실행 화면`}
+          sizes="(min-width: 760px) 720px, 100vw"
+          className="p-4"
+        />
       </figure>
     )}
 
