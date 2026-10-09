@@ -90,10 +90,12 @@ Copy is Korean; English only for proper nouns, product/tool names, and the hero 
 | --- | --- |
 | 코쏘 (COCSO) on first mention, then 코쏘 | 주식회사 코쏘, COCSO alone |
 | iOS, Android / prose: "iOS와 Android" | AOS, iOS · Android |
-| 제약사, CSO, 딜러사 / 제약사 정산, 딜러사 정산 | 정산제약사, 상위 정산 |
+| 제약사, 비즈니스사(CSO) on first mention then 비즈니스사, 딜러사 / 제약사 정산, 딜러사 정산 | CSO for the customer company, 정산제약사, 상위 정산 |
+| 서비스앱 (the iOS/Android product app) | 모바일 앱 for the product |
 | 의약품 정산 SaaS | 정산 시스템, 정산 플랫폼 (mixed) |
 | AI 어시스턴트 (product), 에이전트 (the agent process only) | AI 에이전트 for the product |
-| CSO용, 제약사용, 관리자용, 일반 회원용 (MCP servers) | client, settler, admin, service |
+| 비즈니스사용, 제약사용, 관리자용, 서비스용 (MCP servers) | client, settler, admin, service, CSO용, 일반 회원용 |
+| Four web apps: 비즈니스사(CSO) 웹, 제약사 웹, 관리자 웹, 서비스 웹 (딜러사, 일반 CSO) | - |
 | 메인 백엔드 (the whole system); 정산 엔진 (the settlement part inside it); ~ 서버 (a specific server) | 정산 백엔드 |
 | 앱 | 애플리케이션 |
 | 리팩터링, 섀도 테이블, 사전 서명 URL, 읽기 전용 | 리팩토링, shadow 테이블, presigned, read-only |

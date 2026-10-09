@@ -24,13 +24,13 @@ type NodeDef = {
 }
 
 const NODES: Record<string, NodeDef> = {
-  // Clients
+  // Clients: four web apps and the service app
   cso: {
     x: 20,
     y: 64,
     w: 176,
     h: 52,
-    title: "CSO 웹",
+    title: "비즈니스사(CSO) 웹",
     sub: "정산, 통계 입력",
     kind: "client",
   },
@@ -52,18 +52,27 @@ const NODES: Record<string, NodeDef> = {
     sub: "운영, 정책",
     kind: "client",
   },
-  mobile: {
+  serviceWeb: {
     x: 20,
     y: 256,
     w: 176,
     h: 52,
-    title: "모바일 앱",
+    title: "서비스 웹",
+    sub: "딜러사, 일반 CSO",
+    kind: "client",
+  },
+  mobile: {
+    x: 20,
+    y: 320,
+    w: 176,
+    h: 52,
+    title: "서비스앱",
     sub: "iOS, Android",
     kind: "client",
   },
   chat: {
     x: 20,
-    y: 560,
+    y: 630,
     w: 176,
     h: 52,
     title: "AI 채팅",
@@ -77,7 +86,7 @@ const NODES: Record<string, NodeDef> = {
     y: 64,
     w: 196,
     h: 52,
-    title: "CSO API 서버",
+    title: "비즈니스사 API 서버",
     sub: "대시보드, 정산",
     kind: "server",
   },
@@ -99,13 +108,22 @@ const NODES: Record<string, NodeDef> = {
     sub: "운영 도구",
     kind: "server",
   },
-  apiMobile: {
+  apiService: {
     x: 262,
     y: 256,
     w: 196,
     h: 52,
+    title: "서비스 API 서버",
+    sub: "딜러사, 일반 CSO",
+    kind: "server",
+  },
+  apiMobile: {
+    x: 262,
+    y: 320,
+    w: 196,
+    h: 52,
     title: "모바일 API 서버",
-    sub: "앱 전용",
+    sub: "서비스앱 전용",
     kind: "server",
   },
   apiContract: {
@@ -135,20 +153,11 @@ const NODES: Record<string, NodeDef> = {
     sub: "MCP 연동",
     kind: "server",
   },
-  apiService: {
-    x: 476,
-    y: 256,
-    w: 196,
-    h: 52,
-    title: "서비스 API 서버",
-    sub: "일반 회원, 멤버십",
-    kind: "server",
-  },
 
   // Shared packages compiled into every backend server
   engine: {
     x: 262,
-    y: 360,
+    y: 426,
     w: 138,
     h: 48,
     title: "정산 엔진",
@@ -158,7 +167,7 @@ const NODES: Record<string, NodeDef> = {
   },
   shared: {
     x: 408,
-    y: 360,
+    y: 426,
     w: 138,
     h: 48,
     title: "비즈니스 로직",
@@ -167,7 +176,7 @@ const NODES: Record<string, NodeDef> = {
   },
   auth: {
     x: 554,
-    y: 360,
+    y: 426,
     w: 118,
     h: 48,
     title: "인증과 보안",
@@ -177,7 +186,7 @@ const NODES: Record<string, NodeDef> = {
   // Data
   files: {
     x: 262,
-    y: 470,
+    y: 540,
     w: 150,
     h: 50,
     title: "파일 저장소",
@@ -186,7 +195,7 @@ const NODES: Record<string, NodeDef> = {
   },
   db: {
     x: 430,
-    y: 470,
+    y: 540,
     w: 242,
     h: 50,
     title: "MariaDB",
@@ -235,7 +244,7 @@ const NODES: Record<string, NodeDef> = {
   // AI path
   gateway: {
     x: 262,
-    y: 560,
+    y: 630,
     w: 150,
     h: 52,
     title: "게이트웨이",
@@ -244,7 +253,7 @@ const NODES: Record<string, NodeDef> = {
   },
   agent: {
     x: 430,
-    y: 560,
+    y: 630,
     w: 150,
     h: 52,
     title: "에이전트",
@@ -253,7 +262,7 @@ const NODES: Record<string, NodeDef> = {
   },
   mcp: {
     x: 598,
-    y: 560,
+    y: 630,
     w: 180,
     h: 52,
     title: "MCP 서버 4종",
@@ -262,7 +271,7 @@ const NODES: Record<string, NodeDef> = {
   },
   llm: {
     x: 430,
-    y: 640,
+    y: 710,
     w: 150,
     h: 46,
     title: "LLM",
@@ -271,28 +280,29 @@ const NODES: Record<string, NodeDef> = {
   },
 }
 
-const MONOREPO = { x: 244, y: 40, w: 446, h: 392 }
-const PACKAGES = { x: 252, y: 334, w: 430, h: 86 }
+const MONOREPO = { x: 244, y: 40, w: 446, h: 458 }
+const PACKAGES = { x: 252, y: 400, w: 430, h: 86 }
 
 // Paths are drawn in the direction data flows.
 const EDGES: Record<string, string> = {
   cso: "M196 90 H262",
   pharma: "M196 154 H262",
   admin: "M196 218 H262",
-  mobile: "M196 282 H262",
-  usesPkgL: "M360 308 V334",
-  usesPkgR: "M574 308 V334",
-  toFiles: "M337 420 V470",
-  toDb: "M551 420 V470",
+  serviceWeb: "M196 282 H262",
+  mobile: "M196 346 H262",
+  usesPkgL: "M360 372 V400",
+  usesPkgR: "M574 244 V400",
+  toFiles: "M337 486 V540",
+  toDb: "M551 486 V540",
   toContract: "M672 90 H760",
   toOcr: "M690 168 H760",
-  batchDb: "M760 244 H730 V495 H672",
+  batchDb: "M760 244 H730 V565 H672",
   support: "M760 320 H690",
-  chat: "M196 586 H262",
-  gwAgent: "M412 586 H430",
-  agentMcp: "M580 586 H598",
-  mcpDb: "M688 560 V540 H600 V520",
-  agentLlm: "M505 612 V640",
+  chat: "M196 656 H262",
+  gwAgent: "M412 656 H430",
+  agentMcp: "M580 656 H598",
+  mcpDb: "M688 630 V610 H600 V590",
+  agentLlm: "M505 682 V710",
 }
 
 type Flow = { label: string; edges: string[]; nodes: string[]; text: string }
@@ -302,13 +312,13 @@ const FLOWS: Record<string, Flow> = {
     label: "정산",
     edges: ["cso", "usesPkgL", "toDb", "batchDb"],
     nodes: ["cso", "apiCso", "engine", "db", "batch"],
-    text: "CSO가 상위 정산 엑셀을 올리면 CSO API 서버가 공유 패키지의 정산 엔진으로 계산과 검산을 하고, 확정과 같은 트랜잭션 안에서 딜러사 정산을 만듭니다. 별도 서버인 배치 워커는 매일 수수료를 다시 집계합니다.",
+    text: "비즈니스사가 상위 정산 엑셀을 올리면 비즈니스사 API 서버가 공유 패키지의 정산 엔진으로 계산과 검산을 하고, 확정과 같은 트랜잭션 안에서 딜러사 정산을 만듭니다. 별도 서버인 배치 워커는 매일 수수료를 다시 집계합니다.",
   },
   ocr: {
     label: "처방통계 OCR",
     edges: ["mobile", "toFiles", "toOcr", "toDb"],
     nodes: ["mobile", "apiMobile", "files", "ocr", "db"],
-    text: "모바일 앱에서 처방통계 사진을 올리면 사전 서명 URL로 파일 저장소에 바로 올라가고, 별도 서버인 OCR 서버가 판독한 약품과 수량을 정산 코드 기준으로 저장합니다.",
+    text: "서비스앱에서 처방통계 사진을 올리면 사전 서명 URL로 파일 저장소에 바로 올라가고, 별도 서버인 OCR 서버가 판독한 약품과 수량을 정산 코드 기준으로 저장합니다.",
   },
   contract: {
     label: "전자계약",
@@ -327,8 +337,12 @@ const FLOWS: Record<string, Flow> = {
 const DESCRIPTIONS: Record<string, string> = {
   apiCso: "메인 백엔드 모노레포의 앱 중 하나로, 따로 빌드하고 배포합니다.",
   apiMobile:
-    "모바일 앱 전용 서버입니다. 메인 백엔드의 다른 서버와 같은 패키지를 쓰지만 따로 배포합니다.",
+    "서비스앱(iOS, Android) 전용 서버입니다. 메인 백엔드의 다른 서버와 같은 패키지를 쓰지만 따로 배포합니다.",
   apiHook: "스토어 결제 알림 같은 외부 웹훅을 받는 서버입니다.",
+  serviceWeb:
+    "딜러사와 일반 CSO가 쓰는 웹. 서비스앱과 같은 기능을 웹에서 제공합니다.",
+  support:
+    "웹 앱 4곳에 위젯으로 붙는 1:1 문의 채팅. 쿠키 인증을 그대로 쓰려고 SSE를 골랐습니다.",
   engine:
     "구간 요율, 최소 정산 금액, 이관, 인센티브 같은 다단계 수수료 계산을 순수 함수 패키지로 분리했습니다.",
   shared:
@@ -338,12 +352,10 @@ const DESCRIPTIONS: Record<string, string> = {
     "계약 라이브러리(@cocso/contract)와 계약 서버를 단독으로 만들었습니다.",
   ocr: "약품 마스터 캐시로 조회를 46배 빠르게 하고, 사진당 약 1초를 줄였습니다.",
   batch: "윈도우 함수로 다시 쓰고, 섀도 테이블 교체와 증분 배치를 넣었습니다.",
-  support:
-    "쿠키 인증을 그대로 쓰려고 SSE를 골랐고, 재연결 시 빠진 메시지를 채웁니다.",
   gateway: "웹 채팅과 에이전트 사이에서 대화 이벤트와 파일을 SSE로 중계합니다.",
   agent:
     "오픈소스 Hermes Agent를 포크해 4계층으로 재설계하고 회사마다 컨테이너로 띄웁니다.",
-  mcp: "CSO용, 제약사용, 관리자용, 일반 회원용 4종. CSO용만 도구가 70개 이상입니다.",
+  mcp: "비즈니스사용, 제약사용, 관리자용, 서비스용 4종. 비즈니스사용만 도구가 70개 이상입니다.",
   mobile:
     "SwiftUI와 Jetpack Compose로 동시에 만들고 두 앱의 동작이 같은지 자동으로 검사합니다.",
   db: "정산, 계약, 거래처 데이터. 확정 시 행 잠금으로 동시성을 막습니다.",
@@ -429,10 +441,10 @@ const CocsoDiagram = () => {
 
       <div className="scrollbar-hide -mx-5 overflow-x-auto px-5">
         <svg
-          viewBox="0 0 1080 700"
+          viewBox="0 0 1080 770"
           className="w-full min-w-[760px] select-none"
           role="img"
-          aria-label="코쏘 시스템 구성도. 메인 백엔드는 하나의 NestJS 모노레포에서 CSO, 제약사, 관리자, 모바일, 계약, 웹훅, MCP 웹훅, 서비스 API 서버를 따로 배포하고, 모두 정산 엔진과 비즈니스 로직, 인증 패키지를 공유하며 MariaDB와 파일 저장소를 씁니다. 전자계약 서버, OCR 서버, 배치 워커, 고객 지원 채팅 서버는 별도 서버입니다. AI 채팅은 게이트웨이와 회사별 에이전트, MCP 서버를 거쳐 데이터를 읽고, 에이전트는 LLM과 대화합니다."
+          aria-label="코쏘 시스템 구성도. 비즈니스사(CSO), 제약사, 관리자, 서비스 웹 4개와 딜러사와 일반 CSO가 쓰는 서비스앱이 각자의 API 서버를 씁니다. 메인 백엔드는 하나의 NestJS 모노레포에서 비즈니스사, 제약사, 관리자, 서비스, 모바일, 계약, 웹훅, MCP 웹훅 API 서버를 따로 배포하고, 모두 정산 엔진과 비즈니스 로직, 인증 패키지를 공유하며 MariaDB와 파일 저장소를 씁니다. 전자계약 서버, OCR 서버, 배치 워커, 고객 지원 채팅 서버는 별도 서버입니다. AI 채팅은 게이트웨이와 회사별 에이전트, MCP 서버를 거쳐 데이터를 읽고, 에이전트는 LLM과 대화합니다."
         >
           <defs>
             <marker
@@ -466,7 +478,7 @@ const CocsoDiagram = () => {
           <text x={760} y={30} fontSize="12" fill="var(--color-muted)">
             별도 서버
           </text>
-          <text x={262} y={548} fontSize="12" fill="var(--color-muted)">
+          <text x={262} y={618} fontSize="12" fill="var(--color-muted)">
             AI 어시스턴트
           </text>
 
