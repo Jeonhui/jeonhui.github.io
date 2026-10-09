@@ -56,7 +56,10 @@ Axes: dark paper / geometric-sans display / warm accent. Dark only — no light 
   the COCSO diagram reveals boxes in reading order and then draws its arrows.
   No generic fade-up on every block.
 - `prefers-reduced-motion`: starfield frozen at its settled state, no weight animation,
-  no parallax, reveals render immediately.
+  no parallax, no packets, reveals render immediately. framer-motion runs under
+  `LazyMotion` (domAnimation) + `MotionConfig reducedMotion="user"`; use `m.*`, never `motion.*`.
+- The contribution graph uses a CSS keyframe sweep triggered once by IntersectionObserver
+  (370 cells: no per-cell JS animation).
 
 ## Microinteractions stance
 - Hover = one signal (colour shift or 1px nudge). No scale, no glow shadows on dark.
@@ -114,8 +117,14 @@ Copy is Korean; English only for proper nouns, product/tool names, and the hero 
 Name wordmark ("이전희"), tokens, Pretendard, text-link CTA voice, stacked section heads.
 
 ## Diagrams
-Inline SVG built from tokens (`CocsoDiagram`), high level only: no hostnames, vendors, or customer
-names. On narrow screens the figure scrolls inside its own container; the page never scrolls sideways.
+`CocsoDiagram`: inline SVG built from tokens. Shows the main backend's internals (app APIs,
+정산 엔진, 공유 비즈니스 로직, 인증과 보안, 푸시, 파일 업로드), data stores, services, and the AI path.
+Names only from the public copy: no hostnames, accounts, or customer names.
+- Reveal once: container outline draws, boxes appear in order, connections draw on.
+- Then light packets travel along connections (SVG `animateMotion`, no JS per frame).
+- Flow tabs (정산, 처방통계 OCR, 전자계약, AI 어시스턴트) light one path, dim the rest, send packets
+  in step order, and swap the caption; hovering a box explains it.
+- Narrow screens: the figure scrolls inside its own container (min 680px); the page never does.
 
 ## What pages MAY differ on
 Macrostructure within the family above. Only Home carries enrichment (the starfield).

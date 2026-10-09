@@ -23,6 +23,7 @@
   --color-accent-ink: oklch(16% 0.03 60);
   --color-focus: oklch(84% 0.12 70);
   --color-star-cool: oklch(92% 0.04 240);
+  --color-live: oklch(78% 0.14 150); /* running-server status light in the COCSO diagram */
   --color-bloom: oklch(30% 0.06 265 / 0.55);
   --color-print-paper: oklch(99% 0.003 250);
   --shadow-pill: 0 8px 24px -12px oklch(8% 0.02 265 / 0.6);

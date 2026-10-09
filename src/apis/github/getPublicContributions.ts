@@ -14,6 +14,8 @@ const getPublicContributions = async (
   try {
     const res = await fetch(`https://github.com/users/${userName}/contributions`, {
       headers: { "User-Agent": "jeonhui.com build" },
+      // Never let a slow GitHub response hang the static build.
+      signal: AbortSignal.timeout(15_000),
     })
     if (!res.ok) return null
     const html = await res.text()

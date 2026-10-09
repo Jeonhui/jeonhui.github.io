@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import React from "react"
-import { generateThemeCSS } from "@tac-ui/web/tailwind"
 import Providers from "./providers"
 import { METADATA } from "@/constants"
 import { SiteFooter, SiteHeader } from "@/components"
@@ -8,10 +7,6 @@ import { SiteFooter, SiteHeader } from "@/components"
 import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css"
 import "./tokens.css"
 import "./globals.css"
-
-
-// tac-ui theme tokens (--background, --foreground, --point, ...) for light/dark
-const themeCSS = generateThemeCSS()
 
 export const metadata: Metadata = METADATA.MAIN
 
@@ -21,13 +16,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="ko"
-      suppressHydrationWarning
-    >
-      <head>
-        <style dangerouslySetInnerHTML={{ __html: themeCSS }} />
-      </head>
+    <html lang="ko" suppressHydrationWarning>
       <body className="min-h-screen flex flex-col">
         <Providers>
           <a

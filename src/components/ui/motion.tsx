@@ -1,7 +1,7 @@
 "use client"
 
 import { ReactNode } from "react"
-import { motion, useReducedMotion } from "framer-motion"
+import { m, useReducedMotion } from "framer-motion"
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -11,7 +11,7 @@ export const MaskText = ({ children, delay = 0 }: { children: ReactNode; delay?:
   if (reduce) return <>{children}</>
   return (
     <span className="block overflow-hidden pb-[0.08em]">
-      <motion.span
+      <m.span
         className="block"
         initial={{ y: "105%" }}
         whileInView={{ y: "0%" }}
@@ -19,7 +19,7 @@ export const MaskText = ({ children, delay = 0 }: { children: ReactNode; delay?:
         transition={{ duration: 0.9, delay, ease: EASE }}
       >
         {children}
-      </motion.span>
+      </m.span>
     </span>
   )
 }
@@ -29,21 +29,21 @@ export const ClipReveal = ({ children, className = "" }: { children: ReactNode; 
   const reduce = useReducedMotion()
   if (reduce) return <figure className={className}>{children}</figure>
   return (
-    <motion.figure
+    <m.figure
       className={className}
       initial={{ clipPath: "inset(10% 6% 10% 6% round 10px)" }}
       whileInView={{ clipPath: "inset(0% 0% 0% 0% round 10px)" }}
       viewport={{ once: true, margin: "-12% 0px" }}
       transition={{ duration: 1.1, ease: EASE }}
     >
-      <motion.div
+      <m.div
         initial={{ scale: 1.06 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true, margin: "-12% 0px" }}
         transition={{ duration: 1.4, ease: EASE }}
       >
         {children}
-      </motion.div>
-    </motion.figure>
+      </m.div>
+    </m.figure>
   )
 }

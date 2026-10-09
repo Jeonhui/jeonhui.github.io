@@ -1,7 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import { motion } from "framer-motion"
+import { useEffect, useRef, useState } from "react"
 import type { ContributionCalendar, ContributionLevel } from "@/apis/github"
 
 const LEVEL: Record<ContributionLevel, string> = {
@@ -15,19 +14,33 @@ const LEVEL: Record<ContributionLevel, string> = {
 type Props = { calendar: ContributionCalendar | null }
 
 // Calendar is fetched at build time (see getPublicContributions) and passed in.
+// Cells sweep in column by column with a CSS animation, once, when the graph enters view.
 const GithubContributions = ({ calendar: cal }: Props) => {
-  const ref = useRef<HTMLDivElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const rootRef = useRef<HTMLDivElement>(null)
+  const [shown, setShown] = useState(false)
 
-  // Keep the most recent weeks in view on narrow screens.
   useEffect(() => {
-    if (ref.current) ref.current.scrollLeft = ref.current.scrollWidth
+    if (scrollRef.current) scrollRef.current.scrollLeft = scrollRef.current.scrollWidth
+    const el = rootRef.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShown(true)
+          io.disconnect()
+        }
+      },
+      { rootMargin: "0px 0px -15% 0px" },
+    )
+    io.observe(el)
+    return () => io.disconnect()
   }, [])
 
   if (!cal) return null
-  const weeks = cal.weeks
 
   return (
-    <div className="rounded-[var(--radius-card)] bg-[var(--color-paper-2)] p-5">
+    <div ref={rootRef} className="rounded-[var(--radius-card)] bg-[var(--color-paper-2)] p-5">
       <div className="mb-4 flex items-baseline justify-between gap-3">
         <span className="text-sm font-medium text-foreground">GitHub 기여</span>
         <span className="text-xs text-muted-foreground">
@@ -35,18 +48,19 @@ const GithubContributions = ({ calendar: cal }: Props) => {
         </span>
       </div>
 
-      <div ref={ref} className="scrollbar-hide overflow-x-auto">
-        <div className="flex w-max gap-[3px]" style={{ height: "calc(10px * 7 + 3px * 6)" }}>
-          {weeks.map((w, i) => (
+      <div ref={scrollRef} className="scrollbar-hide overflow-x-auto">
+        <div
+          className={`contrib-grid flex w-max gap-[3px] ${shown ? "is-shown" : ""}`}
+          style={{ height: "calc(10px * 7 + 3px * 6)" }}
+        >
+          {cal.weeks.map((w, i) => (
             <div key={i} className="flex h-full flex-col gap-[3px] first:justify-end">
               {w.contributionDays.map((d, j) => (
-                <motion.div
+                <div
                   key={j}
-                  className="h-[10px] w-[10px] rounded-[3px]"
+                  className="contrib-cell h-[10px] w-[10px] rounded-[3px]"
                   title={`${new Date(d.date).toISOString().slice(0, 10)}: ${d.contributionCount}회`}
-                  initial={{ opacity: 0, scale: 0.6 }}
-                  animate={{ opacity: 1, scale: 1, backgroundColor: LEVEL[d.contributionLevel] }}
-                  transition={{ delay: i * 0.006, duration: 0.3 }}
+                  style={{ backgroundColor: LEVEL[d.contributionLevel], animationDelay: `${i * 12}ms` }}
                 />
               ))}
             </div>

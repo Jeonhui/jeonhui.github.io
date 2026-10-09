@@ -31,6 +31,7 @@ const getPinnedItems = async (userName: string = GITHUB.USERNAME): Promise<Pinna
       method: "POST",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
       body: JSON.stringify({ query: QUERY, variables: { userName } }),
+      signal: AbortSignal.timeout(15_000),
     })
     if (!res.ok) return []
     const json = await res.json()
