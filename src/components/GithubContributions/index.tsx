@@ -29,9 +29,9 @@ const GithubContributions = ({ calendar: cal }: Props) => {
   return (
     <div className="rounded-[var(--radius-card)] bg-[var(--color-paper-2)] p-5">
       <div className="mb-4 flex items-baseline justify-between gap-3">
-        <span className="text-sm font-medium text-foreground">Contributions</span>
+        <span className="text-sm font-medium text-foreground">GitHub 기여</span>
         <span className="text-xs text-muted-foreground">
-          <span className="text-foreground">{cal.totalContributions.toLocaleString()}</span> in the last year
+          최근 1년 <span className="text-foreground tabular-nums">{cal.totalContributions.toLocaleString()}</span>회
         </span>
       </div>
 
@@ -43,7 +43,7 @@ const GithubContributions = ({ calendar: cal }: Props) => {
                 <motion.div
                   key={j}
                   className="h-[10px] w-[10px] rounded-[3px]"
-                  title={`${d.contributionCount} · ${new Date(d.date).toISOString().slice(0, 10)}`}
+                  title={`${new Date(d.date).toISOString().slice(0, 10)}: ${d.contributionCount}회`}
                   initial={{ opacity: 0, scale: 0.6 }}
                   animate={{ opacity: 1, scale: 1, backgroundColor: LEVEL[d.contributionLevel] }}
                   transition={{ delay: i * 0.006, duration: 0.3 }}
@@ -55,11 +55,11 @@ const GithubContributions = ({ calendar: cal }: Props) => {
       </div>
 
       <div className="mt-3 flex items-center justify-end gap-1.5 text-[11px] text-muted-foreground">
-        Less
+        적음
         {Object.values(LEVEL).map((c) => (
           <span key={c} className="h-[10px] w-[10px] rounded-[3px]" style={{ background: c }} />
         ))}
-        More
+        많음
       </div>
     </div>
   )

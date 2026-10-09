@@ -82,9 +82,9 @@ const Resume = () => (
       </div>
       <dl className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
         {[
-          { k: "Email", v: PROFILE.email, href: `mailto:${PROFILE.email}` },
+          { k: "메일", v: PROFILE.email, href: `mailto:${PROFILE.email}` },
           { k: "GitHub", v: PROFILE.github.replace("https://", ""), href: PROFILE.github },
-          { k: "Portfolio", v: "jeonhui.com/portfolio", href: "/portfolio" },
+          { k: "포트폴리오", v: "jeonhui.com/portfolio", href: "/portfolio" },
         ].map((c) => (
           <div key={c.k} className="flex gap-2">
             <dt className="text-[var(--color-faint)]">{c.k}</dt>
@@ -140,7 +140,7 @@ const Resume = () => (
               )}
             </>
           }
-          meta={p.period.split(" · ")[0]}
+          meta={p.period.split(" (")[0]}
           sub={p.role}
         >
           <p className="text-sm leading-6 text-[var(--color-ink-2)] text-pretty">{p.summary}</p>

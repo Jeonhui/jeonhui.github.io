@@ -19,7 +19,7 @@ const ProjectList = ({ items }: { items: Project[] }) => (
               />
             </h3>
             <p className="text-sm text-[var(--color-muted)]">
-              <span className="tabular-nums">{p.period.split(" · ")[0]}</span>
+              <span className="tabular-nums">{p.period.split(" (")[0]}</span>
               <br />
               {p.role}
             </p>

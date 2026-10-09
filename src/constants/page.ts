@@ -77,10 +77,10 @@ const generateMetadata = (
 const METADATA: { [key in keyof typeof PAGE]: Metadata } = {
   MAIN: defaultMetadata,
   RESUME: defaultMetadata.extend(PATHS.RESUME, {
-    title: "Resume | 이전희",
+    title: "이력서 | 이전희",
   }),
   PORTFOLIO: defaultMetadata.extend(PATHS.PORTFOLIO, {
-    title: "Portfolio | 이전희",
+    title: "포트폴리오 | 이전희",
   }),
 }
 

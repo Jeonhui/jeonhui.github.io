@@ -64,6 +64,24 @@ Axes: dark paper / geometric-sans display / warm accent. Dark only — no light 
 - No em/en dashes in copy or date ranges; use a plain hyphen.
 - No middle-dot (·) lists in copy; use commas or line breaks.
 
+## Terminology
+Copy is Korean; English only for proper nouns, product/tool names, and the hero HUD.
+
+| Use | Not |
+| --- | --- |
+| 코쏘 (COCSO) on first mention, then 코쏘 | 주식회사 코쏘, COCSO alone |
+| iOS, Android / prose: "iOS와 Android" | AOS, iOS · Android |
+| 제약사, CSO, 딜러사 / 제약사 정산, 딜러사 정산 | 정산제약사, 상위 정산 |
+| 의약품 정산 SaaS | 정산 시스템, 정산 플랫폼 (mixed) |
+| AI 어시스턴트 (product), 에이전트 (the agent process only) | AI 에이전트 for the product |
+| CSO용, 제약사용, 관리자용, 일반 회원용 (MCP servers) | client, settler, admin, service |
+| 백엔드 (the system), ~ 서버 (a specific server) | 서버 for the whole backend |
+| 앱 | 애플리케이션 |
+| 리팩터링, 섀도 테이블, 사전 서명 URL, 읽기 전용 | 리팩토링, shadow 테이블, presigned, read-only |
+| 백엔드 개발자, 개인정보 보호책임자(CPO) / 소프트웨어 엔지니어 | English job titles |
+| Periods: `2023.01 - 2024.06 (18개월)` | `·` separators, em dashes |
+| Bullets end in a noun (구현, 해결); summaries end in -습니다 | mixed endings |
+
 ## Icons
 - UI icons: **lucide-react** only (stroke 1.75), inline with text, never as tiles above cards.
 - Brand marks: **simple-icons**, monochrome via currentColor (tech stacks, GitHub, App Store).
