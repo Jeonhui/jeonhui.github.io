@@ -40,10 +40,9 @@ const SiteHeader = () => {
         <NextLink
           href="/"
           aria-label={`${PROFILE.name} 홈`}
-          className="flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-[var(--color-ink)]"
+          className="flex items-center rounded-[var(--radius-card)] p-1 -m-1"
         >
-          <LogoMark className="h-[14px] w-auto" />
-          {PROFILE.name}
+          <LogoMark className="h-[18px] w-auto" />
         </NextLink>
         <nav aria-label="Primary" className="flex items-center gap-5 sm:gap-7">
           {NAV.map((item) => (

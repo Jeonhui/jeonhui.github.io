@@ -43,6 +43,12 @@ const defaultMetadata: MetadataWithExtend = {
     type: "website",
     images: [INFO.PREVIEW_IMAGE],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: INFO.TITLE,
+    description: INFO.DESCRIPTION,
+    images: [INFO.PREVIEW_IMAGE.url],
+  },
   extend: (path, metadata) => generateMetadata(defaultMetadata, path, metadata),
 }
 
