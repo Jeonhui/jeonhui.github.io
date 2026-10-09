@@ -146,22 +146,22 @@ void main() {
   float wf = fbm(pf + 0.5 * fbm(pf * 1.7 - t));
   float wn = fbm(pn + 0.6 * fbm(pn * 1.5 + t * 0.7));
   // fbm here has median ~0.49 and p90 ~0.65, so these cover roughly half the sky.
-  float far = smoothstep(0.45, 0.63, wf);
-  float near = smoothstep(0.47, 0.62, wn);
+  float far = smoothstep(0.42, 0.62, wf);
+  float near = smoothstep(0.44, 0.60, wn);
 
   // Thin wisps everywhere; clouds thicken toward the bottom of the sky.
-  float band = mix(0.35, 1.0, smoothstep(0.8, 0.05, uv.y));
-  float a = (far * 0.4 + near * 0.75) * band;
+  float band = mix(0.5, 1.0, smoothstep(0.8, 0.05, uv.y));
+  float a = (far * 0.55 + near * 0.95) * band;
 
   // Upper edges of the near layer catch a little light.
   float rim = clamp((wn - fbm(pn + vec2(0.0, -0.05))) * 7.0, 0.0, 1.0);
   // Night clouds read slightly brighter than the sky (moon and city glow), brightest at the rims.
-  vec3 body = vec3(0.16, 0.18, 0.27);
-  vec3 lit = vec3(0.40, 0.44, 0.58);
+  vec3 body = vec3(0.22, 0.25, 0.36);
+  vec3 lit = vec3(0.52, 0.57, 0.72);
   vec3 col = mix(body, lit, clamp(rim * 0.9 + near * 0.18, 0.0, 1.0));
 
   a *= uIntro * (1.0 - uScroll * 0.4);
-  a = clamp(a, 0.0, 0.78);
+  a = clamp(a, 0.0, 0.88);
   outColor = vec4(col * a, a);
 }
 `
