@@ -1,23 +1,31 @@
 "use client"
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 import NextLink from "next/link"
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr"
-import { motion } from "framer-motion"
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion"
 import { PROFILE } from "@/data"
 import Starfield from "./starfield/Starfield"
+import HeroName from "./HeroName"
 
 const enter = (delay: number) => ({
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  transition: { duration: 1.2, delay, ease: [0.16, 1, 0.3, 1] },
+  initial: { opacity: 0, y: 12 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 1.1, delay, ease: [0.16, 1, 0.3, 1] },
 })
 
 const Hero = () => {
   const [supported, setSupported] = useState(true)
+  const sectionRef = useRef<HTMLElement>(null)
+  const reduce = useReducedMotion()
+
+  // As the hero scrolls away, the copy drifts up and fades while the stars dolly in.
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] })
+  const y = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -140])
+  const opacity = useTransform(scrollYProgress, [0, 0.75], [1, reduce ? 1 : 0])
 
   return (
-    <section className="relative isolate -mt-[var(--header-height)] flex min-h-[100svh] flex-col overflow-hidden">
+    <section ref={sectionRef} className="relative isolate -mt-[var(--header-height)] flex min-h-[100svh] flex-col overflow-hidden">
       {/* One bloom behind the cluster */}
       <div
         aria-hidden
@@ -40,15 +48,11 @@ const Hero = () => {
         }}
       />
 
-      <div className="pointer-events-none relative mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-end px-5 pb-[var(--space-2xl)] pt-[calc(var(--header-height)+var(--space-3xl))] sm:px-8 sm:pb-[var(--space-3xl)]">
-        {/* The name is the LCP element, so it renders immediately instead of fading in. */}
-        <h1
-          className="min-w-0 text-[clamp(3.5rem,13vw,10.5rem)] font-semibold leading-[0.88] tracking-[-0.055em] text-[var(--color-ink)] [overflow-wrap:anywhere]"
-        >
-          Jeonhui
-          <br />
-          <span className="text-[var(--color-ink-2)]">Lee</span>
-        </h1>
+      <motion.div
+        style={{ y, opacity }}
+        className="pointer-events-none relative mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-end px-5 pb-[var(--space-2xl)] pt-[calc(var(--header-height)+var(--space-3xl))] sm:px-8 sm:pb-[var(--space-3xl)]">
+        {/* The name is the LCP element: visible from first paint, only its weight animates. */}
+        <HeroName />
 
         <motion.p
           {...enter(0.45)}
@@ -66,7 +70,7 @@ const Hero = () => {
             <ArrowRight aria-hidden className="h-4 w-4 transition-transform duration-[var(--dur-short)] group-hover:translate-x-0.5" />
           </NextLink>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   )
 }

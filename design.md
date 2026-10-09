@@ -44,11 +44,19 @@ Axes: dark paper / geometric-sans display / warm accent. Dark only — no light 
 (`tight` / `normal` / `loose`) — never the same padding on every section.
 
 ## Motion
-- Easings: `--ease-out` cubic-bezier(0.16, 1, 0.3, 1), `--ease-in`, `--ease-in-out`.
-- One orchestrated entrance: the hero fades in (opacity only). Nothing else reveals on scroll.
-- Starfield: slow auto-spin, drag to rotate with inertia, cursor tilt + depth parallax,
-  and a cursor lens that pushes nearby stars outward and warms them toward amber; frozen under
-  `prefers-reduced-motion`, paused off-screen and in hidden tabs.
+- Easing: `--ease-out` cubic-bezier(0.16, 1, 0.3, 1) everywhere (CSS and framer-motion).
+- Hero (load): stars converge from 3.2x spread into the cluster (~2.4s, staggered per star);
+  the name settles from weight 200 to 600 letter by letter; copy fades up after it.
+  The name is the LCP element, so it is never hidden, only its weight animates.
+- Hero (scroll): the camera dollies into the cluster and dims it; the copy drifts up and fades.
+- Hero (cursor): lens pushes nearby stars outward and warms them; depth parallax; letters near
+  the cursor swell along the variable weight axis (fine pointers only).
+- Below the fold, each reveal plays once and only where it adds meaning:
+  section titles slide up through a mask, project screenshots open from an inset clip,
+  the COCSO diagram reveals boxes in reading order and then draws its arrows.
+  No generic fade-up on every block.
+- `prefers-reduced-motion`: starfield frozen at its settled state, no weight animation,
+  no parallax, reveals render immediately.
 
 ## Microinteractions stance
 - Hover = one signal (colour shift or 1px nudge). No scale, no glow shadows on dark.
@@ -83,7 +91,7 @@ Copy is Korean; English only for proper nouns, product/tool names, and the hero 
 | 의약품 정산 SaaS | 정산 시스템, 정산 플랫폼 (mixed) |
 | AI 어시스턴트 (product), 에이전트 (the agent process only) | AI 에이전트 for the product |
 | CSO용, 제약사용, 관리자용, 일반 회원용 (MCP servers) | client, settler, admin, service |
-| 백엔드 (the system), ~ 서버 (a specific server) | 서버 for the whole backend |
+| 메인 백엔드 (the whole system); 정산 엔진 (the settlement part inside it); ~ 서버 (a specific server) | 정산 백엔드 |
 | 앱 | 애플리케이션 |
 | 리팩터링, 섀도 테이블, 사전 서명 URL, 읽기 전용 | 리팩토링, shadow 테이블, presigned, read-only |
 | CTO (at 코쏘) / 소프트웨어 엔지니어 (overall) | other titles for 코쏘 |

@@ -78,6 +78,8 @@ const Starfield = ({ className, onUnsupported }: Props) => {
       mouse: gl.getUniformLocation(program, "uMouse"),
       mouseStrength: gl.getUniformLocation(program, "uMouseStrength"),
       parallax: gl.getUniformLocation(program, "uParallax"),
+      intro: gl.getUniformLocation(program, "uIntro"),
+      scroll: gl.getUniformLocation(program, "uScroll"),
     }
 
     gl.enable(gl.BLEND)
@@ -173,10 +175,15 @@ const Starfield = ({ className, onUnsupported }: Props) => {
       last = now
 
       if (!dragging) {
-        yaw += yawVelocity * dt
+        yaw += yawVelocity * dt * (1 + (1 - Math.min(1, (now - start) / 2400)) * 4)
         yawVelocity += (baseVelocity - yawVelocity) * Math.min(1, dt * 1.6)
       }
       tilt += (tiltTarget - tilt) * Math.min(1, dt * 3)
+
+      // Intro over ~2.4s (ease-out cubic); scroll progress over the hero's height.
+      const t0 = Math.min(1, (now - start) / 2400)
+      const intro = reducedMotion ? 1 : 1 - Math.pow(1 - t0, 3)
+      const scroll = Math.min(1, Math.max(0, window.scrollY / Math.max(1, canvas.clientHeight)))
 
       const follow = Math.min(1, dt * 6)
       lens.x += (pointer.x - lens.x) * follow
@@ -194,6 +201,8 @@ const Starfield = ({ className, onUnsupported }: Props) => {
       gl.uniform2f(u.mouse, lens.x, lens.y)
       gl.uniform1f(u.mouseStrength, lens.strength)
       gl.uniform2f(u.parallax, reducedMotion ? 0 : lens.x, reducedMotion ? 0 : lens.y)
+      gl.uniform1f(u.intro, intro)
+      gl.uniform1f(u.scroll, reducedMotion ? 0 : scroll)
       gl.clear(gl.COLOR_BUFFER_BIT)
       gl.drawArrays(gl.POINTS, 0, stars.count)
       drawn = true

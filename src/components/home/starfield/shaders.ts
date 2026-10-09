@@ -15,6 +15,8 @@ uniform float uPixelRatio;
 uniform vec2 uMouse;          // cursor in NDC
 uniform float uMouseStrength; // 0..1, eased in/out
 uniform vec2 uParallax;       // eased cursor offset for depth parallax
+uniform float uIntro;         // 0 -> 1 on load: stars converge from far out
+uniform float uScroll;        // 0 -> 1 as the hero scrolls away: camera dollies in
 
 out vec3 vColor;
 out float vBrightness;
@@ -29,12 +31,16 @@ vec3 starColor(float t) {
 }
 
 void main() {
-  vec3 p = uRotation * aPosition;
+  // Intro: start spread wide and converge; each star arrives slightly out of step.
+  float arrive = clamp(uIntro * 1.25 - aPhase * 0.25, 0.0, 1.0);
+  vec3 p = uRotation * (aPosition * mix(3.2, 1.0, arrive));
+  // Scroll: dolly the camera into the cluster.
+  p.z += uScroll * 1.6;
   float camera = 3.4;
   float depth = camera - p.z;
   vec2 projected = p.xy / depth * 2.6;
 
-  float near = clamp(3.4 / depth, 0.55, 1.8);
+  float near = clamp(3.4 / max(depth, 0.6), 0.55, 2.6);
   vec2 ndc = vec2(projected.x * uScale / uAspect + uOffset.x, projected.y * uScale + uOffset.y);
 
   // Depth parallax: nearer stars drift further with the cursor.
@@ -53,7 +59,7 @@ void main() {
 
   gl_PointSize = (2.0 + pow(aMagnitude, 2.0) * 34.0) * near * uPixelRatio * uScale * (1.0 + lens * 0.45);
   vColor = mix(starColor(aTemperature), vec3(1.0, 0.72, 0.42), lens * 0.45);
-  vBrightness = b * near * (1.0 + lens * 1.0);
+  vBrightness = b * near * (1.0 + lens * 1.0) * arrive * (1.0 - uScroll * 0.75);
   vSpike = smoothstep(0.82, 1.0, aMagnitude);
 }
 `

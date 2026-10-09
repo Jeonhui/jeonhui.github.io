@@ -1,5 +1,6 @@
 import { ReactNode } from "react"
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr"
+import { MaskText } from "./motion"
 
 type Props = {
   id?: string
@@ -21,7 +22,7 @@ const Section = ({ id, title, lead, action, space = "normal", children }: Props)
     <div className="mb-[var(--space-xl)] flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
       <div className="flex min-w-0 flex-col gap-2">
         <h2 className="text-[clamp(1.75rem,3.2vw,2.5rem)] font-semibold leading-tight tracking-[-0.03em] text-[var(--color-ink)]">
-          {title}
+          <MaskText>{title}</MaskText>
         </h2>
         {lead && <p className="max-w-[52ch] text-[15px] leading-7 text-[var(--color-muted)]">{lead}</p>}
       </div>

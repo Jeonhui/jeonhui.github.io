@@ -80,3 +80,21 @@ html body {
     background: var(--color-print-paper) !important;
   }
 }
+
+/* Hero name: letters settle from thin to semibold on load (variable weight axis). */
+@keyframes hero-letter-weight {
+  from {
+    font-weight: 200;
+  }
+  to {
+    font-weight: 600;
+  }
+}
+.hero-letter {
+  animation: hero-letter-weight 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-letter {
+    animation: none;
+  }
+}

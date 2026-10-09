@@ -1,6 +1,7 @@
 import NextLink from "next/link"
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr"
 import { Project } from "@/data"
+import { ClipReveal } from "../ui/motion"
 
 const Meta = ({ p }: { p: Project }) => (
   <>
@@ -21,10 +22,15 @@ const Meta = ({ p }: { p: Project }) => (
 
 const Shot = ({ p, className = "" }: { p: Project; className?: string }) =>
   p.image ? (
-    <figure className={`overflow-hidden rounded-[var(--radius-card)] bg-[var(--color-paper-2)] ${className}`}>
+    <ClipReveal className={`overflow-hidden rounded-[var(--radius-card)] bg-[var(--color-paper-2)] ${className}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={p.image} alt={`${p.name} 실행 화면`} loading="lazy" className="w-full p-3" />
-    </figure>
+      <img
+        src={p.image}
+        alt={`${p.name} 실행 화면`}
+        loading="lazy"
+        className="w-full p-3 transition-transform duration-[var(--dur-med)] ease-[var(--ease-out)] group-hover:scale-[1.015]"
+      />
+    </ClipReveal>
   ) : null
 
 // One featured project at full width, then the rest as a two-column pair.
