@@ -119,14 +119,17 @@ Copy is Korean; English only for proper nouns, product/tool names, and the hero 
 Name wordmark ("이전희"), tokens, Pretendard, text-link CTA voice, stacked section heads.
 
 ## Diagrams
-`CocsoDiagram`: inline SVG built from tokens. Shows the main backend's internals (app APIs,
-정산 엔진, 공유 비즈니스 로직, 인증과 보안, 푸시, 파일 업로드), data stores, services, and the AI path.
-Names only from the public copy: no hostnames, accounts, or customer names.
-- Reveal once: container outline draws, boxes appear in order, connections draw on.
-- Then light packets travel along connections (SVG `animateMotion`, no JS per frame).
-- Flow tabs (정산, 처방통계 OCR, 전자계약, AI 어시스턴트) light one path, dim the rest, send packets
-  in step order, and swap the caption; hovering a box explains it.
-- Narrow screens: the figure scrolls inside its own container (min 680px); the page never does.
+`CocsoDiagram`: inline SVG built from tokens, deliberately compact on the server side.
+- Clients: 비즈니스사(CSO), 제약사, 관리자, 서비스 웹 + 서비스앱, each wired to its lane.
+- Main backend (dashed monorepo boundary): one "앱 API 서버 5개" box with a lane and live
+  status light per separately deployed server, "연동 서버 3개", and a shared-package stack
+  (정산 엔진, 비즈니스 로직, 인증과 보안). Separate servers: 전자계약, OCR, 배치. AI path below.
+- Names only from the public copy: no hostnames, accounts, or customer names.
+- Reveal once (boundaries, boxes, then connections draw on); afterwards light packets travel
+  along paths via SMIL, hidden until their start and paused while the figure is off-screen.
+- Flow toggles (`aria-pressed`) light one path in step order and swap the caption.
+  Boxes are focusable buttons: hover, keyboard focus, or tap shows the description.
+- Narrow screens: the figure scrolls inside its own container (min 760px); the page never does.
 
 ## What pages MAY differ on
 Macrostructure within the family above. Only Home carries enrichment (the starfield).
