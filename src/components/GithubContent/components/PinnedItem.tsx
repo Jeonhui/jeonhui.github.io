@@ -1,8 +1,8 @@
-import { Star } from "lucide-react"
+import { Star } from "@phosphor-icons/react/dist/ssr"
 import { PinnableItem } from "@/apis/github"
 
 const PinnedItem = ({ item }: { item: PinnableItem }) => (
-  <li className="border-b border-[var(--color-rule)]">
+  <li>
     <a
       href={item.url}
       target="_blank"
@@ -23,7 +23,7 @@ const PinnedItem = ({ item }: { item: PinnableItem }) => (
           </span>
         )}
         <span className="flex items-center gap-1">
-          <Star aria-hidden className="h-3.5 w-3.5" strokeWidth={1.75} />
+          <Star aria-hidden className="h-3.5 w-3.5" />
           {item.stargazerCount}
         </span>
       </span>

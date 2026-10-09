@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr"
 import { siAppstore, siGithub } from "simple-icons"
 import { Project } from "@/data"
 import BrandIcon from "../ui/BrandIcon"

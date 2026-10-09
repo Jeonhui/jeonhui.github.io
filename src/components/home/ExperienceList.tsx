@@ -1,17 +1,17 @@
 import NextLink from "next/link"
-import { ArrowRight, Blocks, Bot, FileSignature, MapPinned, Palette, ScanText, Server, Smartphone } from "lucide-react"
+import { ArrowRight, DeviceMobile, HardDrives, MapPin, Palette, Robot, Scan, Signature, SquaresFour } from "@phosphor-icons/react/dist/ssr"
 import { Experience } from "@/data"
 import Stack from "../ui/Stack"
 
 const AREA_ICON = {
-  server: Server,
-  signature: FileSignature,
-  bot: Bot,
-  smartphone: Smartphone,
+  server: HardDrives,
+  signature: Signature,
+  bot: Robot,
+  smartphone: DeviceMobile,
   palette: Palette,
-  scan: ScanText,
-  map: MapPinned,
-  blocks: Blocks,
+  scan: Scan,
+  map: MapPin,
+  blocks: SquaresFour,
 }
 
 type Props = { items: Experience[]; full?: boolean }
@@ -37,7 +37,7 @@ const ExperienceList = ({ items, full = false }: Props) => (
               return (
                 <section key={g.title} className="flex flex-col gap-2">
                   <h4 className="flex items-center gap-2 text-base font-semibold text-[var(--color-ink)]">
-                    {Icon && <Icon aria-hidden className="h-4 w-4 text-[var(--color-accent)]" strokeWidth={1.75} />}
+                    {Icon && <Icon aria-hidden className="h-4 w-4 text-[var(--color-accent)]" />}
                     {g.title}
                   </h4>
                   {g.description && <p className="text-sm text-[var(--color-muted)]">{g.description}</p>}
@@ -53,19 +53,16 @@ const ExperienceList = ({ items, full = false }: Props) => (
             })}
           </div>
         ) : (
-          <dl className="flex flex-col border-t border-[var(--color-rule)]">
+          <dl className="grid gap-x-[var(--space-xl)] gap-y-[var(--space-lg)] pt-[var(--space-xs)] sm:grid-cols-2">
             {exp.groups.map((g) => {
               const Icon = g.icon ? AREA_ICON[g.icon] : null
               return (
-                <div
-                  key={g.title}
-                  className="grid gap-1 border-b border-[var(--color-rule)] py-[var(--space-sm)] sm:grid-cols-[200px_minmax(0,1fr)] sm:gap-[var(--space-lg)]"
-                >
-                  <dt className="flex items-center gap-2 self-start text-[15px] font-medium leading-7 text-[var(--color-ink)]">
-                    {Icon && <Icon aria-hidden className="h-4 w-4 shrink-0 text-[var(--color-accent)]" strokeWidth={1.75} />}
+                <div key={g.title} className="flex min-w-0 flex-col gap-1.5">
+                  <dt className="flex items-center gap-2 text-[15px] font-semibold text-[var(--color-ink)]">
+                    {Icon && <Icon aria-hidden className="h-[18px] w-[18px] shrink-0 text-[var(--color-accent)]" />}
                     {g.title}
                   </dt>
-                  <dd className="text-[15px] leading-7 text-[var(--color-ink-2)] text-pretty">{g.summary}</dd>
+                  <dd className="text-sm leading-6 text-[var(--color-ink-2)] text-pretty">{g.summary}</dd>
                 </div>
               )
             })}

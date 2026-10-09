@@ -1,4 +1,4 @@
-import { Download } from "lucide-react"
+import { DownloadSimple } from "@phosphor-icons/react/dist/ssr"
 import type { DownloadLink } from "@/data/downloadLinks"
 
 type Props = { className?: string; downloadLink: DownloadLink }
@@ -11,7 +11,7 @@ const DownloadLinkButton = ({ className, downloadLink }: Props) => (
     download={downloadLink.downloadName}
     href={downloadLink.link}
   >
-    <Download aria-hidden className="h-3.5 w-3.5" strokeWidth={1.75} />
+    <DownloadSimple aria-hidden className="h-3.5 w-3.5" />
     {downloadLink.name}
   </a>
 )

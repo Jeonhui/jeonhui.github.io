@@ -7,7 +7,7 @@ const PinnedItemContainer = ({ items }: { items: PinnableItem[] }) => {
   return (
     <div className="flex flex-col gap-2">
       <h3 className="text-sm font-medium text-[var(--color-muted)]">고정한 저장소</h3>
-      <ul className="flex flex-col border-t border-[var(--color-rule)]">
+      <ul className="flex flex-col divide-y divide-[var(--color-rule)]">
         {items.map((item) => (
           <PinnedItem key={item.name} item={item} />
         ))}

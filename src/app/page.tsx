@@ -1,6 +1,5 @@
 /* Hallmark · genre: atmospheric · macrostructure: Marquee Hero · design-system: design.md · designed-as-app
  * enrichment: Tier-B hand-built WebGL starfield (interactive) · nav: N5 · footer: Ft5 */
-import NextLink from "next/link"
 import {
   DownloadLinkButton,
   ExperienceList,
@@ -32,12 +31,6 @@ export default async function Home() {
           </p>
           <p className="max-w-[60ch] text-[15px] leading-7 text-[var(--color-ink-2)] text-pretty">{PROFILE.intro[1]}</p>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <NextLink
-              href="/portfolio"
-              className="text-sm text-[var(--color-ink)] underline decoration-[var(--color-rule-strong)] underline-offset-4 transition-colors duration-[var(--dur-short)] hover:decoration-[var(--color-ink)]"
-            >
-              포트폴리오 보기
-            </NextLink>
             <DownloadLinkButton downloadLink={downloadLinks.resume} />
           </div>
         </section>

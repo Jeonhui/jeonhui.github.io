@@ -1,4 +1,4 @@
-import { Plug } from "lucide-react"
+import { Plug } from "@phosphor-icons/react/dist/ssr"
 import {
   siAmazons3,
   siAnthropic,
@@ -71,7 +71,7 @@ const Stack = ({ items, className = "" }: Props) => (
           {brand ? (
             <BrandIcon icon={brand} className="h-3.5 w-3.5 text-[var(--color-ink-2)]" />
           ) : name === "MCP" ? (
-            <Plug aria-hidden className="h-3.5 w-3.5 text-[var(--color-ink-2)]" strokeWidth={1.75} />
+            <Plug aria-hidden className="h-3.5 w-3.5 text-[var(--color-ink-2)]" />
           ) : null}
           {name}
         </li>

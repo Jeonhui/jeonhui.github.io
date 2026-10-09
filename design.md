@@ -7,8 +7,10 @@ Extend or amend it when the system needs to grow; don't override per page.
 atmospheric — a dark night-sky canvas, plain confident sans display, one warm accent.
 
 ## Macrostructure family
-- Home: **Marquee Hero** — the name fills the fold over an interactive WebGL starfield;
-  no buttons in the fold. Below the fold: first-person intro + text links → experience → project list → code → profile.
+- Home: **Marquee Hero** — the name fills the fold over an interactive WebGL starfield, one line of
+  copy and a single "포트폴리오 보기" text link (the only portfolio CTA on the page).
+  Below the fold: first-person intro → experience (areas in 2 columns) → projects (one featured
+  full-width, then a 2-column pair) → code → profile.
 - Content pages (`/portfolio`, `/resume`): **Long Document** — one 760px reading column,
   inline section heads stacked above content (never in a left margin), print-friendly.
 
@@ -32,7 +34,7 @@ Axes: dark paper / geometric-sans display / warm accent. Dark only — no light 
 
 ## Typography
 - Display + body: Pretendard Variable (self-hosted, `next/font/local`), display 600, body 400.
-- Outlier: JetBrains Mono — **one slot**: the hero star readout.
+- No outlier face in use (the hero telemetry strip was removed per taste-skill: decorative text strip).
 - Display tracking: −0.03em to −0.055em. Headings are always roman.
 - Dates and numbers: body face with `tabular-nums`.
 
@@ -55,6 +57,11 @@ Axes: dark paper / geometric-sans display / warm accent. Dark only — no light 
 ## CTA voice
 - No pill buttons on content pages. Actions are underlined text links (ink, `--color-rule-strong`
   underline that firms to ink on hover). The 404 page keeps one amber fill as the only button.
+
+## taste-skill dials
+DESIGN_VARIANCE 6 · MOTION_INTENSITY 5 · VISUAL_DENSITY 4. Applied rules: one CTA per intent, no
+decorative text strips, no hairline on every row (use `divide-y`), no 3+ consecutive image/text
+splits, long lists grouped into columns.
 
 ## Anti-template rules (owner feedback: "too AI-looking")
 - No chips / pill tags. Stacks and highlights are plain comma-separated text.
@@ -83,7 +90,8 @@ Copy is Korean; English only for proper nouns, product/tool names, and the hero 
 | Bullets end in a noun (구현, 해결); summaries end in -습니다 | mixed endings |
 
 ## Icons
-- UI icons: **lucide-react** only (stroke 1.75), inline with text, never as tiles above cards.
+- UI icons: **@phosphor-icons/react** only (regular weight, SSR entry `@phosphor-icons/react/dist/ssr`),
+  inline with text, never as tiles above cards. (Lucide was dropped per taste-skill.)
 - Brand marks: **simple-icons**, monochrome via currentColor (tech stacks, GitHub, App Store).
 - Area icons on experience rows are small, accent-coloured, and sit inline with the title.
 

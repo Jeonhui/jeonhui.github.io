@@ -1,9 +1,11 @@
 "use client"
 
-import { useCallback, useRef, useState } from "react"
+import { useState } from "react"
+import NextLink from "next/link"
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr"
 import { motion } from "framer-motion"
 import { PROFILE } from "@/data"
-import Starfield, { StarfieldStats } from "./starfield/Starfield"
+import Starfield from "./starfield/Starfield"
 
 const enter = (delay: number) => ({
   initial: { opacity: 0 },
@@ -12,15 +14,7 @@ const enter = (delay: number) => ({
 })
 
 const Hero = () => {
-  const readoutRef = useRef<HTMLSpanElement>(null)
   const [supported, setSupported] = useState(true)
-
-  // Written straight to the DOM so the readout never re-renders React at frame rate.
-  const onStats = useCallback((s: StarfieldStats) => {
-    if (!readoutRef.current) return
-    const orientation = window.innerWidth >= 640 ? ` · yaw ${s.yaw.toFixed(0).padStart(3, "0")}° · pitch ${s.pitch.toFixed(0)}°` : ""
-    readoutRef.current.textContent = `${s.stars.toLocaleString()} stars${orientation} · ${s.fps} fps`
-  }, [])
 
   return (
     <section className="relative isolate -mt-[var(--header-height)] flex min-h-[100svh] flex-col overflow-hidden">
@@ -32,7 +26,7 @@ const Hero = () => {
       />
       {supported && (
         <motion.div {...enter(0)} className="absolute inset-0 -z-10">
-          <Starfield className="h-full w-full" onStats={onStats} onUnsupported={() => setSupported(false)} />
+          <Starfield className="h-full w-full" onUnsupported={() => setSupported(false)} />
         </motion.div>
       )}
 
@@ -46,7 +40,7 @@ const Hero = () => {
         }}
       />
 
-      <div className="pointer-events-none relative mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-end px-5 pb-10 pt-[calc(var(--header-height)+var(--space-3xl))] sm:px-8 sm:pb-12">
+      <div className="pointer-events-none relative mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-end px-5 pb-[var(--space-2xl)] pt-[calc(var(--header-height)+var(--space-3xl))] sm:px-8 sm:pb-[var(--space-3xl)]">
         <motion.h1
           {...enter(0.2)}
           className="min-w-0 text-[clamp(3.5rem,13vw,10.5rem)] font-semibold leading-[0.88] tracking-[-0.055em] text-[var(--color-ink)] [overflow-wrap:anywhere]"
@@ -63,14 +57,14 @@ const Hero = () => {
           {PROFILE.lead}
         </motion.p>
 
-        <motion.div
-          {...enter(0.6)}
-          className="mt-[var(--space-2xl)] flex items-center justify-between gap-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--color-faint)]"
-        >
-          <span ref={readoutRef} className="whitespace-nowrap tabular-nums">
-            {supported ? "plummer sphere · webgl2" : ""}
-          </span>
-          <span className="hidden sm:inline">drag to rotate</span>
+        <motion.div {...enter(0.6)} className="pointer-events-auto mt-[var(--space-lg)]">
+          <NextLink
+            href="/portfolio"
+            className="group inline-flex items-center gap-2 whitespace-nowrap text-[15px] text-[var(--color-ink)] underline decoration-[var(--color-rule-strong)] underline-offset-[6px] transition-colors duration-[var(--dur-short)] hover:decoration-[var(--color-ink)]"
+          >
+            포트폴리오 보기
+            <ArrowRight aria-hidden className="h-4 w-4 transition-transform duration-[var(--dur-short)] group-hover:translate-x-0.5" />
+          </NextLink>
         </motion.div>
       </div>
     </section>

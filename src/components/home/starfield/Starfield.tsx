@@ -4,11 +4,8 @@ import { useEffect, useRef } from "react"
 import { generateStars } from "./generateStars"
 import { STAR_FRAGMENT, STAR_VERTEX } from "./shaders"
 
-export type StarfieldStats = { fps: number; stars: number; yaw: number; pitch: number }
-
 type Props = {
   className?: string
-  onStats?: (stats: StarfieldStats) => void
   onUnsupported?: () => void
 }
 
@@ -34,10 +31,8 @@ const rotation = (yaw: number, pitch: number) => {
   return new Float32Array([cy, sp * sy, -cp * sy, 0, cp, sp, sy, -sp * cy, cp * cy])
 }
 
-const Starfield = ({ className, onStats, onUnsupported }: Props) => {
+const Starfield = ({ className, onUnsupported }: Props) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const statsRef = useRef(onStats)
-  statsRef.current = onStats
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -167,9 +162,6 @@ const Starfield = ({ className, onStats, onUnsupported }: Props) => {
     let drawn = false
     const start = performance.now()
     let last = start
-    let frames = 0
-    let acc = 0
-    let lastReport = start
 
     const draw = (now: number) => {
       raf = requestAnimationFrame(draw)
@@ -179,8 +171,6 @@ const Starfield = ({ className, onStats, onUnsupported }: Props) => {
       }
       const dt = Math.min(now - last, 100) / 1000
       last = now
-      frames++
-      acc += dt
 
       if (!dragging) {
         yaw += yawVelocity * dt
@@ -207,18 +197,6 @@ const Starfield = ({ className, onStats, onUnsupported }: Props) => {
       gl.clear(gl.COLOR_BUFFER_BIT)
       gl.drawArrays(gl.POINTS, 0, stars.count)
       drawn = true
-
-      if (now - lastReport > 500 && statsRef.current) {
-        statsRef.current({
-          fps: Math.round(frames / acc),
-          stars: stars.count,
-          yaw: ((yaw * 180) / Math.PI) % 360,
-          pitch: ((pitch + tilt) * 180) / Math.PI,
-        })
-        frames = 0
-        acc = 0
-        lastReport = now
-      }
     }
     raf = requestAnimationFrame(draw)
 

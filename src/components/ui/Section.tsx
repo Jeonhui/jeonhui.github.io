@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr"
 
 type Props = {
   id?: string

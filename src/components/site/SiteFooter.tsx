@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react"
+import { EnvelopeSimple } from "@phosphor-icons/react/dist/ssr"
 import { siGithub } from "simple-icons"
 import { PROFILE } from "@/data"
 import BrandIcon from "../ui/BrandIcon"
@@ -13,7 +13,7 @@ const SiteFooter = () => (
           href={`mailto:${PROFILE.email}`}
           className="inline-flex items-center gap-1.5 whitespace-nowrap text-[var(--color-ink)] underline decoration-[var(--color-rule-strong)] underline-offset-4 transition-colors duration-[var(--dur-short)] hover:decoration-[var(--color-ink)]"
         >
-          <Mail aria-hidden className="h-3.5 w-3.5" strokeWidth={1.75} />
+          <EnvelopeSimple aria-hidden className="h-3.5 w-3.5" />
           {PROFILE.email}
         </a>
         <a href={PROFILE.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 whitespace-nowrap transition-colors duration-[var(--dur-short)] hover:text-[var(--color-ink)]">
