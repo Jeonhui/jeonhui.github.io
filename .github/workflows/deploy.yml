@@ -53,14 +53,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Set Environment Variables
-        env:
-          TEST: "TEST(${{ secrets.TEST }})"
-          NEXT_PUBLIC_GITHUB_TOKEN: ${{ secrets.NEXT_PUBLIC_GITHUB_TOKEN }}
-        run: |
-          echo "SECRETS $TEST"
-          echo "NEXT_PUBLIC_GITHUB_TOKEN=$NEXT_PUBLIC_GITHUB_TOKEN" >> .env
-
       - name: Build with Next.js
         run: rm -rf .next && pnpm next build
 

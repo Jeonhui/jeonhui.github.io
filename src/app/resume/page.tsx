@@ -95,9 +95,11 @@ const Resume = () => (
           </div>
         ))}
       </dl>
-      <div className="print:hidden">
-        <DownloadLinkButton downloadLink={downloadLinks.resume} />
-      </div>
+      {downloadLinks.resume && (
+        <div className="print:hidden">
+          <DownloadLinkButton downloadLink={downloadLinks.resume} />
+        </div>
+      )}
     </header>
 
     <Block title="소개">

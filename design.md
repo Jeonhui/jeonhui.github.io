@@ -64,7 +64,7 @@ Axes: dark paper / geometric-sans display / warm accent. Dark only — no light 
 - `prefers-reduced-motion`: starfield frozen at its settled state, no weight animation,
   no parallax, no packets, reveals render immediately. framer-motion runs under
   `LazyMotion` (domAnimation) + `MotionConfig reducedMotion="user"`; use `m.*`, never `motion.*`.
-- The contribution graph uses a CSS keyframe sweep triggered once by IntersectionObserver
+- The contribution record (ContributionSkyline, canvas) starts flat and rises into a 3D skyline once it scrolls into view; reduced motion jumps straight to the end state
   (370 cells: no per-cell JS animation).
 
 ## Microinteractions stance

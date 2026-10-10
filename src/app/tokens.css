@@ -65,9 +65,4 @@
   /* Site aliases */
   --faint: var(--color-faint);
   --hairline: var(--color-rule);
-  --contrib-0: oklch(96% 0.012 255 / 0.05);
-  --contrib-1: oklch(80% 0.13 65 / 0.25);
-  --contrib-2: oklch(80% 0.13 65 / 0.45);
-  --contrib-3: oklch(80% 0.13 65 / 0.7);
-  --contrib-4: var(--color-accent);
 }

@@ -3,7 +3,6 @@
 import {
   DownloadLinkButton,
   ExperienceList,
-  GithubContent,
   GithubContributions,
   Hero,
   OpenSourceList,
@@ -11,14 +10,14 @@ import {
   ProjectList,
   Section,
 } from "@/components"
-import { getPinnedItems, getPublicContributions } from "@/apis/github"
+import { getPublicContributions } from "@/apis/github"
 import { downloadLinks, EXPERIENCES, PROFILE, PROJECTS } from "@/data"
 
 const apps = PROJECTS.filter((p) => p.kind === "app")
 const openSource = PROJECTS.filter((p) => p.kind === "opensource")
 
 export default async function Home() {
-  const [contributions, pinned] = await Promise.all([getPublicContributions(), getPinnedItems()])
+  const contributions = await getPublicContributions()
 
   return (
     <>
@@ -30,9 +29,11 @@ export default async function Home() {
             {PROFILE.intro[0]}
           </p>
           <p className="max-w-[60ch] text-[15px] leading-7 text-[var(--color-ink-2)] text-pretty">{PROFILE.intro[1]}</p>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <DownloadLinkButton downloadLink={downloadLinks.resume} />
-          </div>
+          {downloadLinks.resume && (
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+              <DownloadLinkButton downloadLink={downloadLinks.resume} />
+            </div>
+          )}
         </section>
       </div>
 
@@ -52,15 +53,12 @@ export default async function Home() {
         </Section>
 
         <Section id="code" title="코드" lead="회사 코드는 비공개라, 공개 저장소와 GitHub 활동만 보여드립니다." action={{ label: "GitHub", href: PROFILE.github, external: true }}>
-          <div className="grid gap-[var(--space-2xl)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)]">
+          <div className="flex flex-col gap-[var(--space-2xl)]">
             <div className="flex flex-col gap-[var(--space-sm)]">
               <h3 className="text-sm font-medium text-[var(--color-muted)]">직접 만들어 공개한 라이브러리</h3>
               <OpenSourceList items={openSource} />
             </div>
-            <div className="flex min-w-0 flex-col gap-3">
-              <GithubContributions calendar={contributions} />
-              <GithubContent items={pinned} />
-            </div>
+            <GithubContributions calendar={contributions} />
           </div>
         </Section>
 

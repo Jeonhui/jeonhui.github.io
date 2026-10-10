@@ -210,7 +210,6 @@ export const PROJECTS: Project[] = [
       "리소스 설치가 어렵다는 피드백을 받아 설치 가이드 제공",
     ],
     image: "/images/projects/sfom.webp",
-    links: [{ label: "App Store", href: "https://apps.apple.com/kr/app/sfom/id1662309817" }],
   },
   {
     id: "briefing",

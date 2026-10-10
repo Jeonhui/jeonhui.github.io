@@ -19,7 +19,7 @@
 
 ## 데이터
 
-- GitHub 기여 그래프와 고정 저장소는 **빌드 시점**에 가져와 HTML에 넣습니다. 토큰은 브라우저로 나가지 않습니다.
+- GitHub 기여 기록은 **빌드 시점**에 공개 프로필 그래프에서 가져와 HTML에 넣습니다. 토큰이 필요 없습니다. 평면 잔디와 3D 스카이라인을 오가는 캔버스 차트(`src/components/ui/contribution-skyline.tsx`)로 그립니다.
 - 배포 워크플로가 매일 자정(KST)에 다시 빌드해 데이터를 갱신합니다.
 
 ## 개발
@@ -32,8 +32,6 @@ pnpm og       # 링크 미리보기 이미지(public/preview.jpg) 다시 만들�
 ```
 
 프로젝트 스크린샷은 `public/images/projects/`에 1400px(`name.webp`), 1000px(`name-1000.webp`), 700px(`name-700.webp`) 세 크기로 둡니다. 원본은 `portfolio/images/`에 있습니다.
-
-빌드 시 `GITHUB_TOKEN`(또는 `NEXT_PUBLIC_GITHUB_TOKEN`)이 있으면 고정 저장소를 가져옵니다. 없어도 빌드는 됩니다.
 
 ## 배포
 

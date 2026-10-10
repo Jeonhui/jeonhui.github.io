@@ -1,6 +1,5 @@
 import DownloadLinkButton from "./DownloadLinkButton"
 import GithubContributions from "./GithubContributions"
-import GithubContent from "./GithubContent"
 import SiteHeader from "./site/SiteHeader"
 import SiteFooter from "./site/SiteFooter"
 import Section from "./ui/Section"
@@ -12,6 +11,6 @@ import OpenSourceList from "./home/OpenSourceList"
 import ProfileDetails from "./home/ProfileDetails"
 
 export { DownloadLinkButton }
-export { GithubContributions, GithubContent }
+export { GithubContributions }
 export { SiteHeader, SiteFooter, Section }
 export { Hero, ExperienceList, ProjectList, ProjectDetail, OpenSourceList, ProfileDetails }

@@ -4,19 +4,15 @@ export type DownloadLink = {
   link: string
 }
 
+/** Each button is hidden while its entry is undefined, so a dead link never ships. */
 type DownloadLinkItems = {
-  resume: DownloadLink
-  /** Set once a real portfolio PDF exists; the button is hidden while this is undefined. */
+  resume?: DownloadLink
   portfolio?: DownloadLink
 }
 
-// TODO: 포트폴리오 PDF가 준비되면 portfolio 항목을 추가하세요.
-const downloadLinks: DownloadLinkItems = {
-  resume: {
-    name: "이력서 PDF",
-    downloadName: "이전희_이력서.pdf",
-    link: "https://docs.google.com/uc?export=download&id=1ax1PfxjiIY3Hhlix4_AW_CAsIBMgmTP6&confirm=t",
-  },
-}
+// TODO: 새 이력서 PDF 링크와 포트폴리오 PDF가 준비되면 추가하세요.
+// 예: resume: { name: "이력서 PDF", downloadName: "이전희_이력서.pdf", link: "https://..." }
+// (이전 Google Drive 링크는 2026-10 기준 404라 뺐습니다.)
+const downloadLinks: DownloadLinkItems = {}
 
 export default downloadLinks

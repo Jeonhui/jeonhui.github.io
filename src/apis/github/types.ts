@@ -24,16 +24,3 @@ export type ContributionCalendar = {
   weeks: ContributionCalendarWeek[]
 }
 
-// Pinned repositories
-export type Language = {
-  color: string
-  name: string
-}
-
-export type PinnableItem = {
-  name: string
-  description: string
-  url: string
-  stargazerCount: number
-  primaryLanguage: Language | null
-}

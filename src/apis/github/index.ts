@@ -1,5 +1,4 @@
-import getPinnedItems from "./getPinnedItems"
 import getPublicContributions from "./getPublicContributions"
 
-export { getPinnedItems, getPublicContributions }
+export { getPublicContributions }
 export * from "./types"
